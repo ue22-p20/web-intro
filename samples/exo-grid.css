@@ -1,0 +1,44 @@
+#cv {
+    display: grid;
+    grid-template-columns: 30% 30% 40%;
+    grid-template-areas: 
+        "top top top"
+        "exp exp edu"
+        "lang skills skills"
+}
+
+@media only screen and (max-width: 512px) {
+    #cv {
+        grid-template-columns: 1fr;
+        grid-template-areas: "top" "exp" "edu" "skills" "lang";
+    }
+}
+
+
+
+#header {
+    grid-area: top;
+}
+#exp {
+    grid-area: exp;
+}
+#edu {
+    grid-area: edu;
+}
+#lang {
+    grid-area: lang;
+}
+#skills {
+    grid-area: skills;
+}
+
+div:not(#cv) {
+    background-color: #aaa;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.fake {
+    height: 200px;
+}
+
