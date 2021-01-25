@@ -93,13 +93,14 @@ that being said, without any extension it is still possible to read the notebook
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 * slideshow :
-  * `pip install --pre rise`  
+  * `pip install rise`  
 * to read notebooks stored as markdown :  
-  * `pip install jupytext`
-* jupyter's `hide_input` extension :  
+  * `pip install jupytext[myst]`
+* install Jupyter extensions
   * `pip install jupyter_contrib_nbextensions`  
   * `jupyter contrib nbextension install --user`   
+* enable Jupyter's `hide_input` extension :  
   * `jupyter nbextension enable hide_input/main`
-* (optional) jupyter's `splitcell` extension  
+* (optional) enable Jupyter's `splitcell` extension  
   * `RUN jupyter nbextension enable splitcell/splitcell`
 <!-- #endregion -->

@@ -9,7 +9,6 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.2'
-      jupytext_version: 1.3.2
   kernelspec:
     display_name: Javascript (Node.js)
     language: javascript
@@ -25,18 +24,18 @@ jupyter:
     base_numbering: 1
     nav_menu: {}
     number_sections: false
-    sideBar: false
+    sideBar: true
     skip_h1_title: false
     title_cell: Table of Contents
     title_sidebar: Contents
     toc_cell: false
     toc_position:
-      height: 179px
-      left: 25px
-      top: 134px
-      width: 202.391px
+      height: 178.991px
+      left: 41px
+      top: 148px
+      width: 435.355px
     toc_section_display: true
-    toc_window_display: true
+    toc_window_display: false
   version: '1.0'
 ---
 
@@ -56,7 +55,7 @@ jupyter:
   lack a decent environment for User Interfaces
 * but how much time do you spend on  
   facebook, twitter, what'sapp, … ?
-* as of 2020, **everything** runs on the Web
+* as of 2021, **everything** runs on the Web
 * so this simply **cannot be ignored**
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -64,12 +63,13 @@ jupyter:
 <!-- #endregion -->
 
 * web technologies are heavily client-server based
-* server-side (think, cloud operators) is often called ***backend***  
-* client-side (think, browser) is called ***frontend***
+* **server**-side (think, **cloud**) is often called ***backend***  
+* **client**-side (think, **browser**) is called ***frontend***
 
 
 for instance
-* `facebook.com` hosts an enormous *backend* architecture  
+* `facebook.com` hosts an enormous *backend* architecture
+  * whole datacenters, enormous amount of code
   * whose purpose is to serve network requests
 * issued by traditional browsers (Chrome, Firefox, Edge, Safari, …)
   * and mobile apps running on phones and tablets
@@ -82,23 +82,39 @@ for instance
 
 * due to time constraints
 * we will restrict ourselves to the ***frontend*** side
-* objective is to give you some grip 
+* objective is to give you **some grip**
 * on the core technologies supported in a browser  
-  namely **HTML**, **CSS** and **JavaScript**
+  * namely **HTML**, **CSS** and **JavaScript**
 * so that you can assess their enormous potential
 * ignoring the fast-moving over-layers  
-  too numerous to list at this point
+  * like *e.g.* react, angular, ...  
+  * way too numerous to list at this point
 
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## the root trio
+<!-- #endregion -->
+
+* **`HTML`**: *content*
+  * suitable to create content
+  * everything that is visible on a web page has been created as an HTML fragment
+* **`CSS`**: *styling*
+  * how the document gets rendered
+  * suitable to customize visible aspect
+* **`JavaScript`**: *behaviour*
+  * full-fledged programming language
+  * suitable to customize, well, everything really
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## excluded
 <!-- #endregion -->
 
 this means that we will **not** address :
-* backend technologies per se  
-  like e.g. apache, nginx, django, REST apis, …
+* backend technologies per se
+  * like e.g. apache, nginx, django, REST apis, …
 * nor the network protocols involved  
-  like http(s), websockets, and similar
+  * like http(s), websockets, and similar
+  * those will be touched on briefly later this year
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## why are web technos so cool ?

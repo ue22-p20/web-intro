@@ -8,38 +8,37 @@ from nbhosting.courses import (
 
 def tracks(coursedir):
     return [
-        Track(coursedir,
-              name="D1 : HTML - CSS basics",
-              sections=[
+        Track(
+            coursedir,
+            name="course #1: HTML",
+            sections=[
                 Section(name="introduction",
                         coursedir=coursedir,
-                        notebooks=notebooks_by_pattern(coursedir,"notebooks/0*.md")),
+                        notebooks=notebooks_by_pattern(coursedir,"notebooks/0*.md"))
                 Section(name="HTML basics",
                         coursedir=coursedir,
                         notebooks=notebooks_by_pattern(coursedir,"notebooks/1*.md")),
-                ],
-              description="the elements of style"),
-        Track(coursedir,
-              name="D2 : CSS layout - JS intro",
-              sections=[
-                Section(name="advanced layout",
+            ],
+            description="basic contents with HTML and some CSS"),
+        Track(
+            coursedir,
+            name="course #2: CSS layout",
+            sections=[
+                Section(name="layout with CSS",
                         coursedir=coursedir,
                         notebooks=notebooks_by_pattern(coursedir,"notebooks/2*.md")),
+                ],
+            description="advanced layout with CSS"),
+        Track(
+            coursedir,
+            name="course #3: JS basics",
                 Section(name="intro to JS",
                         coursedir=coursedir,
                         notebooks=notebooks_by_pattern(coursedir,"notebooks/3*.md")),
                 ],
-              description="layout and programming"),
-#        Track(coursedir,
-#              name="D3 : some tools",
-#              sections=[
-#                Section(name="popular tools",
-#                        coursedir=coursedir,
-#                        notebooks=notebooks_by_pattern(coursedir,"notebooks/5*.md")),
-#                ],
-#              description="popular tools"),
+              description="programming with JS"),
         Track(coursedir,
-              name="Optional content",
+              name="optional content",
               sections=[
                 Section(name="optional tools",
                         coursedir=coursedir,
@@ -48,5 +47,5 @@ def tracks(coursedir):
                         coursedir=coursedir,
                         notebooks=notebooks_by_pattern(coursedir,"notebooks/7*.md")),
                 ],
-              description="optional material"),
+              description="more tools, and course requirements"),
         ]
