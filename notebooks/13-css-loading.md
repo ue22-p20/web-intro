@@ -9,7 +9,6 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.2'
-      jupytext_version: 1.3.2
   kernelspec:
     display_name: Javascript (Node.js)
     language: javascript
@@ -25,7 +24,7 @@ jupyter:
     base_numbering: 1
     nav_menu: {}
     number_sections: true
-    sideBar: false
+    sideBar: true
     skip_h1_title: false
     title_cell: Table of Contents
     title_sidebar: Contents
@@ -34,8 +33,8 @@ jupyter:
       height: 47px
       left: 430px
       top: 0px
-      width: 159.359px
-    toc_section_display: false
+      width: 211.992px
+    toc_section_display: true
     toc_window_display: true
   version: '1.0'
 ---
@@ -49,7 +48,7 @@ jupyter:
 # how to apply CSS
 <!-- #endregion -->
 
-```javascript
+```javascript trusted=true
 // run this cell, and then 
 // click the created button
 tools = require('../js/tools');
@@ -61,7 +60,7 @@ tools.init();
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": ""} -->
-* located in a separate CSS URL
+* located in a separate **CSS file** - via its own URL
 * embedded in html within a `<style>` html tag
 * hard-attached to an element itself with `style=`
 <!-- #endregion -->
@@ -92,15 +91,23 @@ tools.init();
 ```
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-##### notes on URLS
+<!-- #region slideshow={"slide_type": "slide"} tags=["level_intermediate"] -->
+##### notes on relative URLs
 
-* `href` is a URL - remember the `<a>` tag
-* which means it can be fetched from  
-  anywhere, typically over http(s)
+the way we load a css from the same folder as the html, is a consequence of a general rule to build so-called *relative* URLs, that work like this:
+
+if you have loaded a document as, say, <code>http://hostname.io/the/path/to.html</code>  
+then
+* <code>href="to.css"</code> is interpreted as <code>href="http://hostname.io/the/path/to.css"</code></li>
+* <code>href="/to.css"</code> is interpreted as <code>href="http://hostname.io/to.css"</code></li>
+* <code>href="/other/path/to.css"</code> is interpreted as <code>href="http://hostname.io/other/path/to.css"</code></li>
+* <code>href="other/path/to.css"</code> is interpreted as <code>href="http://hostname.io/the/path/other/path/to.css"</code></li>
+
+and the same goes with the <code>file:///</code> URL scheme
+
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": ""} -->
+<!-- #region slideshow={"slide_type": "slide"} -->
 ##### notes on self-closing tags
 
 * note also the absence of a `</link>`, 
@@ -116,7 +123,7 @@ tools.init();
 * you can also insert a `<style>` tag in your html
 * and mention the CSS code there directly
 * it is **less recommended** as it kind of ruins
-* desired **separation** between **contents** and **presentation**
+* the desired **separation** between **contents** and **presentation**
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ```html
@@ -133,7 +140,7 @@ tools.init();
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## hardwired in the element with `style=`
+## method 3: hardwired with `style=`
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": ""} -->
@@ -142,7 +149,7 @@ tools.init();
 * and should be used in last resort
 <!-- #endregion -->
 
-```javascript hide_input=true
+```javascript hide_input=true trusted=true
 embedded_html = `<p 
 
 style="background-color: red; 
@@ -186,9 +193,10 @@ tools.two_columns(embedded_html)
 * create a CSS file `mycv.css`
   * with some settings that should apply to `mycv.html`
 * add a `<link>` tag in the html `<head>` area
-  * load `mycv.html` in a browser
-  * change the CSS and reload  
-    the browser page to see the effect
+  * so the css is loaded by the html
+* load `mycv.html` in a browser
+  * change the CSS and reload the browser page
+  * to see the effect of your changes
 * we recommend you use a local git repo all along
 <!-- #endregion -->
 
@@ -212,7 +220,8 @@ for performance reasons primarily :
 
 a couple hints and workarounds
 * reload with the 'Shift' modifier pressed  
-  either with a mouse-click, or keyboard shortcut  
+  either with a mouse-click (&#x21bb;),  
+  or keyboard shortcut (⌘-r on e.g. chrome/mac)  
   double-check that with the browser you actually use
 * devel tools have a *Sources* tab that let you check  
   the content of each individual loaded file

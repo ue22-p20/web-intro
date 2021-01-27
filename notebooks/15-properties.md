@@ -9,7 +9,6 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.2'
-      jupytext_version: 1.3.2
   kernelspec:
     display_name: Javascript (Node.js)
     language: javascript
@@ -36,7 +35,7 @@ jupyter:
       top: 87px
       width: 232.344px
     toc_section_display: true
-    toc_window_display: true
+    toc_window_display: false
   version: '1.0'
 ---
 
@@ -49,7 +48,7 @@ jupyter:
 # CSS main properties
 <!-- #endregion -->
 
-```javascript
+```javascript trusted=true
 // run this cell, and then 
 // click the created button
 tools = require('../js/tools');
@@ -69,7 +68,7 @@ tools.init();
 ## text properties
 <!-- #endregion -->
 
-```javascript slideshow={"slide_type": ""} cell_style="center" hide_input=true
+```javascript slideshow={"slide_type": ""} cell_style="center" hide_input=true trusted=true
 text_html = `<p class="text">
 a sample text</p>`;
 text_css = `.text {
@@ -90,19 +89,19 @@ tools.iframe_html_css("text-properties", text_html, text_css)
 * see for example [a collection of google fonts](https://fonts.google.com/)
 * note also some less traditional fonts  
   * that come with usual symbols 
-  * see [in particular fontawesome](https://fontawesome.com/icons?d=gallery&m=free)  
+  * see [in particular *fontawesome*](https://fontawesome.com/icons?d=gallery&m=free)  
     who offer a decent collection for free
   
 the example below illustrates how to load and use them in your page
 
 
-```javascript hide_input=true slideshow={"slide_type": "slide"}
+```javascript hide_input=true slideshow={"slide_type": "slide"} trusted=true
 tools.iframe_samples_html_css("font-demo")
 
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-### **NOTES** on the fonts example (1)
+### Notes on the fonts example (1)
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": ""} -->
@@ -117,7 +116,7 @@ tools.iframe_samples_html_css("font-demo")
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-### **NOTES** on the fonts example (2)
+### Notes on the fonts example (2)
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": ""} -->
@@ -130,18 +129,18 @@ tools.iframe_samples_html_css("font-demo")
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-### **NOTES** on the fonts example (3)
+### Notes on the fonts example (3)
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": ""} -->
-* also observe the import and use of fontawesome  
+* also observe the import and use of *fontawesome*  
   to display custom symbols before address and phone number  
 
 ```html
 <span class="fa fa-home">
 ```
 
-* these symbols are more convenient than bitmap pictured
+* these symbols are more convenient than bitmap pictures  
   in particular can be safely scaled / colorized 
   using CSS
 <!-- #endregion -->
@@ -171,7 +170,7 @@ each side (top, right, bottom, left) of the box
 has its own individual properties  
 here e.g. padding and border
 
-```javascript hide_input=true
+```javascript hide_input=true trusted=true
 box1_html = `<p class="box1">
 a box </p></div>`;
 box1_css = `p.box1 {
@@ -198,7 +197,7 @@ tools.iframe_html_css("box1", box1_html, box1_css);
 again with also margin and border-radius
 <!-- #endregion -->
 
-```javascript hide_input=true
+```javascript hide_input=true trusted=true
 box2_html = `<p class="box2">
 a second box </p>`;
 box2_css = `p.box2 {
@@ -231,21 +230,41 @@ tools.iframe_html_css("box2", box2_html, box2_css);
 
 of course this can become quite tedious,  
 so there also are so-called *shorthand properties*  
-for dealing with paddings, margins, borders and fonts, among others
-that allow to set several atomic properties in one line, e.g. :
+for dealing with paddings, margins, borders and fonts, among others  
+that allow to set **several** atomic properties in one line
 
+<!-- #region slideshow={"slide_type": "slide"} -->
+### shorthand order
+<!-- #endregion -->
 
+<!-- #region slideshow={"slide_type": ""} cell_style="split" -->
+the trick is to remember this figure
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": ""} cell_style="split" -->
+![](../media/box-sides-order.png)
+<!-- #endregion -->
+
+* `padding: 10px 20px 30px 40px` will assign the 4 padding properties in the order above 
 * `padding: 10px;` will set all 4 *padding* properties
-* `margin: 10px 20px` will set top and bottom to `10px`, and sides to `20px` 
-* `font: xxx`
-* `border: xxx`
+* `margin: 10px 20px` will set top *and bottom* to `10px`, and *both* sides to `20px` 
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+### more shorthands
+
+same kind of shorthands are available for
+* `font: xxx` [see details here](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties#font_properties)
+* `border: xxx` [see details here](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties#background_properties)
 * for a more complete list, [see this page on MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties)
+<!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ### shorthand example
 <!-- #endregion -->
 
-```javascript hide_input=true
+use the inspector from the devel tools to check the individual properties of the `<p>` elt, e.g. the `padding` 
+
+```javascript hide_input=true trusted=true
 shorthand_html = `<p class="shorthand1">
 shorthand properties</p>
 <hr>`;
@@ -267,7 +286,7 @@ a great many deal of units are available to express lengths
 [see more details on this page](https://css-tricks.com/the-lengths-of-css/) , e.g. :
 * `10px`
 * `1in`, `2.54cm`, `25mm`
-* `20pt` (1pt = 1/2 inch)
+* `20pt` (1pt = 1/72 inch)
 * `2em`, `1ex`, `20ch`, relative to current font size
 * `80%` typically for width and height, relative to parent element
 
@@ -278,9 +297,7 @@ a great many deal of units are available to express lengths
 several formats are supported to describe a color :
 * common colors by name, like `red` ([see full list](https://www.w3schools.com/colors/colors_names.asp))
 * RGB components like `#8000ff` that means
-  * red = 0x80 = 128
-  * green = 0x00 = 0
-  * blue = 0xff = 255
+  * red = 0x80 = 128, green = 0x00 = 0, blue = 0xff = 255
   * all three of course are in the [0-255] range
 * same in decimal: 
   * `rgb(128, 0, 255)`
@@ -288,7 +305,7 @@ several formats are supported to describe a color :
   * `rgb(128, 0, 255, 0.2)` will be only 20% opaque, i.e. almost transparent
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-### online resources
+### colors: online resources
 
 * like always, many online sites can help pick a decent color palette
 * personnally I like this one  
@@ -297,7 +314,7 @@ several formats are supported to describe a color :
 
 <!-- #region slideshow={"slide_type": ""} -->
 <p class="rise-footnote"> 
-    note that you can copy a color code by just clicking it
+    note that on colorhunt you can copy a color code by just clicking it
 </p>
 <!-- #endregion -->
 
@@ -359,7 +376,7 @@ also note that background
 ## `background` (demo)
 <!-- #endregion -->
 
-```javascript hide_input=true
+```javascript hide_input=true trusted=true
 background_html = `<div>
   <section>
       <h1> a title </h1>

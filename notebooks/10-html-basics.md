@@ -9,7 +9,6 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.2'
-      jupytext_version: 1.3.2
   kernelspec:
     display_name: Javascript (Node.js)
     language: javascript
@@ -25,7 +24,7 @@ jupyter:
     base_numbering: 1
     nav_menu: {}
     number_sections: true
-    sideBar: false
+    sideBar: true
     skip_h1_title: false
     title_cell: Table of Contents
     title_sidebar: Contents
@@ -34,9 +33,9 @@ jupyter:
       height: 218px
       left: 1060.61px
       top: 653px
-      width: 309.391px
+      width: 309.375px
     toc_section_display: true
-    toc_window_display: true
+    toc_window_display: false
   version: '1.0'
 ---
 
@@ -49,7 +48,7 @@ jupyter:
 # HTML basics
 <!-- #endregion -->
 
-```javascript
+```javascript trusted=true
 // run this cell, and then 
 // click the created button
 tools = require('../js/tools');
@@ -64,9 +63,10 @@ the HTML language structures the content of a web page
 in terms of sections, headers, paragraphs, lists of items, images ...
 
 the language is based on tags written between < and >  
-(for example &lt;head&gt; or &lt;/head&gt;)
+for example <code>&lt;head&gt;</code>
 
 an element (a section, a header) is composed by
+
 * an opening tag e.g. <code>&lt;head&gt;</code>
 * a content that can be empty
 * a closing tag e.g. <code>&lt;/head&gt;</code>
@@ -78,7 +78,7 @@ an element (a section, a header) is composed by
 
 the overall structure of a HTML document is composed of two parts, a **header** and a **body**, like this:
 
-```javascript hide_input=true
+```javascript hide_input=true trusted=true
 fragment1 = `<html>
   <head>
      <!-- various document-wide declarations -->
@@ -119,13 +119,13 @@ files are local on your laptop
 
 <!-- #region slideshow={"slide_type": ""} -->
 * create a file named `hello.html`  
-  with your editor of choise, like VScode
+  with your editor of choice, like VScode
 * copy the above template
 * open it in your web browser (preferably Chrome)
 * you will see something like this
 <!-- #endregion -->
 
-```javascript hide_input=true slideshow={"slide_type": "slide"}
+```javascript hide_input=true slideshow={"slide_type": "slide"} trusted=true
 tools.two_columns(fragment1)
 
 ```
@@ -191,7 +191,8 @@ tools.two_columns(fragment1)
 
 <!-- #region slideshow={"slide_type": ""} -->
 <p class="rise-footnote"> 
-    from that view you can navigate the elements tree, although in this case it is very simple with just 3 nodes</p>
+from that view you can navigate the elements tree, although in this case it is very simple, with just 3 nodes
+</p>
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} cell_style="split" -->
@@ -228,7 +229,7 @@ your first JavaScript code
 <!-- #region slideshow={"slide_type": ""} -->
 * the `<tag> ... </tag>` notation 
 * unambiguously maps to a tree structure - known as an Abstract Syntax Tree
-* referred to in all documentation as "*the DOM*"
+* referred to in all documentation as "*the DOM* "
 <!-- #endregion -->
 
 <!-- #region cell_style="split" slideshow={"slide_type": "slide"} trusted=true -->
@@ -263,13 +264,13 @@ in the *Elements* devel tools tab
 
 <!-- #region slideshow={"slide_type": ""} -->
 * browsers tend to be as tolerant as possible
-* e.g. omitting a closing tag may well render fine
+* e.g. omitting a closing tag may render just fine
 * **however** there's only so much that can be guessed
 * this may cause **huge headaches** down the road
 * so make sure to **always** close your tags properly
 <!-- #endregion -->
 
-```javascript hide_input=true slideshow={"slide_type": "slide"}
+```javascript hide_input=true slideshow={"slide_type": "slide"} trusted=true
 fragment_unclosed = `<p> do not do this
 <ul>
 <li> unclosed tags <b>look like</b> they work
@@ -279,7 +280,7 @@ tools.two_columns(fragment_unclosed)
  
 ```
 
-```javascript hide_input=true
+```javascript hide_input=true trusted=true
 fragment_closed = `<p> do this instead </p>
 <ul>
 <li> always close your tags </li>

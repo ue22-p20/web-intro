@@ -35,7 +35,7 @@ jupyter:
       top: 170px
       width: 306.797px
     toc_section_display: true
-    toc_window_display: true
+    toc_window_display: false
   version: '1.0'
 ---
 
@@ -48,7 +48,7 @@ jupyter:
 # CSS basics
 <!-- #endregion -->
 
-```javascript
+```javascript trusted=false
 // run this cell, and then 
 // click the created button
 tools = require('../js/tools');
@@ -115,7 +115,7 @@ to tell the browser to open the link in another tab/window<br>
 </p>
 
 
-```javascript hide_input=true slideshow={"slide_type": "slide"}
+```javascript hide_input=true slideshow={"slide_type": "slide"} trusted=false
 link_html = `<a 
   href="https://www.google.com" 
   target="_">
@@ -147,4 +147,4 @@ tools.iframe_html_css("link", link_html, link_css);
 * listed in the `Elements` pane of the devel tools  
   in the `Computed` tab
 * [several hundreds of them](https://css-tricks.com/how-many-css-properties-are-there/)
-* note that not all properties affect all elements
+* note that not all properties are relevant on all elements

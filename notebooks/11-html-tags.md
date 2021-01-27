@@ -9,7 +9,6 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.2'
-      jupytext_version: 1.3.2
   kernelspec:
     display_name: Javascript (Node.js)
     language: javascript
@@ -25,18 +24,18 @@ jupyter:
     base_numbering: 1
     nav_menu: {}
     number_sections: true
-    sideBar: false
+    sideBar: true
     skip_h1_title: false
     title_cell: Table of Contents
     title_sidebar: Contents
     toc_cell: false
     toc_position:
-      height: 392px
-      left: 1254px
-      top: 37px
-      width: 281.391px
-    toc_section_display: false
-    toc_window_display: true
+      height: 391.973px
+      left: 51.9844px
+      top: 530.992px
+      width: 347.48px
+    toc_section_display: true
+    toc_window_display: false
   version: '1.0'
 ---
 
@@ -49,7 +48,7 @@ jupyter:
 # basic tags
 <!-- #endregion -->
 
-```javascript
+```javascript trusted=false
 // run this cell, and then 
 // click the created button
 tools = require('../js/tools');
@@ -60,7 +59,7 @@ tools.init();
 ## header tags `<h1>` .. `<h5>`
 <!-- #endregion -->
 
-```javascript hide_input=true
+```javascript hide_input=true trusted=false
 headers_fragment = `<h1> toplevel title </h1>
 <h2> first sublevel title </h2>
 <h3> and so on </h3>
@@ -70,11 +69,21 @@ headers_fragment = `<h1> toplevel title </h1>
 tools.two_columns(headers_fragment)
 ```
 
+```javascript trusted=true
+
+```
+
+<p class="rise-footnote">
+    Note that these tags are essentially a legacy thing; they are convenient, 
+    but not quite necessary, you can easily write your own classes (more about classes later on) to get a similar result,
+    with more control on the result.
+</p>
+
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## text tags `<p>` and `<br>` 
 <!-- #endregion -->
 
-```javascript hide_input=true
+```javascript hide_input=true trusted=false
 text_fragment = `<p> it is wise to always embed your text 
 in a text tag like &lt;p&gt;, 
 that stands for paragraph, and that of course gets justified 
@@ -92,10 +101,10 @@ tools.two_columns(text_fragment)
 ## lists with `<ul>`  and `<li>`
 <!-- #endregion -->
 
-```javascript hide_input=true
+```javascript hide_input=true trusted=false
 bullet_fragment = `<p> a typical bullet list with a <b>ul</b> tag
-<br>  ul stands for "unordered list"
-<br> li stands for "list item"
+<br> <code>ul</code> stands for "unordered list"
+<br> <code>li</code> stands for "list item"
 <ul>
 <li> the first bullet </li>
 <li> the second bullet </li>
@@ -105,9 +114,9 @@ bullet_fragment = `<p> a typical bullet list with a <b>ul</b> tag
 tools.two_columns(bullet_fragment)
 ```
 
-```javascript hide_input=true
+```javascript hide_input=true trusted=false
 bullet_fragment = `<p> the same with a <b>ol</b> tag instead
-<br> ol stands for "ordered list"
+<br> <code>ol</code> stands for "ordered list"
 <ol>
 <li> the first bullet </li>
 <li> the second bullet </li>
@@ -118,7 +127,7 @@ tools.two_columns(bullet_fragment)
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## anchor tag `<a>`
+## hyperlinks, and the anchor tag `<a>`
 <!-- #endregion -->
 
 the anchor tag serves two purposes :
@@ -132,7 +141,7 @@ the anchor tag serves two purposes :
 typical **hyperlink** reads like this  
 **NOTE** that clicking the link will cause you to leave the present notebook !
 
-```javascript hide_input=true
+```javascript hide_input=true trusted=false
 hyperlink_fragment = `<a href="https://www.google.com/">the hyperlink</a>`;
 tools.two_columns(hyperlink_fragment)
 ```
@@ -143,7 +152,7 @@ tools.two_columns(hyperlink_fragment)
 
 if you need a hyperlink to point, not at the beginning of this page, but somewhere in the middle, then create an anchor at that location
 
-```javascript hide_input=true
+```javascript hide_input=true trusted=false
 anchor_fragment = `<a name="the-anchor-name">the magic location</a>`;
 tools.two_columns(anchor_fragment)
 ```
@@ -162,7 +171,7 @@ tools.two_columns(anchor_fragment)
 ### local URL
 <!-- #endregion -->
 
-```javascript hide_input=true
+```javascript hide_input=true trusted=false
 redirect_fragment = `<p>it is easy to craft a local URL;
 here this hyperlink 
 <a href="#the-anchor-name">will go backwards</a>
@@ -182,7 +191,7 @@ tools.two_columns(redirect_fragment);
   * so **don't use this at scale**, they are just conveniences
 <!-- #endregion -->
 
-```javascript hide_input=true
+```javascript hide_input=true trusted=false
 styling_fragment = `<p>
 tags for <b>bold</b> or <i>italics</i> 
 or <u>underline</u> or <s>strike-through</s>
@@ -192,6 +201,10 @@ that of course <u><b><i>can be combined</i></b></u>
 tools.two_columns(styling_fragment)
 ```
 
+<p class="rise-footnote">
+    here again the right way to go is often to use classes, that we study later on
+<p>
+
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## code-like
 
@@ -199,7 +212,7 @@ tools.two_columns(styling_fragment)
 * `<code>` is for a terminal-like font and style
 <!-- #endregion -->
 
-```javascript hide_input=true
+```javascript hide_input=true trusted=false
 code_fragment = `<p>for inserting code that should be kept as-is
 
 <code><pre>
@@ -224,21 +237,21 @@ tools.two_columns(code_fragment)
  * `<div>` stands for *division*
 * there is also `<span>` that serves a similar purpose 
  * except for the linebreaking behaviour
-* an essential tool in any page design
+* an **essential tool** in any page design
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ### `<div>` and `<span>` example
 <!-- #endregion -->
 
-```javascript slideshow={"slide_type": ""} hide_input=true
+```javascript slideshow={"slide_type": ""} hide_input=true trusted=false
 group_html = `<p> a paragraph may  
 <span style="background-color: #ddd;">
       contain a fragment</span>
 that we want to keep together,
 typically for styling purposes, 
-or moving contents about, 
-for that use a &lt;span&gt; tag.</p>
+but that is inline (no linebreak),
+and for that use a &lt;span&gt; tag.</p>
 
 <div style="background-color: #ddd;">
   <p> when you need to create a group that 
@@ -257,7 +270,7 @@ tools.two_columns(group_html)
 ### second example of `<div>`
 <!-- #endregion -->
 
-```javascript slideshow={"slide_type": ""} hide_input=true
+```javascript slideshow={"slide_type": ""} hide_input=true trusted=false
 group2_html = `<div> 
 the 'div' tag is an essential unit brick for creating a page layout
 </div>

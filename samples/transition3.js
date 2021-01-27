@@ -1,5 +1,5 @@
 WIDTH = 100;
-STEP = 10;
+STEP = 20;
 direction = 1;
 
 function grow() {
@@ -8,4 +8,7 @@ function grow() {
     WIDTH += STEP;
 }
 
-setInterval(grow, 2000);
+// call grow every second
+function grow_forever() {
+    setInterval(grow, 2000);
+}

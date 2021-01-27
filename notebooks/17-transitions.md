@@ -9,7 +9,6 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.2'
-      jupytext_version: 1.3.2
   kernelspec:
     display_name: Javascript (Node.js)
     language: javascript
@@ -36,7 +35,7 @@ jupyter:
       top: 25.9618px
       width: 159.497px
     toc_section_display: false
-    toc_window_display: true
+    toc_window_display: false
   version: '1.0'
 ---
 
@@ -49,7 +48,7 @@ jupyter:
 # CSS transitions and animations
 <!-- #endregion -->
 
-```javascript
+```javascript trusted=true
 // run this cell, and then 
 // click the created button
 tools = require('../js/tools');
@@ -61,7 +60,7 @@ tools.init();
 <!-- #endregion -->
 
 * properties can change over time
-* either on events (e.g. a hyperlink when you hover over or click it)
+* either on events (e.g. a hyperlink, when you hover on it, or click it)
 * or programmatically (typically through JavaScript)
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -79,7 +78,7 @@ tools.init();
 ## transition example 1
 <!-- #endregion -->
 
-```javascript hide_input=true
+```javascript hide_input=true trusted=true
 tools.iframe_samples_html_css("transition1")
 ```
 
@@ -87,15 +86,17 @@ tools.iframe_samples_html_css("transition1")
 ### how transitions work
 <!-- #endregion -->
 
-* you need to define a `transition` propery on the element
+<!-- #region tags=[] -->
+* you need to define a `transition` property on the element
 * e.g. the `<section>` element has  
   `transition: all 0.4s ease-in-out`
 * then its `background-color` property changes somehow  
   here due to the `.chunk:hover` selector
-* because the transition applies to `all` properties  
-  it triggers to implement the color change
+* the transition is requested to apply to `all` properties  
+  so here it triggers to implement the color change
 * and the `ease-in-out` algorithm is used  
   over a `0.4s` duration   
+<!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ### the `transition` property
@@ -125,7 +126,7 @@ tools.iframe_samples_html_css("transition1")
 ## transition example 2
 <!-- #endregion -->
 
-```javascript hide_input=true slideshow={"slide_type": "-"}
+```javascript hide_input=true slideshow={"slide_type": "-"} trusted=true
 tools.iframe_samples_html_css("transition2", true)
 ```
 
@@ -137,7 +138,7 @@ as a piece of advice
 
 * transitions can make user experience very nice
 * but **do not overuse them**
-* as too many moving pieces quickly become more confusing than helpful
+* too many moving pieces quickly become more confusing than helpful
 
 also notice that this starts to have to do with **responsiveness** 
 
@@ -155,7 +156,7 @@ transitions apply **to all** changes, not only triggered by a user
 here we use JavaScript (studied later) to alter a div's size  
 with e.g. `growing.style.width = '200px'`
 
-```javascript hide_input=true slideshow={"slide_type": "-"}
+```javascript hide_input=true slideshow={"slide_type": "-"} trusted=true
 tools.iframe_samples_html_css_js("transition3")
 ```
 
@@ -166,11 +167,11 @@ tools.iframe_samples_html_css_js("transition3")
 * there is also a notion of **animations** in CSS
 * simply put, an animation allows to define a succession of states  
 * each state being a collection of CSS properties
-* together the point in time where they should apply
+* together with the point in time where they should apply
 
 for example :
 * at the beginning of the duration (0%) background-color is red and color is blue
-* somewhere in the middle, say at 25% of the duration, they become green and yellow
+* somewhere in the middle, say at (25%) of the duration, they become green and yellow
 * then at the end of the period (100%) they become black and white
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -188,5 +189,6 @@ for example :
 
 * [transitions on css-tricks](https://css-tricks.com/almanac/properties/t/transition/)
 * [animations on css-tricks](https://css-tricks.com/almanac/properties/a/animation/)
-* an explanation, among other things, [about `linear`, `ease-in`, `ease-out`, and `ease-in-out`](https://www.freecodecamp.org/news/css-transitions-explained-d67ab9a02049/)
+* an explanation, among other things,  
+ [about `linear`, `ease-in`, `ease-out`, and `ease-in-out`](https://www.freecodecamp.org/news/css-transitions-explained-d67ab9a02049/)
 <!-- #endregion -->

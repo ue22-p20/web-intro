@@ -35,7 +35,7 @@ jupyter:
       top: 33px
       width: 290.344px
     toc_section_display: true
-    toc_window_display: true
+    toc_window_display: false
   version: '1.0'
 ---
 
@@ -48,7 +48,7 @@ jupyter:
 # more elaborate selectors
 <!-- #endregion -->
 
-```javascript
+```javascript trusted=true
 // run this cell, and then 
 // click the created button
 tools = require('../js/tools');
@@ -87,6 +87,10 @@ matches all `<p>` elements that are **below** a `<div>` element **at any depth**
 matches all `<p>` elements that are an **immediate child** of `<div>` element
 <!-- #endregion -->
 
+<p class="rise-footnote">
+    here the <code>div</code> and the <code>p</code> parts are selectors themselves, they can be more specific, of course
+</p>    
+
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## pseudo-class selectors
 <!-- #endregion -->
@@ -102,7 +106,7 @@ matches all `<p>` elements that are an **immediate child** of `<div>` element
 
 a first, not-quite-working example (at least on Chrome)
 
-```javascript hide_input=true
+```javascript hide_input=true trusted=true
 hover1_html = `<div id="part1">
   <a href="https://nbhosting.inria.fr" target="_">
 a regular link is unsensitive to hovering</a>
@@ -115,15 +119,19 @@ a regular link is unsensitive to hovering</a>
   <a name="nbhosting">
      this is an anchor tag,
      it reacts to mouse presence 
-     (at least on Chrome), but it should not</a>
+     (at least on Chrome), that is not what we want</a>
 </div>
 
 `;
 hover1_css = `.part2 a:hover {
-    font-size: x-large;
+    font-size: 300%;
     background-color: red;
     text-decoration: none;
-}`;
+}
+a {
+    font-size: 200%;
+}
+`;
 tools.iframe_html_css("hover1", hover1_html, hover1_css);
 ```
 
@@ -134,7 +142,7 @@ tools.iframe_html_css("hover1", hover1_html, hover1_css);
 to get it right, we can use the other pseudo-class `:link`,  
 that is set only on `<a>` tags that have a `href=` attribute
 
-```javascript hide_input=true
+```javascript hide_input=true trusted=true
 hover2_html = `<div id="part1">
   <a href="https://nbhosting.inria.fr" target="_">
      a regular link</a>
@@ -153,9 +161,12 @@ hover2_html = `<div id="part1">
 hover2_css = `/* <a> elements under a .class2 
    that have both pseudo-classes */
 .part2 a:hover:link {
-    font-size: x-large;
+    font-size: 300%;
     background-color: red;
     text-decoration: none;
+}
+a {
+    font-size: 200%;
 }`;
 tools.iframe_html_css("hover2", hover2_html, hover2_css);
 ```
@@ -165,7 +176,7 @@ note that here we build a selector that applies on elements that have <b>both</b
 </p>
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-### rank of element amongs its parents children
+### rank of element amongst its siblings
 <!-- #endregion -->
 
 * `:first-child`, `:last-child` : pseudo-classes  
@@ -178,7 +189,7 @@ note that here we build a selector that applies on elements that have <b>both</b
 ### `nth-child() example`
 <!-- #endregion -->
 
-```javascript hide_input=true
+```javascript hide_input=true trusted=true
 rank_html = `<ul>
   <li>the first bullet</li>
   <li>the 2nd bullet</li>
@@ -191,10 +202,13 @@ rank_html = `<ul>
 </ul>
 `;
 rank_css = `li:nth-child(2n+1) {
-  background-color: #fee;
+  background-color: #fee; /* pink-ish */
 }
 li:nth-child(3n) {
-  background-color: #eef;
+  background-color: #eef; /* blue-ish */
+}
+li {
+    font-size: 200%;
 }`;
 tools.iframe_html_css("rank-child", rank_html, rank_css);
 ```
@@ -214,9 +228,8 @@ tools.iframe_html_css("rank-child", rank_html, rank_css);
 * HTML elements can have arbitrary attributes,  
   not just `id`, `class`, `href`, ...
 * it is possible to write selectors that match  
-  on the value of a given attribute
+  on the **value** of a given attribute
 * for example  
   `a[href="https://www.google.com/"]`  
   would match only the links to google
 * [read more on this here](https://css-tricks.com/almanac/selectors/a/attribute/)
-

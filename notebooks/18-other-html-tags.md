@@ -9,7 +9,6 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.2'
-      jupytext_version: 1.3.2
   kernelspec:
     display_name: Javascript (Node.js)
     language: javascript
@@ -36,7 +35,7 @@ jupyter:
       top: 139px
       width: 159.359px
     toc_section_display: false
-    toc_window_display: true
+    toc_window_display: false
   version: '1.0'
 ---
 
@@ -49,7 +48,7 @@ jupyter:
 # more HTML tags
 <!-- #endregion -->
 
-```javascript
+```javascript trusted=true
 // run this cell, and then 
 // click the created button
 tools = require('../js/tools');
@@ -79,7 +78,7 @@ find out more on these by yourselves
 ### svg example
 <!-- #endregion -->
 
-```javascript hide_input=true
+```javascript hide_input=true trusted=true
 svg_html=`<h1>my first SVG</h1>
 
 <svg width="200" height="200">
@@ -113,6 +112,25 @@ for building forms :
 
 out of scope for this course though, as it involves a backend
 
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## sectioning
+<!-- #endregion -->
+
+* `<h1>` .. `<h6>` are only allow meaningful for the title line
+* but are too poor to actually convey sectioning information
+* so in addition to these, there are also
+  * `<section>`
+  * `<nav>`
+  * [and a few others as described here](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML_sections_and_outlines)
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+### sectioning example
+<!-- #endregion -->
+
+```javascript hide_input=true trusted=true
+tools.iframe_samples_html_css("sections", true)
+```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## miscell others

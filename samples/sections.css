@@ -1,0 +1,7 @@
+#structure>:nth-child(1) {
+    background-color: #fcc;
+}
+
+#structure>:nth-child(2) {
+    background-color: #ccf;
+}

@@ -24,18 +24,18 @@ jupyter:
     base_numbering: 1
     nav_menu: {}
     number_sections: true
-    sideBar: false
+    sideBar: true
     skip_h1_title: false
     title_cell: Table of Contents
     title_sidebar: Contents
     toc_cell: false
     toc_position:
-      height: 268px
-      left: 440px
-      top: 0px
-      width: 305.344px
+      height: 267.988px
+      left: 25px
+      top: 506px
+      width: 305.293px
     toc_section_display: true
-    toc_window_display: true
+    toc_window_display: false
   version: '1.0'
 ---
 
@@ -48,7 +48,7 @@ jupyter:
 # HTML ids and classes
 <!-- #endregion -->
 
-```javascript
+```javascript trusted=true
 // run this cell, and then 
 // click the created button
 tools = require('../js/tools');
@@ -56,11 +56,13 @@ tools.init();
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## need for rules scope
+## rules scope
 <!-- #endregion -->
 
+there is a need for more accurate / selective settings
+
 <!-- #region slideshow={"slide_type": ""} cell_style="split" -->
-our first CSS clause 
+remember our first CSS clause 
 
 ```
 a {
@@ -71,7 +73,7 @@ a {
 <!-- #endregion -->
 
 <!-- #region cell_style="split" slideshow={"slide_type": ""} -->
-will apply both settings  
+it will apply both settings  
 *on ALL `<a>` elements*
 
 we need **more selective** mechanisms
@@ -87,7 +89,7 @@ we need **more selective** mechanisms
 * can be attached a unique identifier
 <!-- #endregion -->
 
-```javascript hide_input=true
+```javascript hide_input=true trusted=true
 id_html = `<p id="only-me">This paragraph has an id</p>
 <p>this one does not</p>
 <p id="another-id">this one has another id</p>
@@ -107,7 +109,7 @@ tools.iframe_html_css("id1", id_html, id_css)
 Note that in this case you do not really need to mention the element tag
 <!-- #endregion -->
 
-```javascript hide_input=true slideshow={"slide_type": ""}
+```javascript hide_input=true slideshow={"slide_type": ""} trusted=true
 id2_html = `<p id="me-too">Since it has an id we do not 
 really need to specify the html tag</p>`;
 id2_css = `/* applies to elements
@@ -122,11 +124,11 @@ tools.iframe_html_css("id2", id2_html, id2_css)
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## `class=` : styling elements by groups
+## `class=` : styling elements by class
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": ""} -->
-* it is also possible to create groups of elements
+* it is also possible to create arbitrary groups of elements
 * so that they can be styled together
 * this is simply done by setting a `class` attribute 
 <!-- #endregion -->
@@ -136,14 +138,16 @@ tools.iframe_html_css("id2", id2_html, id2_css)
 * e.g. `class="one-class another-class"`
 <!-- #endregion -->
 
-```javascript hide_input=true
+```javascript hide_input=true trusted=true
 class_html = `<p class="yes">yes 1</p>
 <p class="no">no 1</p>
 <p class="yes">yes 2</p>
 <p class="no">no 2</p>
 <p class="yes no">yes and no</p>
 `;
-class_css = `p.yes {
+class_css = `/* applies to all <p> elts
+   with the 'yes' class */
+p.yes {
     color: green;
 }
 p.no {
@@ -161,12 +165,13 @@ tools.iframe_html_css("class", class_html, class_css)
 let's summarize 
 
 | selector | applies to elements |
-|----------|------------|
-| `p`      |  tagged `<p>` |
+|----------|:------------|
+| `p`      |  any elt tagged `<p>` |
 | `#someident` | that have `id='someident'` |
 | `.someclass` |  that have `someclass` in their `class` attribute |
 | `h1.someclass` | tagged `<h1>` **and** of class `someclass` |
 | `h1.someclass#someid` | tagged `<h1>` **and** of class `someclass` **and** with `id='someid'` |
+| `.yes.no` | any element that has class `yes` **and** class `no` |
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -198,11 +203,11 @@ the **element's parent**
 
 <!-- #region slideshow={"slide_type": ""} -->
 in a nushell, the intuition behind the actual rules is that
-* if you have manually defined a property in a `style` attribute, i.e. at the exact same place as the node, it means you want this property to apply
+* if you have manually defined a property in a `style` attribute, i.e. in the very node, it means you want this property to apply
 * otherwise if you have specified an `id` this means you expect this setting to be valid on that node
 * otherwise if you have specified a `class`, it should apply
-* otherwise if the rule is based on the element, it should apply
-* otherwise it is a wildcard rule (you can use `*` as the selector) 
+* otherwise if the rule is based on the element's *tag*, it should apply
+* otherwise, if it is a wildcard rule (you can use `*` as the selector) 
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -211,7 +216,7 @@ in a nushell, the intuition behind the actual rules is that
 
 <!-- #region slideshow={"slide_type": ""} -->
 selectors can be more convoluted than what we've seen so far,  
-(more on this later on) but the logic to compare
+(more on this later on) but the logic to compare  
 specificity can be reasonably approximated as follows :
 
 * for each property setting, compute a tuple with
@@ -230,7 +235,7 @@ specificity can be reasonably approximated as follows :
 ##### (1) embedded `style=` wins
 <!-- #endregion -->
 
-```javascript hide_input=true
+```javascript hide_input=true trusted=true
 specificity1_html = `<!-- the style 
      attribute trumps all -->
 
@@ -240,10 +245,11 @@ specificity1_html = `<!-- the style
 
 Lorem ipsum dolor sit amet.
 </p>`;
+
 specificity_css = `p {
   color: green;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 40px;
 }
 
 .myclass {
@@ -253,15 +259,15 @@ specificity_css = `p {
 #myid {
   color: blue;
 }`;
-tools.iframe_html_css("specificity1", specificity1_html, specificity_css)
 
+tools.iframe_html_css("specificity1", specificity1_html, specificity_css)
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} hide_input=true -->
 ##### (2) then `id=` wins
 <!-- #endregion -->
 
-```javascript slideshow={"slide_type": ""} hide_input=true
+```javascript slideshow={"slide_type": ""} hide_input=true trusted=true
 specificity2_html = `<!-- then id wins -->
 
 <p class="myclass"
@@ -277,7 +283,7 @@ tools.iframe_html_css("specificity2", specificity2_html, specificity_css);
 ##### (3) then `class=` wins
 <!-- #endregion -->
 
-```javascript slideshow={"slide_type": ""} hide_input=true
+```javascript slideshow={"slide_type": ""} hide_input=true trusted=true
 specificity3_html = `<!-- then class wins
   -->
 
@@ -293,7 +299,7 @@ tools.iframe_html_css("specificity3", specificity3_html, specificity_css);
 ##### (4) then the element's tag wins
 <!-- #endregion -->
 
-```javascript slideshow={"slide_type": ""} hide_input=true
+```javascript slideshow={"slide_type": ""} hide_input=true trusted=true
 specificity4_html = `<p>
 
 Lorem ipsum dolor sit amet.
@@ -306,12 +312,12 @@ tools.iframe_html_css("specificity4", specificity4_html, specificity_css);
 ## inheritance
 <!-- #endregion -->
 
-```javascript cell_style="center" hide_input=true
+```javascript cell_style="center" hide_input=true trusted=true
 inherit_html = `<div class="inheritance">
 <p> You can use inheritance to avoid setting</p>
 <ul>
 <li> a lot of different elements</li>
-<li> under a common ancestor</li>
+<li> using a common ancestor instead</li>
 </ul>`
 inherit_css = `.inheritance {
     color: maroon;

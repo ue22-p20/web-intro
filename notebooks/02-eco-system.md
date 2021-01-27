@@ -35,7 +35,7 @@ jupyter:
       top: 28px
       width: 202.391px
     toc_section_display: true
-    toc_window_display: true
+    toc_window_display: false
   version: '1.0'
 ---
 
@@ -65,12 +65,15 @@ jupyter:
 * all this started in a very awkward way
   * early versions were always quick and dirty
   * for example, the first JavaScript version [was written in 10 days](https://thenewstack.io/brendan-eich-on-creating-javascript-in-10-days-and-what-hed-do-differently-today/)
-* evolving **very quickly**, most notably
-  * in the way all the pieces are integrated together  
+* evolving **very quickly**, especially
+  * in the tooling for integrating the pieces together  
     (e.g. JS loaders and transpilers and bundlers…)
-* many over-layers that improve / mitigate some flaws
+* many many over-layers that improve / mitigate some flaws
   * like ***less*** or ***sass*** above CSS,  
   * ***TypeScript*** or ***CoffeeScript*** above JavaScript, …
+  * frameworks like vue, react, angular
+  * tools for mobile depl. [expo](https://expo.io), 
+    [svelte](https://svelte.dev), [ionic](https://ionicframework.com)
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ##  focus on HTML - CSS - JavaScript
@@ -89,7 +92,7 @@ jupyter:
 
 <!-- #region slideshow={"slide_type": ""} cell_style="split" -->
 * Web server :  
-  * operated by application provider
+  * operated by the application provider
   * runs **backend** code
 * Web browser :   
   * runs on your laptop

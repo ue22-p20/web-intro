@@ -9,7 +9,6 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.2'
-      jupytext_version: 1.3.2
   kernelspec:
     display_name: Javascript (Node.js)
     language: javascript
@@ -36,7 +35,7 @@ jupyter:
       top: 28px
       width: 202.391px
     toc_section_display: true
-    toc_window_display: true
+    toc_window_display: false
   version: '1.0'
 ---
 
@@ -55,7 +54,7 @@ jupyter:
 * it is sometimes unconvenient to deal with  
   the 3 formalisms HTML - CSS - JavaScript
   in 3 separate files
-* esp. for working on / sharing  
+* esp. for working on, or sharing  
   code snippets that outline a specific trick
 * many online tools are available, most famous being
   * <https://codepen.io> 
@@ -65,7 +64,9 @@ jupyter:
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## codepen
 
-take a quick look at https://codepen.io/picks/pens/ for great examples
+take a quick look at https://codepen.io/picks/pens/  
+for great examples
+(requires log in)
 
 ![](../media/tooling-codepen-picks.png)
 <!-- #endregion -->
