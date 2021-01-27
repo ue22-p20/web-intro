@@ -1,8 +1,4 @@
-# to redo from scratch:
-#FROM jupyter/minimal-notebook:latest
-#USER root
-
-# as of today this is python-3.7.1
+# --------
 FROM nbhosting/minimal-notebook
 
 # prerequisites with apt-get
@@ -33,24 +29,20 @@ ENV PATH="/opt/conda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin
 ENV NODE_PATH="/opt/conda/lib/node_modules/"
 USER jovyan
 
-# jupytext
-RUN pip install jupytext 
-# hopefully temporary 
-# patch jupytext for header
-RUN sed -i -e 's/^\INSERT_AND_CHECK_VERSION_NUMBER.*=.*/INSERT_AND_CHECK_VERSION_NUMBER = False # patch TP/' $(python -c 'import jupytext; print(jupytext.header.__file__);')
+# NOTE
+# we cannot use jupyter nbextension enable/disable
+# because we provide our own nbconfig/notebook.json
+# and that is where is stored the enabled/disabled extensions
+RUN true \
+ && pip install -U nb-courselevels \
+ && pip install -U nbautoeval \
+ && pip install -U ipythontutor \
+ && pip install rise --pre \
+ && true
 
-# latest rise handles jupytext input better
-RUN pip install -U --pre rise
-
-# extensions
-# somehow this one was not enabled..
-RUN jupyter nbextension enable rise/main
-RUN jupyter nbextension enable hide_input/main
-RUN jupyter nbextension enable splitcell/splitcell
 
 # node - one can display html fragments using $$.html
 # that appears to ship with ijavascript
 # additional npm packages can of course be added, like e.g
 RUN npm install -g jsdom d3
 # RUN npm install -g ijavascript-plotly plotly-notebook-js
-
