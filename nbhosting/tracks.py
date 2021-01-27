@@ -14,7 +14,7 @@ def tracks(coursedir):
             sections=[
                 Section(name="introduction",
                         coursedir=coursedir,
-                        notebooks=notebooks_by_pattern(coursedir,"notebooks/0*.md"))
+                        notebooks=notebooks_by_pattern(coursedir,"notebooks/0*.md")),
                 Section(name="HTML basics",
                         coursedir=coursedir,
                         notebooks=notebooks_by_pattern(coursedir,"notebooks/1*.md")),
@@ -32,11 +32,12 @@ def tracks(coursedir):
         Track(
             coursedir,
             name="course #3: JS basics",
+            sections=[
                 Section(name="intro to JS",
                         coursedir=coursedir,
                         notebooks=notebooks_by_pattern(coursedir,"notebooks/3*.md")),
                 ],
-              description="programming with JS"),
+            description="programming with JS"),
         Track(coursedir,
               name="optional content",
               sections=[
