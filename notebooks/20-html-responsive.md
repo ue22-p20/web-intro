@@ -9,7 +9,6 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.2'
-      jupytext_version: 1.3.2
   kernelspec:
     display_name: Javascript (Node.js)
     language: javascript
@@ -36,7 +35,7 @@ jupyter:
       top: 25.9618px
       width: 159.497px
     toc_section_display: false
-    toc_window_display: true
+    toc_window_display: false
   version: '1.0'
 ---
 
@@ -49,7 +48,7 @@ jupyter:
 # responsiveness
 <!-- #endregion -->
 
-```javascript
+```javascript trusted=true
 // run this cell, and then 
 // click the created button
 tools = require('../js/tools');
@@ -61,11 +60,11 @@ tools.init();
 <!-- #endregion -->
 
 * as opposed to a Word document - designed for a fixed page size
-  * a web page gets displayed  
-    on many different devices (computer, phone, tablet)
-  * even on the computer, windows can be can  
-    resized arbitrarily
-* a responsive page adapts its layout to the device size
+  * a web page gets displayed on **many**   
+    different devices (computer, phone, tablet)
+  * even on the computer, windows  
+    can be **resized** arbitrarily
+* a responsive page **adapts** its layout to the **device size**
   * technically the visible area is called the **viewport**
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -88,15 +87,18 @@ narrow viewport
 ### logical zoom
 <!-- #endregion -->
 
-* be aware also that all browsers have a feature that let users artificially zoom in and out
+* be aware also that all browsers have a feature   
+  that let users artificially zoom in and out
 * e.g. on Chrome on the mac, this is activated with `⌘ +` and `⌘ -`
-* this also triggers a layout change, to which responsive pages are expected to react properly
+* this also triggers changes, to which  
+  responsive pages are expected to react properly
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## default layout policy
 <!-- #endregion -->
 
-* if you do not override `display:`, you use a historical layout policy 
+* if you do not override the `display:` property,  
+  you use a historical layout policy 
 * very well summarized in [this document on MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Normal_Flow)  
   (MDN stands for Mozilla Developer Network)
 * mostly fits a written document flow  
@@ -104,19 +106,19 @@ narrow viewport
 * not at all suited for a responsive design
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## the `display` property - basic policies
+##  `display` property : basic policies
 <!-- #endregion -->
 
 * layout policy is primarily materialized  
   in the `display` property
 * values `inline`, `block` and `inline-block`  
-  account for these "document-oriented" policies
+  account for these legacy "document-oriented" policies
   * have been supported from the very  
     beginning of the Web 
   * well illustrated [on this page on css-tricks.com](https://css-tricks.com/almanac/properties/d/display/)
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## `display` - more modern alternatives
+## `display` - modern alternatives
 <!-- #endregion -->
 
 more modern values include :
@@ -135,7 +137,7 @@ we will study these 2 policies in separate notebooks
 * in that case the element is present in the DOM
 * but it does not show up at all in the rendered page
 
-```javascript hide_input=true
+```javascript hide_input=true trusted=true
 display_none_html = `<p> an element can easily be 'hidden' from the output </p>
 
 <p id="do-not-show"> let us hide this part altogether </p>

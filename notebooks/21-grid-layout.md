@@ -35,7 +35,7 @@ jupyter:
       top: 25.9618px
       width: 159.497px
     toc_section_display: false
-    toc_window_display: true
+    toc_window_display: false
   version: '1.0'
 ---
 
@@ -48,7 +48,7 @@ jupyter:
 # `display: grid`
 <!-- #endregion -->
 
-```javascript
+```javascript trusted=true
 // run this cell, and then 
 // click the created button
 tools = require('../js/tools');
@@ -74,13 +74,13 @@ next slide demontrates :
 * a proportional grid of [3 rows ⨉ 4 columns]
 * with 4 areas defined, based on that tiling
 * and 4 `<div>`s that are mapped on these areas
-* note the usage of a grid-specific length unit
+* note the usage of a *grid-specific* length unit
   * `fr` stands for 'free space'
   * so we can allocate fixed or proportional space  
     to some columns (or rows, for that matter)
   * and split the rest proportionally
 
-```javascript hide_input=true slideshow={"slide_type": "slide"}
+```javascript hide_input=true slideshow={"slide_type": "slide"} trusted=true
 grid1_html = `<div class="container">
 <div class="item-a">the header</div>
 <div class="item-b">main area</div>
@@ -133,7 +133,7 @@ mostly the same, but :
   
 <!-- #endregion -->
 
-```javascript hide_input=true slideshow={"slide_type": "slide"}
+```javascript hide_input=true slideshow={"slide_type": "slide"} trusted=true
 grid2_html = `<div class="container">
 <div class="item-a">the header</div>
 <div class="item-b">main area</div>
@@ -210,7 +210,7 @@ tools.iframe_html_css("display-grid-2", grid2_html, grid2_css, true)
 ## auto-sizing example
 <!-- #endregion -->
 
-```javascript hide_input=true
+```javascript hide_input=true trusted=true
 autosize_html = `<div class="container">
   <section> 
     <h1>Section 1</h1>

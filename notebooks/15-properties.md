@@ -24,7 +24,7 @@ jupyter:
     base_numbering: 1
     nav_menu: {}
     number_sections: true
-    sideBar: false
+    sideBar: true
     skip_h1_title: false
     title_cell: Table of Contents
     title_sidebar: Contents
@@ -33,7 +33,7 @@ jupyter:
       height: 270px
       left: 31px
       top: 87px
-      width: 232.344px
+      width: 311.344px
     toc_section_display: true
     toc_window_display: false
   version: '1.0'
@@ -83,7 +83,7 @@ tools.iframe_html_css("text-properties", text_html, text_css)
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## a lot of fonts available
+## many fonts available
 <!-- #endregion -->
 
 * see for example [a collection of google fonts](https://fonts.google.com/)
@@ -101,7 +101,7 @@ tools.iframe_samples_html_css("font-demo")
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-### Notes on the fonts example (1)
+### notes on the fonts example (1)
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": ""} -->
@@ -116,7 +116,7 @@ tools.iframe_samples_html_css("font-demo")
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-### Notes on the fonts example (2)
+### notes on the fonts example (2)
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": ""} -->
@@ -129,7 +129,7 @@ tools.iframe_samples_html_css("font-demo")
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-### Notes on the fonts example (3)
+### notes on the fonts example (3)
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": ""} -->
@@ -144,6 +144,68 @@ tools.iframe_samples_html_css("font-demo")
   in particular can be safely scaled / colorized 
   using CSS
 <!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} tags=[] -->
+## Unicode characters
+<!-- #endregion -->
+
+* also remember there are more than 140.000 characters defined in the Unicode standard; so without the need to switch to another font, you can just write things like these  
+  ︙→ ⇀ « » ❯ × ∑ ∀α ∃ε ∈ x² © …
+
+* being part of a text, these can also be safely styled  
+  i.e. scaled, coloured&hellip;  
+  as opposed to using bitmap pictures
+  <span style="color:blue; background-color: gray; margin: 20px; font-size: 20px; display: flex; justify-content: center;">
+    ︙→ ⇀ « » ❯ × ∑ ∀α ∃ε ∈ x² © …
+</span>
+
+<!-- #region slideshow={"slide_type": "slide"} cell_style="split" tags=[] -->
+### Unicode - the easy way
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": ""} cell_style="split" -->
+if you need to insert e.g. the ℃
+symbol, you can do it several ways :
+
+easiest way : just cut-and-paste it right into the html as-is  
+(provided that your html file is utf8-encoded)
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} cell_style="split" tags=["level_intermediate"] -->
+### Unicode - the less easy way
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": ""} cell_style="split" -->
+each Unicode character has a unique codepoint
+
+you can use that in a pure-ASCII source, and  write either 
+
+* `&#8451;` (decimal) or
+* `&#x2103;`   
+  the `x` stands for hexa
+<!-- #endregion -->
+
+<!-- #region cell_style="split" -->
+<img src="../media/unicode-celsius.png" width="350px">
+<!-- #endregion -->
+
+<!-- #region cell_style="split" -->
+<img src="../media/convert-unicode.png" width="350px">
+
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} tags=["level_intermediate"] -->
+### Unicode - epilogue
+<!-- #endregion -->
+
+some characters can be inserted with the same `&...;` notation using nicknames instead of a codepoint, examples
+
+* `&lt;` for &lt; and `&gt;` for &gt;  
+  sometimes useful to actually insert brackets like in &lt;code&gt;
+* `&nbspc;` for a non-breaking&nbsp;space  
+  which is more explicit/readable
+* `&hellip;` for &hellip;
+
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## the box model
