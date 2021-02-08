@@ -49,6 +49,7 @@ tools.init();
 * so bottom line is, all the common needs are covered
 
 **example** 
+
 * I just picked a topic at random; say I need to display a calendar; I googled it and [found this](https://fullcalendar.io/)
 
 in this notebook we see a selection of 2 libraries for visualzation that are really cool
@@ -65,6 +66,7 @@ this is a personal choice, there are **tons** of other interesting libraries ava
 [`three.js`](https://threejs.org/) is a graphic library to create 3D virtual reality scenes
 
 in a nutshell, to render a scene you need
+
 * one or more objects
 * one or more light sources
 * a camera

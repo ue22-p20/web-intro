@@ -42,7 +42,8 @@ tools.init();
 ## default is in-flow
 <!-- #endregion -->
 
-most of the elements we have seen so far are said to be *in-flow*  
+most of the elements we have seen so far are said to be *in-flow* :
+
 * i.e. they show up in the order where they appear in the source
 * at a position determined by the elements before them
 

@@ -51,6 +51,7 @@ jupyter:
 
 
 for instance
+
 * `facebook.com` hosts an enormous *backend* architecture
   * whole datacenters, enormous amount of code
   * whose purpose is to serve network requests
@@ -78,13 +79,13 @@ for instance
 ## the root trio
 <!-- #endregion -->
 
-* **`HTML`**: *content*
+* `HTML`: *content*
   * suitable to create content
   * everything that is visible on a web page has been created as an HTML fragment
-* **`CSS`**: *styling*
+* `CSS`: *styling*
   * how the document gets rendered
   * suitable to customize visible aspect
-* **`JavaScript`**: *behaviour*
+* `JavaScript`: *behaviour*
   * full-fledged programming language
   * suitable to customize, well, everything really
 
@@ -93,6 +94,7 @@ for instance
 <!-- #endregion -->
 
 this means that we will **not** address :
+
 * backend technologies per se
   * like e.g. apache, nginx, django, REST apis, …
 * nor the network protocols involved  

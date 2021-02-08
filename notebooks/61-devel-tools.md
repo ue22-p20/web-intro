@@ -129,14 +129,17 @@ so transitively you end up needing **quite a lot** of libraries you are not even
 <!-- #endregion -->
 
 in an earlier exercise
+
 * we had mentioned in our header `bootstrap.js` and `jquery.js`
 * even though we were not using `jquery` ourselves
 * but bootstrap needs it
 
 and, in the same exercise
+
 * we have gone to `cdnjs` to manually determine version numbers
 
 with `npm`, we could instead 
+
 * have created a file **`package.json`** that said essentially that we need `bootstrap`  
 * optionnally by pinning a version number for that
 * and let `npm` go fetch all the dependencies by itself

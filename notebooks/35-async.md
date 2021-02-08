@@ -226,6 +226,7 @@ console.log("armed")
 <!-- #endregion -->
 
 so far we have seen a few types of events
+
 * mostly "load" that is rather crucial
 * there are also builtin events for keyboard / mouse interaction  
   illustrated on the next example (we use `click` and `keydown`)
@@ -257,6 +258,7 @@ tools.iframe_samples_html_css_js("events", true)
 <!-- #endregion -->
 
 notice from the example :
+
 * how `addEventLister()` are cascaded, just like in the 'pyramid of Doom`
 * how we display the events with `console.log()`; this is useful technique for debugging / inspecting data
 * how we leverage the event object to display meaningful data
@@ -269,6 +271,7 @@ notice from the example :
 a relatively new alternative to callbacks that tries to address the 'pyramid of Doom' as described in the article mentioned above
 
 the following example tries to illustrate
+
 * that promises can deal with error conditions
 * and that they allow to pass return values along the chain
 

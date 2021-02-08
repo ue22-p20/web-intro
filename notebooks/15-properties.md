@@ -298,6 +298,7 @@ the trick is to remember this figure
 ### more shorthands
 
 same kind of shorthands are available for
+
 * `font: xxx` [see details here](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties#font_properties)
 * `border: xxx` [see details here](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties#background_properties)
 * for a more complete list, [see this page on MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties)
@@ -329,6 +330,7 @@ tools.iframe_html_css("shorthand", shorthand_html, shorthand_css);
 
 a great many deal of units are available to express lengths  
 [see more details on this page](https://css-tricks.com/the-lengths-of-css/) , e.g. :
+
 * `10px`
 * `1in`, `2.54cm`, `25mm`
 * `20pt` (1pt = 1/72 inch)
@@ -340,6 +342,7 @@ a great many deal of units are available to express lengths
 <!-- #endregion -->
 
 several formats are supported to describe a color :
+
 * common colors by name, like `red` ([see full list](https://www.w3schools.com/colors/colors_names.asp))
 * RGB components like `#8000ff` that means
   * red = 0x80 = 128, green = 0x00 = 0, blue = 0xff = 255
@@ -393,6 +396,7 @@ that has a live demo
 <!-- #endregion -->
 
 there are 8 elementary properties that make an element's background
+
 * `background-image`
 * `background-position`
 * `background-size`
@@ -411,7 +415,8 @@ most often this is set through a unique shorthand property `background`
 https://css-tricks.com/almanac/properties/b/background/
 
 
-also note that background 
+also note that background
+
 * does cover the **padding area**
 * but **not** the margin area
 * that is thus essentially transparent

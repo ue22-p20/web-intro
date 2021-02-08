@@ -81,6 +81,7 @@ the way we load a css from the same folder as the html, is a consequence of a ge
 
 if you have loaded a document as, say, <code>http://hostname.io/the/path/to.html</code>  
 then
+
 * <code>href="to.css"</code> is interpreted as <code>href="http://hostname.io/the/path/to.css"</code></li>
 * <code>href="/to.css"</code> is interpreted as <code>href="http://hostname.io/to.css"</code></li>
 * <code>href="/other/path/to.css"</code> is interpreted as <code>href="http://hostname.io/other/path/to.css"</code></li>
@@ -188,12 +189,14 @@ tools.two_columns(embedded_html)
 <!-- #endregion -->
 
 for performance reasons primarily :
+
 * fetching a file may be slow in poor network conditions
 * once a file has been loaded
   * it may be **cached inside** the browser
   * so that future references do not fetch it again
 
 **beware of that** during development
+
 * reloading the html file
 * may **not reload** the css because it is cached
 
@@ -202,6 +205,7 @@ for performance reasons primarily :
 <!-- #endregion -->
 
 a couple hints and workarounds
+
 * reload with the 'Shift' modifier pressed  
   either with a mouse-click (&#x21bb;),  
   or keyboard shortcut (⌘-r on e.g. chrome/mac)  

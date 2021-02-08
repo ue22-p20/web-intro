@@ -114,6 +114,7 @@ tools.two_columns(bullet_fragment)
 <!-- #endregion -->
 
 the anchor tag serves two purposes :
+
 * create a **hyperlink** that can bring users to another location
 * create a **name** locally so that this particular location can be the target of a hyperlink
 

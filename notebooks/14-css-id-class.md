@@ -186,6 +186,7 @@ the **element's parent**
 
 <!-- #region slideshow={"slide_type": ""} -->
 in a nushell, the intuition behind the actual rules is that
+
 * if you have manually defined a property in a `style` attribute, i.e. in the very node, it means you want this property to apply
 * otherwise if you have specified an `id` this means you expect this setting to be valid on that node
 * otherwise if you have specified a `class`, it should apply
@@ -315,6 +316,7 @@ tools.iframe_html_css("inheritance", inherit_html, inherit_css)
 
 <!-- #region slideshow={"slide_type": ""} -->
 the point is that
+
 * we **do not** style the `<p>` and `<li>` elements specifically
 * so in this case the properies are fetched 
   * from their parent (the `<div>` element) 

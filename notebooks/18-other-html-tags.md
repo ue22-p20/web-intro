@@ -89,6 +89,7 @@ tools.iframe_html_css("svg", svg_html, svg_css)
 <!-- #endregion -->
 
 for building forms :
+
 * `<input>` for entering data
 * `<button>` for validating data
 * `<form>` to group user-provided input  
@@ -128,7 +129,7 @@ in a jumble :
   [see more on css-tricks](https://css-tricks.com/learn-canvas-snake-game/)
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-# practice 
+## practice 
 <!-- #endregion -->
 
 <!-- #region cell_style="center" -->

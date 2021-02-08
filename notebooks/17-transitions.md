@@ -153,6 +153,7 @@ tools.iframe_samples_html_css_js("transition3")
 * together with the point in time where they should apply
 
 for example :
+
 * at the beginning of the duration (0%) background-color is red and color is blue
 * somewhere in the middle, say at (25%) of the duration, they become green and yellow
 * then at the end of the period (100%) they become black and white

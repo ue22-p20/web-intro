@@ -42,6 +42,7 @@ tools.init();
 
 <!-- #region slideshow={"slide_type": ""} -->
 in this notebook :
+
 * a simple assignment
 * plus a few tips to get started
 * **make sure you read this notebook thoroughly before you start**
@@ -268,5 +269,6 @@ as mentioned earlier already, you can
 * in the case of JavaScript code
 
 **Remember**
+
 * to use Shift-load, or other cache-cleaning tool  
 * if changes in a file do not seem to kick in

@@ -142,6 +142,7 @@ and have the `SpinningClass` code provide default for missing parameters.
 
 
 students who have finished the exercise can :
+
 * tweak their code to adapt to this more convenient interface
 * make the wheel vanish automatically after the timeout
 * add some interactive means to

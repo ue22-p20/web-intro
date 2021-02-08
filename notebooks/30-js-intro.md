@@ -43,10 +43,12 @@ tools.init();
 <!-- #endregion -->
 
 JavaScript comes in addition to
+
 * HTML for **content**
 * CSS for **style**
 
 JavaScript
+
 * it is a full-fledged **programming language** 
 * and provides for **behaviour**
 
@@ -66,6 +68,7 @@ JavaScript
 <!-- #endregion -->
 
 in this example :
+
 * HTML has two elements
 * one acts as a button, that can make  
   the other one visible or not
@@ -134,6 +137,7 @@ visibility of symbols (variable and function names) :
 ## example 2
 <!-- #endregion -->
 in this further example :
+
 * we create two visible elements   
   a button, and a graphic area `<svg>`
 * the page runs a cyclic task  

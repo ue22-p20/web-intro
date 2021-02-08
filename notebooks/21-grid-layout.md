@@ -54,6 +54,7 @@ tools.init();
 <!-- #endregion -->
 
 next slide demontrates :
+
 * a proportional grid of [3 rows ⨉ 4 columns]
 * with 4 areas defined, based on that tiling
 * and 4 `<div>`s that are mapped on these areas
@@ -109,6 +110,7 @@ tools.iframe_html_css("display-grid-1", grid1_html, grid1_css, true)
 
 <!-- #region hide_input=true -->
 mostly the same, but :
+
 * header and footer have a fixed size
 * only change is to replace
   * `grid-template-rows: auto` with
