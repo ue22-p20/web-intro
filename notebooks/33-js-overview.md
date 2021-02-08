@@ -12,14 +12,14 @@ jupyter:
     display_name: Javascript (Node.js)
     language: javascript
     name: javascript
-  notebookname: 30,000 ft overview
+  nbhosting:
+    title: 30,000 ft overview
   rise:
     autolaunch: true
     slideNumber: c/t
     start_slideshow_at: selected
     theme: sky
     transition: cube
-  version: '1.0'
 ---
 
 <!-- #region slideshow={"slide_type": "slide"} -->

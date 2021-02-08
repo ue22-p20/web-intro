@@ -12,14 +12,14 @@ jupyter:
     display_name: Javascript (Node.js)
     language: javascript
     name: javascript
-  notebookname: web frontend ecosystem
+  nbhosting:
+    title: web frontend ecosystem
   rise:
     autolaunch: true
     slideNumber: c/t
     start_slideshow_at: selected
     theme: sky
     transition: cube
-  version: '1.0'
 ---
 
 <div class="licence">
