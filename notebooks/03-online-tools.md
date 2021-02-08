@@ -13,7 +13,7 @@ jupyter:
     language: javascript
     name: javascript
   nbhosting:
-    title: web frontend ecosystem
+    title: onliine tools
   rise:
     autolaunch: true
     slideNumber: c/t
