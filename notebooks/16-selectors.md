@@ -2,13 +2,12 @@
 jupyter:
   celltoolbar: Slideshow
   jupytext:
-    cell_metadata_filter: all
+    cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
     formats: md
-    notebook_metadata_filter: all,-language_info,-jupytext.text_representation.jupytext_version
+    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.2'
   kernelspec:
     display_name: Javascript (Node.js)
     language: javascript
@@ -20,22 +19,6 @@ jupyter:
     start_slideshow_at: selected
     theme: sky
     transition: cube
-  toc:
-    base_numbering: 1
-    nav_menu: {}
-    number_sections: true
-    sideBar: false
-    skip_h1_title: false
-    title_cell: Table of Contents
-    title_sidebar: Contents
-    toc_cell: false
-    toc_position:
-      height: 142px
-      left: 907px
-      top: 33px
-      width: 290.344px
-    toc_section_display: true
-    toc_window_display: false
   version: '1.0'
 ---
 
@@ -48,7 +31,7 @@ jupyter:
 # more elaborate selectors
 <!-- #endregion -->
 
-```javascript trusted=true
+```javascript
 // run this cell, and then 
 // click the created button
 tools = require('../js/tools');
@@ -106,7 +89,7 @@ matches all `<p>` elements that are an **immediate child** of `<div>` element
 
 a first, not-quite-working example (at least on Chrome)
 
-```javascript hide_input=true trusted=true
+```javascript hide_input=true
 hover1_html = `<div id="part1">
   <a href="https://nbhosting.inria.fr" target="_">
 a regular link is unsensitive to hovering</a>
@@ -142,7 +125,7 @@ tools.iframe_html_css("hover1", hover1_html, hover1_css);
 to get it right, we can use the other pseudo-class `:link`,  
 that is set only on `<a>` tags that have a `href=` attribute
 
-```javascript hide_input=true trusted=true
+```javascript hide_input=true
 hover2_html = `<div id="part1">
   <a href="https://nbhosting.inria.fr" target="_">
      a regular link</a>
@@ -189,7 +172,7 @@ note that here we build a selector that applies on elements that have <b>both</b
 ### `nth-child() example`
 <!-- #endregion -->
 
-```javascript hide_input=true trusted=true
+```javascript hide_input=true
 rank_html = `<ul>
   <li>the first bullet</li>
   <li>the 2nd bullet</li>

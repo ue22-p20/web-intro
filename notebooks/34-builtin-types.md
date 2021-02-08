@@ -2,13 +2,12 @@
 jupyter:
   celltoolbar: Slideshow
   jupytext:
-    cell_metadata_filter: all
+    cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
     formats: md
-    notebook_metadata_filter: all,-language_info,-jupytext.text_representation.jupytext_version
+    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.2'
   kernelspec:
     display_name: Javascript (Node.js)
     language: javascript
@@ -20,22 +19,6 @@ jupyter:
     start_slideshow_at: selected
     theme: sky
     transition: cube
-  toc:
-    base_numbering: 1
-    nav_menu: {}
-    number_sections: true
-    sideBar: false
-    skip_h1_title: false
-    title_cell: Table of Contents
-    title_sidebar: Contents
-    toc_cell: false
-    toc_position:
-      height: 371.719px
-      left: 1274.52px
-      top: 29px
-      width: 265.469px
-    toc_section_display: true
-    toc_window_display: true
   version: '1.0'
 ---
 
@@ -373,13 +356,11 @@ console.log(`my name is ${bond.last_name}`);
 'first_name' in bond
 ```
 
-<!-- #region trusted=true -->
 <p class="rise-footnote"> 
     the syntax for JavaScript objects, as well as the <i>key/value</i> vocabulary <br>
     make them **look like** Python dictionaries, <br>
     **do not get confused though**, JavaScript objects are much more like Python class instances.
 </p>
-<!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ### iterating over an object's keys

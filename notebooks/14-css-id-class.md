@@ -2,13 +2,12 @@
 jupyter:
   celltoolbar: Slideshow
   jupytext:
-    cell_metadata_filter: all
+    cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
     formats: md
-    notebook_metadata_filter: all,-language_info,-jupytext.text_representation.jupytext_version
+    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.2'
   kernelspec:
     display_name: Javascript (Node.js)
     language: javascript
@@ -20,22 +19,6 @@ jupyter:
     start_slideshow_at: selected
     theme: sky
     transition: cube
-  toc:
-    base_numbering: 1
-    nav_menu: {}
-    number_sections: true
-    sideBar: true
-    skip_h1_title: false
-    title_cell: Table of Contents
-    title_sidebar: Contents
-    toc_cell: false
-    toc_position:
-      height: 267.988px
-      left: 25px
-      top: 506px
-      width: 305.293px
-    toc_section_display: true
-    toc_window_display: false
   version: '1.0'
 ---
 
@@ -48,7 +31,7 @@ jupyter:
 # HTML ids and classes
 <!-- #endregion -->
 
-```javascript trusted=true
+```javascript
 // run this cell, and then 
 // click the created button
 tools = require('../js/tools');
@@ -89,7 +72,7 @@ we need **more selective** mechanisms
 * can be attached a unique identifier
 <!-- #endregion -->
 
-```javascript hide_input=true trusted=true
+```javascript hide_input=true
 id_html = `<p id="only-me">This paragraph has an id</p>
 <p>this one does not</p>
 <p id="another-id">this one has another id</p>
@@ -109,7 +92,7 @@ tools.iframe_html_css("id1", id_html, id_css)
 Note that in this case you do not really need to mention the element tag
 <!-- #endregion -->
 
-```javascript hide_input=true slideshow={"slide_type": ""} trusted=true
+```javascript hide_input=true slideshow={"slide_type": ""}
 id2_html = `<p id="me-too">Since it has an id we do not 
 really need to specify the html tag</p>`;
 id2_css = `/* applies to elements
@@ -138,7 +121,7 @@ tools.iframe_html_css("id2", id2_html, id2_css)
 * e.g. `class="one-class another-class"`
 <!-- #endregion -->
 
-```javascript hide_input=true trusted=true
+```javascript hide_input=true
 class_html = `<p class="yes">yes 1</p>
 <p class="no">no 1</p>
 <p class="yes">yes 2</p>
@@ -235,7 +218,7 @@ specificity can be reasonably approximated as follows :
 ##### (1) embedded `style=` wins
 <!-- #endregion -->
 
-```javascript hide_input=true trusted=true
+```javascript hide_input=true
 specificity1_html = `<!-- the style 
      attribute trumps all -->
 
@@ -267,7 +250,7 @@ tools.iframe_html_css("specificity1", specificity1_html, specificity_css)
 ##### (2) then `id=` wins
 <!-- #endregion -->
 
-```javascript slideshow={"slide_type": ""} hide_input=true trusted=true
+```javascript slideshow={"slide_type": ""} hide_input=true
 specificity2_html = `<!-- then id wins -->
 
 <p class="myclass"
@@ -283,7 +266,7 @@ tools.iframe_html_css("specificity2", specificity2_html, specificity_css);
 ##### (3) then `class=` wins
 <!-- #endregion -->
 
-```javascript slideshow={"slide_type": ""} hide_input=true trusted=true
+```javascript slideshow={"slide_type": ""} hide_input=true
 specificity3_html = `<!-- then class wins
   -->
 
@@ -299,7 +282,7 @@ tools.iframe_html_css("specificity3", specificity3_html, specificity_css);
 ##### (4) then the element's tag wins
 <!-- #endregion -->
 
-```javascript slideshow={"slide_type": ""} hide_input=true trusted=true
+```javascript slideshow={"slide_type": ""} hide_input=true
 specificity4_html = `<p>
 
 Lorem ipsum dolor sit amet.
@@ -312,7 +295,7 @@ tools.iframe_html_css("specificity4", specificity4_html, specificity_css);
 ## inheritance
 <!-- #endregion -->
 
-```javascript cell_style="center" hide_input=true trusted=true
+```javascript cell_style="center" hide_input=true
 inherit_html = `<div class="inheritance">
 <p> You can use inheritance to avoid setting</p>
 <ul>

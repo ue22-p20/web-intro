@@ -2,13 +2,12 @@
 jupyter:
   celltoolbar: Slideshow
   jupytext:
-    cell_metadata_filter: all
+    cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
     formats: md
-    notebook_metadata_filter: all,-language_info,-jupytext.text_representation.jupytext_version
+    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.2'
   kernelspec:
     display_name: Javascript (Node.js)
     language: javascript
@@ -20,22 +19,6 @@ jupyter:
     start_slideshow_at: selected
     theme: sky
     transition: cube
-  toc:
-    base_numbering: 1
-    nav_menu: {}
-    number_sections: true
-    sideBar: false
-    skip_h1_title: false
-    title_cell: Table of Contents
-    title_sidebar: Contents
-    toc_cell: false
-    toc_position:
-      height: 47px
-      left: 35px
-      top: 139px
-      width: 159.359px
-    toc_section_display: false
-    toc_window_display: false
   version: '1.0'
 ---
 
@@ -48,7 +31,7 @@ jupyter:
 # more HTML tags
 <!-- #endregion -->
 
-```javascript trusted=true
+```javascript
 // run this cell, and then 
 // click the created button
 tools = require('../js/tools');
@@ -78,7 +61,7 @@ find out more on these by yourselves
 ### svg example
 <!-- #endregion -->
 
-```javascript hide_input=true trusted=true
+```javascript hide_input=true
 svg_html=`<h1>my first SVG</h1>
 
 <svg width="200" height="200">
@@ -128,7 +111,7 @@ out of scope for this course though, as it involves a backend
 ### sectioning example
 <!-- #endregion -->
 
-```javascript hide_input=true trusted=true
+```javascript hide_input=true
 tools.iframe_samples_html_css("sections", true)
 ```
 

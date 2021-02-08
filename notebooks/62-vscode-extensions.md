@@ -2,13 +2,12 @@
 jupyter:
   celltoolbar: Slideshow
   jupytext:
-    cell_metadata_filter: all
+    cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
     formats: md
-    notebook_metadata_filter: all,-language_info,-jupytext.text_representation.jupytext_version
+    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.2'
   kernelspec:
     display_name: Javascript (Node.js)
     language: javascript
@@ -20,22 +19,6 @@ jupyter:
     start_slideshow_at: selected
     theme: sky
     transition: cube
-  toc:
-    base_numbering: 1
-    nav_menu: {}
-    number_sections: true
-    sideBar: false
-    skip_h1_title: false
-    title_cell: Table of Contents
-    title_sidebar: Contents
-    toc_cell: false
-    toc_position:
-      height: 247.715px
-      left: 1494px
-      top: 95px
-      width: 159.824px
-    toc_section_display: false
-    toc_window_display: true
   version: '1.0'
 ---
 

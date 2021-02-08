@@ -2,13 +2,12 @@
 jupyter:
   celltoolbar: Slideshow
   jupytext:
-    cell_metadata_filter: all
+    cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
     formats: md
-    notebook_metadata_filter: all,-language_info,-jupytext.text_representation.jupytext_version
+    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.2'
   kernelspec:
     display_name: Javascript (Node.js)
     language: javascript
@@ -20,22 +19,6 @@ jupyter:
     start_slideshow_at: selected
     theme: sky
     transition: cube
-  toc:
-    base_numbering: 1
-    nav_menu: {}
-    number_sections: true
-    sideBar: true
-    skip_h1_title: false
-    title_cell: Table of Contents
-    title_sidebar: Contents
-    toc_cell: false
-    toc_position:
-      height: 218px
-      left: 1060.61px
-      top: 653px
-      width: 309.375px
-    toc_section_display: true
-    toc_window_display: false
   version: '1.0'
 ---
 
@@ -48,7 +31,7 @@ jupyter:
 # HTML basics
 <!-- #endregion -->
 
-```javascript trusted=true
+```javascript
 // run this cell, and then 
 // click the created button
 tools = require('../js/tools');
@@ -78,7 +61,7 @@ an element (a section, a header) is composed by
 
 the overall structure of a HTML document is composed of two parts, a **header** and a **body**, like this:
 
-```javascript hide_input=true trusted=true
+```javascript hide_input=true
 fragment1 = `<html>
   <head>
      <!-- various document-wide declarations -->
@@ -125,7 +108,7 @@ files are local on your laptop
 * you will see something like this
 <!-- #endregion -->
 
-```javascript hide_input=true slideshow={"slide_type": "slide"} trusted=true
+```javascript hide_input=true slideshow={"slide_type": "slide"}
 tools.two_columns(fragment1)
 
 ```
@@ -232,7 +215,7 @@ your first JavaScript code
 * referred to in all documentation as "*the DOM* "
 <!-- #endregion -->
 
-<!-- #region cell_style="split" slideshow={"slide_type": "slide"} trusted=true -->
+<!-- #region cell_style="split" slideshow={"slide_type": "slide"} -->
 this HTML fragment
 ```html
 <html>
@@ -270,7 +253,7 @@ in the *Elements* devel tools tab
 * so make sure to **always** close your tags properly
 <!-- #endregion -->
 
-```javascript hide_input=true slideshow={"slide_type": "slide"} trusted=true
+```javascript hide_input=true slideshow={"slide_type": "slide"}
 fragment_unclosed = `<p> do not do this
 <ul>
 <li> unclosed tags <b>look like</b> they work
@@ -280,7 +263,7 @@ tools.two_columns(fragment_unclosed)
  
 ```
 
-```javascript hide_input=true trusted=true
+```javascript hide_input=true
 fragment_closed = `<p> do this instead </p>
 <ul>
 <li> always close your tags </li>

@@ -2,13 +2,12 @@
 jupyter:
   celltoolbar: Slideshow
   jupytext:
-    cell_metadata_filter: all
+    cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
     formats: md
-    notebook_metadata_filter: all,-language_info,-jupytext.text_representation.jupytext_version
+    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.2'
   kernelspec:
     display_name: Javascript (Node.js)
     language: javascript
@@ -20,22 +19,6 @@ jupyter:
     start_slideshow_at: selected
     theme: sky
     transition: cube
-  toc:
-    base_numbering: 1
-    nav_menu: {}
-    number_sections: true
-    sideBar: true
-    skip_h1_title: false
-    title_cell: Table of Contents
-    title_sidebar: Contents
-    toc_cell: false
-    toc_position:
-      height: 270px
-      left: 31px
-      top: 87px
-      width: 311.344px
-    toc_section_display: true
-    toc_window_display: false
   version: '1.0'
 ---
 
@@ -48,7 +31,7 @@ jupyter:
 # CSS main properties
 <!-- #endregion -->
 
-```javascript trusted=true
+```javascript
 // run this cell, and then 
 // click the created button
 tools = require('../js/tools');
@@ -68,7 +51,7 @@ tools.init();
 ## text properties
 <!-- #endregion -->
 
-```javascript slideshow={"slide_type": ""} cell_style="center" hide_input=true trusted=true
+```javascript slideshow={"slide_type": ""} cell_style="center" hide_input=true
 text_html = `<p class="text">
 a sample text</p>`;
 text_css = `.text {
@@ -95,7 +78,7 @@ tools.iframe_html_css("text-properties", text_html, text_css)
 the example below illustrates how to load and use them in your page
 
 
-```javascript hide_input=true slideshow={"slide_type": "slide"} trusted=true
+```javascript hide_input=true slideshow={"slide_type": "slide"}
 tools.iframe_samples_html_css("font-demo")
 
 ```
@@ -232,7 +215,7 @@ each side (top, right, bottom, left) of the box
 has its own individual properties  
 here e.g. padding and border
 
-```javascript hide_input=true trusted=true
+```javascript hide_input=true
 box1_html = `<p class="box1">
 a box </p></div>`;
 box1_css = `p.box1 {
@@ -259,7 +242,7 @@ tools.iframe_html_css("box1", box1_html, box1_css);
 again with also margin and border-radius
 <!-- #endregion -->
 
-```javascript hide_input=true trusted=true
+```javascript hide_input=true
 box2_html = `<p class="box2">
 a second box </p>`;
 box2_css = `p.box2 {
@@ -326,7 +309,7 @@ same kind of shorthands are available for
 
 use the inspector from the devel tools to check the individual properties of the `<p>` elt, e.g. the `padding` 
 
-```javascript hide_input=true trusted=true
+```javascript hide_input=true
 shorthand_html = `<p class="shorthand1">
 shorthand properties</p>
 <hr>`;
@@ -438,7 +421,7 @@ also note that background
 ## `background` (demo)
 <!-- #endregion -->
 
-```javascript hide_input=true trusted=true
+```javascript hide_input=true
 background_html = `<div>
   <section>
       <h1> a title </h1>

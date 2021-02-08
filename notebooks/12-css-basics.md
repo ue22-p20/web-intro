@@ -2,13 +2,12 @@
 jupyter:
   celltoolbar: Slideshow
   jupytext:
-    cell_metadata_filter: all
+    cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
     formats: md
-    notebook_metadata_filter: all,-language_info,-jupytext.text_representation.jupytext_version
+    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.2'
   kernelspec:
     display_name: Javascript (Node.js)
     language: javascript
@@ -20,22 +19,6 @@ jupyter:
     start_slideshow_at: selected
     theme: sky
     transition: cube
-  toc:
-    base_numbering: 1
-    nav_menu: {}
-    number_sections: true
-    sideBar: false
-    skip_h1_title: false
-    title_cell: Table of Contents
-    title_sidebar: Contents
-    toc_cell: false
-    toc_position:
-      height: 207px
-      left: 30px
-      top: 170px
-      width: 306.797px
-    toc_section_display: true
-    toc_window_display: false
   version: '1.0'
 ---
 
@@ -48,7 +31,7 @@ jupyter:
 # CSS basics
 <!-- #endregion -->
 
-```javascript trusted=false
+```javascript
 // run this cell, and then 
 // click the created button
 tools = require('../js/tools');
@@ -95,7 +78,7 @@ tools.init();
 ![](../media/list-properties-all.png)
 <!-- #endregion -->
 
-<!-- #region cell_style="center" slideshow={"slide_type": "slide"} trusted=true -->
+<!-- #region cell_style="center" slideshow={"slide_type": "slide"} -->
 ![](../media/list-properties-filtered.png)
 <!-- #endregion -->
 
@@ -115,7 +98,7 @@ to tell the browser to open the link in another tab/window<br>
 </p>
 
 
-```javascript hide_input=true slideshow={"slide_type": "slide"} trusted=false
+```javascript hide_input=true slideshow={"slide_type": "slide"}
 link_html = `<a 
   href="https://www.google.com" 
   target="_">

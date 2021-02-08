@@ -2,13 +2,12 @@
 jupyter:
   celltoolbar: Slideshow
   jupytext:
-    cell_metadata_filter: all
+    cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
     formats: md
-    notebook_metadata_filter: all,-language_info,-jupytext.text_representation.jupytext_version
+    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.2'
   kernelspec:
     display_name: Javascript (Node.js)
     language: javascript
@@ -20,22 +19,6 @@ jupyter:
     start_slideshow_at: selected
     theme: sky
     transition: cube
-  toc:
-    base_numbering: 1
-    nav_menu: {}
-    number_sections: true
-    sideBar: true
-    skip_h1_title: false
-    title_cell: Table of Contents
-    title_sidebar: Contents
-    toc_cell: false
-    toc_position:
-      height: 391.973px
-      left: 51.9844px
-      top: 530.992px
-      width: 347.48px
-    toc_section_display: true
-    toc_window_display: false
   version: '1.0'
 ---
 
@@ -48,7 +31,7 @@ jupyter:
 # basic tags
 <!-- #endregion -->
 
-```javascript trusted=false
+```javascript
 // run this cell, and then 
 // click the created button
 tools = require('../js/tools');
@@ -59,7 +42,7 @@ tools.init();
 ## header tags `<h1>` .. `<h5>`
 <!-- #endregion -->
 
-```javascript hide_input=true trusted=false
+```javascript hide_input=true
 headers_fragment = `<h1> toplevel title </h1>
 <h2> first sublevel title </h2>
 <h3> and so on </h3>
@@ -69,7 +52,7 @@ headers_fragment = `<h1> toplevel title </h1>
 tools.two_columns(headers_fragment)
 ```
 
-```javascript trusted=true
+```javascript
 
 ```
 
@@ -83,7 +66,7 @@ tools.two_columns(headers_fragment)
 ## text tags `<p>` and `<br>` 
 <!-- #endregion -->
 
-```javascript hide_input=true trusted=false
+```javascript hide_input=true
 text_fragment = `<p> it is wise to always embed your text 
 in a text tag like &lt;p&gt;, 
 that stands for paragraph, and that of course gets justified 
@@ -101,7 +84,7 @@ tools.two_columns(text_fragment)
 ## lists with `<ul>`  and `<li>`
 <!-- #endregion -->
 
-```javascript hide_input=true trusted=false
+```javascript hide_input=true
 bullet_fragment = `<p> a typical bullet list with a <b>ul</b> tag
 <br> <code>ul</code> stands for "unordered list"
 <br> <code>li</code> stands for "list item"
@@ -114,7 +97,7 @@ bullet_fragment = `<p> a typical bullet list with a <b>ul</b> tag
 tools.two_columns(bullet_fragment)
 ```
 
-```javascript hide_input=true trusted=false
+```javascript hide_input=true
 bullet_fragment = `<p> the same with a <b>ol</b> tag instead
 <br> <code>ol</code> stands for "ordered list"
 <ol>
@@ -141,7 +124,7 @@ the anchor tag serves two purposes :
 typical **hyperlink** reads like this  
 **NOTE** that clicking the link will cause you to leave the present notebook !
 
-```javascript hide_input=true trusted=false
+```javascript hide_input=true
 hyperlink_fragment = `<a href="https://www.google.com/">the hyperlink</a>`;
 tools.two_columns(hyperlink_fragment)
 ```
@@ -152,7 +135,7 @@ tools.two_columns(hyperlink_fragment)
 
 if you need a hyperlink to point, not at the beginning of this page, but somewhere in the middle, then create an anchor at that location
 
-```javascript hide_input=true trusted=false
+```javascript hide_input=true
 anchor_fragment = `<a name="the-anchor-name">the magic location</a>`;
 tools.two_columns(anchor_fragment)
 ```
@@ -171,7 +154,7 @@ tools.two_columns(anchor_fragment)
 ### local URL
 <!-- #endregion -->
 
-```javascript hide_input=true trusted=false
+```javascript hide_input=true
 redirect_fragment = `<p>it is easy to craft a local URL;
 here this hyperlink 
 <a href="#the-anchor-name">will go backwards</a>
@@ -191,7 +174,7 @@ tools.two_columns(redirect_fragment);
   * so **don't use this at scale**, they are just conveniences
 <!-- #endregion -->
 
-```javascript hide_input=true trusted=false
+```javascript hide_input=true
 styling_fragment = `<p>
 tags for <b>bold</b> or <i>italics</i> 
 or <u>underline</u> or <s>strike-through</s>
@@ -212,7 +195,7 @@ tools.two_columns(styling_fragment)
 * `<code>` is for a terminal-like font and style
 <!-- #endregion -->
 
-```javascript hide_input=true trusted=false
+```javascript hide_input=true
 code_fragment = `<p>for inserting code that should be kept as-is
 
 <code><pre>
@@ -244,7 +227,7 @@ tools.two_columns(code_fragment)
 ### `<div>` and `<span>` example
 <!-- #endregion -->
 
-```javascript slideshow={"slide_type": ""} hide_input=true trusted=false
+```javascript slideshow={"slide_type": ""} hide_input=true
 group_html = `<p> a paragraph may  
 <span style="background-color: #ddd;">
       contain a fragment</span>
@@ -270,7 +253,7 @@ tools.two_columns(group_html)
 ### second example of `<div>`
 <!-- #endregion -->
 
-```javascript slideshow={"slide_type": ""} hide_input=true trusted=false
+```javascript slideshow={"slide_type": ""} hide_input=true
 group2_html = `<div> 
 the 'div' tag is an essential unit brick for creating a page layout
 </div>
