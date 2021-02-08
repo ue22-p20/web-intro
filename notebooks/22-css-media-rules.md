@@ -157,7 +157,7 @@ another way to use media rules is from `<head>`
 ## practice
 <!-- #endregion -->
 
-1. write an HTML document and related CSS style so that the overall layou looks as follows; 
+1. write an HTML document and related CSS style so that the overall layout looks as follows; 
 1. check out how our example displays on narrow devices (width < 512)  
    implement that behaviour as well (note that the order of sections is changed in narrow mode)
 

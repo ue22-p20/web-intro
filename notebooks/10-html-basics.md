@@ -96,6 +96,10 @@ files are local on your laptop
 ![](../media/local-file.svg)
 <!-- #endregion -->
 
+<p class="rise-footnote">
+for your first practice, you will save your code on your hard drive, and check the result locally without the presence of a server, this is what the <code>file://</code> URLs are for
+</p>
+
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## practice
 <!-- #endregion -->
@@ -273,3 +277,17 @@ fragment_closed = `<p> do this instead </p>
 tools.two_columns(fragment_closed)
  
 ```
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## a few tips
+<!-- #endregion -->
+
+* vs-code has great support for editing `html` documents
+  * even with no extension installed
+  * [see e.g. this page for details](https://code.visualstudio.com/docs/languages/html)
+  * and [in particular emmet snippets](https://code.visualstudio.com/docs/languages/html#_emmet-snippets)
+* you often need to switch from editor to browser and back
+  * use keyboard shortcuts to switch between apps
+  * typically with `⌘-tab` (or alt-tab or control-tab depending on your environment)
+* also make sure to know the browser keyboard shortcut to reload a page
+  * typically `⌘-r` (or 'ctrl-r' ...)
