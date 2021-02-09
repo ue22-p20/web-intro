@@ -11,8 +11,8 @@ module.exports = {
     ecmaVersion: 12
   },
   rules: {
-    "no-multiple-empty-lines": 0,
-    "camelcase": 0,
-    "space-before-function-paren": 0
+    'no-multiple-empty-lines': 0,
+    camelcase: 0,
+    'space-before-function-paren': 0
   }
 }
