@@ -3,50 +3,45 @@ This module is for nbhosting
 """
 
 from nbhosting.courses import (
-    Track, Section, Notebook,
-    notebooks_by_pattern, track_by_directory)
+    Track, Section, notebooks_by_patterns)
 
 def tracks(coursedir):
-    return [
-        Track(
-            coursedir,
-            name="course #1: HTML",
-            sections=[
-                Section(name="introduction",
-                        coursedir=coursedir,
-                        notebooks=notebooks_by_pattern(coursedir,"notebooks/0*.md")),
-                Section(name="HTML basics",
-                        coursedir=coursedir,
-                        notebooks=notebooks_by_pattern(coursedir,"notebooks/1*.md")),
-            ],
-            description="basic contents with HTML and some CSS"),
-        Track(
-            coursedir,
-            name="course #2: CSS layout",
-            sections=[
-                Section(name="layout with CSS",
-                        coursedir=coursedir,
-                        notebooks=notebooks_by_pattern(coursedir,"notebooks/2*.md")),
-                ],
-            description="advanced layout with CSS"),
-        Track(
-            coursedir,
-            name="course #3: JS basics",
-            sections=[
-                Section(name="intro to JS",
-                        coursedir=coursedir,
-                        notebooks=notebooks_by_pattern(coursedir,"notebooks/3*.md")),
-                ],
-            description="programming with JS"),
-        Track(coursedir,
-              name="optional content",
-              sections=[
-                Section(name="optional tools",
-                        coursedir=coursedir,
-                        notebooks=notebooks_by_pattern(coursedir,"notebooks/[56]*.md")),
-                Section(name="course requirements",
-                        coursedir=coursedir,
-                        notebooks=notebooks_by_pattern(coursedir,"notebooks/7*.md")),
-                ],
-              description="more tools, and course requirements"),
-        ]
+    """
+    coursedir is a CourseDir object that points
+    at the root directory of the filesystem tree
+    that holds notebooks
+
+    result is a list of Track instances
+    """
+    track_specs = [
+        ("course #1: HTML", "basic contents with HTML and some CSS", 'html',
+          [
+            ("introduction", "notebooks/0*.md"),
+            ("HTML basics", "notebooks/1*.md"),
+          ]),
+        # ("course #2: CSS layout", "advanced layout with CSS", 'css',
+        #   [
+        #     ("layout with CSS", "notebooks/2*.md"),
+        #   ]),
+        # ("course #3: JS basics", "programming with JS", "js",
+        #   [
+        #     ("intro to JS", "notebooks/3*.md"),
+        #   ]),
+        # ("optional content", "more tools, and course requirements", "options",
+        #   [
+        #       ("optional tools", "notebooks/[56]*.md"),
+        #       ("", ""),
+        #   ])
+    ]
+
+    return [Track(coursedir,
+                [Section(coursedir=coursedir,
+                        name=section_name,
+                        notebooks=notebooks_by_patterns(
+                            coursedir, patterns))
+                for section_name, *patterns in section_specs],
+                name=track_name,
+                description=track_description,
+                id=track_id)
+        for (track_name, track_description, track_id, section_specs) in track_specs]
+
