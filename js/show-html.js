@@ -42,7 +42,7 @@ function _labeled_area(code, code_class, label_class) {
 function _iframe_for_stored_html(filename, html, extra_class) {
   fs.writeFileSync(filename, html)
   extra_class = extra_class || ''
-  return `<iframe class="show-html ${extra_class}" src="${filename}" />`
+  return `<iframe class="show-html ${extra_class}" src="${filename}"></iframe>`
 }
 
 
