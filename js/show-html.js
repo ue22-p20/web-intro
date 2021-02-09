@@ -52,7 +52,7 @@ function _external_iframe_button(filename) {
     >
     <div style="display: flex; flex-direction: column; align-items: center;">
     <span>open in a separate window</span>
-    <span>(beware of ad blockers)</span>
+    <span class="beware">(beware of ad blockers)</span>
     </div></a>`
 }
 
@@ -88,7 +88,7 @@ ${html}`
 <div class="show-html-css-left">
   ${top_left}${bottom_left}
 </div>
-  <div class="show-html-css-right ${external_class}">${right}${external_button}</div>
+  <div class="show-html-css-right ${external_class}">${external_button}${right}</div>
 </div>
 `
   return $$.html(whole)
@@ -111,7 +111,7 @@ ${_injected_js(js)}
     external_button = _external_iframe_button(filename)
   }
   const result_area = `<div class="${external_class}">
-${iframe_area}${external_button}
+${external_button}${iframe_area}
 </div>`
   const whole = `<div class="show-html-2columns">
     <div class="show-html-left">${html_area}${css_area}
@@ -165,7 +165,7 @@ ${_injected_js(js)}
     external_button = _external_iframe_button(local)
   }
   const result_area = `<div class="${external_class}">
-${iframe_area}${external_button}
+${external_button}${iframe_area}
 </div>`
   return $$.html(result_area)
 }

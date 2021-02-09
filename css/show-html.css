@@ -4,7 +4,7 @@ div.show-html-2columns {
     grid-template-columns: minmax(20px, max-content) 1fr;
 }
 div.show-html-css-left {
-    display: grid:
+    display: grid;
     grid-template-rows: auto auto;
 }
 div.show-html-css-top-left, 
@@ -47,9 +47,16 @@ div.external {
     flex-direction: column;
     align-items: center;
 }
-a.external {
-    margin-top: 12px;
+a.external,  a.external:hover{
+    margin-bottom: 12px;
     font-size: 150%;
+    border-radius: 8px;
+    border: solid 0.1px rgb(61, 45, 85);
+    padding: 5px;
+    color: rgb(37, 110, 37);
+}
+a.external:hover {
+    color: rgb(121, 36, 36);
 }
 
 span.lang {
@@ -97,4 +104,7 @@ div.labeled {
 
 iframe.exo {
     height: 500px;
+}
+span.beware {
+    font-size: x-small;
 }
