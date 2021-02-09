@@ -32,7 +32,7 @@ jupyter:
 <!-- #endregion -->
 
 ```javascript
-// run this cell, and then 
+// run this cell, and then
 // click the created button
 tools = require('../js/tools');
 tools.init();
@@ -59,12 +59,12 @@ as per [this article on w3schools](https://www.w3schools.com/cssref/css3_pr_medi
 
 ```javascript hide_input=true
 threshold = '500px';
-media_width_html = `<body>Click below to open
+media_width_html = `<body>Click above to open
 in a separate window, turn on
 devel tools to see the window size, and resize
-the window so the width becomes smaller 
+the window so the width becomes smaller
 or larger than ${threshold}
-<br><b>NOTE</b> make sure your zoom factor is 100% 
+<br><b>NOTE:</b> make sure your zoom factor is 100%
 </body>`;
 media_width_css = `/* beware that this rule MUST COME FIRST */
 body {
@@ -75,7 +75,7 @@ body {
    is less than ${threshold} */
 @media only screen and (max-width: ${threshold}) {
   body {
-    background-color: #bbded6; /* light blue/green */
+    background-color: #bbded6; /* light green */
   }
 }
 `;
@@ -94,7 +94,7 @@ tools.iframe_html_css("media-rule-width", media_width_html, media_width_css, tru
   * in that case the last one wins
 * so **order is important**
   * unless you implement a trick to make media rules more specific
-  * e.g. artificially add a `media` class 
+  * e.g. artificially add a `media` class
   * and use it in media-specific rules
   * but that is awkward and doesn't scale well...
 
@@ -107,13 +107,13 @@ media_print_html = `<body class="media">
 It is often very useful to tweak the print
 layout, in terms of margins and the like.
 <hr>
-Click below to open in a separate window,
+Click above to open in a separate window,
 and pretend to print so you get a preview;
 </body>`;
 media_print_css = `/* our body tag has a media class
  * with this trick the order now won't matter */
 body {
-    font-family: Trebuchet MS; 
+    font-family: Trebuchet MS;
 }
 
 @media print {
@@ -124,7 +124,7 @@ body {
   }
 }
 `;
-tools.iframe_html_css("media-rule-print", media_print_html, media_print_css, true) 
+tools.iframe_html_css("media-rule-print", media_print_html, media_print_css, true)
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -136,12 +136,12 @@ another way to use media rules is from `<head>`
 
 <!-- #region -->
 ```html
-<link rel="stylesheet" 
+<link rel="stylesheet"
     <!-- NOTE the new media attribute here -->
     media="screen and (min-width: 900px)"
     href="widescreen.css">
 <link rel="stylesheet"
-    media="screen and (max-width: 600px)"    
+    media="screen and (max-width: 600px)"
     href="smallscreen.css">
 ```
 <!-- #endregion -->
@@ -157,9 +157,10 @@ another way to use media rules is from `<head>`
 ## practice
 <!-- #endregion -->
 
-1. write an HTML document and related CSS style so that the overall layout looks as follows; 
-1. check out how our example displays on narrow devices (width < 512)  
-   implement that behaviour as well (note that the order of sections is changed in narrow mode)
+1. open the example below in a separate window
+  * observe behaviour on narrow viewport
+1. write an HTML document and related CSS that mimicks it
+
 
 ```javascript hide_input=true
 tools.iframe_exo("exo-grid", true, true)

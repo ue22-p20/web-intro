@@ -32,7 +32,7 @@ jupyter:
 <!-- #endregion -->
 
 ```javascript
-// run this cell, and then 
+// run this cell, and then
 // click the created button
 tools = require('../js/tools');
 tools.init();
@@ -70,11 +70,11 @@ tools.iframe_html_css("text-properties", text_html, text_css)
 <!-- #endregion -->
 
 * see for example [a collection of google fonts](https://fonts.google.com/)
-* note also some less traditional fonts  
-  * that come with usual symbols 
+* note also some less traditional fonts
+  * that come with usual symbols
   * see [in particular *fontawesome*](https://fontawesome.com/icons?d=gallery&m=free)  
     who offer a decent collection for free
-  
+
 the example below illustrates how to load and use them in your page
 
 
@@ -91,8 +91,8 @@ tools.iframe_samples_html_css("font-demo")
 * for cosmetic reasons, the example is a bit simplified  
   use something like this to import a font  
   in all variants of bold/italic
-  
-```html 
+
+```html
 <link rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Raleway:200,200i,400,400i,500,500i,600,600i,700,700i">
 ```
@@ -106,9 +106,9 @@ tools.iframe_samples_html_css("font-demo")
 * the single CSS rule here allows to apply  
   the font **to the whole document**  
   we will see in a moment how that actually works  
-  
+
 * btw, it is strongly recommended to avoid  
-  mixing fonts in a document 
+  mixing fonts in a document
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -124,7 +124,7 @@ tools.iframe_samples_html_css("font-demo")
 ```
 
 * these symbols are more convenient than bitmap pictures  
-  in particular can be safely scaled / colorized 
+  in particular can be safely scaled / colorized
   using CSS
 <!-- #endregion -->
 
@@ -161,10 +161,10 @@ easiest way : just cut-and-paste it right into the html as-is
 <!-- #region slideshow={"slide_type": ""} cell_style="split" -->
 each Unicode character has a unique codepoint
 
-you can use that in a pure-ASCII source, and  write either 
+you can use that in a pure-ASCII source, and  write either
 
 * `&#8451;` (decimal) or
-* `&#x2103;`   
+* `&#x2103;`  
   the `x` stands for hexa
 <!-- #endregion -->
 
@@ -290,9 +290,9 @@ the trick is to remember this figure
 ![](../media/box-sides-order.png)
 <!-- #endregion -->
 
-* `padding: 10px 20px 30px 40px` will assign the 4 padding properties in the order above 
+* `padding: 10px 20px 30px 40px` will assign the 4 padding properties in the order above
 * `padding: 10px;` will set all 4 *padding* properties
-* `margin: 10px 20px` will set top *and bottom* to `10px`, and *both* sides to `20px` 
+* `margin: 10px 20px` will set top *and bottom* to `10px`, and *both* sides to `20px`
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ### more shorthands
@@ -308,7 +308,7 @@ same kind of shorthands are available for
 ### shorthand example
 <!-- #endregion -->
 
-use the inspector from the devel tools to check the individual properties of the `<p>` elt, e.g. the `padding` 
+use the inspector from the devel tools to check the individual properties of the `<p>` elt, e.g. the `padding`
 
 ```javascript hide_input=true
 shorthand_html = `<p class="shorthand1">
@@ -347,7 +347,7 @@ several formats are supported to describe a color :
 * RGB components like `#8000ff` that means
   * red = 0x80 = 128, green = 0x00 = 0, blue = 0xff = 255
   * all three of course are in the [0-255] range
-* same in decimal: 
+* same in decimal:
   * `rgb(128, 0, 255)`
 * opacity (in the [0-1.] range can be given as a fourth argument
   * `rgb(128, 0, 255, 0.2)` will be only 20% opaque, i.e. almost transparent
@@ -361,7 +361,7 @@ several formats are supported to describe a color :
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": ""} -->
-<p class="rise-footnote"> 
+<p class="rise-footnote">
     note that on colorhunt you can copy a color code by just clicking it
 </p>
 <!-- #endregion -->
@@ -376,19 +376,19 @@ the `box-sizing` property affects the way `width` and `height` properties are co
 * `box-sizing: padding-box` : account for content + padding
 * `box-sizing: border-box` : content + padding + border
 
-margins are **always excluded** 
+margins are **always excluded**
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## `box-sizing` (continued)
 <!-- #endregion -->
 
-not often needed, but typical use case is 
+not often needed, but typical use case is
 
 * you want a given component to take 500px **in total**
 * so the borders and paddings *push content inside*
 * then use `box-sizing: border-box`
 
-see also https://css-tricks.com/box-sizing/ 
+see also https://css-tricks.com/box-sizing/
 that has a live demo
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -438,26 +438,26 @@ background_css = `* {
     border: 1px solid black;
 }
 div {
-    background: red; 
+    background: red;
     margin: 100px;
 }
 section {
     margin: 20px;
     padding: 30px;
-    background: orange; 
+    background: orange;
 }
 h1, p {
     padding: 8px;
     /* or simply */
-    background-color: yellow; 
+    background-color: yellow;
 }
 `;
 tools.iframe_html_css("background", background_html, background_css)
 ```
 
 <!-- #region hide_input=true -->
-<p class="rise-footnote"> 
-    observe how the margin space has its space filled by the parent     <br>
+<p class="rise-footnote">
+    observe how the margin space has its space filled by the parent  
     use the inspector to see how the space between  
 the two inner borders (h1 and p) is actully the *max* of their margins.
 </p>

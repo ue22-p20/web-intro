@@ -1,7 +1,7 @@
 #cv {
     display: grid;
     grid-template-columns: 30% 30% 40%;
-    grid-template-areas: 
+    grid-template-areas:
         "top top top"
         "exp exp edu"
         "lang skills skills"
