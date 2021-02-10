@@ -31,11 +31,11 @@ jupyter:
 # objectives of this course
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## why a course on web frontend ?
+## why a course on web frontend pillars ?
 <!-- #endregion -->
 
-* traditional languages like Python, C++, and Java
-  lack a decent environment for User Interfaces
+* with traditional languages like Python, C++, and Java  
+  building a decent UI quickly becomes awkward
 * but how much time do you spend on  
   facebook, twitter, what'sapp, … ?
 * as of 2021, **everything** runs on the Web
@@ -45,7 +45,7 @@ jupyter:
 ## vocabulary
 <!-- #endregion -->
 
-* web technologies are heavily client-server based
+* web technologies are heavily **client-server** based
 * **server**-side (think, **cloud**) is often called ***backend***  
 * **client**-side (think, **browser**) is called ***frontend***
 
@@ -67,7 +67,7 @@ for instance
 * due to time constraints
 * we will restrict ourselves to the ***frontend*** side
 * objective is to give you **some grip**
-* on the core technologies supported in a browser  
+* on the **core** technologies supported in a browser  
   * namely **HTML**, **CSS** and **JavaScript**
 * so that you can assess their enormous potential
 * ignoring the fast-moving over-layers  
@@ -79,13 +79,14 @@ for instance
 ## the root trio
 <!-- #endregion -->
 
-* `HTML`: *content*
+* `HTML`: ***content***
   * suitable to create content
-  * everything that is visible on a web page has been created as an HTML fragment
-* `CSS`: *styling*
+  * everything that is visible on a web page  
+    has been created as an HTML fragment
+* `CSS`: ***styling***
   * how the document gets rendered
   * suitable to customize visible aspect
-* `JavaScript`: *behaviour*
+* `JavaScript`: ***behaviour***
   * full-fledged programming language
   * suitable to customize, well, everything really
 
@@ -99,18 +100,20 @@ this means that we will **not** address :
   * like e.g. apache, nginx, django, REST apis, …
 * nor the network protocols involved  
   * like http(s), websockets, and similar
-  * those will be touched on briefly later this year
+* those will be touched on briefly later this year
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## why are web technos so cool ?
 <!-- #endregion -->
 
 * so-called *GUI*-oriented tools (Graphical User Interfaces)
-  * like X11/MOTIF, .net, Java Swing, Qt, …
-* shared a mental model based on widgets and menus
-  * that is very limiting
-  * remember 1990's apps
-* web allows for much cooler and more flexible interaction 
+  * like .net, Java Swing, Qt, …
+  * based on an anachronic and rigid widget-based mental model
+  
+***
+
+* web allows for much cooler and more flexible interaction
+  * any part of the screen can be part of the UI
 * plus, thanks to a clear **separation** between **content** and **styling**
   * they allow designers to fruitfully collaborate with engineers
 * as a bonus, super-portable with **zero installation**
@@ -151,8 +154,9 @@ this means that we will **not** address :
 ## objectives
 <!-- #endregion -->
 
-* make sure you are aware of the enormous potential
-* make you aware of the specific types of problems  
-  esp. non-sequential nature of user interaction and network activity
+* make sure you are aware of the **enormous potential**
+* outline some specific problems  
+  esp. **asynchroneous** / non-sequential nature  
+  of user interaction and network activity
 * mention and shallowly study a few technological bricks 
-* start to build a mental map where you can place the current buzzwords
+* start to build a **mental map** where you can place the current buzzwords

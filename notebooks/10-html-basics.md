@@ -105,11 +105,15 @@ for your first practice, you will save your code on your hard drive, and check t
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": ""} -->
-* create a file named `hello.html`  
-  with your editor of choice, like VScode
+* start from an empty folder
+* open vs-code and create a file named `hello.html`  
 * copy the above template
 * open it in your web browser (preferably Chrome)
-* you will see something like this
+  * often you can simply double-click in the file explorer
+  * or use the *File → Open File* menu
+  * or directly type a URL like  
+    `file:///the/complete/path/to/hello.html`
+* you will see something like shown on the next slide
 <!-- #endregion -->
 
 ```javascript hide_input=true slideshow={"slide_type": "slide"}
@@ -128,7 +132,7 @@ tools.two_columns(fragment1)
 * all browsers come with development tools for debugging
 * as a first contact with these,  
   let us inspect the content of our HTML document
-* for that the simplest way is to right click on the 'Hello' text
+* for that, the simplest way is to right click on the 'Hello' text
 * and choose 'Inspect'
 <!-- #endregion -->
 
@@ -153,10 +157,12 @@ tools.two_columns(fragment1)
 
 * here's how to check your browser (all this on mac at least)
 
- * on Safari: you should have a *Develop* menu in the main menubar:  
-  *File Edit View History Bookmarks **Develop** Window*
- * on Chrome: you should have a ***Developer*** submenu in the *View* menu in the main menubar
- * on Firefox: you should have a ***Web Developer*** entry in the *Tools* menu in the main menubar
+ * on Safari: you should have a ***Develop*** menu in the main menubar:  
+    * *File Edit View History Bookmarks **Develop** Window*
+ * on Chrome: you should have a ***Developer*** submenu  
+   in the *View* menu in the main menubar
+ * on Firefox: you should have a ***Web Developer*** entry  
+   in the *Tools* menu in the main menubar
 
 
 

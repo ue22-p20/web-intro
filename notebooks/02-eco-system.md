@@ -35,7 +35,7 @@ jupyter:
 <!-- #endregion -->
 
 * crash course on how to write web pages  
-* just scratch the surface, a **whole lot** is not even mentioned  
+* just scratch the surface, a whole lot is **not even mentioned**  
 * focus on the core technological bricks
   * HTML (HyperText Markup Language)
   * CSS (Cascading Style Sheets)
@@ -95,11 +95,11 @@ jupyter:
 
 <!-- #region slideshow={"slide_type": ""} -->
 * typical backend technologies
-  * PHP, Python/django, Ruby/on rails, SQL databases
+  * PHP, django or flask (Python), Ruby/on rails, SQL databases
   * apache, nginx, load balancing
 * typical frontend technologies
   * **HTML, CSS, JavaScript**
-  * react, angular, vue
+  * react, angular, vue, ...
 * in between
   * TCP/IP : low-level communication protocol of the Internet
   * HTTP : HyperText Transfer Protocol
