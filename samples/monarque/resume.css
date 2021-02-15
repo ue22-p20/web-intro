@@ -8,7 +8,7 @@ body {
  * ----------------- */
 
 
-/*  
+/*
 * { box-sizing: border-box;}
 */
 
@@ -23,8 +23,8 @@ body {
 }
 
 
-/* photo is 1013 × 1175 
-   and we set its height to 200px so 
+/* photo is 1013 × 1175
+   and we set its height to 200px so
    we need a 172 px width
  */
 
@@ -47,25 +47,11 @@ body {
  * generic layout *
  * -------------- */
 
-#header {
-    grid-area: header;
-}
-
-#left-panel {
-    grid-area: left;
-}
-
-#right-panel {
-    grid-area: right;
-}
-
-#main-grid {
-    display: grid;
-}
-
-#gadgets {
-    display: grid;
-}
+#header { grid-area: header; }
+#left-panel { grid-area: left; }
+#right-panel { grid-area: right; }
+#main-grid { display: grid; }
+#gadgets { display: grid; }
 
 
 /* gadgets */
@@ -76,25 +62,11 @@ body {
     grid-template-areas: "title title" "address phone" "mail mail" "linkedin linkedin";
 }
 
-#gadgets div#title {
-    grid-area: title;
-}
-
-div#gadgets div#address {
-    grid-area: address;
-}
-
-div#gadgets div#phone {
-    grid-area: phone;
-}
-
-div#gadgets div#mail {
-    grid-area: mail;
-}
-
-div#gadgets div#linkedin {
-    grid-area: linkedin;
-}
+#gadgets div#title { grid-area: title; }
+#gadgets div#address { grid-area: address; }
+#gadgets div#phone { grid-area: phone; }
+#gadgets div#mail { grid-area: mail; }
+#gadgets div#linkedin { grid-area: linkedin; }
 
 
 /* ------- *
@@ -246,7 +218,7 @@ div.where-what-when {
     /* Can be anything */
     position: relative;
     background: #fefefe;
-    border-radius: 8px;
+    border-radius: 5px;
     margin-right: 2em;
     border: 1px solid #aaa;
 }
@@ -257,8 +229,8 @@ div.where-what-when {
     height: 16px;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
     position: relative;
     overflow: hidden;
     border-right: 0.5px solid #999;
@@ -306,7 +278,13 @@ div.where-what-when {
 
 .shadow {
     /* 25 50 */
-    box-shadow: 5px 15px 10px rgba(0, 0, 0, 0.20);
+    box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.20);
+}
+.progress-skills {
+    background-color:rgb(248, 228, 238);
+}
+.progress-features {
+    background-color:rgb(222, 252, 242);
 }
 
 .crosses {
