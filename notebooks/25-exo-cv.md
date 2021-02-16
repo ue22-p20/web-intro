@@ -50,6 +50,21 @@ tools.init();
   * but the arrangement of the sections on the page changes
 
 <!-- #region slideshow={"slide_type": "slide"} -->
+## where to find the examples
+
+* the next example can be found together with the course   
+  in the git repo
+  https://github.com/ue22/web-intro
+
+* specifically in the `samples/monarque` folder
+
+* note that some of the other examples of the course  
+  can be found in the `samples/` folder
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## a sample cv
+
 * here is one example
   * please do not try to mimick this example too closely,  
     it is just there so you can get a sense of what is possible; 

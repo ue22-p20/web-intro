@@ -43,10 +43,12 @@ tools.init();
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": ""} -->
-* `flex` is a modern layout engine  
+* `flex` is another modern layout engine  
 * that tries to solve or at least alleviate  
 * the obvious deficiencies of the old-school  
  `block` model and related tools
+* as opposed to grids, it is concerned with **1-dimension** flow of data
+* it **complements nicely** what is doable with grids
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -60,6 +62,8 @@ examples, as per [this article on MDN](https://developer.mozilla.org/en-US/docs/
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## flex example (1)
+
+by default, direction = row, wrap = nowrap
 <!-- #endregion -->
 
 ```javascript hide_input=true
@@ -70,15 +74,17 @@ flex1_html = `<div class="container">
 <div class="item"> voluptatem </div>
 <div class="item"> quisquam modi. </div>
 </div>`;
-flex1_css = `/* outline borders */
-body { border: none; }
-* { border: 1px solid red;
-    padding: 4px; border-radius: 4px;}
-
+flex1_css = `/* the important part is just this */
 .container {
     display: flex;
     justify-content: space-evenly;
 }
+
+/* cosmetic: outline borders */
+body { border: none; }
+* { border: 1px solid red;
+    padding: 4px; border-radius: 4px;}
+
 .item {
     font-size: 30px;
 }
@@ -100,16 +106,17 @@ flex2_html = `<div class="container">
 <div class="item"> voluptatem </div>
 <div class="item"> quisquam modi. </div>
 </div>`;
-flex2_css = `/* outline borders */
-body { border: none; }
-* { border: 1px solid red;
-    padding: 4px; border-radius: 4px;}
-
-.container {
+flex2_css = `.container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
+
+/* outline borders */
+body { border: none; }
+* { border: 1px solid red;
+    padding: 4px; border-radius: 4px;}
+
 .item {
     font-size: 40px;
 }
@@ -120,9 +127,11 @@ tools.iframe_html_css("flex2", flex2_html, flex2_css, true)
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## assignment
 
-* [this page on css-trick.com](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) is an easy, and very complete read, on flex
-* it is again **strongly recommended** to read it thoroughly
-  to get a perception of what is doable with this layout
+* [this page on css-trick.com](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) is an easy, and very complete, read on flex
+* it is again **strongly recommended**
+  * to bookmark it
+  * and to browse it but thoroughly
+    to get a perception of what is doable with this layout
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -131,7 +140,8 @@ tools.iframe_html_css("flex2", flex2_html, flex2_css, true)
 
 * the `flex` display is an extremely powerful tool  
   for fine-grained control over your layout
-* only reason why it is not the default is **legacy**
+* it could clearly be the default behaviour  
+  (but is not just for **legacy**)
 * when writing a new page from scratch,  
   using `flex` is almost always a good idea
 * rather recent (circa 2017) but [supported in all modern browsers](https://caniuse.com/#feat=flexbox)
@@ -144,7 +154,19 @@ tools.iframe_html_css("flex2", flex2_html, flex2_css, true)
   * is disruptive as compared to its predecessors
 * in the sense that older models were essentially bottom up
   * i.e. an element had a size and the container was to deal with that size
-  * but a flex container can influence the size of its contained items
+  * now, a flex container can influence the size of its contained items
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## grid's and flex's
+<!-- #endregion -->
+
+* as mentioned earlier, both display policies have their own pros and cons
+* you should not think in terms or one **or** the other
+* but rather in terms of using **both** depending on the situation
+* so **do not hesitate** to define **nested** layouts
+* with flex's in grid's in flex's in grid's
+  or the other way around, of course
+* this is why the `<div>` tag is so all over the place
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## practice
@@ -154,4 +176,8 @@ tools.iframe_html_css("flex2", flex2_html, flex2_css, true)
 
 ```javascript hide_input=true
 tools.iframe_exo("exo-flex", true, true)
+```
+
+```javascript
+
 ```

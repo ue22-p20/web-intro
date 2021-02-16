@@ -59,41 +59,57 @@ most of the elements we have seen so far are said to be *in-flow* :
 ## `fixed` example : a pinned header
 <!-- #endregion -->
 
-```javascript hide_input=true
-fixed1_html = `<div style="height: 300px; width: 100%; 
-            background-color: #52de97">
-scroll me up !</div>
+```javascript hide_input=false
+fixed1_html = `<div>scroll me up !</div>
+
 <div class="header">
-  I am an out-of-flow fixed header. My height must be configured
-  statically! So that the body's top margin can be tailored
-  accordingly.
+  I am an out-of-flow fixed header. My height better 
+  be configured statically, so that the body's top margin
+  can be tailored accordingly.
 </div>
-<div style="height: 400px; width: 100%; 
-            background-color: #c0ffb3">
-you can see that the header sticks at the top !</div>`;
+
+<div>you can see the header sticks at the top !</div>`;
 fixed1_css = `div.header {
     /* this is hard-wired */
-    height: 50px;
+    height: 80px;
     position: fixed;
     font-size: 20px;    
     top: 0px;
-    left: 10%;
+    right: 0px;
     width: 80%;
-    background-color: #f800ff;
-    color: #0f4c75;
+    padding: 4px 10px;
+    box-sizing: border-box;
+    background-color: rgba(255, 240, 240, .50);
 }
 body {
     /* same as the header's height */
-    margin-top: 50px;
+    margin-top: 80px;
 }
+/* the rest is just cosmetic */
 div:not(.header) {
     /* outline borders */
     border: 2px solid blue;
     margin-top: 20px;
     font-size: 45px;
+    height: 400px;  /* fake content */
+    background-color: #fafafa;
 }`;
 tools.iframe_html_css("fixed1", fixed1_html, fixed1_css, true)
 ```
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+### a few comments
+
+**note** in the previous example :
+
+* we set the header's height to a fixed value (80px)  
+* this way we can shift the regular content down by that amount  
+  so they do not overlap at first
+* note the use of the `box-sizing` property  
+  we want the 80px to be for the full height of the fixed header (padding included)
+* also note the `rgba()` function to define colors with a level of transparency  
+  0: totally transparent, 1: totally opaque
+<!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## see also
@@ -101,7 +117,7 @@ tools.iframe_html_css("fixed1", fixed1_html, fixed1_css, true)
 
 * this topic is described [at greater length in this MDN article](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flow_Layout/In_Flow_and_Out_of_Flow)
 * css-tricks also has [a blog post dedicated to floats](https://css-tricks.com/all-about-floats/)
-* **WARNING** : advised for advanced users only  
+* **WARNING** : advised for **advanced users only**  
   * beginners should probably not try to use this at first
   * as mix-and-match of `display` and `position` settings  
     can quickly become rather confusing  

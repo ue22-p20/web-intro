@@ -44,7 +44,7 @@ tools.init();
 
 as per [this article on w3schools](https://www.w3schools.com/cssref/css3_pr_mediaquery.asp) :
 
-> The @media rule is used in media queries to apply different styles for different media types/devices.
+> The @media rule is used in media queries to apply **different styles** for **different media** types/devices
 
 > Media queries can be used to check many things, such as:
 
@@ -52,6 +52,7 @@ as per [this article on w3schools](https://www.w3schools.com/cssref/css3_pr_medi
 > * width and height of the device
 > * orientation (is the tablet/phone in landscape or portrait mode?)
 > * resolution
+> * printing, ...
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## example - width
@@ -67,14 +68,16 @@ or larger than ${threshold}
 <br><b>NOTE:</b> make sure your zoom factor is 100%
 </body>`;
 media_width_css = `/* beware that this rule MUST COME FIRST */
+
 body {
     background-color: #fae3d9; /* light pink */
 }
 
 /* applies if the browser window width
    is less than ${threshold} */
+
 @media only screen and (max-width: ${threshold}) {
-  body {
+  html>body {
     background-color: #bbded6; /* light green */
   }
 }
@@ -90,13 +93,21 @@ tools.iframe_html_css("media-rule-width", media_width_html, media_width_css, tru
   * note that the default `body` rule **MUST COME FIRST**
 * the reason is that when the `@media` rule applies
   * the browser sees **TWO RULES** with the **same specificity**
-  * as both selectors simply read `body`
-  * in that case the last one wins
+  * as **both selectors**  simply read `body`
+  * and in that case the last one wins
 * so **order is important**
-  * unless you implement a trick to make media rules more specific
-  * e.g. artificially add a `media` class
-  * and use it in media-specific rules
-  * but that is awkward and doesn't scale well...
+
+
+<div class="rise-footnote">
+
+of course one other way about that is to    
+
+* implement a trick to make media rules more specific
+* e.g. artificially add a `media` class
+* and use it in media-specific rules
+* but that is awkward and doesn't scale well...
+    
+</div>    
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## example - print
@@ -131,8 +142,7 @@ tools.iframe_html_css("media-rule-print", media_print_html, media_print_css, tru
 ## `<link>` examples
 <!-- #endregion -->
 
-another way to use media rules is from `<head>`  
-(remember that `<html>` is `<head>` and then `<body>`) :
+another way to use media rules is from the `<head>` tag
 
 <!-- #region -->
 ```html
@@ -146,6 +156,12 @@ another way to use media rules is from `<head>`
 ```
 <!-- #endregion -->
 
+<div class="rise-footnote">
+    
+remember that `<html>` contains 2 sons, a `<head>` and a `<body>`
+    
+</div>    
+
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## see also
 
@@ -158,9 +174,9 @@ another way to use media rules is from `<head>`
 <!-- #endregion -->
 
 1. open the example below in a separate window
-  * observe behaviour on narrow viewport
+  * observe behaviour on narrow, mid-size, and large viewport
 1. write an HTML document and related CSS that mimicks it
-
+  * at least for viewports smaller and larger than 512px
 
 ```javascript hide_input=true
 tools.iframe_exo("exo-grid", true, true)
