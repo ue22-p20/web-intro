@@ -1,6 +1,6 @@
 #container {
     display: grid;
-    grid-template-areas: 
+    grid-template-areas:
       "header header"
       "experience skills"
       "education languages";
@@ -22,7 +22,7 @@
     grid-area: languages;
 }
 
-section { 
+section {
     border: 1px solid red;
     padding: 20px;
     margin: 10px;

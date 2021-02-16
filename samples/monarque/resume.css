@@ -15,7 +15,12 @@ body {
 @media only screen and (max-width: 512px) {
     div#main-grid {
         grid-template-columns: repeat(auto-fit, 1fr);
-        grid-template-areas: "header" "photo" "middle" "left" "right";
+        grid-template-areas:
+            "header"
+            "photo"
+            "middle"
+            "left"
+            "right";
     }
     #photo {
         grid-area: photo;
@@ -31,7 +36,10 @@ body {
 @media (min-width: 512px) {
     div#main-grid {
         grid-template-columns: [left] 266px [quarter] auto [center] 50% [right];
-        grid-template-areas: "header header header" "middle middle middle" "left left right";
+        grid-template-areas:
+            "header header header"
+            "middle middle middle"
+            "left   left   right";
     }
     #photo {
         /* rowstart colstart rowend colend*/
@@ -59,7 +67,11 @@ body {
 #gadgets {
     grid-template-columns: [left] 50% [center] 50% [right];
     grid-template-rows: repeat(4, 1fr);
-    grid-template-areas: "title title" "address phone" "mail mail" "linkedin linkedin";
+    grid-template-areas:
+        "title title"
+        "address phone"
+        "mail mail"
+        "linkedin linkedin";
 }
 
 #gadgets div#title { grid-area: title; }
