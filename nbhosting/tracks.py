@@ -19,10 +19,11 @@ def tracks(coursedir):
             ("introduction", "notebooks/0*.md"),
             ("HTML basics", "notebooks/1*.md"),
           ]),
-        # ("course #2: CSS layout", "advanced layout with CSS", 'css',
-        #   [
-        #     ("layout with CSS", "notebooks/2*.md"),
-        #   ]),
+        ("course #2: CSS layout", "advanced layout with CSS", 'css',
+          [
+            ("quiz", "quiz/1-html.md"),
+            ("layout with CSS",  "notebooks/2*.md"),
+          ]),
         # ("course #3: JS basics", "programming with JS", "js",
         #   [
         #     ("intro to JS", "notebooks/3*.md"),
