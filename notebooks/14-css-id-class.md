@@ -185,7 +185,7 @@ the **element's parent**
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": ""} -->
-in a nushell, the intuition behind the actual rules is that
+in a nutshell, the intuition behind the actual rules is that
 
 * if you have manually defined a property in a `style` attribute, i.e. in the very node, it means you want this property to apply
 * otherwise if you have specified an `id` this means you expect this setting to be valid on that node
