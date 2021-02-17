@@ -76,3 +76,29 @@ tools.init();
 ```javascript hide_input=true slideshow={"slide_type": "slide"}
 tools.iframe_exo("monarque/resume", true, true)
 ```
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## publishing
+
+* once you're satisfied
+* and provided that you have no problem  
+  with your resumé being **publicly available**
+* you can easily publish it on `github.io` (see next slide)
+* plus tons of other opportunities around as well
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": ""} -->
+### publishing on github.io
+
+* this is simple and free
+* only supports public pages though
+
+assuming your github is `myid`
+* create a repo on github `myid/myid.github.io`
+* make it public
+* your resume will be available at  
+  `https://myid.github.io/`
+* simply push changes to have them published
+
+see <https://pages.github.com/> for details
+<!-- #endregion -->
