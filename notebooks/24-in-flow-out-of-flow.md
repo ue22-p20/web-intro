@@ -54,39 +54,44 @@ most of the elements we have seen so far are said to be *in-flow* :
 * there are ways to create elements out-of-flow 
 * a common practical example is a pinned header 
   (or navigation bar), illustrated below  
+* example 1 : using old-fashioned `position: fixed`
+* example 2 : using `position: sticky`
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## `fixed` example : a pinned header
 <!-- #endregion -->
 
-```javascript hide_input=true
-fixed1_html = `<div>scroll me up !</div>
+```javascript hide_input=true tags=[]
+fixed_html = `<div>scroll me up !</div>
 
-<div class="header">
-  I am an out-of-flow fixed header. My height better 
+<div id="header">
+  I am a header with <code>position: fixed</code>. My height better 
   be configured statically, so that the body's top margin
   can be tailored accordingly.
 </div>
 
 <div>you can see the header sticks at the top !</div>`;
-fixed1_css = `div.header {
-    /* this is hard-wired */
-    height: 80px;
+fixed_css = `body {
+    /* same as the header's height */
+    margin-top: 120px;
+}
+#header {
     position: fixed;
-    font-size: 20px;    
+  /* this is hard-wired */
+    height: 120px;
+  /* attach it in the corner */
     top: 0px;
     right: 0px;
-    width: 80%;
+  /* the 80 px is for the whole box */
+    box-sizing: border-box; 
+  /* cosmetic */
+    font-size: 20px;    
     padding: 4px 10px;
-    box-sizing: border-box;
     background-color: rgba(255, 240, 240, .50);
-}
-body {
-    /* same as the header's height */
-    margin-top: 80px;
+    border: 3px solid red;
 }
 /* the rest is just cosmetic */
-div:not(.header) {
+div:not(#header) {
     /* outline borders */
     border: 2px solid blue;
     margin-top: 20px;
@@ -94,7 +99,7 @@ div:not(.header) {
     height: 400px;  /* fake content */
     background-color: #fafafa;
 }`;
-tools.iframe_html_css("fixed1", fixed1_html, fixed1_css, true)
+tools.iframe_html_css("fixed", fixed_html, fixed_css, true)
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -102,14 +107,50 @@ tools.iframe_html_css("fixed1", fixed1_html, fixed1_css, true)
 
 **note** in the previous example :
 
-* we set the header's height to a fixed value (80px)  
+* we set the header's height to a fixed value (120px)  
 * this way we can shift the regular content down by that amount  
   so they do not overlap at first
 * note the use of the `box-sizing` property  
-  we want the 80px to be for the full height of the fixed header (padding included)
+  we want the 120px to be for the **full height** (padding + border included) of the header 
 * also note the `rgba()` function to define colors with a level of transparency  
   0: totally transparent, 1: totally opaque
 <!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## `sticky` example : a pinned header
+<!-- #endregion -->
+
+```javascript hide_input=true tags=[]
+sticky_html = `
+<div id="header">
+  I am a header with <code>position: sticky</code><br>
+this time I do not need to specify (twice) a height
+</div>
+
+<div>scroll me up !</div>
+
+<div>you can see the header sticks at the top !</div>`;
+sticky_css = `#header {
+    position: sticky;
+    top: 6px;
+
+    /* cosmetic */
+    font-size: 20px;    
+    padding: 4px 10px;
+    background-color: rgba(255, 240, 240, .50);
+    border: 3px solid red;
+}
+
+div:not(#header) {
+    /* outline borders */
+    border: 2px solid blue;
+    margin-top: 20px;
+    font-size: 45px;
+    height: 400px;  /* fake content */
+    background-color: #fafafa;
+}`;
+tools.iframe_html_css("sticky", sticky_html, sticky_css, true)
+```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## see also
@@ -131,10 +172,7 @@ tools.iframe_html_css("fixed1", fixed1_html, fixed1_css, true)
 
 optional topics :
 
-* to add some elements before or after all elements matching a selector  
-  see `::before` and `::after`
-* to style a `<a>` link depending on its status  
-  see e.g. `:hover` or `:visited` or similar pseudo-classes
+* see property `z-index` to define what is on the front or in the back
   
 * **experts** : if you believe you have a full understanding  
   of how CSS layouts work, you should [give this test a shot](https://css-tricks.com/how-well-do-you-know-css-layout/)  
