@@ -24,15 +24,11 @@ def tracks(coursedir):
             ("quiz", "quiz/1-html.md"),
             ("layout with CSS",  "notebooks/2*.md"),
           ]),
-        # ("course #3: JS basics", "programming with JS", "js",
-        #   [
-        #     ("intro to JS", "notebooks/3*.md"),
-        #   ]),
-        # ("optional content", "more tools, and course requirements", "options",
-        #   [
-        #       ("optional tools", "notebooks/[56]*.md"),
-        #       ("", ""),
-        #   ])
+         ("course #3: JS basics", "programming with JS", "js",
+           [
+             ("intro to JS", "notebooks/3*.md"),
+             ("optional content", "notebooks/[56]*.md"),
+           ]),
     ]
 
     return [Track(coursedir,
