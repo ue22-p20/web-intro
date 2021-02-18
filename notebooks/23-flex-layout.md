@@ -53,11 +53,17 @@ tools.init();
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 examples, as per [this article on MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox)
+
+<div style="font-size: 70%;">
+
 > The following simple layout requirements are either difficult or impossible to achieve with such tools, in any kind of convenient, flexible way:
 
 > * Vertically centering a block of content inside its parent.
 > * Making all the children of a container take up an equal amount of the available width/height, regardless of how much width/height is available.
 > * Making all columns in a multiple column layout adopt the same height even if they contain a different amount of content.
+    
+
+</div>
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -168,16 +174,11 @@ tools.iframe_html_css("flex2", flex2_html, flex2_css, true)
   or the other way around, of course
 * this is why the `<div>` tag is so all over the place
 
-<!-- #region slideshow={"slide_type": "slide"} -->
+
 ## practice
-<!-- #endregion -->
 
 1. mimick the layout below
 
 ```javascript hide_input=true
 tools.iframe_exo("exo-flex", true, true)
-```
-
-```javascript
-
 ```

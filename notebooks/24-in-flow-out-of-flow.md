@@ -59,7 +59,7 @@ most of the elements we have seen so far are said to be *in-flow* :
 ## `fixed` example : a pinned header
 <!-- #endregion -->
 
-```javascript hide_input=false
+```javascript hide_input=true
 fixed1_html = `<div>scroll me up !</div>
 
 <div class="header">
