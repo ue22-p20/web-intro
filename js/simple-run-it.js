@@ -11,52 +11,190 @@ function create_example_code(filename) {
 	const fs = require('fs');
 	const util = require('util');
 
+
 	let id = 'x' + hash(filename);
 
-	var html = util.format('<button style="width: 100%;" id="b%s">Update</button><div style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr; height: 300px;"><textarea id="%s">', id, id);
-	html += fs.readFileSync(filename);
-	html += util.format('</textarea><iframe id="i%s"></iframe>', id);
-	html += util.format(`<script defer>
+	let fullname_html = `../samples/${filename}.html`
+	let fullname_css  = `../samples/${filename}.css`
+	let fullname_js   = `../samples/${filename}.js`
 
-function run_code(src, dst)
-{
-        const content = src.getValue();
-        let iframe = dst;
+	let textarea = '';
 
-        if (iframe.contentWindow) {
-                iframe = iframe.contentWindow;
-        } else {
-                if (iframe.contentDocument.document) {
-                        iframe = iframe.contentDocument.document;
-                } else {
-                        iframe = iframe.contentDocument;
-                }
-        }
+	try {
+		fs.accessSync(fullname_html);
+		textarea += `<textarea id="html_${id}">${fs.readFileSync(fullname_html)}</textarea>`;
+	} catch { }
 
-        iframe.document.open();
-        iframe.document.write(content);
-        iframe.document.close();
+	try {
+		fs.accessSync(fullname_css);
+		textarea += `<textarea id="css_${id}">${fs.readFileSync(fullname_css)}</textarea>`;
+	} catch { }
 
-        return false;
-}
+	try {
+		fs.accessSync(fullname_js);
+		textarea += `<textarea id="js_${id}">${fs.readFileSync(fullname_js)}</textarea>`;
+	} catch { }
 
-	require(['codemirror/lib/codemirror', 'codemirror/mode/htmlmixed/htmlmixed'], (CodeMirror) => {
-		let src = CodeMirror.fromTextArea(document.getElementById("%s"), {
-			lineNumbers: true,
-			mode: "htmlmixed"
-		  });
-		let dst = document.getElementById("i%s");
-		let button = document.getElementById("b%s");
+
+	var html = `<div style="display: grid; grid-template-columns: 50% 50%; grid-template-rows: auto 1fr; height: 300px;">
+	<div style="display: flex;" id="btn1_${id}"></div>
+	<div style="display: flex;" id="btn0_${id}"></div>
+	<div style="overflow-y: auto;" >
+	${textarea}
+	</div>
+	<div style="display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr;" id="out_${id}"></div>
+	<script defer>
+
+	{
+
+	let all_src = { };
+
+	let dst = document.getElementById("out_${id}");
+
+	let callback = () => {
+		let html = '';
+		let css = '';
+		let js = '';
+
+		if (all_src.hasOwnProperty('html')) {
+			html = all_src.html.getValue();
+		}
+
+		if (all_src.hasOwnProperty('css')) {
+			css = all_src.css.getValue();
+		}
+
+		if (all_src.hasOwnProperty('js')) {
+			js = all_src.js.getValue();
+		}
+
+		let iframe = document.createElement("iframe");
+		while (dst.firstChild) {
+			dst.removeChild(dst.lastChild);
+		}
+
+		dst.appendChild(iframe);
+
+		if (iframe.contentWindow) {
+			iframe = iframe.contentWindow;
+		} else {
+			if (iframe.contentDocument.document) {
+				iframe = iframe.contentDocument.document;
+			} else {
+				iframe = iframe.contentDocument;
+			}
+		}
+
+		let tpl = "&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;style&gt;__css__&lt;/style&gt;&lt;script defer&gt;__js__&lt;/script&gt;&lt;/head&gt;&lt;body&gt;__html__&lt;/body&gt;&lt;/html&gt;";
+		// escape trick
+		let escape_trick = document.createElement("textarea");
+		escape_trick.innerHTML = tpl;
+		tpl = escape_trick.textContent;
+
+		tpl = tpl.replace("__html__", html);
+		tpl = tpl.replace("__css__", css);
+		tpl = tpl.replace("__js__", js);
+
+		iframe.document.open();
+		iframe.document.write(tpl);
+		iframe.document.close();
+
+		return false;
+
+	};
+
+	const html_src = document.getElementById("html_${id}");
+	if (html_src != null) {
+		require(['codemirror/lib/codemirror', 'codemirror/mode/htmlmixed/htmlmixed'], (CodeMirror) => {
+			all_src.html = CodeMirror.fromTextArea(html_src, {
+				lineNumbers: true,
+				mode: "htmlmixed"
+			});
+			all_src.html.getWrapperElement().style.height = "minmax(100%, 100%)";
+			all_src.html.getWrapperElement().style.display = "block";
+			callback();
+		});
+	}
+
+	const css_src = document.getElementById("css_${id}");
+	if (css_src != null) {
+		require(['codemirror/lib/codemirror', 'codemirror/mode/css/css'], (CodeMirror) => {
+			all_src.css = CodeMirror.fromTextArea(css_src, {
+				lineNumbers: true,
+				mode: "css"
+			});
+			all_src.css.getWrapperElement().style.height = "minmax(100%, 100%)";
+			all_src.css.getWrapperElement().style.display = "none";
+			callback();
+		});
+	}
+
+	const js_src = document.getElementById("js_${id}");
+	if (js_src != null) {
+		require(['codemirror/lib/codemirror', 'codemirror/mode/javascript/javascript'], (CodeMirror) => {
+			all_src.js = CodeMirror.fromTextArea(js_src, {
+				lineNumbers: true,
+				mode: "javascript"
+			});
+			all_src.js.getWrapperElement().style.height = "minmax(100%, 100%)";
+			all_src.js.getWrapperElement().style.display = "none";
+			callback();
+		});
+	}
+
+
+	let btn1 = document.getElementById("btn1_${id}");
+
+	let btn_html = document.createElement("button");
+	btn_html.addEventListener("click", () => {
+		all_src.css.getWrapperElement().style.display = "none";
+		all_src.js.getWrapperElement().style.display = "none";
+		all_src.html.getWrapperElement().style.display = "block";
+	});
+	btn_html.textContent = "HTML"
+	btn1.appendChild(btn_html);
+	
+	let btn_css = document.createElement("button");
+	btn_css.addEventListener("click", () => {
+		all_src.js.getWrapperElement().style.display = "none";
+		all_src.html.getWrapperElement().style.display = "none";
+		all_src.css.getWrapperElement().style.display = "block";
+	});
+	btn_css.textContent = "CSS"
+	btn1.appendChild(btn_css);
+	
+	let btn_js = document.createElement("button");
+	btn_js.addEventListener("click", () => {
+		all_src.css.getWrapperElement().style.display = "none";
+		all_src.html.getWrapperElement().style.display = "none";
+		all_src.js.getWrapperElement().style.display = "block";
+	});
+	btn_js.textContent = "JS"
+	btn1.appendChild(btn_js);
+
+	let btn0 = document.getElementById("btn0_${id}");
+	let btn_update = document.createElement("button");
+	btn_update.addEventListener("click", callback);
+	btn_update.textContent = "Update";
+	btn0.appendChild(btn_update);
+
+	}
+	`;
+
+
+/*
+		let dst = document.getElementById("html_${id}");
+		let button = document.getElementById("b${id}");
 		run_code(src, dst);
 		button.addEventListener("click", () => {
                 	console.log(src, dst);
                 	run_code(src, dst);
-        		});
-	});
-	</script>`, id, id, id);
+        		}); */
+
+	html += `</script>`;
 
 	$$.html(html);
-
+	//console.log(html);
 }
 
 function init() {
