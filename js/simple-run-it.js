@@ -13,10 +13,11 @@ function create_example_code(filename) {
 
 	let id = 'x' + hash(filename);
 
-	var html = util.format('<button style="width: 100%;" id="b%s">Update</button><div style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr; height: 300px;"><textarea id="%s">', id, id);
-	html += fs.readFileSync(filename);
-	html += util.format('</textarea><iframe id="i%s"></iframe>', id);
-	html += util.format(`<script defer>
+	var html = `<button style="width: 100%;" id="b${id}">Update</button>
+	<div style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr; height: 300px;">
+	<textarea id="${id}">${fs.readFileSync(filename)}</textarea>
+	<iframe id="i${id}"></iframe>
+	<script defer>
 
 function run_code(src, dst)
 {
@@ -41,19 +42,19 @@ function run_code(src, dst)
 }
 
 	require(['codemirror/lib/codemirror', 'codemirror/mode/htmlmixed/htmlmixed'], (CodeMirror) => {
-		let src = CodeMirror.fromTextArea(document.getElementById("%s"), {
+		let src = CodeMirror.fromTextArea(document.getElementById("${id}"), {
 			lineNumbers: true,
 			mode: "htmlmixed"
 		  });
-		let dst = document.getElementById("i%s");
-		let button = document.getElementById("b%s");
+		let dst = document.getElementById("i${id}");
+		let button = document.getElementById("b${id}");
 		run_code(src, dst);
 		button.addEventListener("click", () => {
                 	console.log(src, dst);
                 	run_code(src, dst);
         		});
 	});
-	</script>`, id, id, id);
+	</script>`;
 
 	$$.html(html);
 
