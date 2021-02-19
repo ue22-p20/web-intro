@@ -32,9 +32,7 @@ jupyter:
 <!-- #endregion -->
 
 ```javascript
-// run this cell, and then 
-// click the created button
-tools = require('../js/tools');
+tools = require('../js/simple-run-it');
 tools.init();
 ```
 
@@ -77,46 +75,8 @@ in this example :
 * that is bound to the `onclick` event   
   of the button element
 
-```javascript hide_input=true slideshow={"slide_type": "slide"}
-all3_html = `<div id="button"
-     onclick="toggle()">
-  click to hide or show next item
-</div>
-<div id="area" style="display:none">
-    This area will come and go
-    <br> Check console output 
-    in the devel tools area
-</div>`;
-all3_css = `#button {
-  padding: 20px;
-  border: 1px solid blue;
-  border-radius: 5px;
-  background-color: #ffb6b9;
-  width: fit-content;
-}
-#area {
-  padding: 10px;
-  background-color: #f5f0e3;
-}`;
-all3_js = `/* we will see in the next notebook
-   how to load javascript code     */
-function toggle() {
-  // from the 'document' global variable
-  // locate the element that we want to toggle
-  let to_toggle = document.getElementById("area");
-  // find its current status
-  let current = to_toggle.style.display;
-  // apply the opposite status
-  if (current == "block") {
-    to_toggle.style.display = "none";
-  } else {
-    to_toggle.style.display = "block";    
-  }
-  // show a message in the JS console
-  console.log(current);
-  console.log(current, " → ", to_toggle.style.display);
-}`;
-tools.iframe_html_css_js("foo-all3", all3_html, all3_css, all3_js, true)
+```javascript scrolled=true
+tools.create_example_code("../samples/30-js-intro-example-00.html");
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -145,7 +105,7 @@ in this further example :
 * button to start / suspend
 
 ```javascript hide_input=true slideshow={"slide_type": "slide"}
-tools.iframe_samples_html_css_js("randomdots", true)
+tools.create_example_code("../samples/30-js-intro-example-randomdots.html");
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->

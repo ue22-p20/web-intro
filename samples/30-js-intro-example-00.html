@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<style>
+#button {
+  padding: 20px;
+  border: 1px solid blue;
+  border-radius: 5px;
+  background-color: #ffb6b9;
+  width: fit-content;
+}
+#area {
+  padding: 10px;
+  background-color: #f5f0e3;
+}
+</style>
+<script defer>
+/* we will see in the next notebook
+   how to load javascript code     */
+function toggle() {
+  // from the 'document' global variable
+  // locate the element that we want to toggle
+  let to_toggle = document.getElementById("area");
+  // find its current status
+  let current = to_toggle.style.display;
+  // apply the opposite status
+  if (current == "block") {
+    to_toggle.style.display = "none";
+  } else {
+    to_toggle.style.display = "block";
+  }
+  // show a message in the JS console
+  console.log(current);
+  console.log(current, " → ", to_toggle.style.display);
+}
+</script>
+</head>
+<body>
+<div id="button"
+     onclick="toggle()">
+  click to hide or show next item
+</div>
+<div id="area" style="display:none">
+    This area will come and go
+    <br> Check console output 
+    in the devel tools area
+</div>
+</body>
+</html>
