@@ -36,9 +36,12 @@ function create_example_code(filename) {
 	} catch { }
 
 
-	var html = `<button style="width: 100%;" id="btn_${id}">Update</button>
-	<div style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; height: 300px;">
+	var html = `<div style="display: grid; grid-template-columns: 50% 50%; grid-template-rows: auto 1fr; height: 300px;">
+	<div style="display: flex;" id="btn1_${id}"></div>
+	<div style="display: flex;" id="btn0_${id}"></div>
+	<div style="overflow-y: auto;" >
 	${textarea}
+	</div>
 	<div style="display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr;" id="out_${id}"></div>
 	<script defer>
 
@@ -106,7 +109,9 @@ function create_example_code(filename) {
 			all_src.html = CodeMirror.fromTextArea(html_src, {
 				lineNumbers: true,
 				mode: "htmlmixed"
-			  });
+			});
+			all_src.html.getWrapperElement().style.height = "minmax(100%, 100%)";
+			all_src.html.getWrapperElement().style.display = "block";
 			callback();
 		});
 	}
@@ -117,7 +122,9 @@ function create_example_code(filename) {
 			all_src.css = CodeMirror.fromTextArea(css_src, {
 				lineNumbers: true,
 				mode: "css"
-			  });
+			});
+			all_src.css.getWrapperElement().style.height = "minmax(100%, 100%)";
+			all_src.css.getWrapperElement().style.display = "none";
 			callback();
 		});
 	}
@@ -129,14 +136,47 @@ function create_example_code(filename) {
 				lineNumbers: true,
 				mode: "javascript"
 			});
+			all_src.js.getWrapperElement().style.height = "minmax(100%, 100%)";
+			all_src.js.getWrapperElement().style.display = "none";
 			callback();
 		});
 	}
 
 
-	let button = document.getElementById("btn_${id}");
-	button.addEventListener("click", callback);
+	let btn1 = document.getElementById("btn1_${id}");
 
+	let btn_html = document.createElement("button");
+	btn_html.addEventListener("click", () => {
+		all_src.css.getWrapperElement().style.display = "none";
+		all_src.js.getWrapperElement().style.display = "none";
+		all_src.html.getWrapperElement().style.display = "block";
+	});
+	btn_html.textContent = "HTML"
+	btn1.appendChild(btn_html);
+	
+	let btn_css = document.createElement("button");
+	btn_css.addEventListener("click", () => {
+		all_src.js.getWrapperElement().style.display = "none";
+		all_src.html.getWrapperElement().style.display = "none";
+		all_src.css.getWrapperElement().style.display = "block";
+	});
+	btn_css.textContent = "CSS"
+	btn1.appendChild(btn_css);
+	
+	let btn_js = document.createElement("button");
+	btn_js.addEventListener("click", () => {
+		all_src.css.getWrapperElement().style.display = "none";
+		all_src.html.getWrapperElement().style.display = "none";
+		all_src.js.getWrapperElement().style.display = "block";
+	});
+	btn_js.textContent = "JS"
+	btn1.appendChild(btn_js);
+
+	let btn0 = document.getElementById("btn0_${id}");
+	let btn_update = document.createElement("button");
+	btn_update.addEventListener("click", callback);
+	btn_update.textContent = "Update";
+	btn0.appendChild(btn_update);
 
 	}
 	`;
