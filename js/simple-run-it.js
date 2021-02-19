@@ -11,53 +11,150 @@ function create_example_code(filename) {
 	const fs = require('fs');
 	const util = require('util');
 
+
 	let id = 'x' + hash(filename);
 
-	var html = `<button style="width: 100%;" id="b${id}">Update</button>
-	<div style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr; height: 300px;">
-	<textarea id="${id}">${fs.readFileSync(filename)}</textarea>
-	<iframe id="i${id}"></iframe>
+	let fullname_html = `../samples/${filename}.html`
+	let fullname_css  = `../samples/${filename}.css`
+	let fullname_js   = `../samples/${filename}.js`
+
+	let textarea = '';
+
+	try {
+		fs.accessSync(fullname_html);
+		textarea += `<textarea id="html_${id}">${fs.readFileSync(fullname_html)}</textarea>`;
+	} catch { }
+
+	try {
+		fs.accessSync(fullname_css);
+		textarea += `<textarea id="css_${id}">${fs.readFileSync(fullname_css)}</textarea>`;
+	} catch { }
+
+	try {
+		fs.accessSync(fullname_js);
+		textarea += `<textarea id="js_${id}">${fs.readFileSync(fullname_js)}</textarea>`;
+	} catch { }
+
+
+	var html = `<button style="width: 100%;" id="btn_${id}">Update</button>
+	<div style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; height: 300px;">
+	${textarea}
+	<div style="display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr;" id="out_${id}"></div>
 	<script defer>
 
-function run_code(src, dst)
-{
-        const content = src.getValue();
-        let iframe = dst;
+	{
 
-        if (iframe.contentWindow) {
-                iframe = iframe.contentWindow;
-        } else {
-                if (iframe.contentDocument.document) {
-                        iframe = iframe.contentDocument.document;
-                } else {
-                        iframe = iframe.contentDocument;
-                }
-        }
+	let all_src = { };
 
-        iframe.document.open();
-        iframe.document.write(content);
-        iframe.document.close();
+	let dst = document.getElementById("out_${id}");
 
-        return false;
-}
+	let callback = () => {
+		let html = '';
+		let css = '';
+		let js = '';
 
-	require(['codemirror/lib/codemirror', 'codemirror/mode/htmlmixed/htmlmixed'], (CodeMirror) => {
-		let src = CodeMirror.fromTextArea(document.getElementById("${id}"), {
-			lineNumbers: true,
-			mode: "htmlmixed"
-		  });
-		let dst = document.getElementById("i${id}");
+		if (all_src.hasOwnProperty('html')) {
+			html = all_src.html.getValue();
+		}
+
+		if (all_src.hasOwnProperty('css')) {
+			css = all_src.css.getValue();
+		}
+
+		if (all_src.hasOwnProperty('js')) {
+			js = all_src.js.getValue();
+		}
+
+		let iframe = document.createElement("iframe");
+		while (dst.firstChild) {
+			dst.removeChild(dst.lastChild);
+		}
+
+		dst.appendChild(iframe);
+
+		if (iframe.contentWindow) {
+			iframe = iframe.contentWindow;
+		} else {
+			if (iframe.contentDocument.document) {
+				iframe = iframe.contentDocument.document;
+			} else {
+				iframe = iframe.contentDocument;
+			}
+		}
+
+		let tpl = "&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;style&gt;__css__&lt;/style&gt;&lt;script defer&gt;__js__&lt;/script&gt;&lt;/head&gt;&lt;body&gt;__html__&lt;/body&gt;&lt;/html&gt;";
+		// escape trick
+		let escape_trick = document.createElement("textarea");
+		escape_trick.innerHTML = tpl;
+		tpl = escape_trick.textContent;
+
+		tpl = tpl.replace("__html__", html);
+		tpl = tpl.replace("__css__", css);
+		tpl = tpl.replace("__js__", js);
+
+		iframe.document.open();
+		iframe.document.write(tpl);
+		iframe.document.close();
+
+		return false;
+
+	};
+
+	const html_src = document.getElementById("html_${id}");
+	if (html_src != null) {
+		require(['codemirror/lib/codemirror', 'codemirror/mode/htmlmixed/htmlmixed'], (CodeMirror) => {
+			all_src.html = CodeMirror.fromTextArea(html_src, {
+				lineNumbers: true,
+				mode: "htmlmixed"
+			  });
+			callback();
+		});
+	}
+
+	const css_src = document.getElementById("css_${id}");
+	if (css_src != null) {
+		require(['codemirror/lib/codemirror', 'codemirror/mode/css/css'], (CodeMirror) => {
+			all_src.css = CodeMirror.fromTextArea(css_src, {
+				lineNumbers: true,
+				mode: "css"
+			  });
+			callback();
+		});
+	}
+
+	const js_src = document.getElementById("js_${id}");
+	if (js_src != null) {
+		require(['codemirror/lib/codemirror', 'codemirror/mode/javascript/javascript'], (CodeMirror) => {
+			all_src.js = CodeMirror.fromTextArea(js_src, {
+				lineNumbers: true,
+				mode: "javascript"
+			});
+			callback();
+		});
+	}
+
+
+	let button = document.getElementById("btn_${id}");
+	button.addEventListener("click", callback);
+
+
+	}
+	`;
+
+
+/*
+		let dst = document.getElementById("html_${id}");
 		let button = document.getElementById("b${id}");
 		run_code(src, dst);
 		button.addEventListener("click", () => {
                 	console.log(src, dst);
                 	run_code(src, dst);
-        		});
-	});
-	</script>`;
+        		}); */
+
+	html += `</script>`;
 
 	$$.html(html);
-
+	//console.log(html);
 }
 
 function init() {

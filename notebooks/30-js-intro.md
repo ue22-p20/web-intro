@@ -76,7 +76,7 @@ in this example :
   of the button element
 
 ```javascript scrolled=true
-tools.create_example_code("../samples/30-js-intro-example-00.html");
+tools.create_example_code("30-js-intro-example-00");
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -105,7 +105,7 @@ in this further example :
 * button to start / suspend
 
 ```javascript hide_input=true slideshow={"slide_type": "slide"}
-tools.create_example_code("../samples/30-js-intro-example-randomdots.html");
+tools.create_example_code("30-js-intro-example-randomdots");
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
