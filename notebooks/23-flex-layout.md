@@ -174,10 +174,11 @@ tools.iframe_html_css("flex2", flex2_html, flex2_css, true)
   or the other way around, of course
 * this is why the `<div>` tag is so all over the place
 
-
+<!-- #region slideshow={"slide_type": "slide"} -->
 ## practice
 
 1. mimick the layout below
+<!-- #endregion -->
 
 ```javascript hide_input=true
 tools.iframe_exo("exo-flex", true, true)
