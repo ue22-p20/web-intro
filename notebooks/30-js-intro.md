@@ -75,7 +75,7 @@ in this example :
 * that is bound to the `onclick` event   
   of the button element
 
-```javascript scrolled=true
+```javascript scrolled=true slideshow={"slide_type": "slide"} hide_input=true
 tools.create_example_code("30-js-intro-example-00");
 ```
 
