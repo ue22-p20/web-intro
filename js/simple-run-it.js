@@ -23,17 +23,23 @@ function create_example_code(filename) {
 	try {
 		fs.accessSync(fullname_html);
 		textarea += `<textarea id="html_${id}">${fs.readFileSync(fullname_html)}</textarea>`;
-	} catch { }
+	} catch { 
+		textarea += `<textarea id="html_${id}"><!-- empty --></textarea>`;
+	}
 
 	try {
 		fs.accessSync(fullname_css);
 		textarea += `<textarea id="css_${id}">${fs.readFileSync(fullname_css)}</textarea>`;
-	} catch { }
+	} catch {
+		textarea += `<textarea id="css_${id}">/* empty */</textarea>`;
+	}
 
 	try {
 		fs.accessSync(fullname_js);
 		textarea += `<textarea id="js_${id}">${fs.readFileSync(fullname_js)}</textarea>`;
-	} catch { }
+	} catch {
+		textarea += `<textarea id="js_${id}">/* empty */</textarea>`;
+	}
 
 
 	var html = `<style>
@@ -66,7 +72,11 @@ function create_example_code(filename) {
 	<div style="display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr;" id="out_${id}"></div>
 	<script defer>
 
-	{
+	require(['codemirror/lib/codemirror',
+		 'codemirror/mode/htmlmixed/htmlmixed',
+		 'codemirror/mode/css/css',
+		 'codemirror/mode/javascript/javascript'
+		 ], (CodeMirror) => {
 
 	let all_src = { };
 
@@ -134,50 +144,34 @@ function create_example_code(filename) {
 
 
 	const html_src = document.getElementById("html_${id}");
-	if (html_src != null) {
-		require(['codemirror/lib/codemirror', 'codemirror/mode/htmlmixed/htmlmixed'], (CodeMirror) => {
-			all_src.html = CodeMirror.fromTextArea(html_src, {
-				lineNumbers: true,
-				mode: "htmlmixed"
-			});
-			all_src.html.getWrapperElement().style['min-height'] = '200px';
-			all_src.html.getWrapperElement().style.display = "block";
-			update_iframe();
-		});
-	}
+	all_src.html = CodeMirror.fromTextArea(html_src, {
+		lineNumbers: true,
+		mode: "htmlmixed"
+	});
+	all_src.html.getWrapperElement().style['min-height'] = '200px';
+	all_src.html.getWrapperElement().style.display = "block";
 
 	const css_src = document.getElementById("css_${id}");
-	if (css_src != null) {
-		require(['codemirror/lib/codemirror', 'codemirror/mode/css/css'], (CodeMirror) => {
-			all_src.css = CodeMirror.fromTextArea(css_src, {
-				lineNumbers: true,
-				mode: "css"
-			});
-			all_src.css.getWrapperElement().style['min-height'] = '200px';
-			all_src.css.getWrapperElement().style.display = "none";
-			update_iframe();
-		});
-	}
-
+	all_src.css = CodeMirror.fromTextArea(css_src, {
+		lineNumbers: true,
+		mode: "css"
+	});
+	all_src.css.getWrapperElement().style['min-height'] = '200px';
+	all_src.css.getWrapperElement().style.display = "none";
 	const js_src = document.getElementById("js_${id}");
-	if (js_src != null) {
-		require(['codemirror/lib/codemirror', 'codemirror/mode/javascript/javascript'], (CodeMirror) => {
-			all_src.js = CodeMirror.fromTextArea(js_src, {
-				lineNumbers: true,
-				mode: "javascript"
-			});
-			all_src.js.getWrapperElement().style['min-height'] = '200px';
-			all_src.js.getWrapperElement().style.display = "none";
-			update_iframe();
-		});
-	}
-
+	all_src.js = CodeMirror.fromTextArea(js_src, {
+		lineNumbers: true,
+		mode: "javascript"
+	});
+	all_src.js.getWrapperElement().style['min-height'] = '200px';
+	all_src.js.getWrapperElement().style.display = "none";
 
 	let btn1 = document.getElementById("btn1_${id}");
 
 	let btn_html = document.createElement("button");
 	btn_html.textContent = "HTML"
 	btn_html.classList.add("${id}_btn");
+	btn_html.classList.add("${id}_selected");
 	btn1.appendChild(btn_html);
 	let btn_css = document.createElement("button");
 	btn_css.textContent = "CSS"
@@ -191,7 +185,7 @@ function create_example_code(filename) {
 	btn_fill.classList.add("${id}_btn");
 	btn_fill.style['flex-grow'] = '1';
 	btn1.appendChild(btn_fill);
-	
+
 	btn_html.addEventListener("click", () => {
 		btn_css.classList.remove("${id}_selected");
 		btn_js.classList.remove("${id}_selected");
@@ -238,7 +232,10 @@ function create_example_code(filename) {
 	btn_window.textContent = "View in window";
 	btn0.appendChild(btn_window);
 
-	}
+	update_iframe();
+
+	}); /* End of all requirements */
+
 	`;
 
 
