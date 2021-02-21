@@ -36,7 +36,28 @@ function create_example_code(filename) {
 	} catch { }
 
 
-	var html = `<div style="display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto 1fr;">
+	var html = `<style>
+		.${id}_btn {
+			border-top: 0px solid transparent;
+			border-left: 0px solid transparent;
+			border-right: 0px solid transparent;
+			border-bottom: 1px solid #CFCFCF;
+			padding-top: 6px;
+			padding-left: 11px;
+			padding-right: 11px;
+			padding-bottom: 5px;
+		}
+		.${id}_selected {
+			border-top: 1px solid #CFCFCF;
+			border-left: 1px solid #CFCFCF;
+			border-right: 1px solid #CFCFCF;
+			border-bottom: 1px solid transparent;
+			padding-top: 5px;
+			padding-left: 10px;
+			padding-right: 10px;
+			padding-bottom: 6px;
+		}
+	</style><div style="display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto 1fr;">
 	<div style="display: flex;" id="btn1_${id}"></div>
 	<div style="display: flex;" id="btn0_${id}"></div>
 	<div style="overflow-y: auto; resize: both; z-index: 100; min-width: 300px; min-height: 200px;" >
@@ -155,31 +176,48 @@ function create_example_code(filename) {
 	let btn1 = document.getElementById("btn1_${id}");
 
 	let btn_html = document.createElement("button");
+	btn_html.textContent = "HTML"
+	btn_html.classList.add("${id}_btn");
+	btn1.appendChild(btn_html);
+	let btn_css = document.createElement("button");
+	btn_css.textContent = "CSS"
+	btn_css.classList.add("${id}_btn");
+	btn1.appendChild(btn_css);
+	let btn_js = document.createElement("button");
+	btn_js.textContent = "JS"
+	btn_js.classList.add("${id}_btn");
+	btn1.appendChild(btn_js);
+	let btn_fill = document.createElement("button");
+	btn_fill.classList.add("${id}_btn");
+	btn_fill.style['flex-grow'] = '1';
+	btn1.appendChild(btn_fill);
+	
 	btn_html.addEventListener("click", () => {
+		btn_css.classList.remove("${id}_selected");
+		btn_js.classList.remove("${id}_selected");
+		btn_html.classList.add("${id}_selected");
 		all_src.css.getWrapperElement().style.display = "none";
 		all_src.js.getWrapperElement().style.display = "none";
 		all_src.html.getWrapperElement().style.display = "block";
 	});
-	btn_html.textContent = "HTML"
-	btn1.appendChild(btn_html);
 
-	let btn_css = document.createElement("button");
 	btn_css.addEventListener("click", () => {
+		btn_html.classList.remove("${id}_selected");
+		btn_js.classList.remove("${id}_selected");
+		btn_css.classList.add("${id}_selected");
 		all_src.js.getWrapperElement().style.display = "none";
 		all_src.html.getWrapperElement().style.display = "none";
 		all_src.css.getWrapperElement().style.display = "block";
 	});
-	btn_css.textContent = "CSS"
-	btn1.appendChild(btn_css);
 
-	let btn_js = document.createElement("button");
 	btn_js.addEventListener("click", () => {
+		btn_css.classList.remove("${id}_selected");
+		btn_html.classList.remove("${id}_selected");
+		btn_js.classList.add("${id}_selected");
 		all_src.css.getWrapperElement().style.display = "none";
 		all_src.html.getWrapperElement().style.display = "none";
 		all_src.js.getWrapperElement().style.display = "block";
 	});
-	btn_js.textContent = "JS"
-	btn1.appendChild(btn_js);
 
 	let btn0 = document.getElementById("btn0_${id}");
 	let btn_update = document.createElement("button");
@@ -221,8 +259,6 @@ function create_example_code(filename) {
 
 function init() {
 $$.html(`<script>
-//require(['/files/js/lib/codemirror.js']);
-//require(['/files/js/mode/htmlmixed/htmlmixed.js']);
 require(['codemirror/mode/htmlmixed/htmlmixed']);
 Jupyter.notebook.execute_cells_below();
 </script>`);
