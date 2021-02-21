@@ -3,8 +3,10 @@ const svgNS = "http://www.w3.org/2000/svg";
 
 /* generates random circles in specified area */
 class Board {
-    
-    constructor(width, height, start_x, start_y, radius, active) {
+
+    constructor(width, height,
+                start_x, start_y,
+                radius, active) {
         this.w = width;
         this.h = height;
         this.x = start_x;
@@ -12,7 +14,7 @@ class Board {
         this.r = radius;
         this.active = active;
     }
-    
+
     draw() {
         let svg = document.querySelector("svg");
         console.log(svg);
@@ -22,21 +24,21 @@ class Board {
         c.setAttribute('r', this.r);  // svg's circle radius
         svg.append(c);
     }
-    
+
     // compute random position for next circle
     move(walker) {
         let [rx, ry] = [Math.random(), Math.random()];
         this.x = rx * this.w;
         this.y = ry * this.h;
     }
-    
+
     toggle() {
         this.active = ! this.active;
     }
-    
+
     // heartbeat
     one_step() {
-        console.log("in RUN"); 
+        console.log("in RUN");
         if (this.active) {
             this.draw();
             this.move();
@@ -56,7 +58,7 @@ function start_stop() {
 }
 
 // start the loop, but only once the page is loaded
-window.onload = function () { 
+window.onload = function () {
     let svg = document.querySelector("svg");
     svg.setAttribute('width', the_board.w);
     svg.setAttribute('height', the_board.h);
