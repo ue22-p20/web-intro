@@ -207,7 +207,7 @@ function from_samples(filename, options) {
 	btn_js.classList.add("${id}_btn");
 	if (${start_with == 'js'}) btn_js.classList.add("${id}_selected");
 	btn1.appendChild(btn_js);
-	let btn_fill = document.createElement("button");
+	let btn_fill = document.createElement("span");
 	btn_fill.classList.add("${id}_btn");
 	btn_fill.style['flex-grow'] = '1';
 	btn1.appendChild(btn_fill);
