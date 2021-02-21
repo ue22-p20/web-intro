@@ -51,7 +51,7 @@ function create_example_code(filename) {
 
 	let dst = document.getElementById("out_${id}");
 
-	let callback = () => {
+	let get_example_content = () => {
 		let html = '';
 		let css = '';
 		let js = '';
@@ -67,6 +67,24 @@ function create_example_code(filename) {
 		if (all_src.hasOwnProperty('js')) {
 			js = all_src.js.getValue();
 		}
+
+
+		let tpl = "&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;style&gt;__css__&lt;/style&gt;&lt;script defer&gt;__js__&lt;/script&gt;&lt;/head&gt;&lt;body&gt;__html__&lt;/body&gt;&lt;/html&gt;";
+		// escape trick
+		let escape_trick = document.createElement("textarea");
+		escape_trick.innerHTML = tpl;
+		tpl = escape_trick.textContent;
+
+		tpl = tpl.replace("__html__", html);
+		tpl = tpl.replace("__css__", css);
+		tpl = tpl.replace("__js__", js);
+
+		return tpl;
+	};
+
+	let update_iframe = () => {
+
+		let tpl = get_example_content();
 
 		let iframe = document.createElement("iframe");
 		while (dst.firstChild) {
@@ -85,16 +103,6 @@ function create_example_code(filename) {
 			}
 		}
 
-		let tpl = "&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;style&gt;__css__&lt;/style&gt;&lt;script defer&gt;__js__&lt;/script&gt;&lt;/head&gt;&lt;body&gt;__html__&lt;/body&gt;&lt;/html&gt;";
-		// escape trick
-		let escape_trick = document.createElement("textarea");
-		escape_trick.innerHTML = tpl;
-		tpl = escape_trick.textContent;
-
-		tpl = tpl.replace("__html__", html);
-		tpl = tpl.replace("__css__", css);
-		tpl = tpl.replace("__js__", js);
-
 		iframe.document.open();
 		iframe.document.write(tpl);
 		iframe.document.close();
@@ -102,6 +110,7 @@ function create_example_code(filename) {
 		return false;
 
 	};
+
 
 	const html_src = document.getElementById("html_${id}");
 	if (html_src != null) {
@@ -112,7 +121,7 @@ function create_example_code(filename) {
 			});
 			all_src.html.getWrapperElement().style.height = "minmax(100%, 100%)";
 			all_src.html.getWrapperElement().style.display = "block";
-			callback();
+			update_iframe();
 		});
 	}
 
@@ -125,7 +134,7 @@ function create_example_code(filename) {
 			});
 			all_src.css.getWrapperElement().style.height = "minmax(100%, 100%)";
 			all_src.css.getWrapperElement().style.display = "none";
-			callback();
+			update_iframe();
 		});
 	}
 
@@ -138,7 +147,7 @@ function create_example_code(filename) {
 			});
 			all_src.js.getWrapperElement().style.height = "minmax(100%, 100%)";
 			all_src.js.getWrapperElement().style.display = "none";
-			callback();
+			update_iframe();
 		});
 	}
 
@@ -153,7 +162,7 @@ function create_example_code(filename) {
 	});
 	btn_html.textContent = "HTML"
 	btn1.appendChild(btn_html);
-	
+
 	let btn_css = document.createElement("button");
 	btn_css.addEventListener("click", () => {
 		all_src.js.getWrapperElement().style.display = "none";
@@ -162,7 +171,7 @@ function create_example_code(filename) {
 	});
 	btn_css.textContent = "CSS"
 	btn1.appendChild(btn_css);
-	
+
 	let btn_js = document.createElement("button");
 	btn_js.addEventListener("click", () => {
 		all_src.css.getWrapperElement().style.display = "none";
@@ -174,9 +183,22 @@ function create_example_code(filename) {
 
 	let btn0 = document.getElementById("btn0_${id}");
 	let btn_update = document.createElement("button");
-	btn_update.addEventListener("click", callback);
 	btn_update.textContent = "Update";
 	btn0.appendChild(btn_update);
+	btn_update.addEventListener("click", update_iframe);
+
+	let btn_window = document.createElement("button");
+	btn_window.addEventListener("click", () => {
+		let tpl = get_example_content();
+
+		let w = window.open(null, '_blank', 'height=300,width=300');
+		w.document.open();
+		w.document.write(tpl);
+		w.document.close();
+
+	});
+	btn_window.textContent = "View in window";
+	btn0.appendChild(btn_window);
 
 	}
 	`;
