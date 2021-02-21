@@ -1,5 +1,3 @@
-
-
 function hash(word) {
     let crypto = require('crypto');
     let sha1 = crypto.createHash('sha1');
@@ -43,15 +41,16 @@ function create_example_code(filename, options) {
 		textarea += `<textarea id="css_${id}">/* empty */</textarea>`;
 	}
 
+
 	try {
 		fs.accessSync(fullname_js);
 		textarea += `<textarea id="js_${id}">${fs.readFileSync(fullname_js)}</textarea>`;
 	} catch {
-		textarea += `<textarea id="js_${id}">/* empty */</textarea>`;
+		textarea += `<textarea id="js_${id}">// empty</textarea>`;
 	}
 
 
-	var html = `<style>
+	let html = `<style>
 		.${id}_btn {
 			border-top: 0px solid transparent;
 			border-left: 0px solid transparent;
@@ -262,22 +261,11 @@ function create_example_code(filename, options) {
 
 	}); /* End of all requirements */
 
-	`;
-
-
-/*
-		let dst = document.getElementById("html_${id}");
-		let button = document.getElementById("b${id}");
-		run_code(src, dst);
-		button.addEventListener("click", () => {
-                	console.log(src, dst);
-                	run_code(src, dst);
-        		}); */
+	`
 
 	html += `</script>`;
 
 	$$.html(html);
-	//console.log(html);
 }
 
 function init() {
@@ -289,46 +277,3 @@ Jupyter.notebook.execute_cells_below();
 
 exports.init = init;
 exports.create_example_code = create_example_code;
-
-/*
-var nodes = document.getElementsByClassName("code-example");
-
-for (let n of nodes) {
-	let btn = document.createElement('button');
-	btn.innerText = "Update";
-	let src = n.cloneNode(true);
-	let dst = document.createElement("iframe");
-	let ctn = document.createElement('div');
-	let ctn1 = document.createElement('div');
-
-	ctn.setAttribute("class", "code-example-container");
-	ctn.appendChild(btn);
-	ctn.appendChild(ctn1);
-	ctn1.appendChild(src);
-	ctn1.appendChild(dst);
-
-	n.parentElement.replaceChild(ctn, n);
-
-	let nsrc = CodeMirror.fromTextArea(src, {
-		lineNumbers: true,
-		mode: "htmlmixed"
-	  });
-
-	run_code(nsrc, dst);
-
-	btn.addEventListener("click", () => {
-		console.log(nsrc, dst);
-		run_code(nsrc, dst);
-	});
-
-}
-
-var sections = document.getElementsByTagName("section");
-let i = 0;
-for (let i = 0; i < sections.length; ++i) {
-	let p = document.createElement("center");
-	p.innerText = `${i+1}/${sections.length}`;
-	sections[i].appendChild(p);
-}
-
-*/
