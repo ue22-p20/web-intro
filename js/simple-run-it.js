@@ -123,8 +123,11 @@ function create_example_code(filename) {
 		}
 
 		dst.appendChild(iframe);
+    iframe.width = "100%";
+    iframe.height = "100%";
 
 		if (iframe.contentWindow) {
+
 			iframe = iframe.contentWindow;
 		} else {
 			if (iframe.contentDocument.document) {
