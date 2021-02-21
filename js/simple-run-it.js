@@ -202,6 +202,7 @@ function create_example_code(filename) {
 		all_src.css.getWrapperElement().style.display = "none";
 		all_src.js.getWrapperElement().style.display = "none";
 		all_src.html.getWrapperElement().style.display = "block";
+		all_src.html.refresh();
 	});
 
 	btn_css.addEventListener("click", () => {
@@ -211,6 +212,7 @@ function create_example_code(filename) {
 		all_src.js.getWrapperElement().style.display = "none";
 		all_src.html.getWrapperElement().style.display = "none";
 		all_src.css.getWrapperElement().style.display = "block";
+		all_src.css.refresh();
 	});
 
 	btn_js.addEventListener("click", () => {
@@ -220,6 +222,7 @@ function create_example_code(filename) {
 		all_src.css.getWrapperElement().style.display = "none";
 		all_src.html.getWrapperElement().style.display = "none";
 		all_src.js.getWrapperElement().style.display = "block";
+		all_src.js.refresh();
 	});
 
 	let btn0 = document.getElementById("btn0_${id}");
@@ -242,6 +245,8 @@ function create_example_code(filename) {
 	btn0.appendChild(btn_window);
 
 	update_iframe();
+
+	all_src.html.refresh();
 
 	}); /* End of all requirements */
 
