@@ -4,29 +4,30 @@ const svgNS = "http://www.w3.org/2000/svg";
 /* generates random circles in specified area */
 class Board {
 
-    constructor(width, height,
-                start_x, start_y,
-                radius, active) {
+    constructor(width, height, radius) {
         this.w = width;
         this.h = height;
-        this.x = start_x;
-        this.y = start_y;
+        this.x = width / 2;
+        this.y = height / 2;
         this.r = radius;
-        this.active = active;
+        this.active = false;
     }
 
     draw() {
-        let svg = document.querySelector("svg");
-        console.log(svg);
+        // create a circle
         let c = document.createElementNS(svgNS, 'circle');
-        c.setAttribute('cx', this.x); // svg's circle center
+        // change its attributes
+        c.setAttribute('cx', this.x); // center
         c.setAttribute('cy', this.y);
-        c.setAttribute('r', this.r);  // svg's circle radius
+        c.setAttribute('r', this.r);  // radius
+        // locate the <svg> element
+        let svg = document.querySelector("svg");
+        // insert circle in <svg> element
         svg.append(c);
     }
 
     // compute random position for next circle
-    move(walker) {
+    move() {
         let [rx, ry] = [Math.random(), Math.random()];
         this.x = rx * this.w;
         this.y = ry * this.h;
@@ -38,21 +39,24 @@ class Board {
 
     // heartbeat
     one_step() {
-        console.log("in RUN");
+        console.log(`in RUN, active=${this.active}`);
         if (this.active) {
             this.draw();
             this.move();
         }
     }
 
-    // do {this.one_step()} every 400 ms
+    // do {this.one_step()} every 500 ms
     start() {
-        setInterval(()=>this.one_step(), 400)
+        // first parameter here is a function
+        // that we want to call every 500 ms
+        setInterval(()=>this.one_step(), 500)
     }
 }
 
-let the_board = new Board(400, 100, 100, 50, 4, false);
+let the_board = new Board(400, 200, 4);
 
+// this function is used directly in the HTML
 function start_stop() {
     the_board.toggle();
 }

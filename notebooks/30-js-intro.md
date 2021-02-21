@@ -32,8 +32,8 @@ jupyter:
 <!-- #endregion -->
 
 ```javascript
-tools = require('../js/toolsv2');
-tools.init();
+tools = require('../js/toolsv2')
+tools.init()
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -75,9 +75,9 @@ in this example :
 * that is bound to the `onclick` event   
   of the button element
 
-```javascript scrolled=false slideshow={"slide_type": "slide"} hide_input=false
-tools.from_samples(
-    "30-js-intro-example-00", {width: '30em', height: '25em'})
+```javascript scrolled=false slideshow={"slide_type": "slide"} hide_input=true
+tools.from_samples("30-js-intro-example-00", 
+                   {width: '30em', height: '25em'})
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -106,8 +106,8 @@ in this further example :
 * button to start / suspend
 
 ```javascript hide_input=true slideshow={"slide_type": "slide"}
-tools.from_samples(
-    "30-js-intro-example-randomdots", {width: '30em', height: '20em'})
+tools.from_samples("30-js-intro-example-randomdots",
+                   {width: '35em', height: '20em'})
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -165,7 +165,7 @@ and also, about asynchronicity :
 in our 2 examples, we have seen 3 callbacks already
 
 * ex.1 : `onclick="toggle()"`  
-* ex.2 : `setTimeout(() => this.run(), 400)` 
+* ex.2 : `setTimeout(() => this.run(), 500)` 
 * ex.2 : `window.onload = function () { ` 
 
 <!-- #region slideshow={"slide_type": "slide"} -->
