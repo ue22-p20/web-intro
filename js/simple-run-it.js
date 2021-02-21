@@ -15,8 +15,12 @@ function create_example_code(filename, options) {
   let separate_height = options.separate_height || "400px"
   let update_label = options.update_label || "Update"
   let separate_label = options.separate_label || "Open in new window"
+  // you may also define options.start_with to be either html or css or js
+  let start_with = options.start_with || "html"
+  //
+  if (['html', 'css', 'js'].indexOf(start_with) < 0) start_with = "html"
+
   const fs = require('fs');
-	const util = require('util');
 
 
 	let id = 'x' + hash(filename);
@@ -160,7 +164,7 @@ function create_example_code(filename, options) {
 		mode: "htmlmixed"
 	});
 	all_src.html.getWrapperElement().style['min-height'] = '${height}';
-	all_src.html.getWrapperElement().style.display = "block";
+	all_src.html.getWrapperElement().style.display = ${start_with == 'html'}?"block":"none";
 
 	const css_src = document.getElementById("css_${id}");
 	all_src.css = CodeMirror.fromTextArea(css_src, {
@@ -168,14 +172,14 @@ function create_example_code(filename, options) {
 		mode: "css"
 	});
 	all_src.css.getWrapperElement().style['min-height'] = '${height}';
-	all_src.css.getWrapperElement().style.display = "none";
+	all_src.css.getWrapperElement().style.display = ${start_with == 'css'}?"block":"none";
 	const js_src = document.getElementById("js_${id}");
 	all_src.js = CodeMirror.fromTextArea(js_src, {
 		lineNumbers: true,
 		mode: "javascript"
 	});
 	all_src.js.getWrapperElement().style['min-height'] = '${height}';
-	all_src.js.getWrapperElement().style.display = "none";
+	all_src.js.getWrapperElement().style.display = ${start_with == 'js'}?"block":"none";
 
 	const area_ctn = document.getElementById("area_ctn_${id}");
 	/* Trick to update the codemirror layout when resized */
@@ -191,15 +195,17 @@ function create_example_code(filename, options) {
 	let btn_html = document.createElement("button");
 	btn_html.textContent = "HTML"
 	btn_html.classList.add("${id}_btn");
-	btn_html.classList.add("${id}_selected");
+	if (${start_with == 'html'}) btn_html.classList.add("${id}_selected");
 	btn1.appendChild(btn_html);
 	let btn_css = document.createElement("button");
 	btn_css.textContent = "CSS"
 	btn_css.classList.add("${id}_btn");
+	if (${start_with == 'css'}) btn_css.classList.add("${id}_selected");
 	btn1.appendChild(btn_css);
 	let btn_js = document.createElement("button");
 	btn_js.textContent = "JS"
 	btn_js.classList.add("${id}_btn");
+	if (${start_with == 'js'}) btn_js.classList.add("${id}_selected");
 	btn1.appendChild(btn_js);
 	let btn_fill = document.createElement("button");
 	btn_fill.classList.add("${id}_btn");
