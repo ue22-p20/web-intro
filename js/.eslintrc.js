@@ -13,6 +13,8 @@ module.exports = {
   rules: {
     'no-multiple-empty-lines': 0,
     camelcase: 0,
-    'space-before-function-paren': 0
+      'space-before-function-paren': 0,
+      'no-tabs': 0,
+      'indent': 0
   }
 }
