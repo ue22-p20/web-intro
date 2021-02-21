@@ -32,7 +32,7 @@ jupyter:
 <!-- #endregion -->
 
 ```javascript
-tools = require('../js/simple-run-it');
+tools = require('../js/toolsv2');
 tools.init();
 ```
 
@@ -76,8 +76,8 @@ in this example :
   of the button element
 
 ```javascript scrolled=false slideshow={"slide_type": "slide"} hide_input=false
-tools.create_example_code("30-js-intro-example-00", 
-                          {width: '30em', height: '25em'})
+tools.from_samples(
+    "30-js-intro-example-00", {width: '30em', height: '25em'})
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -106,7 +106,7 @@ in this further example :
 * button to start / suspend
 
 ```javascript hide_input=true slideshow={"slide_type": "slide"}
-tools.create_example_code(
+tools.from_samples(
     "30-js-intro-example-randomdots", {width: '30em', height: '20em'})
 ```
 

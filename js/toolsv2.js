@@ -5,7 +5,7 @@ function hash(word) {
     return sha1.digest('hex');
 }
 
-function create_example_code(filename, options) {
+function from_samples(filename, options) {
   options = options || {}
   let width = options.width || "300px"
   let height = options.height || "300px"
@@ -285,4 +285,4 @@ Jupyter.notebook.execute_cells_below();
 }
 
 exports.init = init;
-exports.create_example_code = create_example_code;
+exports.from_samples = from_samples;
