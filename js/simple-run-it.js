@@ -7,8 +7,17 @@ function hash(word) {
     return sha1.digest('hex');
 }
 
-function create_example_code(filename) {
-	const fs = require('fs');
+function create_example_code(filename, options) {
+  options = options || {}
+  let width = options.width || "300px"
+  let height = options.height || "300px"
+  let min_width = options.min_width || width
+  let min_height = options.min_height || height
+  let separate_width = options.separate_width || "400px"
+  let separate_height = options.separate_height || "400px"
+  let update_label = options.update_label || "Update"
+  let separate_label = options.separate_label || "Open in new window"
+  const fs = require('fs');
 	const util = require('util');
 
 
@@ -23,7 +32,7 @@ function create_example_code(filename) {
 	try {
 		fs.accessSync(fullname_html);
 		textarea += `<textarea id="html_${id}">${fs.readFileSync(fullname_html)}</textarea>`;
-	} catch { 
+	} catch {
 		textarea += `<textarea id="html_${id}"><!-- empty --></textarea>`;
 	}
 
@@ -66,7 +75,7 @@ function create_example_code(filename) {
 	</style><div style="display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto 1fr;">
 	<div style="display: flex;" id="btn1_${id}"></div>
 	<div style="display: flex;" id="btn0_${id}"></div>
-	<div id="area_ctn_${id}" style="overflow: auto; resize: both; z-index: 100; min-width: 300px; min-height: 200px; height:200px; width: 400px; display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr;" >
+	<div id="area_ctn_${id}" style="overflow: auto; resize: both; z-index: 100; min-width: ${min_width}; min-height: ${min_height}; height:${height}; width: ${width}; display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr;" >
 	${textarea}
 	</div>
 	<div style="display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr;" id="out_${id}"></div>
@@ -151,7 +160,7 @@ function create_example_code(filename) {
 		lineNumbers: true,
 		mode: "htmlmixed"
 	});
-	all_src.html.getWrapperElement().style['min-height'] = '200px';
+	all_src.html.getWrapperElement().style['min-height'] = '${height}';
 	all_src.html.getWrapperElement().style.display = "block";
 
 	const css_src = document.getElementById("css_${id}");
@@ -159,16 +168,16 @@ function create_example_code(filename) {
 		lineNumbers: true,
 		mode: "css"
 	});
-	all_src.css.getWrapperElement().style['min-height'] = '200px';
+	all_src.css.getWrapperElement().style['min-height'] = '${height}';
 	all_src.css.getWrapperElement().style.display = "none";
 	const js_src = document.getElementById("js_${id}");
 	all_src.js = CodeMirror.fromTextArea(js_src, {
 		lineNumbers: true,
 		mode: "javascript"
 	});
-	all_src.js.getWrapperElement().style['min-height'] = '200px';
+	all_src.js.getWrapperElement().style['min-height'] = '${height}';
 	all_src.js.getWrapperElement().style.display = "none";
-	
+
 	const area_ctn = document.getElementById("area_ctn_${id}");
 	/* Trick to update the codemirror layout when resized */
 	area_ctn.addEventListener("mouseup", () => {
@@ -230,7 +239,7 @@ function create_example_code(filename) {
 
 	let btn0 = document.getElementById("btn0_${id}");
 	let btn_update = document.createElement("button");
-	btn_update.textContent = "Update";
+	btn_update.textContent = "${update_label}";
 	btn0.appendChild(btn_update);
 	btn_update.addEventListener("click", update_iframe);
 
@@ -238,13 +247,13 @@ function create_example_code(filename) {
 	btn_window.addEventListener("click", () => {
 		let tpl = get_example_content();
 
-		let w = window.open(null, '_blank', 'height=300,width=300');
+		let w = window.open(null, '_blank', 'height=${separate_height},width=${separate_width}');
 		w.document.open();
 		w.document.write(tpl);
 		w.document.close();
 
 	});
-	btn_window.textContent = "View in window";
+	btn_window.textContent = "${separate_label}";
 	btn0.appendChild(btn_window);
 
 	update_iframe();
