@@ -66,7 +66,7 @@ function create_example_code(filename) {
 	</style><div style="display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto 1fr;">
 	<div style="display: flex;" id="btn1_${id}"></div>
 	<div style="display: flex;" id="btn0_${id}"></div>
-	<div style="overflow-y: auto; resize: both; z-index: 100; min-width: 300px; min-height: 200px; height:200px; width: 400px;" >
+	<div id="area_ctn_${id}" style="overflow: auto; resize: both; z-index: 100; min-width: 300px; min-height: 200px; height:200px; width: 400px; display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr;" >
 	${textarea}
 	</div>
 	<div style="display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr;" id="out_${id}"></div>
@@ -165,6 +165,15 @@ function create_example_code(filename) {
 	});
 	all_src.js.getWrapperElement().style['min-height'] = '200px';
 	all_src.js.getWrapperElement().style.display = "none";
+	
+	const area_ctn = document.getElementById("area_ctn_${id}");
+	/* Trick to update the codemirror layout when resized */
+	area_ctn.addEventListener("mouseup", () => {
+		all_src.html.refresh();
+		all_src.css.refresh();
+		all_src.js.refresh();
+	});
+
 
 	let btn1 = document.getElementById("btn1_${id}");
 
