@@ -140,7 +140,7 @@ function create_example_code(filename) {
 				lineNumbers: true,
 				mode: "htmlmixed"
 			});
-			all_src.html.getWrapperElement().style.height = "minmax(100%, 100%)";
+			all_src.html.getWrapperElement().style['min-height'] = '200px';
 			all_src.html.getWrapperElement().style.display = "block";
 			update_iframe();
 		});
@@ -153,7 +153,7 @@ function create_example_code(filename) {
 				lineNumbers: true,
 				mode: "css"
 			});
-			all_src.css.getWrapperElement().style.height = "minmax(100%, 100%)";
+			all_src.css.getWrapperElement().style['min-height'] = '200px';
 			all_src.css.getWrapperElement().style.display = "none";
 			update_iframe();
 		});
@@ -166,7 +166,7 @@ function create_example_code(filename) {
 				lineNumbers: true,
 				mode: "javascript"
 			});
-			all_src.js.getWrapperElement().style.height = "minmax(100%, 100%)";
+			all_src.js.getWrapperElement().style['min-height'] = '200px';
 			all_src.js.getWrapperElement().style.display = "none";
 			update_iframe();
 		});
