@@ -274,8 +274,11 @@ function create_example_code(filename, options) {
 	$$.html(html);
 }
 
+const inject_css = require('./inject-css')
+
 function init() {
-$$.html(`<script>
+  let in_out_css = inject_css.read_style('../css/in-out.css')
+  $$.html(in_out_css + `<script>
 require(['codemirror/mode/htmlmixed/htmlmixed']);
 Jupyter.notebook.execute_cells_below();
 </script>`);
