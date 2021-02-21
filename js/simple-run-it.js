@@ -36,10 +36,10 @@ function create_example_code(filename) {
 	} catch { }
 
 
-	var html = `<div style="display: grid; grid-template-columns: 50% 50%; grid-template-rows: auto 1fr; height: 300px;">
+	var html = `<div style="display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto 1fr;">
 	<div style="display: flex;" id="btn1_${id}"></div>
 	<div style="display: flex;" id="btn0_${id}"></div>
-	<div style="overflow-y: auto;" >
+	<div style="overflow-y: auto; resize: both; z-index: 100; min-width: 300px; min-height: 200px;" >
 	${textarea}
 	</div>
 	<div style="display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr;" id="out_${id}"></div>
