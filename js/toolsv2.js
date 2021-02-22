@@ -141,7 +141,6 @@ function from_samples(stem, options) {
     iframe.height = "100%";
 
 		if (iframe.contentWindow) {
-
 			iframe = iframe.contentWindow;
 		} else {
 			if (iframe.contentDocument.document) {
@@ -154,6 +153,8 @@ function from_samples(stem, options) {
 		iframe.document.open();
 		iframe.document.write(tpl);
 		iframe.document.close();
+
+		setTimeout(update_codemirror, 1000);
 
 		return false;
 
@@ -185,11 +186,12 @@ function from_samples(stem, options) {
 
 	const area_ctn = document.getElementById("area_ctn_${id}");
 	/* Trick to update the codemirror layout when resized */
-	area_ctn.addEventListener("mouseup", () => {
+	function update_codemirror() {
 		all_src.html.refresh();
 		all_src.css.refresh();
 		all_src.js.refresh();
-	});
+	}
+	area_ctn.addEventListener("mouseup", update_codemirror);
 
 
 	let btn1 = document.getElementById("btn1_${id}");
