@@ -1,3 +1,9 @@
+// toolsv2:
+// a single entry point for now
+// from_samples(stem, options)
+// looks for ../samples/<stem>.{html,js,css}
+// and shows them in tabs, output on the right hand side
+
 function hash(word) {
     let crypto = require('crypto');
     let sha1 = crypto.createHash('sha1');
@@ -5,10 +11,10 @@ function hash(word) {
     return sha1.digest('hex');
 }
 
-function from_samples(filename, options) {
+function from_samples(stem, options) {
   options = options || {}
-  let width = options.width || "300px"
-  let height = options.height || "300px"
+  let width = options.width || "35em"
+  let height = options.height || "350px"
   let min_width = options.min_width || width
   let min_height = options.min_height || height
   let separate_width = options.separate_width || "400px"
@@ -17,17 +23,17 @@ function from_samples(filename, options) {
   let separate_label = options.separate_label || "Open in new window"
   // you may also define options.start_with to be either html or css or js
   let start_with = options.start_with || "html"
-  //
+  // fallback if not in allowed range
   if (['html', 'css', 'js'].indexOf(start_with) < 0) start_with = "html"
 
   const fs = require('fs');
 
 
-	let id = 'x' + hash(filename);
+	let id = 'x' + hash(stem);
 
-	let fullname_html = `../samples/${filename}.html`
-	let fullname_css  = `../samples/${filename}.css`
-	let fullname_js   = `../samples/${filename}.js`
+	let fullname_html = `../samples/${stem}.html`
+	let fullname_css  = `../samples/${stem}.css`
+	let fullname_js   = `../samples/${stem}.js`
 
 	let textarea = '';
 
@@ -55,28 +61,24 @@ function from_samples(filename, options) {
 
 
 	let html = `<style>
-		.${id}_btn {
-			border-top: 0px solid transparent;
-			border-left: 0px solid transparent;
-			border-right: 0px solid transparent;
-			border-bottom: 1px solid #CFCFCF;
-			padding-top: 6px;
-			padding-left: 11px;
-			padding-right: 11px;
-			padding-bottom: 5px;
+		span.${id}_btn {
+			font-family: Courier;
+			border: 0px;
+			padding: 6px 12px;
 		}
-		.${id}_selected {
-			border-top: 1px solid #CFCFCF;
-			border-left: 1px solid #CFCFCF;
-			border-right: 1px solid #CFCFCF;
-			border-bottom: 1px solid transparent;
-			padding-top: 5px;
-			padding-left: 10px;
-			padding-right: 10px;
-			padding-bottom: 6px;
+		span.${id}_selected {
+			background-color: #ccf;
+		}
+		button.${id}_btn {
+			border: 1px solid #88f;
+			border-radius: 5px;
+			background-color: #eef;
+			margin-right: 10px;
+			margin-bottom: 4px;
+			padding: 6px 20px;
 		}
 	</style><div style="display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto 1fr;">
-	<div style="display: flex;" id="btn1_${id}"></div>
+	<div style="display: flex; margin-top: 8px; border-bottom: 3px solid #88f" id="btn1_${id}"></div>
 	<div style="display: flex;" id="btn0_${id}"></div>
 	<div id="area_ctn_${id}" style="overflow: auto; resize: both; z-index: 100; min-width: ${min_width}; min-height: ${min_height}; height:${height}; width: ${width}; display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr;" >
 	${textarea}
@@ -85,7 +87,7 @@ function from_samples(filename, options) {
 	<script defer>
 
 	require(['codemirror/lib/codemirror',
-		 'codemirror/mode/htmlmixed/htmlmixed',
+	 	 'codemirror/mode/htmlmixed/htmlmixed',
 		 'codemirror/mode/css/css',
 		 'codemirror/mode/javascript/javascript'
 		 ], (CodeMirror) => {
@@ -192,23 +194,23 @@ function from_samples(filename, options) {
 
 	let btn1 = document.getElementById("btn1_${id}");
 
-	let btn_html = document.createElement("button");
+	let btn_html = document.createElement("span");
 	btn_html.textContent = "HTML"
 	btn_html.classList.add("${id}_btn");
 	if (${start_with == 'html'}) btn_html.classList.add("${id}_selected");
 	btn1.appendChild(btn_html);
-	let btn_css = document.createElement("button");
+	let btn_css = document.createElement("span");
 	btn_css.textContent = "CSS"
 	btn_css.classList.add("${id}_btn");
 	if (${start_with == 'css'}) btn_css.classList.add("${id}_selected");
 	btn1.appendChild(btn_css);
-	let btn_js = document.createElement("button");
+	let btn_js = document.createElement("span");
 	btn_js.textContent = "JS"
 	btn_js.classList.add("${id}_btn");
 	if (${start_with == 'js'}) btn_js.classList.add("${id}_selected");
 	btn1.appendChild(btn_js);
 	let btn_fill = document.createElement("span");
-	btn_fill.classList.add("${id}_btn");
+//	btn_fill.classList.add("${id}_btn");
 	btn_fill.style['flex-grow'] = '1';
 	btn1.appendChild(btn_fill);
 
@@ -245,10 +247,13 @@ function from_samples(filename, options) {
 	let btn0 = document.getElementById("btn0_${id}");
 	let btn_update = document.createElement("button");
 	btn_update.textContent = "${update_label}";
+	btn_update.classList.add("${id}_btn");
 	btn0.appendChild(btn_update);
 	btn_update.addEventListener("click", update_iframe);
 
 	let btn_window = document.createElement("button");
+	btn_window.textContent = "${separate_label}";
+	btn_window.classList.add("${id}_btn");
 	btn_window.addEventListener("click", () => {
 		let tpl = get_example_content();
 
@@ -258,7 +263,6 @@ function from_samples(filename, options) {
 		w.document.close();
 
 	});
-	btn_window.textContent = "${separate_label}";
 	btn0.appendChild(btn_window);
 
 	update_iframe();
