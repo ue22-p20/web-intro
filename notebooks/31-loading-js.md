@@ -32,10 +32,8 @@ jupyter:
 <!-- #endregion -->
 
 ```javascript
-// run this cell, and then 
-// click the created button
-tools = require('../js/tools');
-tools.init();
+tools = require('../js/toolsv2')
+tools.init()
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -85,7 +83,7 @@ tools.init();
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## `<script src="..."></script>` : load a URL
+## `<script>` : load a URL
 <!-- #endregion -->
 
 * most often though, code is stored in a separate location
@@ -94,7 +92,7 @@ tools.init();
 * for that, use `<script src="some-url"></script>` 
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-### `<script src="..."></script>` - examples
+### `<script>` - examples
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": ""} -->
@@ -104,7 +102,7 @@ tools.init();
   directory as the current page 
 
 * **remote file**  
-  <span style="font-size:0.4em"><code>&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js&quot;&gt; &lt;/script&gt;</code></span>  
+  <span style="font-size:0.5em"><code>&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js&quot;&gt; &lt;/script&gt;</code></span>  
   loads jQuery (more on that later)  
     from a publicly available CDN
     (Content Delivery Network)  

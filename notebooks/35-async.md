@@ -34,10 +34,8 @@ jupyter:
 <!-- #endregion -->
 
 ```javascript
-// run this cell, and then 
-// click the created button
-tools = require('../js/tools');
-tools.init();
+tools = require('../js/toolsv2')
+tools.init()
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -245,13 +243,11 @@ so far we have seen a few types of events
 ### events example
 <!-- #endregion -->
 
-```javascript
-
+```javascript hide_input=true
+tools.from_samples("events", {separate_show: true, width: '40em'})
 ```
 
-```javascript
-tools.iframe_samples_html_css_js("events", true)
-```
+![](../media/callbacks-chain.png)
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ### example - observations
@@ -260,8 +256,9 @@ tools.iframe_samples_html_css_js("events", true)
 notice from the example :
 
 * how `addEventLister()` are cascaded, just like in the 'pyramid of Doom`
-* how we display the events with `console.log()`; this is useful technique for debugging / inspecting data
-* how we leverage the event object to display meaningful data
+* how we display the events with `console.log()`  
+  this is useful technique for debugging / inspecting data
+* how we inspect the event object to display meaningful data
 * also that the `.js` file does not export any symbol 
 
 <!-- #region slideshow={"slide_type": "slide"} -->

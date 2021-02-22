@@ -34,10 +34,8 @@ jupyter:
 <!-- #endregion -->
 
 ```javascript
-// run this cell, and then 
-// click the created button
-tools = require('../js/tools');
-tools.init();
+tools = require('../js/toolsv2')
+tools.init()
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->

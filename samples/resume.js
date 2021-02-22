@@ -1,5 +1,6 @@
 function set_body_background(color) {
-    document.querySelector("body").style.backgroundColor = color;
+    document.querySelector("body")
+       .style.backgroundColor = color
 }
 
 index = 0;
@@ -8,10 +9,9 @@ colors = [
 ]
 
 function run() {
-    index += 1;
-    index %= 2;
-    set_body_background(colors[index]);
-    setTimeout(run, 1000);
+    index = (index + 1) % 2
+    set_body_background(colors[index])
+    setTimeout(run, 1000)
 }
 
-window.onload = run;
+window.onload = run

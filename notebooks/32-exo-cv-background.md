@@ -34,10 +34,8 @@ jupyter:
 <!-- #endregion -->
 
 ```javascript
-// run this cell, and then 
-// click the created button
-tools = require('../js/tools');
-tools.init();
+tools = require('../js/toolsv2')
+tools.init()
 ```
 
 <!-- #region slideshow={"slide_type": ""} -->
@@ -63,7 +61,7 @@ then
   every 1 second between 2 different colours
 
 ```javascript slideshow={"slide_type": "slide"} hide_input=true
-tools.iframe_exo("resume", true)
+tools.from_samples("resume", {separate_show: true, start_with: 'js'})
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -72,7 +70,7 @@ tools.iframe_exo("resume", true)
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": ""} -->
-so, you want to start some code, say call function `start()`,  
+so, you want to start some code, say call function `start()`   
 right after the page loads  
 **BUT** it is unsafe to do something like 
 
@@ -93,25 +91,28 @@ your page is still in the middle of the loading phase
 <!-- #endregion -->
 
 <!-- #region -->
-the proper way is to attach a **callback** to the 'load' event when triggered on the page
+the proper way is to attach a **callback**  
+to the page **`load`** event
 
 ```javascript
 // the rough way
-window.onload = function() { start('some-data');} 
+window.onload = function() { start('some-data')} 
 
 // a little nicer way
-window.addEventListener('load', function() { start('some-data');}
+window.addEventListener('load', function() { start('some-data')}
 ```
 
-this time, `start()` will get called at a time where you can be sure the document is entirely loaded.
+this time, `start()` will get **called later**  
+at a time where you can be sure the document is entirely loaded.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## tip : implement a cyclic task
 <!-- #endregion -->
 
-implementing a cyclic task was done in example 2 already, here's a reminder  
-typical sequence is something like
+implementing a cyclic task was done in example 2 already  
+as a reminder: based on `setInterval()`  
+(you may use clearInterval to cancel)
 
 ```javascript cell_style="split"
 // so that we can stop the running loop
@@ -122,8 +123,9 @@ function one_step() {
         console.log("beep");
 }
 
-let interval = setInterval(one_step, 1000)
-
+// make sure you use 'let' 
+// and not 'var' in your code
+var interval = setInterval(one_step, 1000)
 ```
 
 ```javascript cell_style="split"
@@ -136,7 +138,7 @@ active = false
 ```javascript cell_style="split"
 // it's also possible to stop it
 // altogether
-active = true;
+active = true
 clearInterval(interval)
 ```
 
@@ -156,7 +158,7 @@ while True:
 <!-- #endregion -->
 
 <!-- #region cell_style="split" -->
-Note however that with such an approach, the Python interpreter remains busy, it can't do anything else at the same times
+note however that with such an approach, the Python interpreter remains busy, it **can't do anything else** at the same time
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -177,7 +179,7 @@ Note however that with such an approach, the Python interpreter remains busy, it
 as mentioned earlier already, you can
 
 * navigate the DOM
-* 'Inspect' an element (find an element from a position in the page)
+* '*Inspect* ' an element (find an element from a position in the page)
 * see the CSS rules that apply to an element 
 * find out where these styles come from
 * see the computed values for each property
@@ -191,20 +193,19 @@ as mentioned earlier already, you can
 ![](../media/devel-tools-change-properties.png)
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-### Devel Tools : *Console*
+### Devel Tools : the *Console* REPL 
 <!-- #endregion -->
 
-* where lands the output of `console.log`  
+* the place where lands the output of `console.log`  
   of course quite useful for naive debugging
-* **and** that lets you issue JavaScript on the fly  
-  much like the Python interpreter does
+* **and** that lets you **run JavaScript** on the fly  
+  much like the Python interpreter does  
+* known as a REPL ( = Read Eval Print Loop)
+* illustrated in the following slides
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-### the Console REPL
-<!-- #endregion -->
 
 * REPL stands for Read, Eval, Print Loop
-* illustrated in the following slides
+
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ![](../media/devel-tools-console-1.png)

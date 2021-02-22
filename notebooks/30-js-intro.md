@@ -77,7 +77,7 @@ in this example :
 
 ```javascript scrolled=false slideshow={"slide_type": "slide"} hide_input=true
 tools.from_samples("30-js-intro-example-00", 
-                   {width: '30em', height: '25em'})
+                   {width: '30em', height: '25em', separate_show: true})
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -90,7 +90,7 @@ visibility of symbols (variable and function names) :
   that refers to global `toggle` function
 * local variables inside `toggle`  
   are declared with `let`
-* global variables `document` and `console`
+* global variables `document` and `console`  
   allow to access browser components
 <!-- #endregion -->
 
@@ -99,7 +99,7 @@ visibility of symbols (variable and function names) :
 <!-- #endregion -->
 in this further example :
 
-* we create two visible elements   
+* we create two visible elements:   
   a button, and a graphic area `<svg>`
 * the page runs a cyclic task  
   that adds a random point 
@@ -107,17 +107,18 @@ in this further example :
 
 ```javascript hide_input=true slideshow={"slide_type": "slide"}
 tools.from_samples("30-js-intro-example-randomdots",
-                   {width: '35em', height: '20em'})
+                   {width: '35em', height: '20em', 
+                    min_width: '15em', separate_show: true})
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 #### things to note about example #2 :
 
-* adding to the DOM to create new content
+* adding to the DOM to create new content  
   (createElementNS and append)
-* `the_board` is a JavaScript *object*,  
+* `the_board` is a JavaScript *object*    
   i.e. composite data keyed on `w`, `h`, etc…  
-  more on this later
+  (more on this later)
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -126,7 +127,7 @@ tools.from_samples("30-js-intro-example-randomdots",
 and also, about asynchronicity :
 
 * initialization code messes with the `<svg>`'s attributes 
-  * so that element must have been created **beforehand**
+  * so, the `<svg>` element must have been created **beforehand**
 * **but** 
   * a page is made of html + css + js 
   * we have no control on the order  
@@ -137,6 +138,57 @@ and also, about asynchronicity :
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
+## page loading
+<!-- #endregion -->
+
+### reminder : a few orders of magnitude
+
+* CPU + memory : 1 ns
+* storage :
+  * SDD : 100 µs
+  * HDD : 1-10 ms
+* networking :
+  * light-speed Paris-SF : 30 ms
+  * light-speed Paris-Nice : 3 ms
+  * plus, software stack traversals
+  * plus, protocols = several back and forths
+  * bottom line: more in the **several 100s of ms**
+  * frequently several seconds
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+### a simple page
+<!-- #endregion -->
+
+<!-- #region cell_style="split" -->
+when loading the simplest possible page, contents get scattered into packets, so it does not arrive all at once
+<!-- #endregion -->
+
+<!-- #region cell_style="split" -->
+![](../media/loading-1-simple.png)
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+### a page and a nested page
+<!-- #endregion -->
+
+<!-- #region cell_style="split" -->
+in the case of a page  
+that has a nested page  
+(e.g. a css style)  
+there are 2 http requests at work
+<!-- #endregion -->
+
+<!-- #region cell_style="split" -->
+![](../media/loading-2-nested.png)
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+### loading a real page
+<!-- #endregion -->
+
+![](../media/loading-3-google.png)
+
+<!-- #region slideshow={"slide_type": "slide"} -->
 ## event-driven
 <!-- #endregion -->
 
@@ -145,8 +197,10 @@ and also, about asynchronicity :
    or the entry module in Python)  
 * browser-hosted code has  
   **little control** on overall **order**  
-* plus, apps need to react to   
-  * user-, network-, and time-triggered events  
+* plus, apps need to **react to events** that can be  
+  * **user-**triggered (clicking, ...)
+  * **network-**triggered (a page finished loading)
+  * or **time-**triggered - some cyclic task is scheduled
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## callbacks
@@ -156,7 +210,8 @@ and also, about asynchronicity :
 * is the notion of a **callback** 
 * which is a **function**
 * attached to some sort of **event**
-* function gets fired when event occurs
+* and then of course the function  
+  gets fired when event occurs
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## callbacks - continued
@@ -178,4 +233,4 @@ as far as Web frontend, JavaScript :
 * **full-fledged** modern language, with objects, modules…
 * aware of browser objects through globals  
   e.g. `document`, `window`, `console`
-* highly influenced by asynchronicity
+* highly influenced by **asynchronicity**
