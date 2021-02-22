@@ -17,9 +17,10 @@ function from_samples(stem, options) {
   let height = options.height || "350px"
   let min_width = options.min_width || width
   let min_height = options.min_height || height
+  let separate_show = options.separate_show || false
   let separate_width = options.separate_width || "400px"
   let separate_height = options.separate_height || "400px"
-  let update_label = options.update_label || "Update"
+  let update_label = options.update_label || "Update →"
   let separate_label = options.separate_label || "Open in new window"
   // you may also define options.start_with to be either html or css or js
   let start_with = options.start_with || "html"
@@ -78,8 +79,8 @@ function from_samples(stem, options) {
 			padding: 6px 20px;
 		}
 	</style><div style="display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto 1fr;">
-	<div style="display: flex; margin-top: 8px; border-bottom: 3px solid #88f" id="btn1_${id}"></div>
-	<div style="display: flex;" id="btn0_${id}"></div>
+	<div style="display: flex; margin-top: 8px; border-bottom: 3px solid #88f" id="btns_left_${id}"></div>
+	<div style="display: flex; justify-content: flex-end;" id="btns_right_${id}"></div>
 	<div id="area_ctn_${id}" style="overflow: auto; resize: both; z-index: 100; min-width: ${min_width}; min-height: ${min_height}; height:${height}; width: ${width}; display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr;" >
 	${textarea}
 	</div>
@@ -194,27 +195,27 @@ function from_samples(stem, options) {
 	area_ctn.addEventListener("mouseup", update_codemirror);
 
 
-	let btn1 = document.getElementById("btn1_${id}");
+	let btns_left = document.getElementById("btns_left_${id}");
 
 	let btn_html = document.createElement("span");
 	btn_html.textContent = "HTML"
 	btn_html.classList.add("${id}_btn");
 	if (${start_with == 'html'}) btn_html.classList.add("${id}_selected");
-	btn1.appendChild(btn_html);
+	btns_left.appendChild(btn_html);
 	let btn_css = document.createElement("span");
 	btn_css.textContent = "CSS"
 	btn_css.classList.add("${id}_btn");
 	if (${start_with == 'css'}) btn_css.classList.add("${id}_selected");
-	btn1.appendChild(btn_css);
+	btns_left.appendChild(btn_css);
 	let btn_js = document.createElement("span");
 	btn_js.textContent = "JS"
 	btn_js.classList.add("${id}_btn");
 	if (${start_with == 'js'}) btn_js.classList.add("${id}_selected");
-	btn1.appendChild(btn_js);
+	btns_left.appendChild(btn_js);
 	let btn_fill = document.createElement("span");
 //	btn_fill.classList.add("${id}_btn");
 	btn_fill.style['flex-grow'] = '1';
-	btn1.appendChild(btn_fill);
+	btns_left.appendChild(btn_fill);
 
 	btn_html.addEventListener("click", () => {
 		btn_css.classList.remove("${id}_selected");
@@ -246,26 +247,29 @@ function from_samples(stem, options) {
 		all_src.js.refresh();
 	});
 
-	let btn0 = document.getElementById("btn0_${id}");
 	let btn_update = document.createElement("button");
 	btn_update.textContent = "${update_label}";
 	btn_update.classList.add("${id}_btn");
-	btn0.appendChild(btn_update);
+	btns_left.appendChild(btn_update);
 	btn_update.addEventListener("click", update_iframe);
 
-	let btn_window = document.createElement("button");
-	btn_window.textContent = "${separate_label}";
-	btn_window.classList.add("${id}_btn");
-	btn_window.addEventListener("click", () => {
-		let tpl = get_example_content();
+	let btns_right = document.getElementById("btns_right_${id}");
 
-		let w = window.open(null, '_blank', 'height=${separate_height},width=${separate_width}');
-		w.document.open();
-		w.document.write(tpl);
-		w.document.close();
+	if (${separate_show}) {
+		let btn_window = document.createElement("button");
+		btn_window.textContent = "${separate_label}";
+		btn_window.classList.add("${id}_btn");
+		btn_window.addEventListener("click", () => {
+			let tpl = get_example_content();
 
-	});
-	btn0.appendChild(btn_window);
+			let w = window.open(null, '_blank', 'height=${separate_height},width=${separate_width}');
+			w.document.open();
+			w.document.write(tpl);
+			w.document.close();
+
+		});
+		btns_right.appendChild(btn_window);
+	}
 
 	update_iframe();
 
