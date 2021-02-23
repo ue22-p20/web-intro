@@ -161,7 +161,7 @@ in this further example :
   a `<div>` label, and this time a `<canvas>` graphic area
 * clicking in the canvas causes it to randomize itself
 
-```javascript hide_input=false slideshow={"slide_type": "slide"}
+```javascript hide_input=true slideshow={"slide_type": "slide"}
 tools.from_samples("30-js-intro-03-canvas",
                    {width: '40em', height: '20em', 
                     min_width: '15em', separate_show: true, start_with: 'js'})
