@@ -34,8 +34,9 @@ jupyter:
 <!-- #endregion -->
 
 ```javascript
-tools = require('../js/toolsv2')
-tools.init()
+// not needed in this notebook
+// tools = require('../js/toolsv2')
+// tools.init()
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -66,8 +67,8 @@ tools.init()
 
 ```javascript cell_style="split"
 // strings with ' or "
-let s1 = "abc" + 'def';
-let s2 = 'ab' + "cdef";
+/*let*/ s1 = "abc" + 'def';
+/*let*/ s2 = 'ab' + "cdef";
 s1 == s2
 ```
 
@@ -90,16 +91,17 @@ s1 == s2
 <!-- #endregion -->
 
 ```javascript cell_style="split"
-// in anticipation
-object = { x: 10, y: 20}
+function foo(x, y) {
+    console.log(`x=${x} y=${y}`)
+}
 
 // this in Python would 
 // trigger an exception
-console.log(object.z)
+foo(10)
 ```
 
 ```javascript cell_style="split"
-// unlike Python
+// also unlike Python
 3 * "abc" 
 ```
 
@@ -147,11 +149,11 @@ for a deeper study :
 
 ```javascript cell_style="split"
 // arrays can be heterogeous
-let array1 = [1, "two"]
+/*let*/ array1 = [1, "two"]
 
 // you can also create an
 // empty instance explicitly
-let array2 = new Array()
+/*let*/ array2 = new Array()
 ```
 
 ```javascript cell_style="split"
@@ -173,7 +175,7 @@ array2.pop()
 
 ```javascript cell_style="split"
 // use the concat method
-let array = array1.concat(array2)
+/*let*/ array = array1.concat(array2)
 array
 ```
 
@@ -222,7 +224,7 @@ console.log(array.indexOf("absent"))
 <!-- #endregion -->
 
 <!-- #region cell_style="split" -->
-* also notice how to use `let` to define  
+* notice how to use `let` to define  
   a variable **local** to the `for` loop
 * see also more on arrays on <https://javascript.info/array>
 <!-- #endregion -->
@@ -240,8 +242,8 @@ for (let x of array) {
 // for .. in 
 // iterates on the INDEXES
 
-for (let i in array) {
-    console.log(i);
+for (let x in array) {
+    console.log(x);
 }
 ```
 
@@ -263,18 +265,19 @@ for (let i in array) {
 ### shared references
 <!-- #endregion -->
 
-* **exactly like in Python**, objects can be access from several references  
+* **exactly like in Python**, objects can be accessed from **several references**  
 * so you need to shallow- or deep-copy depending on your needs
 
 ```javascript cell_style="split"
-let ref1 = [["shared", "data"], "unshared"];
+/*let*/ ref1 = 
+    [["shared", "data"], "unshared"]
 ref1 
 ```
 
 ```javascript cell_style="split"
 // slice() works like Python's [:]
 // so it's a shallow copy
-let ref2 = ref1.slice();
+/*let*/ ref2 = ref1.slice()
 ref2
 ```
 
@@ -291,7 +294,7 @@ ref2
 ref1
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
+<!-- #region slideshow={"slide_type": "slide"} hide_input=true -->
 ### pythontutor illustration
 
 
@@ -304,15 +307,15 @@ ref1
 
 * `Map` and `Set` are JavaScript builtin types
   * that match Python's `dict` and `set` respectively
-* they exhibit the same constant-time lookup nice property
+* they exhibit the same nice **constant-time lookup** property
 * like in Python, **make sure to use them**   
   whenever you need fast searching and indexing
 
 ```javascript cell_style="split"
-let map = new Map();
+/*let*/ map = new Map()
 
-map.set('key1', 'value1');
-map.set(1000, 'value1000');
+map.set('key1', 'value1')
+map.set(1000, 'value1000')
 
 map.get(1000)
 ```
@@ -341,9 +344,9 @@ for (let k of map.keys()) {
   * that in JavaScript are called key-value pairs
 
 ```javascript cell_style="split"
-let bond = {
+/*let*/ bond = {
     first_name: "James",
-    last_name: "Bond"
+    last_name: "Bond",
 }
 
 console.log(`my name is ${bond.last_name}`);
@@ -354,11 +357,12 @@ console.log(`my name is ${bond.last_name}`);
 'first_name' in bond
 ```
 
-<p class="rise-footnote"> 
-    the syntax for JavaScript objects, as well as the <i>key/value</i> vocabulary <br>
-    make them **look like** Python dictionaries, <br>
-    **do not get confused though**, JavaScript objects are much more like Python class instances.
-</p>
+<div class="rise-footnote"> 
+    
+the syntax for JavaScript objects, as well as the *key/value* vocabulary, make them **look like** Python dictionaries  
+**do not get confused though**, JavaScript objects are much more like Python class instances
+
+</div>
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ### iterating over an object's keys
@@ -383,7 +387,7 @@ reminder : we had already seen array-based assignment
 which is a Python-style idiom
 
 ```javascript
-let [a1, a2] = [100, 200];
+/*let*/ [a1, a2] = [100, 200];
 
 `a1 now is ${a1}, a2 is ${a2}`
 ```
@@ -391,8 +395,9 @@ let [a1, a2] = [100, 200];
 there a similar destructuring assignement on objects  
 
 ```javascript
-let example_obj = {name: "doe", phone: '0123456', other: 'some stuff'};
+/*let*/ example_obj = {name: "doe", phone: '0123456', other: 'some stuff'};
 
+// this REQUIRES a let statement - restart your kernel if yuo need to re-run
 let {name, phone} = {...example_obj};
 
 `name now is ${name}, phone is ${phone}`
@@ -410,7 +415,7 @@ class Person {
     }
 }
 
-let person = new Person("John", "Doe")
+/*let*/ person = new Person("John", "Doe")
 
 typeof(person)
 ```
@@ -430,7 +435,7 @@ function side_effect(arg) {
     arg[1] *= 1000;
 }
 
-let list = [0, 1, 2];
+/*let*/ list = [0, 1, 2];
 side_effect(list);
 list
 ```
@@ -441,7 +446,7 @@ function change_object(obj) {
     obj.first_name = 'BOOM';
 }
 
-let person2 = new Person('John Doe')
+/*let*/ person2 = new Person('John Doe')
 change_object(person2)
 person2
 ```
@@ -477,24 +482,26 @@ foo(1, 2, 3, 4)
 ### more on arguments
 <!-- #endregion -->
 
-* there is no equivalent in JavaScript of named arguments
+* there is **no equivalent** in JavaScript of Python's **named arguments**
 * nor of arguments with default values
-* **there is** however a way to deal with arguments in variable numbers
+* **there is** however a way to deal with variable number of arguments
 
-```javascript
+```javascript cell_style="split"
 // equivalent to Python's 
 // def bar(x, y, *args):
 
 function bar(x, y, ...arguments) {
     // display what we receive
     console.log(`x=${x}, y=${y}`);
-    console.log(`arguments=${arguments}`);
     // the arguments object can be iterated on
     for (let arg of arguments) {
-        console.log(arg);
+        console.log('extra arg', arg);
     }
 }
+```
 
-// with this call, the 2 extra args are captured 
+```javascript cell_style="split"
+// the 2 extra arguments
+// are captured by ...arguments
 bar(1, 2, 3, 4)
 ```

@@ -119,7 +119,7 @@ at a time where you can be sure the document is entirely **loaded**
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## digression : `let` vs `var`
+## digression : variable declaration with `let`
 <!-- #endregion -->
 
 in your code, make sure you **always** declare your local variables with either
@@ -134,7 +134,7 @@ there is also an old-style variable declaration
 
 <div style="color:blue; font-size: 80%">
     
-however **in the context of the notebook**, we will use `var` declarations instead of `let`  
+however **in the context of the notebook**, we will often **skip declarations** altogether  
 so that cells can be evaluated twice (`let` or `const` can only be used once)
     
 </div>    
@@ -149,16 +149,16 @@ as a reminder: based on `setInterval()`
 
 ```javascript cell_style="split"
 // so that we can stop the running loop
-var active = true;
+// make sure you use 'let' in your code
+/*let*/ active = true;
 
 function one_step() {
     if (active)
         console.log("beep");
 }
 
-// make sure you use 'let' 
-// and not 'var' in your code
-var interval = setInterval(one_step, 2000)
+// again, this should comes with a 'let'
+/*let*/ interval = setInterval(one_step, 2000)
 ```
 
 ```javascript cell_style="split"

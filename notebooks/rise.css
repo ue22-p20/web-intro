@@ -56,5 +56,5 @@ div.cell.text_cell .prompt.input_prompt {
 .rise-footnote {
     font-size: medium;
     line-height: 1;
-    margin: 0px;
+    margin: 0px 0px 0px 50px;
 }
