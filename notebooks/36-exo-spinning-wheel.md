@@ -34,8 +34,18 @@ jupyter:
 <!-- #endregion -->
 
 ```javascript
-tools = require('../js/toolsv2')
-tools.init()
+toolsv2 = require('../js/toolsv2')
+toolsv2.init()
+```
+
+<!-- #region slideshow={"slide_type": ""} -->
+## cheatsheet
+<!-- #endregion -->
+
+```javascript hide_input=true
+toolsv2.from_samples('../cheatsheet/cheatsheet', 
+                     {sources_show: false, separate_show: true,
+                      separate_width: '900px', separate_height: '900px'})
 ```
 
 <!-- #region slideshow={"slide_type": ""} -->
@@ -43,10 +53,10 @@ tools.init()
 <!-- #endregion -->
 
 ```javascript hide_input=true
-tools.iframe_exo("spinning-wheel")
+toolsv2.from_samples("spinning-wheel", {sources_show: false, separate_show: true})
 ```
 
-<!-- #region slideshow={"slide_type": ""} -->
+<!-- #region slideshow={"slide_type": "slide"} -->
 ## a few hints
 <!-- #endregion -->
 
@@ -94,11 +104,12 @@ let dot = document.createElementNS(svgNS, 'circle');
 your html part could look like the following  
 
 ```javascript hide_input=true
-fs = require('fs');
+fs = require('fs')
+toolsv1 = require('../js/tools')
 html = fs.readFileSync("../samples/spinning-wheel.html", "utf-8");
 [start, end ] = [html.indexOf("<body>"), html.indexOf("</body>")];
 extract = html.slice(start, end+7);
-$$.html(`<code><pre>${tools.escape(extract)}</pre></code>`);
+$$.html(`<code><pre>${toolsv1.escape(extract)}</pre></code>`);
 ```
 
 <!-- #region slideshow={"slide_type": ""} -->
@@ -106,7 +117,6 @@ $$.html(`<code><pre>${tools.escape(extract)}</pre></code>`);
 
 * the HTML document is mostly empty, and gets populated by program
 
-* as usual now, the way we attach a callback to the `load` event  
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": ""} -->
