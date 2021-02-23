@@ -38,7 +38,7 @@ tools = require('../js/toolsv2')
 tools.init()
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
+<!-- #region slideshow={"slide_type": ""} -->
 start from this tutorial here
 https://www.freecodecamp.org/news/how-to-build-an-html-calculator-app-from-scratch-using-javascript-4454b8714b98/
 
@@ -50,6 +50,6 @@ the assignment is to write the **javascript companion** so that
 * in a first step, ignore the '.' and just write an integer calculator
 <!-- #endregion -->
 
-```javascript hide_input=true slideshow={"slide_type": "slide"}
-tools.iframe_exo("calculator", true, "plain-js")
+```javascript hide_input=true slideshow={"slide_type": ""}
+tools.from_samples("calculator", {sources_show: false, separate_show: true, start_with: 'js'})
 ```
