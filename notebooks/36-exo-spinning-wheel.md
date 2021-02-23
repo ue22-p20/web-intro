@@ -56,7 +56,7 @@ toolsv2.from_samples('../cheatsheet/cheatsheet',
 toolsv2.from_samples("spinning-wheel", {sources_show: false, separate_show: true})
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
+<!-- #region slideshow={"slide_type": ""} -->
 ## a few hints
 <!-- #endregion -->
 
