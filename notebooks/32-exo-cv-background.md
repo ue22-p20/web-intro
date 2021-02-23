@@ -34,8 +34,10 @@ jupyter:
 <!-- #endregion -->
 
 ```javascript
-tools = require('../js/toolsv2')
-tools.init()
+// run this cell, and then 
+// click the created button
+tools = require('../js/tools');
+tools.init();
 ```
 
 <!-- #region slideshow={"slide_type": ""} -->
@@ -51,7 +53,7 @@ in this notebook :
 
 * create a HTML document as a collection of 3 files, 
 * say : `resume.html`, `resume.css`, `resume.js`
-* make sure the html header loads the css and js companions
+* make sure the html `<head>` loads **both** the css and js companions
 <!-- #endregion -->
 
 then 
@@ -60,8 +62,8 @@ then
 * so that your resume background alternates  
   every 1 second between 2 different colours
 
-```javascript slideshow={"slide_type": "slide"} hide_input=true
-tools.from_samples("resume", {separate_show: true, start_with: 'js'})
+```javascript slideshow={"slide_type": "slide"} hide_input=false
+tools.iframe_exo("resume", true)
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
