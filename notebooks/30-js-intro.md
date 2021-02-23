@@ -54,29 +54,35 @@ JavaScript
 ## JavaScript characteristics
 <!-- #endregion -->
 
-* runs **inside the browser**
+* runs **inside the browser**(♡)
 * has direct **access to the DOM**
-* that it can freely manipulate to  
-  add / remove / modify content  
-  dynamically change properties
-* in response to user-triggered events
+* so it can freely **manipulate the HTML**  
+* in order to add / remove / **modify content**  
+* and/or dynamically **change properties**
+* in response to e.g. **user-triggered events**
+
+
+<div class="rise-footnote">
+    
+(♡) as mentioned earlier, one can also write "regular" programs in JS using the *node.js* runtime
+
+</div>
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## example 1
 <!-- #endregion -->
 
-in this example :
+in the following example :
 
-* HTML has two elements
-* one acts as a button, that can make  
-  the other one visible or not
-* for that we create a JavaScript  
-  **function** named `toggle()`
-* that is bound to the `onclick` event   
-  of the button element
+* HTML has two elements `#button` et `#area`
+* one acts as a button, that can make  the other one visible or not
+* we create a **JavaScript function** named `toggle()`
+* that locates the `#area` element and changes its `display` property
+* then `toggle()` is bound to the `click` event of the button element  
+  (using the `onclick` property)
 
 ```javascript scrolled=false slideshow={"slide_type": "slide"} hide_input=true
-tools.from_samples("30-js-intro-example-00", 
+tools.from_samples("30-js-intro-01-on-off", 
                    {width: '30em', height: '25em', separate_show: true})
 ```
 
@@ -85,14 +91,23 @@ tools.from_samples("30-js-intro-example-00",
 
 visibility of symbols (variable and function names) :
 
-* `onclick` property on `button`  
-  is a JavaScript fragment  
-  that refers to global `toggle` function
-* local variables inside `toggle`  
-  are declared with `let`
-* global variables `document` and `console`  
+* **global** variables `document` and `console`  
   allow to access browser components
+* **local** variables inside `toggle` are declared with `let`  
+  (there's a `const` too)
+* the `function toggle() ..` statement  
+  defines a **global** variable `toggle`
+* in HTML, we set the `onclick` property on `#button`  
+  it is a JavaScript fragment that refers to the global `toggle` function
+  
 <!-- #endregion -->
+
+<div class="rise-footnote">
+
+using `onclick` is the quick, but dirty, way to attach an event handler to an element;  
+a cleaner way is to use `addEventListener` from the JS side, as we will see later on
+
+</div>
 
 <!-- #region slideshow={"slide_type": "slide"} hide_input=true -->
 ## example 2
@@ -106,7 +121,7 @@ in this further example :
 * button to start / suspend
 
 ```javascript hide_input=true slideshow={"slide_type": "slide"}
-tools.from_samples("30-js-intro-example-randomdots",
+tools.from_samples("30-js-intro-02-svgcircles",
                    {width: '35em', height: '20em', 
                     min_width: '15em', separate_show: true})
 ```
@@ -135,6 +150,40 @@ and also, about asynchronicity :
 * how to ensure that init code is executed  
   **after** html elements are created ?
   * the purpose of `document.onload`
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} hide_input=true -->
+## example 3
+<!-- #endregion -->
+in this further example :
+
+* we create two visible elements:   
+  a `<div>` label, and this time a `<canvas>` graphic area
+* clicking in the canvas causes it to randomize itself
+
+```javascript hide_input=false slideshow={"slide_type": "slide"}
+tools.from_samples("30-js-intro-03-canvas",
+                   {width: '40em', height: '20em', 
+                    min_width: '15em', separate_show: true, start_with: 'js'})
+```
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+#### things to note on example #3 :
+
+* the `() => {}` notation to define **anonymous** functions (alike Python's `lambda`s)
+* binding the event handler done in JS with `addEventListener()`
+* impact of the JS code on **global variables** is zero !
+
+---
+and also
+
+* `<svg>` is the ancestor in the graphics area,  
+  but many alternatives, like here `<canvas>`
+* see e.g. [an overview here](https://cs.lmu.edu/~ray/notes/introjavascriptgraphics/)
+* most famous / impressive are probably
+  * `d3.js` - see [a gallery](https://observablehq.com/@d3/gallery)
+  * `three.js` - see [a gallery](https://threejs.org/examples/#webgl_animation_cloth)
+
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -173,7 +222,7 @@ when loading the simplest possible page, contents get scattered into packets, so
 
 <!-- #region cell_style="split" -->
 in the case of a page  
-that has a nested page  
+that has **a nested page**  
 (e.g. a css style)  
 there are 2 http requests at work
 <!-- #endregion -->
@@ -186,15 +235,14 @@ there are 2 http requests at work
 ### loading a real page
 <!-- #endregion -->
 
-![](../media/loading-3-google.png)
+<img src="../media/loading-3-google.png" width="1000px">
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## event-driven
 <!-- #endregion -->
 
 * as opposed to more traditional languages,  
-  (think `main()` in C++ or Java,  
-   or the entry module in Python)  
+  (think `main()` in C++ or Java,  or the entry module in Python)  
 * browser-hosted code has  
   **little control** on overall **order**  
 * plus, apps need to **react to events** that can be  
@@ -206,22 +254,25 @@ there are 2 http requests at work
 ## callbacks
 <!-- #endregion -->
 
-* one very pervasive programming pattern in JavaScript 
+the historical paradigm for event-driven programming :
+
+* one very pervasive pattern in JavaScript 
 * is the notion of a **callback** 
 * which is a **function**
 * attached to some sort of **event**
-* and then of course the function  
-  gets fired when event occurs
+* and then of course the function gets **fired** when event **occurs**
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## callbacks - continued
 <!-- #endregion -->
 
-in our 2 examples, we have seen 3 callbacks already
+in our 3 examples, we have seen 4 callbacks already
 
 * ex.1 : `onclick="toggle()"`  
 * ex.2 : `setTimeout(() => this.run(), 500)` 
 * ex.2 : `window.onload = function () { ` 
+* ex.3 : `canvas.addEventListener('click', drawShapes)`
+
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## take home message
@@ -229,8 +280,8 @@ in our 2 examples, we have seen 3 callbacks already
 
 as far as Web frontend, JavaScript :
 
-* runs **in the browser**  <span style="font-size: small">(FYI can also be used as a regular programming language)</span>
-* **full-fledged** modern language, with objects, modules…
+* runs **in the browser**  <span style="font-size: 60%">(and also increasingly used as a regular programming language)</span>
+* **full-fledged** modern language, with objects, classes, modules…
 * aware of browser objects through globals  
   e.g. `document`, `window`, `console`
-* highly influenced by **asynchronicity**
+* highly influenced by **asynchronicity** / reactive programming
