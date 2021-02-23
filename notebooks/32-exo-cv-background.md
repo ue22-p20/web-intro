@@ -62,7 +62,7 @@ then
 * so that your resume background alternates  
   every 1 second between 2 different colours
 
-```javascript slideshow={"slide_type": "slide"} hide_input=false
+```javascript slideshow={"slide_type": "slide"} hide_input=true
 tools.iframe_exo("resume", true)
 ```
 
