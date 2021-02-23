@@ -34,8 +34,8 @@ jupyter:
 <!-- #endregion -->
 
 ```javascript
-tools = require('../js/toolsv2');
-tools.init();
+tools = require('../js/tools')
+tools.init()
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
