@@ -106,10 +106,7 @@ $$.html(`<code><pre>${tools.escape(extract)}</pre></code>`);
 
 * the HTML document is mostly empty, and gets populated by program
 
-* the way we attach a callback to the `load` event  
-  which is a little more subtle than assigning `window.onload` as we did in past examples:
-  * using `addEventListener` **adds** behaviour and so is the **preferred method**
-  * while assigning `window.onload` has the potential of erasing what other modules may have done
+* as usual now, the way we attach a callback to the `load` event  
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": ""} -->

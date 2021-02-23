@@ -149,7 +149,7 @@ and also, about asynchronicity :
     in which things happen in the browser
 * how to ensure that init code is executed  
   **after** html elements are created ?
-  * the purpose of `document.onload`
+  * the purpose of the `load` event sent to the global `window` object
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} hide_input=true -->
@@ -270,7 +270,7 @@ in our 3 examples, we have seen 4 callbacks already
 
 * ex.1 : `onclick="toggle()"`  
 * ex.2 : `setTimeout(() => this.run(), 500)` 
-* ex.2 : `window.onload = function () { ` 
+* ex.2 : `window.addEventListener('load', ...)` 
 * ex.3 : `canvas.addEventListener('click', drawShapes)`
 
 

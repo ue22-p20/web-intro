@@ -22,5 +22,4 @@ function to_do_on_page_load() {
 }
 
 // et maintenant je peux brancher cette callback sur l'événement "load" 
-// on a vu dans le cours une forme avec window.onload, c'est le même effet
 window.addEventListener("load", to_do_on_page_load);

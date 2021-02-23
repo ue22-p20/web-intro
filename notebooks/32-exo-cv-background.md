@@ -74,7 +74,7 @@ tools.iframe_exo("resume", true)
 <!-- #region slideshow={"slide_type": ""} -->
 so, you want to start some code, say call function `start()`   
 right after the page loads  
-**BUT** it is unsafe to do something like 
+**BUT** it is **unsafe** to do something like 
 
 ```html
 <script src="thecode.js"></script>
@@ -97,15 +97,17 @@ the proper way is to attach a **callback**
 to the page **`load`** event
 
 ```javascript
-// the rough way
-window.onload = function() { start('some-data')} 
+// attach an (anonymous) function to the 'load' event
+window.addEventListener(
+    'load', function() { start('some-data'))
 
-// a little nicer way
-window.addEventListener('load', function() { start('some-data')}
+// OR, same but a little nicer, with an arrow function
+window.addEventListener(
+    'load', () => start('some-data'))
 ```
 
 this time, `start()` will get **called later**  
-at a time where you can be sure the document is entirely loaded.
+at a time where you can be sure the document is entirely **loaded**
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->

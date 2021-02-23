@@ -24,7 +24,6 @@ function toggle_body_background() {
 // qui maintenant n'a même plus besoin d'avoir un nom
 
 // et maintenant je peux brancher cette callback sur l'événement "load" 
-// on a vu dans le cours une forme avec window.onload, c'est le même effet
 window.addEventListener("load", function() {
     // cosmétique, si on veut que ça soit appelée LA PREMiÈRE FOIS
     toggle_body_background();

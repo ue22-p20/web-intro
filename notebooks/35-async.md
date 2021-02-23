@@ -243,7 +243,7 @@ so far we have seen a few types of events
 ### events example
 <!-- #endregion -->
 
-```javascript hide_input=false
+```javascript hide_input=true
 tools.from_samples("35-async-01-events", {separate_show: true, width: '40em'})
 ```
 
