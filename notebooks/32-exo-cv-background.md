@@ -34,10 +34,8 @@ jupyter:
 <!-- #endregion -->
 
 ```javascript
-// run this cell, and then 
-// click the created button
-tools = require('../js/tools');
-tools.init();
+tools = require('../js/toolsv2')
+tools.init()
 ```
 
 <!-- #region slideshow={"slide_type": ""} -->
@@ -70,7 +68,7 @@ in this notebook :
 <!-- #endregion -->
 
 ```javascript slideshow={"slide_type": "slide"} hide_input=true
-tools.iframe_exo("resume", true)
+tools.from_samples("resume", {separate_show: true, sources_show: false})
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
