@@ -22,7 +22,7 @@ jupyter:
     transition: cube
 ---
 
-<!-- #region slideshow={"slide_type": "slide"} -->
+<!-- #region slideshow={"slide_type": "slide"} cell_style="split" -->
 <div class="licence">
 <span>Licence CC BY-NC-ND</span>
 <span>Thierry Parmentelat</span>
@@ -56,28 +56,36 @@ in this notebook :
 * make sure the html `<head>` loads **both** the css and js companions
 <!-- #endregion -->
 
-then 
+<!-- #region cell_style="split" -->
+* then edit the JavaScript code
+* so that the background color  
+  changes every second
+* between 2 different colours
+<!-- #endregion -->
 
-* edit the JavaScript code
-* so that your resume background alternates  
-  every 1 second between 2 different colours
+<!-- #region slideshow={"slide_type": "notes"} cell_style="split" -->
+* let's first see an example
+* and then **a few tips**   
+  that should come in handy
+<!-- #endregion -->
 
 ```javascript slideshow={"slide_type": "slide"} hide_input=true
 tools.iframe_exo("resume", true)
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## tip : run code upon load
+## tip #1 : run code upon load
 
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": ""} -->
-so, you want to start some code, say call function `start()`   
-right after the page loads  
+so, you want to run some code, say call function `start()`   
+right when the page has **finished loading**  
 **BUT** it is **unsafe** to do something like 
 
 ```html
 <script src="thecode.js"></script>
+
 <script>
 start('some-data')
 </script>
@@ -111,7 +119,28 @@ at a time where you can be sure the document is entirely **loaded**
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## tip : implement a cyclic task
+## digression : `let` vs `var`
+<!-- #endregion -->
+
+in your code, make sure you **always** declare your local variables with either
+* `let x = 10` or `const y = 10`
+
+
+there is also an old-style variable declaration  
+**DO NOT** use `var` in your code !
+
+* `var old_school_declaration`
+
+
+<div style="color:blue; font-size: 80%">
+    
+however **in the context of the notebook**, we will use `var` declarations instead of `let`  
+so that cells can be evaluated twice (`let` or `const` can only be used once)
+    
+</div>    
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## tip #2 : implement a cyclic task
 <!-- #endregion -->
 
 implementing a cyclic task was done in example 2 already  
@@ -120,7 +149,7 @@ as a reminder: based on `setInterval()`
 
 ```javascript cell_style="split"
 // so that we can stop the running loop
-active = true;
+var active = true;
 
 function one_step() {
     if (active)
@@ -129,7 +158,7 @@ function one_step() {
 
 // make sure you use 'let' 
 // and not 'var' in your code
-var interval = setInterval(one_step, 1000)
+var interval = setInterval(one_step, 2000)
 ```
 
 ```javascript cell_style="split"
@@ -143,7 +172,7 @@ active = false
 // it's also possible to stop it
 // altogether
 active = true
-clearInterval(interval)
+clearInterval(interval) 
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -166,7 +195,7 @@ note however that with such an approach, the Python interpreter remains busy, it
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## tip : use devel tools
+## tip #3 : use devel tools
 <!-- #endregion -->
 
 * crucially important to get familiar with these tools  
@@ -202,14 +231,10 @@ as mentioned earlier already, you can
 
 * the place where lands the output of `console.log`  
   of course quite useful for naive debugging
-* **and** that lets you **run JavaScript** on the fly  
+* and there you **can run JavaScript** on the fly  
   much like the Python interpreter does  
 * known as a REPL ( = Read Eval Print Loop)
 * illustrated in the following slides
-
-
-* REPL stands for Read, Eval, Print Loop
-
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ![](../media/devel-tools-console-1.png)
