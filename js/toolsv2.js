@@ -13,11 +13,12 @@ function hash(word) {
 
 function from_samples(stem, options) {
   options = options || {}
+  let sources_show = (options.sources_show !== undefined) ? options.sources_show : true
+  let separate_show = (options.separate_show !== undefined) ? options.separate_show : false
   let width = options.width || "35em"
   let height = options.height || "350px"
   let min_width = options.min_width || width
   let min_height = options.min_height || height
-  let separate_show = options.separate_show || false
   let separate_width = options.separate_width || "400px"
   let separate_height = options.separate_height || "400px"
   let update_label = options.update_label || "Update →"
@@ -78,13 +79,15 @@ function from_samples(stem, options) {
 			margin-bottom: 4px;
 			padding: 6px 20px;
 		}
-	</style><div style="display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto 1fr;">
-	<div style="display: flex; margin-top: 8px; border-bottom: 3px solid #88f" id="btns_left_${id}"></div>
-	<div style="display: flex; justify-content: flex-end;" id="btns_right_${id}"></div>
-	<div id="area_ctn_${id}" style="overflow: auto; resize: both; z-index: 100; min-width: ${min_width}; min-height: ${min_height}; height:${height}; width: ${width}; display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr;" >
-	${textarea}
+	</style>
+	<div style="display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto 1fr;">
+      <div style="display: ${sources_show?'flex':'none'}; margin-top: 8px; border-bottom: 3px solid #88f" id="btns_left_${id}"></div>
+	  <div style="display: flex; justify-content: flex-end;" id="btns_right_${id}"></div>
+	  <div id="area_ctn_${id}" style="overflow: auto; resize: both; z-index: 100; min-width: ${min_width}; min-height: ${min_height}; height:${height}; width: ${width}; display:${sources_show?'grid':'none'}; grid-template-columns: 1fr; grid-template-rows: 1fr;" >
+	  ${textarea}
+	  </div>
+	  <div style="display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr;" id="out_${id}"></div>
 	</div>
-	<div style="display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr;" id="out_${id}"></div>
 	<script defer>
 
 	require(['codemirror/lib/codemirror',
@@ -188,6 +191,7 @@ function from_samples(stem, options) {
 	const area_ctn = document.getElementById("area_ctn_${id}");
 	/* Trick to update the codemirror layout when resized */
 	function update_codemirror() {
+		if (! ${sources_show}) return;
 		all_src.html.refresh();
 		all_src.css.refresh();
 		all_src.js.refresh();
@@ -276,10 +280,8 @@ function from_samples(stem, options) {
 	all_src.html.refresh();
 
 	}); /* End of all requirements */
-
+  </script>    
 	`
-
-	html += `</script>`;
 
 	$$.html(html);
 }
