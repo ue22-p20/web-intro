@@ -16,9 +16,9 @@ function _injected_css(css) {
 ${css}
 </style>`
 }
-function _injected_js(css) {
+function _injected_js(js) {
   return `<script>
-${css}
+${js}
 </script>`
 }
 
