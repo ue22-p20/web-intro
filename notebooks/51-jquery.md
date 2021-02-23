@@ -34,7 +34,7 @@ jupyter:
 <!-- #endregion -->
 
 ```javascript
-tools = require('../js/toolsv2');
+tools = require('../js/tools');
 tools.init();
 ```
 
@@ -112,12 +112,6 @@ as per <https://jquery.com>
   (and yes, this is legal in JavaScript)
 * you can use `jQuery` instead of `$` if you prefer
 
-let us start with an example
-
-```javascript slideshow={"slide_type": "slide"} hide_input=true
-tools.iframe_exo("jquery", true, true)
-```
-
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## CSS selectors
 <!-- #endregion -->
@@ -138,7 +132,7 @@ all elements of class `to-hide`
 $(".to-hide").hide()
 ```
 
-which is admittedly **much simpler** than using native JavaScript functions 
+which is admittedly **a little simpler** than using native JavaScript functions 
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -270,3 +264,11 @@ observe in the example above
 * it has become a **de facto standard**
 * it is worth taking [a look at the API documentation](https://api.jquery.com/) to get a sense of all the possibilities
 * starting maybe with [the section on manipulation](https://api.jquery.com/category/manipulation/)
+
+<!-- #region slideshow={"slide_type": "slide"} -->
+## status
+<!-- #endregion -->
+
+This library is still very widespread - used in a lot of code - but no longer that popular with new / starting projects, because of all the other newer and fancier stacks (react, ngular, vue)
+
+it makes sense to learn how to read code that uses it - and the above is a good start - but not to invest time in its inner details 

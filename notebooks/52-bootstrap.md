@@ -34,7 +34,7 @@ jupyter:
 <!-- #endregion -->
 
 ```javascript
-tools = require('../js/toolsv2');
+tools = require('../js/tools');
 tools.init();
 ```
 

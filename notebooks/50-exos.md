@@ -34,7 +34,7 @@ jupyter:
 <!-- #endregion -->
 
 ```javascript
-tools = require('../js/toolsv2');
+tools = require('../js/tools');
 tools.init();
 ```
 
@@ -76,7 +76,3 @@ tools.iframe_exo("fibonacci", true, 'plain-js')
   be it in terms of colors, speed, behaviour, whatever you  
   think could improve the game  
   are you able to implement that change ?
-
-```javascript hide_input=true
-tools.iframe_exo("calculator", true, true)
-```
