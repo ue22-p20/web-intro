@@ -8,6 +8,7 @@
         "result result";
     align-items: center;
 }
+
 #textual-title { grid-area: textual-title; }
 #textual-input { grid-area: textual-input; }
 #graphic-title { grid-area: graphic-title; }

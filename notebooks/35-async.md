@@ -44,8 +44,8 @@ tools.init()
 
 in the traditional languages we have seen so far  
 
-* a program has an **entry point**  
-  (e.g. `python foo.py` in Python, `a.out` in C++, etc…)
+* a program has **one entry point**  
+  (e.g. `python foo.py` in Python, `main()` from `a.out` in C++, etc…)
 * and it mostly does **one thing** at a time  
   in the order specified in the code  
   starting from the entry point
@@ -243,8 +243,8 @@ so far we have seen a few types of events
 ### events example
 <!-- #endregion -->
 
-```javascript hide_input=true
-tools.from_samples("events", {separate_show: true, width: '40em'})
+```javascript hide_input=false
+tools.from_samples("35-async-01-events", {separate_show: true, width: '40em'})
 ```
 
 ![](../media/callbacks-chain.png)
