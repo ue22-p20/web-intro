@@ -51,5 +51,35 @@ the assignment is to write the **javascript companion** so that
 <!-- #endregion -->
 
 ```javascript hide_input=true slideshow={"slide_type": ""}
-tools.from_samples("calculator", {sources_show: false, separate_show: true, start_with: 'js'})
+tools.from_samples("calculator", {sources_show: false, separate_show: true, 
+                                  height: '500px', separate_width: '500px', separate_height: '500px'})
 ```
+
+## a few hints
+
+### `event.target`
+
+* it is possible to attach a handler to a full region (the toplevel `<div>`)
+* and then inspect the `event` parameter (passed to your callback)
+* to find out on which element the, for example, `click` event has triggered
+
+
+### `data-*` attributes
+
+if you're curious as to why the html contains stuff like 
+
+    <button class="key--operator" data-action="add">+</button>
+    
+[the answer is here](https://www.w3schools.com/tags/att_global_data.asp) and [at little more depth here](https://developer.mozilla.org/en-US/docs/Web/API/HTMLOrForeignElement/dataset)
+
+you can then programmatically retrieve the `add` string from an event object by doing
+
+    let data_action = event.target.dataset.action
+    
+and if the click event was on that button, then `data_action` will hold the `"add"` string
+
+This is mostly a convention, it's a way to make sure that your attribute name will not conflict with what the browser uses
+
+
+
+all this being said, you can just as well ignore the `data-*` attributes, and add classes or ids to the HTML as you see fit; avoid removing stuff, as it might break the css and ruin the overall rendering

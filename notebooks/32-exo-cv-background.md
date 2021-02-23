@@ -68,7 +68,8 @@ in this notebook :
 <!-- #endregion -->
 
 ```javascript slideshow={"slide_type": "slide"} hide_input=true
-tools.from_samples("resume", {separate_show: true, sources_show: false})
+tools.from_samples("resume", {separate_show: true, sources_show: false, 
+                              height: '500px', separate_height: '900px', separate_width: '800px'})
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->

@@ -261,7 +261,7 @@ notice from the example :
 * how we inspect the event object to display meaningful data
 * also that the `.js` file does not export any symbol 
 
-<!-- #region slideshow={"slide_type": "slide"} -->
+<!-- #region slideshow={"slide_type": "slide"} tags=["level_intermediate"] -->
 ## promises
 <!-- #endregion -->
 

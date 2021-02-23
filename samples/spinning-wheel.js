@@ -85,7 +85,7 @@ class SpinningWheel {
         }
     }
 
-    // paint the 'circle' nodes accorind to _offset
+    // paint the 'circle' nodes according to _offset
     _paint() {
         // here is a 'naive' way to write the loop
         // on the <circle> tags; it works fine too
