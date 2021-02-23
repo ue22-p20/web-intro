@@ -61,7 +61,8 @@ function from_samples(stem, options) {
 		textarea += `<textarea id="js_${id}">// empty</textarea>`;
 	}
 
-
+	let width_style = `width: ${width}; min-width: ${min_width};`
+	let height_style = `height: ${height}; min-height: ${min_height};`
 	let html = `<style>
 		span.${id}_btn {
 			font-family: Courier;
@@ -78,12 +79,16 @@ function from_samples(stem, options) {
 			margin-right: 10px;
 			margin-bottom: 4px;
 			padding: 6px 20px;
+			height: fit-content;
+		}
+		#btns_right_${id} {
+			align-items: center;
 		}
 	</style>
 	<div style="display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto 1fr;">
       <div style="display: ${sources_show?'flex':'none'}; margin-top: 8px; border-bottom: 3px solid #88f" id="btns_left_${id}"></div>
-	  <div style="display: flex; justify-content: flex-end;" id="btns_right_${id}"></div>
-	  <div id="area_ctn_${id}" style="overflow: auto; resize: both; z-index: 100; min-width: ${min_width}; min-height: ${min_height}; height:${height}; width: ${width}; display:${sources_show?'grid':'none'}; grid-template-columns: 1fr; grid-template-rows: 1fr;" >
+	  <div style="display: flex; justify-content: flex-end; ${sources_show ? '' : height_style}" id="btns_right_${id}"></div>
+	  <div id="area_ctn_${id}" style="overflow: auto; resize: both; z-index: 100; ${width_style}; ${height_style}; display:${sources_show?'grid':'none'}; grid-template-columns: 1fr; grid-template-rows: 1fr;" >
 	  ${textarea}
 	  </div>
 	  <div style="display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr;" id="out_${id}"></div>
