@@ -80,9 +80,5 @@ tools.init()
 * Add or change a given style `element.style.color = "rgb(0,0,0)"`
 * Add a class to an element `element.classList.add("someclass")`
 * Remove a class to an element `element.classList.remove("someclass")`
-* And manymore ...
+* And many more ...
 <!-- #endregion -->
-
-```javascript
-
-```

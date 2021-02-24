@@ -354,9 +354,12 @@ console.log(`my name is ${bond.last_name}`);
 ### iterating over an object's keys
 <!-- #endregion -->
 
-* one can access an object's key/attribute with 2 syntaxes
+* you can access an attribute with either of these 2 forms
+  * `object.first_name`
+  * `object.['first_name']`
+* the difference being that
   * `object.first_name` takes the key name litterally
-  * `object[var]` **evaluates** `var`, that should give a key name
+  * `object[expr]` **evaluates** `expr`, that should give a key name
 
 ```javascript
 // so we can use this to iterate over an object's contents
