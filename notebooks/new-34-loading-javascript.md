@@ -121,10 +121,12 @@ let circle = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
 ```
 <!-- #endregion -->
 
-```javascript
+```javascript slideshow={"slide_type": "slide"}
 tools.show_sample("spinning-wheel/step2");
 ```
 
+<!-- #region slideshow={"slide_type": "slide"} -->
 ## Go to Step #3
 
 The next step is to Change the color of circle when we press the button, so let's learn about callback
+<!-- #endregion -->
