@@ -528,7 +528,7 @@ console.log("vector = ", vector)
 
 <p class="rise-footnote">
     Try it out within the browser's console :
-    <br> try to run <code>log.console(document)</code> or any other JS object, 
+    <br> try to run <code>console.log(document)</code> or any other JS object, 
     and see that you can navigate the inner structure of the object, 
     rather a flat representation that traditional languages have used us to.
 </p>
