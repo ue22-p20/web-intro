@@ -37,6 +37,55 @@ tools.init()
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
+## Example #1
+<!-- #endregion -->
+
+in the following example :
+
+* HTML has two elements `#button` et `#area`
+* one acts as a button, that can make  the other one visible or not
+<!-- #endregion -->
+
+```javascript scrolled=false slideshow={"slide_type": "slide"} hide_input=true
+tools.from_samples("30-js-intro-01-on-off", 
+                   {width: '30em', height: '25em', separate_show: true})
+```
+
+<!-- #region slideshow={"slide_type": "slide"} hide_input=true -->
+## Example 2
+<!-- #endregion -->
+in this further example :
+
+* we create two visible elements:   
+  a button, and a graphic area `<svg>`
+* the page runs a cyclic task  
+  that adds a random point 
+* button to start / suspend
+
+```javascript hide_input=true slideshow={"slide_type": "slide"}
+tools.from_samples("30-js-intro-02-svgcircles",
+                   {width: '35em', height: '20em', 
+                    min_width: '15em', separate_show: true})
+```
+
+<!-- #region slideshow={"slide_type": "slide"} hide_input=true -->
+## Example 3
+<!-- #endregion -->
+<!-- #region slideshow={"slide_type": "-"} -->
+in this further example :
+
+* we create two visible elements:   
+  a `<div>` label, and this time a `<canvas>` graphic area
+* clicking in the canvas causes it to randomize itself
+<!-- #endregion -->
+
+```javascript hide_input=true slideshow={"slide_type": "slide"}
+tools.from_samples("30-js-intro-03-canvas",
+                   {width: '40em', height: '20em', 
+                    min_width: '15em', separate_show: true, start_with: 'js'})
+```
+
+<!-- #region slideshow={"slide_type": "slide"} -->
 ## Objective of the course #1
 
 Release the following spinning-wheel with javascript during
