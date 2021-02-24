@@ -227,9 +227,9 @@ for (let x of array1) {
 * But be carefull of use `of` instead of `in` to iterrate each value
 * also notice how to use `let` to define a variable **local** to the `for` loop
 
-
+<!-- #region slideshow={"slide_type": "slide"} -->
 ### Iterating using indices, ak. enumerate in python
-
+<!-- #endregion -->
 
 * Using `in` keyword iterate through indices:
 
