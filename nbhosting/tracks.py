@@ -26,8 +26,8 @@ def tracks(coursedir):
           ]),
          ("course #3: JS basics", "programming with JS", "js",
            [
-             ("intro to JS", "notebooks/3*.md"),
-             ("new intro to JS", "notebooks/new*.md"),
+#             ("old intro to JS", "notebooks/3*.md"),
+             ("intro to JS", "notebooks/new*.md"),
              ("optional content", "notebooks/5*.md"),
            ]),
     ]
