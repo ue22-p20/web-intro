@@ -455,20 +455,31 @@ vector.display()
 
 ```javascript cell_style="split"
 class Temperature {
-    constructor(kelvin) {
-        this.kelvin = kelvin; // Call "set kelvin(kelvin)"
+    constructor(temp_value) {
+        this.kelvin = temp_value;
+        // "set kelvin(temp_value)" will be called
     }
-    
+
     get kelvin() {
         return this._kelvin;
     }
 
-    set kelvin(kelvin) {
-        if (kelvin < 0) {
+    set kelvin(temp_value) {
+        if (temp_value < 0) {
             console.log("negative");
-            return
+            return;
+            // this.kelvin will be undefined
         }
-        this._kelvin = kelvin;
+        this._kelvin = temp_value;
+
+        // we must use the hidden variable this._kelvin
+        // that will store the value entered 
+        // and will be returned when we ask for this.kelvin
+        // thanks to the get kevin() function
+        
+        // otherwise, set kelvin(temp_value) is called again
+        // and we have an infinite loop
+
     }
 }
 ```
