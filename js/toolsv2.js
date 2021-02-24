@@ -291,9 +291,155 @@ function from_samples(stem, options) {
 	$$.html(html);
 }
 
-
 function show_sample(stem) {
-	$$.html(`<div style="overflow: auto; resize: both; display: grid"><iframe src="/view/samples/${stem}.html"></iframe></div>`);
+
+  const fs = require('fs');
+
+
+	let id = 'x' + hash(stem);
+
+	let fullname_html = `../samples/${stem}.html`
+	let fullname_css  = `../samples/${stem}.css`
+	let fullname_js   = `../samples/${stem}.js`
+
+	let textarea = '';
+
+	try {
+		fs.accessSync(fullname_html);
+		textarea += `<textarea id="html_${id}" style="display: none;">${fs.readFileSync(fullname_html)}</textarea>`;
+	} catch {
+		textarea += `<textarea id="html_${id}" style="display: none;"><!-- empty --></textarea>`;
+	}
+
+	try {
+		fs.accessSync(fullname_css);
+		textarea += `<textarea id="css_${id}" style="display: none;">${fs.readFileSync(fullname_css)}</textarea>`;
+	} catch {
+		textarea += `<textarea id="css_${id}" style="display: none;">/* empty */</textarea>`;
+	}
+
+
+	try {
+		fs.accessSync(fullname_js);
+		textarea += `<textarea id="js_${id}" style="display: none;">${fs.readFileSync(fullname_js)}</textarea>`;
+	} catch {
+		textarea += `<textarea id="js_${id}" style="display: none;">// empty</textarea>`;
+	}
+
+	let html = `<style>
+		span.${id}_btn {
+			font-family: Courier;
+			border: 0px;
+			padding: 6px 12px;
+		}
+		span.${id}_selected {
+			background-color: #ccf;
+		}
+		button.${id}_btn {
+			border: 1px solid #88f;
+			border-radius: 5px;
+			background-color: #eef;
+			margin-right: 10px;
+			margin-bottom: 4px;
+			padding: 6px 20px;
+			height: fit-content;
+		}
+		#btns_right_${id} {
+			align-items: center;
+		}
+	</style>
+	<div style="display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto 1fr; overflow: auto; resize: both;">
+      <div style="display: flex; margin-top: 8px; border-bottom: 3px solid #88f" id="btns_left_${id}"></div>
+	  <div style="display: flex; justify-content: flex-end;" id="btns_right_${id}"></div>
+	  <div id="area_ctn_${id}" style="overflow: auto; resize: both; z-index: 100; display: grid;}; grid-template-columns: 1fr; grid-template-rows: 1fr;" >
+	  ${textarea}
+	  </div>
+	  <div style="display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr;" id="out_${id}"></div>
+	</div>
+	<script defer>
+
+	{
+
+	let all_src = { };
+
+	let dst = document.getElementById("out_${id}");
+
+	let get_example_content = () => {
+		let html = '';
+		let css = '';
+		let js = '';
+
+		if (all_src.hasOwnProperty('html')) {
+			html = all_src.html.textContent;
+		}
+
+		if (all_src.hasOwnProperty('css')) {
+			css = all_src.css.textContent;
+		}
+
+		if (all_src.hasOwnProperty('js')) {
+			js = all_src.js.textContent;
+		}
+
+
+		let tpl = "&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;style&gt;__css__&lt;/style&gt;&lt;script defer&gt;__js__&lt;/script&gt;&lt;/head&gt;&lt;body&gt;__html__&lt;/body&gt;&lt;/html&gt;";
+		// escape trick
+		let escape_trick = document.createElement("textarea");
+		escape_trick.innerHTML = tpl;
+		tpl = escape_trick.textContent;
+
+		tpl = tpl.replace("__html__", html);
+		tpl = tpl.replace("__css__", css);
+		tpl = tpl.replace("__js__", js);
+
+		return tpl;
+	};
+
+	let update_iframe = () => {
+
+		let tpl = get_example_content();
+
+		let iframe = document.createElement("iframe");
+		while (dst.firstChild) {
+			dst.removeChild(dst.lastChild);
+		}
+
+		dst.appendChild(iframe);
+    iframe.width = "100%";
+    iframe.height = "100%";
+
+		if (iframe.contentWindow) {
+			iframe = iframe.contentWindow;
+		} else {
+			if (iframe.contentDocument.document) {
+				iframe = iframe.contentDocument.document;
+			} else {
+				iframe = iframe.contentDocument;
+			}
+		}
+
+		iframe.document.open();
+		iframe.document.write(tpl);
+		iframe.document.close();
+
+
+		return false;
+
+	};
+
+
+	all_src.html = document.getElementById("html_${id}");
+	all_src.css = document.getElementById("css_${id}");
+	all_src.js = document.getElementById("js_${id}");
+
+	update_iframe();
+	setTimeout(update_iframe, 100);
+
+	} /* End of all requirements */
+  </script>    
+	`
+
+	$$.html(html);
 }
 
 const inject_css = require('./inject-css')

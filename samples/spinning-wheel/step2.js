@@ -96,6 +96,5 @@ function create_spinning_wheel(svg) {
     return spin;
 }
 
-console.log(document.getElementById("spin"));
-create_spinning_wheel(document.getElementById("spin")).init();
+window.addEventListener("load", () => { create_spinning_wheel(document.getElementById("spin")).init(); });
 
