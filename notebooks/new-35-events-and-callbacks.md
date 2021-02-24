@@ -88,7 +88,7 @@ Where `load` is the name of the event corresponding to the end of the page load.
 <!-- #endregion -->
 
 ```javascript hide_input=true
-tools.from_samples("35-async-01-events", {separate_show: true, width: '40em'})
+tools.from_samples("new-35-async-01-events", {separate_show: true, width: '40em'})
 ```
 
 ![](../media/callbacks-chain.png)
@@ -164,7 +164,7 @@ window.addEventListener(
 <!-- #endregion -->
 
 ```javascript
-tools.from_samples("35-async-02-events", {separate_show: true, width: '40em'})
+tools.from_samples("new-35-async-02-events", {separate_show: true, width: '40em'})
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
