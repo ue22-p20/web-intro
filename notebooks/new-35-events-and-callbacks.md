@@ -87,11 +87,13 @@ Where `load` is the name of the event corresponding to the end of the page load.
 ### Events example
 <!-- #endregion -->
 
-```javascript hide_input=true
+```javascript hide_input=false
 tools.from_samples("new-35-async-01-events", {separate_show: true, width: '40em'})
 ```
 
+<!-- #region slideshow={"slide_type": "slide"} -->
 ![](../media/callbacks-chain.png)
+<!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ### Example - observations
