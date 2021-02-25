@@ -39,39 +39,6 @@ tools.init()
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## Why JavaScript
-<!-- #endregion -->
-
-JavaScript comes in addition to
-
-* HTML for **content**
-* CSS for **style**
-
-JavaScript
-
-* it is a full-fledged **programming language** 
-* and provides for **behaviour**
-
-<!-- #region slideshow={"slide_type": "slide"} -->
-## JavaScript characteristics
-<!-- #endregion -->
-
-* runs **inside the browser**(♡)
-* has direct **access to the DOM**
-* so it can freely **manipulate the HTML**  
-* in order to add / remove / **modify content**  
-* and/or dynamically **change properties**
-* in response to e.g. **user-triggered events**
-
-
-<div class="rise-footnote">
-    
-(♡) as mentioned earlier, one can also write "regular" programs in JS using the *node.js* runtime
-
-</div>
-
-
-<!-- #region slideshow={"slide_type": "slide"} -->
 ## Preamble
 <!-- #endregion -->
 
