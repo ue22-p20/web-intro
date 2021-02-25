@@ -1,4 +1,6 @@
+# Book settings
 title: "A short intro to web frontend"
+author: Thierry Parmentelat
 logo: ../media/logo.png
 execute:
 #  execute_notebooks: "force"
