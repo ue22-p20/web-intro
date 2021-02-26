@@ -1,0 +1,39 @@
+- file: 01-motivation
+- part: "Intro - Web frontend"
+  chapters:
+  - file: 02-eco-system
+  - file: 03-online-tools
+- part: "Course 1 - HTML & CSS basics"
+  chapters:
+  - file: 10-html-basics
+  - file: 11-html-tags
+  - file: 12-css-basics
+  - file: 13-css-loading
+  - file: 14-css-id-class
+  - file: 15-properties
+  - file: 16-selectors
+  - file: 17-transitions
+  - file: 18-other-html-tags
+- part: "Course 2 - CSS layouts"
+  chapters:
+  - file: 20-html-responsive
+  - file: 21-grid-layout
+  - file: 22-css-media-rules
+  - file: 23-flex-layout
+  - file: 24-in-flow-out-of-flow
+  - file: 25-exo-cv
+- part: "Course 3 - a bit of JS"
+  chapters:
+  - file: new-30-js-intro
+  - file: new-31-js-language-overview
+  - file: new-32-builtin-types
+  - file: new-33-manipulating-the-DOM
+  - file: new-34-loading-javascript
+  - file: new-35-events-and-callbacks
+  - file: new-36-async
+  - file: new-37-exo-calculator
+- part: "Optional content"
+  chapters:
+  - file: 50-exos
+  - file: 51-jquery
+  - file: 52-bootstrap

@@ -1,0 +1,24 @@
+title: "A short intro to web frontend"
+logo: ../media/logo.png
+execute:
+#  execute_notebooks: "force"
+  execute_notebooks: cache
+
+only_build_toc_files: true
+
+# sphinx:
+#   config:
+#     nb_custom_formats:
+#       .md:
+#         - jupytext.reads
+#         - fmt: markdown
+
+repository:
+  url: https://github.com/ue22/web-intro
+  branch: jupyter-book
+  path_to_book: notebooks
+
+html:
+  use_repository_button: yes
+  use_edit_page_button: yes
+  use_issues_button: yes
