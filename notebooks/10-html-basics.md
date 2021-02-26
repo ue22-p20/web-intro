@@ -34,8 +34,9 @@ jupyter:
 ```javascript
 // run this cell, and then 
 // click the created button
-tools = require('../js/tools');
-tools.init();
+delete require.cache[require.resolve('../js/toolsv3')]
+tools = require('../js/toolsv3')
+tools.init()
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -59,9 +60,11 @@ an element (a section, a header) is composed by
 ## HTML document structure
 <!-- #endregion -->
 
+<!-- #region hide_input=true -->
 the overall structure of a HTML document is composed of two parts, a **header** and a **body**, like this:
+<!-- #endregion -->
 
-```javascript hide_input=true
+```javascript hide_input=false
 fragment1 = `<html>
   <head>
      <!-- various document-wide declarations -->
@@ -73,7 +76,7 @@ fragment1 = `<html>
 </html>
 `;
 
-tools.one_column(fragment1)
+console.log(fragment1)
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -116,9 +119,18 @@ for your first practice, you will save your code on your hard drive, and check t
 * you will see something like shown on the next slide
 <!-- #endregion -->
 
-```javascript hide_input=true slideshow={"slide_type": "slide"}
-tools.two_columns(fragment1)
+<!-- #region hide_input=false slideshow={"slide_type": "slide"} cell_style="split" -->
+your `hello.html` should look like this
 
+<!-- #endregion -->
+
+<!-- #region cell_style="split" -->
+and in the browser  
+it will look like this
+<!-- #endregion -->
+
+```javascript hide_input=true
+tools.sample_from_strings({html: fragment1}, {id: 'fragment1', height: '13em'})
 ```
 
 <p class="rise-footnote">also observe the URL that the browser has used to fetch your file <br>
@@ -263,15 +275,22 @@ in the *Elements* devel tools tab
 * so make sure to **always** close your tags properly
 <!-- #endregion -->
 
-```javascript hide_input=true slideshow={"slide_type": "slide"}
+<!-- #region slideshow={"slide_type": "slide"} -->
+
+**do not do this !! **
+<!-- #endregion -->
+
+```javascript hide_input=true slideshow={"slide_type": ""}
 fragment_unclosed = `<p> do not do this
 <ul>
 <li> unclosed tags <b>look like</b> they work
 <li> but they will hurt eventually`;
 
-tools.two_columns(fragment_unclosed)
- 
+tools.sample_from_strings({html: fragment_unclosed})
+
 ```
+
+**do this instead**
 
 ```javascript hide_input=true
 fragment_closed = `<p> do this instead </p>
@@ -280,7 +299,7 @@ fragment_closed = `<p> do this instead </p>
 <li> clean up behind yourself </li>
 </ul>`;
 
-tools.two_columns(fragment_closed)
+tools.sample_from_strings({html: fragment_closed})
  
 ```
 
