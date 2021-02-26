@@ -30,7 +30,7 @@ jupyter:
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": ""} -->
-# Javascript asynchornous behaviour
+# Javascript asynchronous behaviour
 <!-- #endregion -->
 
 ```javascript
@@ -39,7 +39,7 @@ tools.init()
 ```
 
 <!-- #region slideshow={"slide_type": "slide"} -->
-## Why javacript is mostly asynchronous: page loading
+## Why javascript is mostly asynchronous: page loading
 <!-- #endregion -->
 
 ### reminder : a few orders of magnitude
@@ -92,27 +92,27 @@ in the case of a page that has **a nested page** (e.g. a css style) there are 2 
 * Fetching data from internet is slow
 * Not wasting time to wait for each component
 * Prefer to create content as soon as possible to hide some latency
-* Do not use busy loop that waste CPU cycles
-* Fetch resources concurantly when possible
-* Run code concurently when possible
+* Do not use a busy loop that waste CPU cycles
+* Fetch resources concurrently when possible
+* Run code concurrently when possible
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Page loading issue
 
-* The issue is due to the fact that in most case the code order matter
-* As instance you cannot get an element from the code that what was not created
+* The issue is due to the fact that in most cases,  the code order matter
+* For instance you cannot get an element from code that was not created
 * You cannot use a given javascript library if its code is not loaded before
-* Dependency may be very tricky, and can end to a loop dependency A require B that require A.
+* Dependency may be very tricky, and can end in a loop dependency : A require B that require A.
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## General issue
 
-* The code can become the piramid of doom by cascading callbacks
+* The code can become the pyramid of doom by cascading callbacks
 * To mitigate the issue there is 2 tools:
   * Promise
-  * async/await
+  * `async`/`await`
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
@@ -131,7 +131,7 @@ as you will see however, it clearly gets some time to be able to read promises f
 ```javascript slideshow={"slide_type": "slide"}
 // this is just an accessory cell
 
-// we declare a variable that will 
+// we declare a variable 
 
 // the next cell will run OK 
 // for the first time
@@ -178,7 +178,7 @@ for those interested, more details on promises can be found in the rest of [this
 ## `async` keyword 
 
 
-With `async` you can delare fonction that are `Promise` by default
+With `async` you can declare functions that are `Promise` by default
 
 ```javascript
 // when called this fonction will be a promise as the previous code
