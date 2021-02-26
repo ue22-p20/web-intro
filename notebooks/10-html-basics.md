@@ -275,9 +275,8 @@ in the *Elements* devel tools tab
 * so make sure to **always** close your tags properly
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-
-**do not do this !! **
+<!-- #region slideshow={"slide_type": "slide"} tags=[] -->
+**do not do this !!**
 <!-- #endregion -->
 
 ```javascript hide_input=true slideshow={"slide_type": ""}
@@ -290,7 +289,9 @@ tools.sample_from_strings({html: fragment_unclosed})
 
 ```
 
+<!-- #region tags=[] slideshow={"slide_type": "slide"} -->
 **do this instead**
+<!-- #endregion -->
 
 ```javascript hide_input=true
 fragment_closed = `<p> do this instead </p>
