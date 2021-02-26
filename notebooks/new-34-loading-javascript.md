@@ -108,7 +108,8 @@ For our use case we only need to load one fragment of code
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Step #2
 
-Know the basic of javascript you have to load javascript code that draw a circle of dot as follow. Color of circle does not matter.
+Now that you know the basic of javascript, you have to load javascript code that draws a circle of dot as follows. 
+Color of circles does not matter.
 <!-- #endregion -->
 
 <!-- #region -->
