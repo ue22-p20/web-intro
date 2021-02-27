@@ -1,25 +1,24 @@
 ---
-jupyter:
-  celltoolbar: Slideshow
-  jupytext:
-    cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-    formats: md
-    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
-    text_representation:
-      extension: .md
-      format_name: markdown
-  kernelspec:
-    display_name: Javascript (Node.js)
-    language: javascript
-    name: javascript
-  nbhosting:
-    title: css @media rules
-  rise:
-    autolaunch: true
-    slideNumber: c/t
-    start_slideshow_at: selected
-    theme: sky
-    transition: cube
+celltoolbar: Slideshow
+jupytext:
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
+  formats: md:myst
+  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Javascript (Node.js)
+  language: javascript
+  name: javascript
+nbhosting:
+  title: css @media rules
+rise:
+  autolaunch: true
+  slideNumber: c/t
+  start_slideshow_at: selected
+  theme: sky
+  transition: cube
 ---
 
 <div class="licence">
@@ -27,20 +26,22 @@ jupyter:
 <span>Thierry Parmentelat</span>
 </div>
 
-<!-- #region slideshow={"slide_type": ""} -->
-# CSS `@media` rules
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": ""}}
 
-```javascript
+# CSS `@media` rules
+
+```{code-cell}
 // run this cell, and then
 // click the created button
 tools = require('../js/tools');
 tools.init();
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## purpose
-<!-- #endregion -->
+
++++
 
 as per [this article on w3schools](https://www.w3schools.com/cssref/css3_pr_mediaquery.asp) :
 
@@ -54,11 +55,13 @@ as per [this article on w3schools](https://www.w3schools.com/cssref/css3_pr_medi
 > * resolution
 > * printing, ...
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-## example - width
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}}
 
-```javascript hide_input=true
+## example - width
+
+```{code-cell}
+:hide_input: true
+
 threshold = '500px';
 media_width_html = `<body>Click above to open
 in a separate window, turn on
@@ -85,9 +88,11 @@ body {
 tools.iframe_html_css("media-rule-width", media_width_html, media_width_css, true)
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## common pitfall
-<!-- #endregion -->
+
++++
 
 * in this first example
   * note that the default `body` rule **MUST COME FIRST**
@@ -97,6 +102,7 @@ tools.iframe_html_css("media-rule-width", media_width_html, media_width_css, tru
   * and in that case the last one wins
 * so **order is important**
 
++++
 
 <div class="rise-footnote">
 
@@ -109,11 +115,13 @@ of course one other way about that is to
     
 </div>    
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-## example - print
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}}
 
-```javascript hide_input=true
+## example - print
+
+```{code-cell}
+:hide_input: true
+
 media_print_html = `<body class="media">
 It is often very useful to tweak the print
 layout, in terms of margins and the like.
@@ -138,13 +146,16 @@ body {
 tools.iframe_html_css("media-rule-print", media_print_html, media_print_css, true)
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## `<link>` examples
-<!-- #endregion -->
+
++++
 
 another way to use media rules is from the `<head>` tag
 
-<!-- #region -->
++++
+
 ```html
 <link rel="stylesheet"
     <!-- NOTE the new media attribute here -->
@@ -154,7 +165,8 @@ another way to use media rules is from the `<head>` tag
     media="screen and (max-width: 600px)"
     href="smallscreen.css">
 ```
-<!-- #endregion -->
+
++++
 
 <div class="rise-footnote">
     
@@ -162,22 +174,26 @@ remember that `<html>` contains 2 sons, a `<head>` and a `<body>`
     
 </div>    
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## see also
 
 * [this w3schools page](https://www.w3schools.com/cssref/css3_pr_mediaquery.asp) has more details  
   on the admissible **syntax for media rules**
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## practice
-<!-- #endregion -->
+
++++
 
 1. open the example below in a separate window
   * observe behaviour on narrow, mid-size, and large viewport
 1. write an HTML document and related CSS that mimicks it
   * at least for viewports smaller and larger than 512px
 
-```javascript hide_input=true
+```{code-cell}
+:hide_input: true
+
 tools.iframe_exo("exo-grid", true, true)
 ```

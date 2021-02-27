@@ -1,25 +1,24 @@
 ---
-jupyter:
-  celltoolbar: Slideshow
-  jupytext:
-    cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-    formats: md
-    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
-    text_representation:
-      extension: .md
-      format_name: markdown
-  kernelspec:
-    display_name: Javascript (Node.js)
-    language: javascript
-    name: javascript
-  nbhosting:
-    title: web frontend ecosystem
-  rise:
-    autolaunch: true
-    slideNumber: c/t
-    start_slideshow_at: selected
-    theme: sky
-    transition: cube
+celltoolbar: Slideshow
+jupytext:
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
+  formats: md:myst
+  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Javascript (Node.js)
+  language: javascript
+  name: javascript
+nbhosting:
+  title: web frontend ecosystem
+rise:
+  autolaunch: true
+  slideNumber: c/t
+  start_slideshow_at: selected
+  theme: sky
+  transition: cube
 ---
 
 <div class="licence">
@@ -27,12 +26,15 @@ jupyter:
 <span>Thierry Parmentelat</span>
 </div>
 
++++
 
 # introduction to web frontend
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## Web ecosystem (frontend)
-<!-- #endregion -->
+
++++
 
 * crash course on how to write web pages  
 * just scratch the surface, a whole lot is **not even mentioned**  
@@ -41,9 +43,11 @@ jupyter:
   * CSS (Cascading Style Sheets)
   * JavaScript (a.k.a. ECMAScript)
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## evolution speed
-<!-- #endregion -->
+
++++
 
 * all this started in a very awkward way
   * early versions were always quick and dirty
@@ -58,22 +62,23 @@ jupyter:
   * tools for mobile depl. [expo](https://expo.io), 
     [svelte](https://svelte.dev), [ionic](https://ionicframework.com)
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-##  focus on HTML - CSS - JavaScript
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}}
 
-<!-- #region slideshow={"slide_type": ""} -->
+##  focus on HTML - CSS - JavaScript
+
++++ {"slideshow": {"slide_type": ""}}
+
 * we will only focus on **grassroots level**
   * that will likely remain valid for a while
 * versions for our focus
   * HTML-5, CSS-3, ECMAScript-6
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## backend and frontend 
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": ""} cell_style="split" -->
++++ {"slideshow": {"slide_type": ""}, "cell_style": "split"}
+
 * Web server :  
   * operated by the application provider
   * runs **backend** code
@@ -83,17 +88,16 @@ jupyter:
     (even though that code  
     is fetched at the backend)
 
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": ""}, "cell_style": "split"}
 
-<!-- #region slideshow={"slide_type": ""} cell_style="split" -->
 ![](../media/client-server.svg)
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## you may have heard of
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": ""} -->
++++ {"slideshow": {"slide_type": ""}}
+
 * typical backend technologies
   * PHP, django or flask (Python), Ruby/on rails, SQL databases
   * apache, nginx, load balancing
@@ -108,4 +112,3 @@ jupyter:
 
 you can see our focus is 
 a small fraction of the whole spectrum
-<!-- #endregion -->

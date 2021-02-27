@@ -1,56 +1,60 @@
 ---
-jupyter:
-  celltoolbar: Slideshow
-  jupytext:
-    cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-    formats: md
-    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
-    text_representation:
-      extension: .md
-      format_name: markdown
-  kernelspec:
-    display_name: Javascript (Node.js)
-    language: javascript
-    name: javascript
-  nbhosting:
-    title: user tools
-  rise:
-    autolaunch: true
-    slideNumber: c/t
-    start_slideshow_at: selected
-    theme: sky
-    transition: cube
+celltoolbar: Slideshow
+jupytext:
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
+  formats: md:myst
+  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Javascript (Node.js)
+  language: javascript
+  name: javascript
+nbhosting:
+  title: user tools
+rise:
+  autolaunch: true
+  slideNumber: c/t
+  start_slideshow_at: selected
+  theme: sky
+  transition: cube
 ---
 
-<!-- #region slideshow={"slide_type": ""} -->
++++ {"slideshow": {"slide_type": ""}}
+
 <div class="licence">
 <span>Licence CC BY-NC-ND</span>
 <span>Thierry Parmentelat</span>
 </div>
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": ""} -->
++++ {"slideshow": {"slide_type": ""}}
+
 # practice - additional assignments
-<!-- #endregion -->
 
-```javascript
+```{code-cell}
 tools = require('../js/tools');
 tools.init();
 ```
 
-<!-- #region slideshow={"slide_type": ""} -->
++++ {"slideshow": {"slide_type": ""}}
+
 ## pythagore
-<!-- #endregion -->
+
++++
 
 you are tasked to write a "graphical demonstration" for the Pythagorean Theorem, getting inspiration from the page below
 
 the sample app is not responsive, you will need to open it in a separate window
 
-```javascript hide_input=true
+```{code-cell}
+:hide_input: true
+
 tools.iframe_exo("pythagore", true)
 ```
 
-<!-- #region slideshow={"slide_type": ""} -->
++++ {"slideshow": {"slide_type": ""}}
+
 ## fibonacci and the golden number 
 
 you are asked to write a small app as a html+css+js that explores the neighbourhood between fibonacci numbers and the golden number, taking - as loose as you want - inspiration from the page below
@@ -58,15 +62,17 @@ you are asked to write a small app as a html+css+js that explores the neighbourh
 here again the sample app is not responsive, you will need to open it in a separate window
 
 **HINT** the slope of the 2 fixed rules is of course the golden ratio and its inverse
-<!-- #endregion -->
 
-```javascript hide_input=true
+```{code-cell}
+:hide_input: true
+
 // the minified version somehow was not working...
 tools.iframe_exo("fibonacci", true, 'plain-js')
 ```
 
 ## a snake 
 
++++
 
 * clone the github repo from https://github.com/patorjk/JavaScript-Snake.git
 * open `index.html` in your browser - check that the game works for you

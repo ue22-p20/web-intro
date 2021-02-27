@@ -1,25 +1,24 @@
 ---
-jupyter:
-  celltoolbar: Slideshow
-  jupytext:
-    cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-    formats: md
-    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
-    text_representation:
-      extension: .md
-      format_name: markdown
-  kernelspec:
-    display_name: Javascript (Node.js)
-    language: javascript
-    name: javascript
-  nbhosting:
-    title: other html tags
-  rise:
-    autolaunch: true
-    slideNumber: c/t
-    start_slideshow_at: selected
-    theme: sky
-    transition: cube
+celltoolbar: Slideshow
+jupytext:
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
+  formats: md:myst
+  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Javascript (Node.js)
+  language: javascript
+  name: javascript
+nbhosting:
+  title: other html tags
+rise:
+  autolaunch: true
+  slideNumber: c/t
+  start_slideshow_at: selected
+  theme: sky
+  transition: cube
 ---
 
 <div class="licence">
@@ -27,20 +26,22 @@ jupyter:
 <span>Thierry Parmentelat</span>
 </div>
 
-<!-- #region slideshow={"slide_type": ""} -->
-# more HTML tags
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": ""}}
 
-```javascript
+# more HTML tags
+
+```{code-cell}
 // run this cell, and then 
 // click the created button
 tools = require('../js/tools');
 tools.init();
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## multimedia
-<!-- #endregion -->
+
++++
 
 * [`<img>`](https://www.w3schools.com/tags/tag_img.asp)
 * [`<audio>`](https://www.w3schools.com/html/html5_audio.asp)
@@ -48,20 +49,24 @@ tools.init();
 
 find out more on these by yourselves
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## graphics and `<svg>`
-<!-- #endregion -->
+
++++
 
 * SVG is a complete subsystem to deal with vector graphics
 * [learn more about SVG at w3schools](https://www.w3schools.com/graphics/svg_intro.asp) (basic)
 * [and much more on css-tricks](https://css-tricks.com/svg-properties-and-css/)  
   (very advanced, including animations)
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-### svg example
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}}
 
-```javascript hide_input=true
+### svg example
+
+```{code-cell}
+:hide_input: true
+
 svg_html=`<h1>my first SVG</h1>
 
 <svg width="200" height="200">
@@ -84,9 +89,11 @@ circle {
 tools.iframe_html_css("svg", svg_html, svg_css)
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## form-oriented
-<!-- #endregion -->
+
++++
 
 for building forms :
 
@@ -96,10 +103,11 @@ for building forms :
 
 out of scope for this course though, as it involves a backend
 
++++ {"slideshow": {"slide_type": "slide"}}
 
-<!-- #region slideshow={"slide_type": "slide"} -->
 ## sectioning
-<!-- #endregion -->
+
++++
 
 * `<h1>` .. `<h6>` are only allow meaningful for the title line
 * but are too poor to actually convey sectioning information
@@ -108,17 +116,21 @@ out of scope for this course though, as it involves a backend
   * `<nav>`
   * [and a few others as described here](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML_sections_and_outlines)
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-### sectioning example
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}}
 
-```javascript hide_input=true
+### sectioning example
+
+```{code-cell}
+:hide_input: true
+
 tools.iframe_samples_html_css("sections", true)
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## miscell others
-<!-- #endregion -->
+
++++
 
 in a jumble :
 
@@ -128,11 +140,12 @@ in a jumble :
 * `<canvas>` is a more recent alternative to SVG for graphics,  
   [see more on css-tricks](https://css-tricks.com/learn-canvas-snake-game/)
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-## practice 
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}}
 
-<!-- #region cell_style="center" -->
+## practice 
+
++++ {"cell_style": "center"}
+
 * as a conclusion of this first basic course
   * with all the knowledge you now have about HTML and CSS,
 * write your complete resume; you should have 2 files 
@@ -146,4 +159,3 @@ in a jumble :
 * **NOTE** that next course will address overall layout in greater details, 
   (i.e. the relative place of all pieces wrt one another)  
   so do not spend too much time on trying to make best usage of space at this point
-<!-- #endregion -->

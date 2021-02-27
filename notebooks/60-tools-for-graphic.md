@@ -1,46 +1,47 @@
 ---
-jupyter:
-  celltoolbar: Slideshow
-  jupytext:
-    cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-    formats: md
-    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
-    text_representation:
-      extension: .md
-      format_name: markdown
-  kernelspec:
-    display_name: Javascript (Node.js)
-    language: javascript
-    name: javascript
-  nbhosting:
-    title: user tools
-  rise:
-    autolaunch: true
-    slideNumber: c/t
-    start_slideshow_at: selected
-    theme: sky
-    transition: cube
+celltoolbar: Slideshow
+jupytext:
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
+  formats: md:myst
+  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Javascript (Node.js)
+  language: javascript
+  name: javascript
+nbhosting:
+  title: user tools
+rise:
+  autolaunch: true
+  slideNumber: c/t
+  start_slideshow_at: selected
+  theme: sky
+  transition: cube
 ---
 
-<!-- #region slideshow={"slide_type": ""} -->
++++ {"slideshow": {"slide_type": ""}}
+
 <div class="licence">
 <span>Licence CC BY-NC-ND</span>
 <span>Thierry Parmentelat</span>
 </div>
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": ""} -->
++++ {"slideshow": {"slide_type": ""}}
+
 # visualization tools
-<!-- #endregion -->
 
-```javascript
+```{code-cell}
 tools = require('../js/tools');
 tools.init();
 ```
 
-<!-- #region slideshow={"slide_type": ""} -->
++++ {"slideshow": {"slide_type": ""}}
+
 ## there is a library for everything
-<!-- #endregion -->
+
++++
 
 * js cannot compete with traditional languages on CPU-intensive libraries
 * **BUT** it does kill all competition as soon as a User-Interface is involved
@@ -52,14 +53,17 @@ tools.init();
 
 in this notebook we see a selection of 2 libraries for visualzation that are really cool
 
++++
 
 <p class="rise-footnote">
 this is a personal choice, there are **tons** of other interesting libraries available around
 </p>
 
-<!-- #region slideshow={"slide_type": ""} -->
++++ {"slideshow": {"slide_type": ""}}
+
 ## three.js
-<!-- #endregion -->
+
++++
 
 [`three.js`](https://threejs.org/) is a graphic library to create 3D virtual reality scenes
 
@@ -71,7 +75,8 @@ in a nutshell, to render a scene you need
 
 it is pretty easy to get started with, if you [follow the tuto](https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene)
 
-<!-- #region slideshow={"slide_type": ""} -->
++++ {"slideshow": {"slide_type": ""}}
+
 ### a selection
 
 * the gallery of examples  
@@ -79,17 +84,19 @@ it is pretty easy to get started with, if you [follow the tuto](https://threejs.
 * and tons of others,  
   * https://mixedreality.mozilla.org/hello-webxr/
   * http://chandlerprall.github.io/Physijs/examples/jenga.html  
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": ""} -->
++++ {"slideshow": {"slide_type": ""}}
+
 ## `d3.js`
-<!-- #endregion -->
+
++++
 
 `d3.js` is a library for dataviz, its website is on https://d3js.org/
 
 I strongly recommend a thorough visit of their [Gallery of examples](https://github.com/d3/d3/wiki/Gallery), where you will see mind-boggling examples of all kinds of ways to transform data into moving pixels
 
-<!-- #region -->
++++
+
 d3 is based on a mental model that graphical objects (for example, elements in a <svg>) can be bound to the data, so that any change in the data automatically propagates to the graphical objects.
 
 **WARNING** 
@@ -102,12 +109,11 @@ a cool way to play with d3 is to use <https://observablehq.com>, that was develo
 `observablehq` has its own [gallery of visualizations](https://observablehq.com/explore)     
     
     
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": ""} -->
++++ {"slideshow": {"slide_type": ""}}
+
 ### a selection
 
 * my favorite, on [Obama's 2013 budget proposal](https://archive.nytimes.com/www.nytimes.com/interactive/2012/02/13/us/politics/2013-budget-proposal-graphic.html)
 
 * always in fashion, [tetris on d3](http://d3tetris.herokuapp.com/)
-<!-- #endregion -->

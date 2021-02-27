@@ -1,25 +1,24 @@
 ---
-jupyter:
-  celltoolbar: Slideshow
-  jupytext:
-    cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-    formats: md
-    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
-    text_representation:
-      extension: .md
-      format_name: markdown
-  kernelspec:
-    display_name: Javascript (Node.js)
-    language: javascript
-    name: javascript
-  nbhosting:
-    title: responsiveness
-  rise:
-    autolaunch: true
-    slideNumber: c/t
-    start_slideshow_at: selected
-    theme: sky
-    transition: cube
+celltoolbar: Slideshow
+jupytext:
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
+  formats: md:myst
+  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Javascript (Node.js)
+  language: javascript
+  name: javascript
+nbhosting:
+  title: responsiveness
+rise:
+  autolaunch: true
+  slideNumber: c/t
+  start_slideshow_at: selected
+  theme: sky
+  transition: cube
 ---
 
 <div class="licence">
@@ -27,20 +26,22 @@ jupyter:
 <span>Thierry Parmentelat</span>
 </div>
 
-<!-- #region slideshow={"slide_type": ""} -->
-# responsiveness
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": ""}}
 
-```javascript
+# responsiveness
+
+```{code-cell}
 // run this cell, and then 
 // click the created button
 tools = require('../js/tools');
 tools.init();
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## responsive, meaning ?
-<!-- #endregion -->
+
++++
 
 * as opposed to a Word document - designed for a fixed page size
   * a web page gets displayed on **many**   
@@ -50,25 +51,27 @@ tools.init();
 * a responsive page **adapts** its layout to the **device size**
   * technically the visible area is called the **viewport**
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-this means for example :
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}}
 
-<!-- #region cell_style="split" slideshow={"slide_type": ""} -->
+this means for example :
+
++++ {"cell_style": "split", "slideshow": {"slide_type": ""}}
+
 wide viewport
 
 ![](../media/responsive-wide.svg)
-<!-- #endregion -->
 
-<!-- #region cell_style="split" -->
++++ {"cell_style": "split"}
+
 narrow viewport
 
 ![](../media/responsive-narrow.svg)
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ### logical zoom
-<!-- #endregion -->
+
++++
 
 * be aware also that all browsers have a feature   
   that let users artificially zoom in and out
@@ -76,11 +79,12 @@ narrow viewport
 * this also triggers changes, to which  
   **responsive** pages are expected to **react** properly
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-## default layout policy
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}}
 
-<!-- #region cell_style="split" -->
+## default layout policy
+
++++ {"cell_style": "split"}
+
 * if you do not override  
   the `display:` property,  
   you use a **historical** layout policy 
@@ -91,15 +95,16 @@ narrow viewport
   (think, a **Word document**)
 * **not at all suited**  
   for a responsive design
-<!-- #endregion -->
 
-<!-- #region cell_style="split" -->
++++ {"cell_style": "split"}
+
 ![](../media/css-display-block-inline.png)
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ##  `display` property : basic policies
-<!-- #endregion -->
+
++++
 
 * layout policy is primarily materialized  
   in the **`display` property**
@@ -108,9 +113,11 @@ narrow viewport
   * have been supported from the very beginning of the Web 
   * well illustrated [on this page on css-tricks.com](https://css-tricks.com/almanac/properties/d/display/)
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## `display` - modern alternatives
-<!-- #endregion -->
+
++++
 
 more modern values include :
 
@@ -121,20 +128,27 @@ more modern values include :
 
 we will study these 2 policies in separate notebooks
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## `display: none`
-<!-- #endregion -->
+
++++
 
 * as an aside,
 * one specific value for the `display` property is `none`
 * in that case the element is present in the DOM
 * but it does not show up at all in the rendered page
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-### `display: none` illustrated
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}}
 
-```javascript hide_input=true slideshow={"slide_type": ""}
+### `display: none` illustrated
+
+```{code-cell}
+---
+hide_input: true
+slideshow:
+  slide_type: ''
+---
 display_none_html = `<p> an element can easily be 'hidden' from the output </p>
 
 <p id="do-not-show"> let us hide this part altogether </p>

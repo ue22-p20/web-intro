@@ -1,25 +1,24 @@
 ---
-jupyter:
-  celltoolbar: Slideshow
-  jupytext:
-    cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-    formats: md
-    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
-    text_representation:
-      extension: .md
-      format_name: markdown
-  kernelspec:
-    display_name: Javascript (Node.js)
-    language: javascript
-    name: javascript
-  nbhosting:
-    title: html tags
-  rise:
-    autolaunch: true
-    slideNumber: c/t
-    start_slideshow_at: selected
-    theme: sky
-    transition: cube
+celltoolbar: Slideshow
+jupytext:
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
+  formats: md:myst
+  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Javascript (Node.js)
+  language: javascript
+  name: javascript
+nbhosting:
+  title: html tags
+rise:
+  autolaunch: true
+  slideNumber: c/t
+  start_slideshow_at: selected
+  theme: sky
+  transition: cube
 ---
 
 <div class="licence">
@@ -27,22 +26,24 @@ jupyter:
 <span>Thierry Parmentelat</span>
 </div>
 
-<!-- #region slideshow={"slide_type": ""} -->
-# basic tags
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": ""}}
 
-```javascript
+# basic tags
+
+```{code-cell}
 // run this cell, and then 
 // click the created button
 tools = require('../js/tools');
 tools.init();
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-## header tags `<h1>` .. `<h5>`
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}}
 
-```javascript hide_input=true
+## header tags `<h1>` .. `<h5>`
+
+```{code-cell}
+:hide_input: true
+
 headers_fragment = `<h1> toplevel title </h1>
 <h2> first sublevel title </h2>
 <h3> and so on </h3>
@@ -52,7 +53,7 @@ headers_fragment = `<h1> toplevel title </h1>
 tools.two_columns(headers_fragment)
 ```
 
-```javascript
+```{code-cell}
 
 ```
 
@@ -62,11 +63,13 @@ tools.two_columns(headers_fragment)
     with more control on the result.
 </p>
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-## text tags `<p>` and `<br>` 
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}}
 
-```javascript hide_input=true
+## text tags `<p>` and `<br>` 
+
+```{code-cell}
+:hide_input: true
+
 text_fragment = `<p> it is wise to always embed your text 
 in a text tag like &lt;p&gt;, 
 that stands for paragraph, and that of course gets justified 
@@ -80,11 +83,13 @@ instead using the &lt;br&gt; tag
 tools.two_columns(text_fragment)
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-## lists with `<ul>`  and `<li>`
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}}
 
-```javascript hide_input=true
+## lists with `<ul>`  and `<li>`
+
+```{code-cell}
+:hide_input: true
+
 bullet_fragment = `<p> a typical bullet list with a <b>ul</b> tag
 <br> <code>ul</code> stands for "unordered list"
 <br> <code>li</code> stands for "list item"
@@ -97,7 +102,9 @@ bullet_fragment = `<p> a typical bullet list with a <b>ul</b> tag
 tools.two_columns(bullet_fragment)
 ```
 
-```javascript hide_input=true
+```{code-cell}
+:hide_input: true
+
 bullet_fragment = `<p> the same with a <b>ol</b> tag instead
 <br> <code>ol</code> stands for "ordered list"
 <ol>
@@ -109,39 +116,50 @@ bullet_fragment = `<p> the same with a <b>ol</b> tag instead
 tools.two_columns(bullet_fragment)
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## hyperlinks, and the anchor tag `<a>`
-<!-- #endregion -->
+
++++
 
 the anchor tag serves two purposes :
 
 * create a **hyperlink** that can bring users to another location
 * create a **name** locally so that this particular location can be the target of a hyperlink
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ### hyperlink `<a href="some-url">`
-<!-- #endregion -->
+
++++
 
 typical **hyperlink** reads like this  
 **NOTE** that clicking the link will cause you to leave the present notebook !
 
-```javascript hide_input=true
+```{code-cell}
+:hide_input: true
+
 hyperlink_fragment = `<a href="https://www.google.com/">the hyperlink</a>`;
 tools.two_columns(hyperlink_fragment)
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ### name anchor `<a name="some-name">`
-<!-- #endregion -->
+
++++
 
 if you need a hyperlink to point, not at the beginning of this page, but somewhere in the middle, then create an anchor at that location
 
-```javascript hide_input=true
+```{code-cell}
+:hide_input: true
+
 anchor_fragment = `<a name="the-anchor-name">the magic location</a>`;
 tools.two_columns(anchor_fragment)
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ### URL to an anchor
 
 * you can then refer to that anchor from any other webpage using a URL that ends with `#the-anchor-name`
@@ -149,13 +167,13 @@ tools.two_columns(anchor_fragment)
 * then you can create a direct access to *the magic location* 
 * with a `<a href="https://example.com/some/page.html#the-anchor-name">`
 
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}}
 
-<!-- #region slideshow={"slide_type": "slide"} -->
 ### local URL
-<!-- #endregion -->
 
-```javascript hide_input=true
+```{code-cell}
+:hide_input: true
+
 redirect_fragment = `<p>it is easy to craft a local URL;
 here this hyperlink 
 <a href="#the-anchor-name">will go backwards</a>
@@ -166,16 +184,18 @@ here this hyperlink
 tools.two_columns(redirect_fragment);
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## styling tags
 
 * a handful of convenience tags for quick styling
   * like bold, italics, underline and similar
 * however there are **much more powerful** mechanisms
   * so **don't use this at scale**, they are just conveniences
-<!-- #endregion -->
 
-```javascript hide_input=true
+```{code-cell}
+:hide_input: true
+
 styling_fragment = `<p>
 tags for <b>bold</b> or <i>italics</i> 
 or <u>underline</u> or <s>strike-through</s>
@@ -189,14 +209,16 @@ tools.two_columns(styling_fragment)
     here again the right way to go is often to use classes, that we study later on
 <p>
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## code-like
 
 * `<pre>` stands for preformatted
 * `<code>` is for a terminal-like font and style
-<!-- #endregion -->
 
-```javascript hide_input=true
+```{code-cell}
+:hide_input: true
+
 code_fragment = `<p>for inserting code that should be kept as-is
 
 <code><pre>
@@ -211,24 +233,29 @@ plt.plot(X, Y)
 tools.two_columns(code_fragment)
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-## grouping contents
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}}
 
-<!-- #region hide_input=true -->
+## grouping contents
+
++++ {"hide_input": true}
+
 * one **very common** tag is `<div>`
  * it is used to group together elements inside a single tree
  * `<div>` stands for *division*
 * there is also `<span>` that serves a similar purpose 
  * except for the linebreaking behaviour
 * an **essential tool** in any page design
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ### `<div>` and `<span>` example
-<!-- #endregion -->
 
-```javascript slideshow={"slide_type": ""} hide_input=true
+```{code-cell}
+---
+hide_input: true
+slideshow:
+  slide_type: ''
+---
 group_html = `<p> a paragraph may  
 <span style="background-color: #ddd;">
       contain a fragment</span>
@@ -250,11 +277,16 @@ tools.two_columns(group_html)
     to outline the &lt;span&gt; and &lt;div&gt; 
     elements by changing their background color</p>
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-### second example of `<div>`
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}}
 
-```javascript slideshow={"slide_type": ""} hide_input=true
+### second example of `<div>`
+
+```{code-cell}
+---
+hide_input: true
+slideshow:
+  slide_type: ''
+---
 group2_html = `<div> 
 the 'div' tag is an essential unit brick for creating a page layout
 </div>
@@ -268,12 +300,13 @@ the 'div' tag is an essential unit brick for creating a page layout
 tools.two_columns(group2_html)
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## a word on tables
-<!-- #endregion -->
+
++++
 
 there indeed is a `<table>` tag in html;  
 in the early ages of HTML, tables were present everywhere, for creating fancy layouts
 
 however, we strongly recommend that you stay away from that for the moment, especially if your goal is to create  grid-based layouts, that we will cover later on
-

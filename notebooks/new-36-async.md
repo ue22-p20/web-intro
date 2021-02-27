@@ -1,39 +1,38 @@
 ---
-jupyter:
-  celltoolbar: Slideshow
-  jupytext:
-    cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-    formats: md
-    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
-    text_representation:
-      extension: .md
-      format_name: markdown
-  kernelspec:
-    display_name: Javascript (Node.js)
-    language: javascript
-    name: javascript
-  nbhosting:
-    title: asynchronism
-  rise:
-    autolaunch: true
-    slideNumber: c/t
-    start_slideshow_at: selected
-    theme: sky
-    transition: cube
+celltoolbar: Slideshow
+jupytext:
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
+  formats: md:myst
+  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Javascript (Node.js)
+  language: javascript
+  name: javascript
+nbhosting:
+  title: asynchronism
+rise:
+  autolaunch: true
+  slideNumber: c/t
+  start_slideshow_at: selected
+  theme: sky
+  transition: cube
 ---
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 <div class="licence">
 <span>Licence CC BY-NC-ND</span>
 <span>Thierry Parmentelat</span>
 </div>
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": ""} -->
++++ {"slideshow": {"slide_type": ""}}
+
 # Javascript asynchronous behaviour
-<!-- #endregion -->
 
-```javascript
+```{code-cell}
 tools = require('../js/toolsv2')
 tools.init()
 ```
@@ -56,57 +55,62 @@ tools.init()
   * bottom line: more in the **several 100s of ms**
   * frequently several seconds
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ### a simple page
-<!-- #endregion -->
 
-<!-- #region cell_style="split" -->
++++ {"cell_style": "split"}
+
 when loading the simplest possible page, contents get scattered into packets, so it does not arrive all at once
-<!-- #endregion -->
 
-<!-- #region cell_style="split" -->
++++ {"cell_style": "split"}
+
 ![](../media/loading-1-simple.png)
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ### a page and a nested page
-<!-- #endregion -->
 
-<!-- #region cell_style="split" -->
++++ {"cell_style": "split"}
+
 in the case of a page that has **a nested page** (e.g. a css style) there are 2 http requests at work
-<!-- #endregion -->
 
-<!-- #region cell_style="split" -->
++++ {"cell_style": "split"}
+
 ![](../media/loading-2-nested.png)
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ### loading a real page
-<!-- #endregion -->
+
++++
 
 <img src="../media/loading-3-google.png" width="1000px">
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ##  Summarize why
 
 * Fetching data from internet is slow
 * Not wasting time to wait for each component
 * Prefer to create content as soon as possible to hide some latency
-* Do not use a busy loop that waste CPU cycles
-* Fetch resources concurrently when possible
-* Run code concurrently when possible
+* Do not use a busy loop that wastes CPU cycles
+* Fetch resources concurrently whenever possible
+* Run code concurrently whenever possible
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## Page loading issue
 
 * The issue is due to the fact that in most cases,  the code order matter
 * For instance you cannot get an element from code that was not created
 * You cannot use a given javascript library if its code is not loaded before
-* Dependency may be very tricky, and can end in a loop dependency : A require B that require A.
+* Dependency may be very tricky, and can end in a dependency loop : A requires B that requires A.
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## General issue
 
 * The code can become the pyramid of doom by cascading callbacks
@@ -115,9 +119,11 @@ in the case of a page that has **a nested page** (e.g. a css style) there are 2 
   * `async`/`await`
 <!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## Promises
-<!-- #endregion -->
+
++++
 
 a relatively new alternative to callbacks that tries to address the 'pyramid of Doom' as described in the article mentioned above
 
@@ -128,7 +134,11 @@ the following example tries to illustrate
 
 as you will see however, it clearly gets some time to be able to read promises fluently :)
 
-```javascript slideshow={"slide_type": "slide"}
+```{code-cell}
+---
+slideshow:
+  slide_type: slide
+---
 // this is just an accessory cell
 
 // we declare a variable 
@@ -140,7 +150,11 @@ as you will see however, it clearly gets some time to be able to read promises f
 failure_toggle = 1
 ```
 
-```javascript slideshow={"slide_type": "slide"}
+```{code-cell}
+---
+slideshow:
+  slide_type: slide
+---
 new Promise(
     function (resolve, reject) {
 
@@ -173,18 +187,21 @@ new Promise(
 );
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ### more on promises and async
 
 for those interested, more details on promises can be found in the rest of [this chapter on javascript.info](https://javascript.info/async) [starting here](https://javascript.info/promise-basics)
-<!-- #endregion -->
+
++++
 
 ## `async` keyword 
 
++++
 
 With `async` you can declare functions that are `Promise` by default
 
-```javascript
+```{code-cell}
 // when called this fonction will be a promise as the previous code
 async function foo() {
     // make it work or fail every other time
@@ -220,12 +237,13 @@ foo().then(
 
 ## `await` keyword
 
++++
 
 * The keyword `await` allow to wait for the result of a promise
 * `await` can only used in `async` function
 * They cannot be used in the global scope
 
-```javascript
+```{code-cell}
 async function foo() {
     // make it work or fail every other time
     failure_toggle = !failure_toggle;

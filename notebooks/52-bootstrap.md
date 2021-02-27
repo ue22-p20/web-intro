@@ -1,46 +1,47 @@
 ---
-jupyter:
-  celltoolbar: Slideshow
-  jupytext:
-    cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-    formats: md
-    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
-    text_representation:
-      extension: .md
-      format_name: markdown
-  kernelspec:
-    display_name: Javascript (Node.js)
-    language: javascript
-    name: javascript
-  nbhosting:
-    title: bootstrap
-  rise:
-    autolaunch: true
-    slideNumber: c/t
-    start_slideshow_at: selected
-    theme: sky
-    transition: cube
+celltoolbar: Slideshow
+jupytext:
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
+  formats: md:myst
+  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Javascript (Node.js)
+  language: javascript
+  name: javascript
+nbhosting:
+  title: bootstrap
+rise:
+  autolaunch: true
+  slideNumber: c/t
+  start_slideshow_at: selected
+  theme: sky
+  transition: cube
 ---
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 <div class="licence">
 <span>Licence CC BY-NC-ND</span>
 <span>Thierry Parmentelat</span>
 </div>
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": ""} -->
++++ {"slideshow": {"slide_type": ""}}
+
 # bootstrap
-<!-- #endregion -->
 
-```javascript
+```{code-cell}
 tools = require('../js/tools');
 tools.init();
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## what is bootstrap ?
-<!-- #endregion -->
+
++++
 
 * originally developped by twitter, [bootstrap](https://getbootstrap.com/docs/4.4/getting-started/introduction/) is a - mostly CSS - library that offers
   * a [grid-based framework for easier responsive layouts](https://getbootstrap.com/docs/4.4/layout/overview/)
@@ -52,10 +53,11 @@ tools.init();
 
 
 
++++ {"slideshow": {"slide_type": "slide"}}
 
-<!-- #region slideshow={"slide_type": "slide"} -->
 ## why bootstrap
-<!-- #endregion -->
+
++++
 
 * here again bootstrap has been **very widely adopted**  
 * and for this reason is a **must know** as well  
@@ -65,25 +67,33 @@ tools.init();
   can be done with no CSS (our css just outlines the layout)
   and no JavaScript at all
 
-
-```javascript slideshow={"slide_type": "slide"} hide_input=true
+```{code-cell}
+---
+hide_input: true
+slideshow:
+  slide_type: slide
+---
 tools.iframe_exo("bootstrap", true, true)
 ```
 
 <p class="rise-footnote">many more effects are available - read the components page !</p>
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ### bootstrap grid system
-<!-- #endregion -->
+
++++
 
 the basics of the grid system rely on an overall container `<div>` that has a class `container` or `container-fluid`
 the latter taking all the available space (in width), while the former will impose the width to belong in a finite set of values as far as possible (see example above)
 
 [make sure to rtfm](https://getbootstrap.com/docs/4.0/layout/overview/)
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ### grid system (continued)
-<!-- #endregion -->
+
++++
 
 * inside a `div.container`, you insert elements `div.row` that materialize a row in your layout
 * a row is divided into 12 equal parts
@@ -95,9 +105,11 @@ There are means to define separate layouts for different device widths ([details
 
 [make sure to rtfm](https://getbootstrap.com/docs/4.0/layout/grid/)
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## more examples
-<!-- #endregion -->
+
++++
 
 bootstrap provides [a gallery of example codes](https://getbootstrap.com/docs/4.0/examples/)
 
@@ -107,9 +119,11 @@ the code for each of these examples is generally reasonably small, although the 
 
 again remember that you 
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## practice
-<!-- #endregion -->
+
++++
 
 * make sure you use `git` to store the latest version of your resume  
   as this exercise may damage your work 

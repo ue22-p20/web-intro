@@ -1,25 +1,24 @@
 ---
-jupyter:
-  celltoolbar: Slideshow
-  jupytext:
-    cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-    formats: md
-    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
-    text_representation:
-      extension: .md
-      format_name: markdown
-  kernelspec:
-    display_name: Javascript (Node.js)
-    language: javascript
-    name: javascript
-  nbhosting:
-    title: html basics
-  rise:
-    autolaunch: true
-    slideNumber: c/t
-    start_slideshow_at: selected
-    theme: sky
-    transition: cube
+celltoolbar: Slideshow
+jupytext:
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
+  formats: md:myst
+  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Javascript (Node.js)
+  language: javascript
+  name: javascript
+nbhosting:
+  title: html basics
+rise:
+  autolaunch: true
+  slideNumber: c/t
+  start_slideshow_at: selected
+  theme: sky
+  transition: cube
 ---
 
 <div class="licence">
@@ -27,11 +26,11 @@ jupyter:
 <span>Thierry Parmentelat</span>
 </div>
 
-<!-- #region slideshow={"slide_type": ""} -->
-# HTML basics
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": ""}}
 
-```javascript
+# HTML basics
+
+```{code-cell}
 // run this cell, and then 
 // click the created button
 delete require.cache[require.resolve('../js/toolsv3')]
@@ -39,9 +38,11 @@ tools = require('../js/toolsv3')
 tools.init()
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## HTML is based on tags
-<!-- #endregion -->
+
++++
 
 the HTML language structures the content of a web page
 in terms of sections, headers, paragraphs, lists of items, images ...
@@ -55,16 +56,17 @@ an element (a section, a header) is composed by
 * a content that can be empty
 * a closing tag e.g. <code>&lt;/head&gt;</code>
 
++++ {"slideshow": {"slide_type": "slide"}}
 
-<!-- #region slideshow={"slide_type": "slide"} -->
 ## HTML document structure
-<!-- #endregion -->
 
-<!-- #region hide_input=true -->
++++ {"hide_input": true}
+
 the overall structure of a HTML document is composed of two parts, a **header** and a **body**, like this:
-<!-- #endregion -->
 
-```javascript hide_input=false
+```{code-cell}
+:hide_input: false
+
 fragment1 = `<html>
   <head>
      <!-- various document-wide declarations -->
@@ -79,35 +81,38 @@ fragment1 = `<html>
 console.log(fragment1)
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-## browser and server
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}}
 
-<!-- #region slideshow={"slide_type": ""} cell_style="split" -->
+## browser and server
+
++++ {"slideshow": {"slide_type": ""}, "cell_style": "split"}
+
 ### regular setup
 
 files are on the Internet
 
 ![](../media/client-server.svg)
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": ""} cell_style="split" -->
++++ {"slideshow": {"slide_type": ""}, "cell_style": "split"}
+
 ### our setup today
 
 files are local on your laptop
 
 ![](../media/local-file.svg)
-<!-- #endregion -->
+
++++
 
 <p class="rise-footnote">
 for your first practice, you will save your code on your hard drive, and check the result locally without the presence of a server, this is what the <code>file://</code> URLs are for
 </p>
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-## practice
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}}
 
-<!-- #region slideshow={"slide_type": ""} -->
+## practice
+
++++ {"slideshow": {"slide_type": ""}}
+
 * start from an empty folder
 * open vs-code and create a file named `hello.html`  
 * copy the above template
@@ -117,52 +122,54 @@ for your first practice, you will save your code on your hard drive, and check t
   * or directly type a URL like  
     `file:///the/complete/path/to/hello.html`
 * you will see something like shown on the next slide
-<!-- #endregion -->
 
-<!-- #region hide_input=false slideshow={"slide_type": "slide"} cell_style="split" -->
++++ {"hide_input": false, "slideshow": {"slide_type": "slide"}, "cell_style": "split"}
+
 your `hello.html` should look like this
 
-<!-- #endregion -->
++++ {"cell_style": "split"}
 
-<!-- #region cell_style="split" -->
 and in the browser  
 it will look like this
-<!-- #endregion -->
 
-```javascript hide_input=true
+```{code-cell}
+:hide_input: true
+
 tools.sample_from_strings({html: fragment1}, {id: 'fragment1', height: '13em'})
 ```
 
 <p class="rise-footnote">also observe the URL that the browser has used to fetch your file <br>
     it should look like <code>file:///the/path/to/your/current/directory/hello.html</code> </p>
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-## accessing your browser's devel tools
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}}
 
-<!-- #region cell_style="split" -->
+## accessing your browser's devel tools
+
++++ {"cell_style": "split"}
+
 * all browsers come with development tools for debugging
 * as a first contact with these,  
   let us inspect the content of our HTML document
 * for that, the simplest way is to right click on the 'Hello' text
 * and choose 'Inspect'
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": ""} cell_style="split" -->
++++ {"slideshow": {"slide_type": ""}, "cell_style": "split"}
+
 ![](../media/inspect-element-menu.png)
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": ""} cell_style="split" -->
++++ {"slideshow": {"slide_type": ""}, "cell_style": "split"}
+
 <p class="rise-footnote"> 
   this should open your browser's devel tools, which depending on your browser
     <br> may require additional preparation or  installation steps
     <br> we recommend using Chrome in case it is not working as expected 
 </p>
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## check for devel tools
-<!-- #endregion -->
+
++++
 
 * if you cannot see the devel tools (see next slide for a glimpse)
   it means your browser may need additional installation (google for how to do that)
@@ -177,42 +184,42 @@ tools.sample_from_strings({html: fragment1}, {id: 'fragment1', height: '13em'})
    in the *Tools* menu in the main menubar
 
 
++++ {"slideshow": {"slide_type": "slide"}}
 
-<!-- #region slideshow={"slide_type": "slide"} -->
 ## *Elements* navigator
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": ""} cell_style="split" -->
++++ {"slideshow": {"slide_type": ""}, "cell_style": "split"}
+
 ![](../media/inspect-element-elements.png) 
-<!-- #endregion -->
 
-<!-- #region cell_style="split" -->
++++ {"cell_style": "split"}
+
 * left pane, navigate the elements
 * right pane, visualize the  
   selected element's applicable  
   *Styles* and *Computed* properties  
   (more on this later)
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": ""} -->
++++ {"slideshow": {"slide_type": ""}}
+
 <p class="rise-footnote"> 
 from that view you can navigate the elements tree, although in this case it is very simple, with just 3 nodes
 </p>
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} cell_style="split" -->
++++ {"slideshow": {"slide_type": "slide"}, "cell_style": "split"}
+
 * another interesting part is the   
 (javascript) *Console* tab  
 * this is where **debug messages**  
   end up (if any; here of course  
   there are none)
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": ""} cell_style="split" -->
++++ {"slideshow": {"slide_type": ""}, "cell_style": "split"}
+
 ![](../media/inspect-element-console.png) 
-<!-- #endregion -->
 
-<!-- #region cell_style="split" slideshow={"slide_type": "slide"} -->
++++ {"cell_style": "split", "slideshow": {"slide_type": "slide"}}
+
 * the area with the `> ` is the REPL  
   i.e. Read, Eval, Print Loop
 * (juste like the `>>> ` with Python)
@@ -221,23 +228,22 @@ from that view you can navigate the elements tree, although in this case it is v
 where you can type and run 
 your first JavaScript code  
 
-<!-- #endregion -->
++++ {"cell_style": "split"}
 
-<!-- #region cell_style="split" -->
 ![](../media/inspect-element-console-code.png)
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## DOM = Document Object Model
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": ""} -->
++++ {"slideshow": {"slide_type": ""}}
+
 * the `<tag> ... </tag>` notation 
 * unambiguously maps to a tree structure - known as an Abstract Syntax Tree
 * referred to in all documentation as "*the DOM* "
-<!-- #endregion -->
 
-<!-- #region cell_style="split" slideshow={"slide_type": "slide"} -->
++++ {"cell_style": "split", "slideshow": {"slide_type": "slide"}}
+
 this HTML fragment
 ```html
 <html>
@@ -250,50 +256,55 @@ this HTML fragment
   </body>
 </html>
 ```
-<!-- #endregion -->
 
-<!-- #region cell_style="split" hide_input=true -->
++++ {"cell_style": "split", "hide_input": true}
+
 will result in this tree
 ![](../media/abstract-syntax.svg)
-<!-- #endregion -->
 
-<!-- #region cell_style="center" -->
++++ {"cell_style": "center"}
+
 nodes in this tree are called **Elements**  
 it is the basis for navigating the document  
 in the *Elements* devel tools tab
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## be rigourous
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": ""} -->
++++ {"slideshow": {"slide_type": ""}}
+
 * browsers tend to be as tolerant as possible
 * e.g. omitting a closing tag may render just fine
 * **however** there's only so much that can be guessed
 * this may cause **huge headaches** down the road
 * so make sure to **always** close your tags properly
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} tags=[] -->
++++ {"slideshow": {"slide_type": "slide"}, "tags": []}
+
 **do not do this !!**
-<!-- #endregion -->
 
-```javascript hide_input=true slideshow={"slide_type": ""}
+```{code-cell}
+---
+hide_input: true
+slideshow:
+  slide_type: ''
+---
 fragment_unclosed = `<p> do not do this
 <ul>
 <li> unclosed tags <b>look like</b> they work
 <li> but they will hurt eventually`;
 
 tools.sample_from_strings({html: fragment_unclosed})
-
 ```
 
-<!-- #region tags=[] slideshow={"slide_type": "slide"} -->
-**do this instead**
-<!-- #endregion -->
++++ {"tags": [], "slideshow": {"slide_type": "slide"}}
 
-```javascript hide_input=true
+**do this instead**
+
+```{code-cell}
+:hide_input: true
+
 fragment_closed = `<p> do this instead </p>
 <ul>
 <li> always close your tags </li>
@@ -304,9 +315,11 @@ tools.sample_from_strings({html: fragment_closed})
  
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## a few tips
-<!-- #endregion -->
+
++++
 
 * vs-code has great support for editing `html` documents
   * even with no extension installed

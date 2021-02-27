@@ -1,25 +1,24 @@
 ---
-jupyter:
-  celltoolbar: Slideshow
-  jupytext:
-    cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-    formats: md
-    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
-    text_representation:
-      extension: .md
-      format_name: markdown
-  kernelspec:
-    display_name: Javascript (Node.js)
-    language: javascript
-    name: javascript
-  nbhosting:
-    title: in / out-of flow
-  rise:
-    autolaunch: true
-    slideNumber: c/t
-    start_slideshow_at: selected
-    theme: sky
-    transition: cube
+celltoolbar: Slideshow
+jupytext:
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
+  formats: md:myst
+  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Javascript (Node.js)
+  language: javascript
+  name: javascript
+nbhosting:
+  title: in / out-of flow
+rise:
+  autolaunch: true
+  slideNumber: c/t
+  start_slideshow_at: selected
+  theme: sky
+  transition: cube
 ---
 
 <div class="licence">
@@ -27,29 +26,33 @@ jupyter:
 <span>Thierry Parmentelat</span>
 </div>
 
-<!-- #region slideshow={"slide_type": ""} -->
-# in-flow and out-of-flow
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": ""}}
 
-```javascript
+# in-flow and out-of-flow
+
+```{code-cell}
 // run this cell, and then 
 // click the created button
 tools = require('../js/tools');
 tools.init();
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## default is in-flow
-<!-- #endregion -->
+
++++
 
 most of the elements we have seen so far are said to be *in-flow* :
 
 * i.e. they show up in the order where they appear in the source
 * at a position determined by the elements before them
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## out-of-flow is available too
-<!-- #endregion -->
+
++++
 
 * there are ways to create elements out-of-flow 
 * a common practical example is a pinned header 
@@ -57,11 +60,14 @@ most of the elements we have seen so far are said to be *in-flow* :
 * example 1 : using old-fashioned `position: fixed`
 * example 2 : using `position: sticky`
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-## `fixed` example : a pinned header
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}}
 
-```javascript hide_input=true tags=[]
+## `fixed` example : a pinned header
+
+```{code-cell}
+:hide_input: true
+:tags: []
+
 fixed_html = `<div>scroll me up !</div>
 
 <div id="header">
@@ -102,7 +108,8 @@ div:not(#header) {
 tools.iframe_html_css("fixed", fixed_html, fixed_css, true)
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ### a few comments
 
 **note** in the previous example :
@@ -114,13 +121,15 @@ tools.iframe_html_css("fixed", fixed_html, fixed_css, true)
   we want the 120px to be for the **full height** (padding + border included) of the header 
 * also note the `rgba()` function to define colors with a level of transparency  
   0: totally transparent, 1: totally opaque
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## `sticky` example : a pinned header
-<!-- #endregion -->
 
-```javascript hide_input=true tags=[]
+```{code-cell}
+:hide_input: true
+:tags: []
+
 sticky_html = `
 <div id="header">
   I am a header with <code>position: sticky</code><br>
@@ -152,9 +161,11 @@ div:not(#header) {
 tools.iframe_html_css("sticky", sticky_html, sticky_css, true)
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## see also
-<!-- #endregion -->
+
++++
 
 * this topic is described [at greater length in this MDN article](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flow_Layout/In_Flow_and_Out_of_Flow)
 * css-tricks also has [a blog post dedicated to floats](https://css-tricks.com/all-about-floats/)
@@ -166,9 +177,11 @@ tools.iframe_html_css("sticky", sticky_html, sticky_css, true)
   * see these as **last resort**,  
     only if grid/flex really won't work for you
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## extras
-<!-- #endregion -->
+
++++
 
 optional topics :
 

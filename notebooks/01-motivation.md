@@ -1,25 +1,24 @@
 ---
-jupyter:
-  celltoolbar: Slideshow
-  jupytext:
-    cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-    formats: md
-    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
-    text_representation:
-      extension: .md
-      format_name: markdown
-  kernelspec:
-    display_name: Javascript (Node.js)
-    language: javascript
-    name: javascript
-  nbhosting:
-    title: motivation
-  rise:
-    autolaunch: true
-    slideNumber: c/t
-    start_slideshow_at: selected
-    theme: sky
-    transition: cube
+celltoolbar: Slideshow
+jupytext:
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
+  formats: md:myst
+  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Javascript (Node.js)
+  language: javascript
+  name: javascript
+nbhosting:
+  title: motivation
+rise:
+  autolaunch: true
+  slideNumber: c/t
+  start_slideshow_at: selected
+  theme: sky
+  transition: cube
 ---
 
 <div class="licence">
@@ -27,12 +26,15 @@ jupyter:
 <span>Thierry Parmentelat</span>
 </div>
 
++++
 
 # objectives of this course
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## why a course on web frontend pillars ?
-<!-- #endregion -->
+
++++
 
 * with traditional languages like Python, C++, and Java  
   building a decent UI quickly becomes awkward
@@ -41,14 +43,17 @@ jupyter:
 * as of 2021, **everything** runs on the Web
 * so this simply **cannot be ignored**
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## vocabulary
-<!-- #endregion -->
+
++++
 
 * web technologies are heavily **client-server** based
 * **server**-side (think, **cloud**) is often called ***backend***  
 * **client**-side (think, **browser**) is called ***frontend***
 
++++
 
 for instance
 
@@ -60,9 +65,11 @@ for instance
   * that are all *frontends* 
   * in the sense that they face the end user
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## scope
-<!-- #endregion -->
+
++++
 
 * due to time constraints
 * we will restrict ourselves to the ***frontend*** side
@@ -74,10 +81,11 @@ for instance
   * like *e.g.* react, angular, ...  
   * way too numerous to list at this point
 
++++ {"slideshow": {"slide_type": "slide"}}
 
-<!-- #region slideshow={"slide_type": "slide"} -->
 ## the root trio
-<!-- #endregion -->
+
++++
 
 * `HTML`: ***content***
   * suitable to create content
@@ -90,9 +98,11 @@ for instance
   * full-fledged programming language
   * suitable to customize, well, everything really
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## excluded
-<!-- #endregion -->
+
++++
 
 this means that we will **not** address :
 
@@ -102,9 +112,11 @@ this means that we will **not** address :
   * like http(s), websockets, and similar
 * those will be touched on briefly later this year
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## why are web technos so cool ?
-<!-- #endregion -->
+
++++
 
 * so-called *GUI*-oriented tools (Graphical User Interfaces)
   * like .net, Java Swing, Qt, …
@@ -119,11 +131,12 @@ this means that we will **not** address :
 * as a bonus, super-portable with **zero installation**
   * across the whole range of **computers** and **mobile devices**
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-## wider than just the browser
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}}
 
-<!-- #region slideshow={"slide_type": ""} -->
+## wider than just the browser
+
++++ {"slideshow": {"slide_type": ""}}
+
 * keep in mind that web frontend techologies
   * go way beyond the browsers per se 
 * there are many options to build a **standalone** app  
@@ -134,13 +147,13 @@ this means that we will **not** address :
   * and/or on traditional computers  
     i.e. build a native MacOS or Windows  
     traditional application, powered by e.g. [WebKit](https://webkit.org/)
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## even wider than just the frontend 
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": ""} -->
++++ {"slideshow": {"slide_type": ""}}
+
 * also be aware that JavaScript
   * that is primarily famous for powering frontends
   * is becoming more and more popular  
@@ -148,11 +161,12 @@ this means that we will **not** address :
   * so it can be, and actually is, more and more  
     used for writing backends as well
   * and even for traditional computing
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## objectives
-<!-- #endregion -->
+
++++
 
 * make sure you are aware of the **enormous potential**
 * outline some specific problems  

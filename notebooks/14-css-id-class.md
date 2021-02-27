@@ -1,25 +1,24 @@
 ---
-jupyter:
-  celltoolbar: Slideshow
-  jupytext:
-    cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-    formats: md
-    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
-    text_representation:
-      extension: .md
-      format_name: markdown
-  kernelspec:
-    display_name: Javascript (Node.js)
-    language: javascript
-    name: javascript
-  nbhosting:
-    title: id and class
-  rise:
-    autolaunch: true
-    slideNumber: c/t
-    start_slideshow_at: selected
-    theme: sky
-    transition: cube
+celltoolbar: Slideshow
+jupytext:
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
+  formats: md:myst
+  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Javascript (Node.js)
+  language: javascript
+  name: javascript
+nbhosting:
+  title: id and class
+rise:
+  autolaunch: true
+  slideNumber: c/t
+  start_slideshow_at: selected
+  theme: sky
+  transition: cube
 ---
 
 <div class="licence">
@@ -27,24 +26,27 @@ jupyter:
 <span>Thierry Parmentelat</span>
 </div>
 
-<!-- #region slideshow={"slide_type": ""} -->
-# HTML ids and classes
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": ""}}
 
-```javascript
+# HTML ids and classes
+
+```{code-cell}
 // run this cell, and then 
 // click the created button
 tools = require('../js/tools');
 tools.init();
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## rules scope
-<!-- #endregion -->
+
++++
 
 there is a need for more accurate / selective settings
 
-<!-- #region slideshow={"slide_type": ""} cell_style="split" -->
++++ {"slideshow": {"slide_type": ""}, "cell_style": "split"}
+
 remember our first CSS clause 
 
 ```
@@ -53,26 +55,26 @@ a {
   font-family: times;
 }
 ```
-<!-- #endregion -->
 
-<!-- #region cell_style="split" slideshow={"slide_type": ""} -->
++++ {"cell_style": "split", "slideshow": {"slide_type": ""}}
+
 it will apply both settings  
 *on ALL `<a>` elements*
 
 we need **more selective** mechanisms
 
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}}
 
-<!-- #region slideshow={"slide_type": "slide"} -->
 ## `id=` : assign a unique identifier
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": ""} -->
++++ {"slideshow": {"slide_type": ""}}
+
 * an element that is unique in your document 
 * can be attached a unique identifier
-<!-- #endregion -->
 
-```javascript hide_input=true
+```{code-cell}
+:hide_input: true
+
 id_html = `<p id="only-me">This paragraph has an id</p>
 <p>this one does not</p>
 <p id="another-id">this one has another id</p>
@@ -88,11 +90,16 @@ p#only-me {
 tools.iframe_html_css("id1", id_html, id_css)
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} hide_input=true -->
-Note that in this case you do not really need to mention the element tag
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}, "hide_input": true}
 
-```javascript hide_input=true slideshow={"slide_type": ""}
+Note that in this case you do not really need to mention the element tag
+
+```{code-cell}
+---
+hide_input: true
+slideshow:
+  slide_type: ''
+---
 id2_html = `<p id="me-too">Since it has an id we do not 
 really need to specify the html tag</p>`;
 id2_css = `/* applies to elements
@@ -106,22 +113,24 @@ id2_css = `/* applies to elements
 tools.iframe_html_css("id2", id2_html, id2_css)
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-## `class=` : styling elements by class
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}}
 
-<!-- #region slideshow={"slide_type": ""} -->
+## `class=` : styling elements by class
+
++++ {"slideshow": {"slide_type": ""}}
+
 * it is also possible to create arbitrary groups of elements
 * so that they can be styled together
 * this is simply done by setting a `class` attribute 
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": ""} -->
++++ {"slideshow": {"slide_type": ""}}
+
 * an element can - and often has - several classes
 * e.g. `class="one-class another-class"`
-<!-- #endregion -->
 
-```javascript hide_input=true
+```{code-cell}
+:hide_input: true
+
 class_html = `<p class="yes">yes 1</p>
 <p class="no">no 1</p>
 <p class="yes">yes 2</p>
@@ -140,11 +149,12 @@ p.no {
 tools.iframe_html_css("class", class_html, class_css)
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-## summary of basic selectors
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}}
 
-<!-- #region slideshow={"slide_type": ""} -->
+## summary of basic selectors
+
++++ {"slideshow": {"slide_type": ""}}
+
 let's summarize 
 
 | selector | applies to elements |
@@ -155,36 +165,36 @@ let's summarize
 | `h1.someclass` | tagged `<h1>` **and** of class `someclass` |
 | `h1.someclass#someid` | tagged `<h1>` **and** of class `someclass` **and** with `id='someid'` |
 | `.yes.no` | any element that has class `yes` **and** class `no` |
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## cascading and inheritance
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": ""} -->
++++ {"slideshow": {"slide_type": ""}}
+
 * cascading : what happens if **several rules** define,  
   say, the 'color' property on one element ?
 * inheritance : what happens if **no rule** defines  
   the 'color' property on an element ?
 * in a nutshell :
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": ""} cell_style="split" -->
++++ {"slideshow": {"slide_type": ""}, "cell_style": "split"}
+
 ##### cascading 
 the **most specific** rule wins
-<!-- #endregion -->
 
-<!-- #region cell_style="split" -->
++++ {"cell_style": "split"}
+
 ##### inheritance 
 take the value from  
 the **element's parent**
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## cascading  & specificity
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": ""} -->
++++ {"slideshow": {"slide_type": ""}}
+
 in a nutshell, the intuition behind the actual rules is that
 
 * if you have manually defined a property in a `style` attribute, i.e. in the very node, it means you want this property to apply
@@ -192,13 +202,13 @@ in a nutshell, the intuition behind the actual rules is that
 * otherwise if you have specified a `class`, it should apply
 * otherwise if the rule is based on the element's *tag*, it should apply
 * otherwise, if it is a wildcard rule (you can use `*` as the selector) 
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## specificity
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": ""} -->
++++ {"slideshow": {"slide_type": ""}}
+
 selectors can be more convoluted than what we've seen so far,  
 (more on this later on) but the logic to compare  
 specificity can be reasonably approximated as follows :
@@ -209,17 +219,18 @@ specificity can be reasonably approximated as follows :
   * number of applicable `class`es in the rule
   * number of applicable `element`s in the rule
 * compare the tuples - like Python would do
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ### specificity example
-<!-- #endregion -->
 
-<!-- #region hide_input=true -->
++++ {"hide_input": true}
+
 ##### (1) embedded `style=` wins
-<!-- #endregion -->
 
-```javascript hide_input=true
+```{code-cell}
+:hide_input: true
+
 specificity1_html = `<!-- the style 
      attribute trumps all -->
 
@@ -247,11 +258,16 @@ specificity_css = `p {
 tools.iframe_html_css("specificity1", specificity1_html, specificity_css)
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} hide_input=true -->
-##### (2) then `id=` wins
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}, "hide_input": true}
 
-```javascript slideshow={"slide_type": ""} hide_input=true
+##### (2) then `id=` wins
+
+```{code-cell}
+---
+hide_input: true
+slideshow:
+  slide_type: ''
+---
 specificity2_html = `<!-- then id wins -->
 
 <p class="myclass"
@@ -263,11 +279,16 @@ Lorem ipsum dolor sit amet.
 tools.iframe_html_css("specificity2", specificity2_html, specificity_css);
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-##### (3) then `class=` wins
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}}
 
-```javascript slideshow={"slide_type": ""} hide_input=true
+##### (3) then `class=` wins
+
+```{code-cell}
+---
+hide_input: true
+slideshow:
+  slide_type: ''
+---
 specificity3_html = `<!-- then class wins
   -->
 
@@ -279,11 +300,16 @@ Lorem ipsum dolor sit amet.
 tools.iframe_html_css("specificity3", specificity3_html, specificity_css);
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-##### (4) then the element's tag wins
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}}
 
-```javascript slideshow={"slide_type": ""} hide_input=true
+##### (4) then the element's tag wins
+
+```{code-cell}
+---
+hide_input: true
+slideshow:
+  slide_type: ''
+---
 specificity4_html = `<p>
 
 Lorem ipsum dolor sit amet.
@@ -292,11 +318,14 @@ Lorem ipsum dolor sit amet.
 tools.iframe_html_css("specificity4", specificity4_html, specificity_css);
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-## inheritance
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}}
 
-```javascript cell_style="center" hide_input=true
+## inheritance
+
+```{code-cell}
+:cell_style: center
+:hide_input: true
+
 inherit_html = `<div class="inheritance">
 <p> You can use inheritance to avoid setting</p>
 <ul>
@@ -310,11 +339,12 @@ inherit_css = `.inheritance {
 tools.iframe_html_css("inheritance", inherit_html, inherit_css)
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-### inheritance (continued)
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}}
 
-<!-- #region slideshow={"slide_type": ""} -->
+### inheritance (continued)
+
++++ {"slideshow": {"slide_type": ""}}
+
 the point is that
 
 * we **do not** style the `<p>` and `<li>` elements specifically
@@ -322,11 +352,12 @@ the point is that
   * from their parent (the `<div>` element) 
   * that **is targetted** by our CSS rule
 * note that not all properties behave that way though
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## references
-<!-- #endregion -->
+
++++
 
 * list of properties and terms
   * https://www.w3schools.com/cssref/
@@ -334,6 +365,7 @@ the point is that
 * reference (hard to read) : detailed description of cascading and inheritance
   * https://www.w3.org/TR/css-cascade-3/
 
++++
 
 * more readable explanations on specificity :
   * https://pawelgrzybek.com/css-specificity-explained/

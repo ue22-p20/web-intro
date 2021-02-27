@@ -1,25 +1,24 @@
 ---
-jupyter:
-  celltoolbar: Slideshow
-  jupytext:
-    cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-    formats: md
-    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
-    text_representation:
-      extension: .md
-      format_name: markdown
-  kernelspec:
-    display_name: Javascript (Node.js)
-    language: javascript
-    name: javascript
-  nbhosting:
-    title: js intro
-  rise:
-    autolaunch: true
-    slideNumber: c/t
-    start_slideshow_at: selected
-    theme: sky
-    transition: cube
+celltoolbar: Slideshow
+jupytext:
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
+  formats: md:myst
+  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Javascript (Node.js)
+  language: javascript
+  name: javascript
+nbhosting:
+  title: js intro
+rise:
+  autolaunch: true
+  slideNumber: c/t
+  start_slideshow_at: selected
+  theme: sky
+  transition: cube
 ---
 
 <div class="licence">
@@ -27,18 +26,20 @@ jupyter:
 <span>Thierry Parmentelat</span>
 </div>
 
-<!-- #region slideshow={"slide_type": ""} -->
-# JavaScript
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": ""}}
 
-```javascript
+# JavaScript
+
+```{code-cell}
 tools = require('../js/toolsv2')
 tools.init()
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## why JavaScript
-<!-- #endregion -->
+
++++
 
 JavaScript comes in addition to
 
@@ -50,9 +51,11 @@ JavaScript
 * it is a full-fledged **programming language** 
 * and provides for **behaviour**
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## JavaScript characteristics
-<!-- #endregion -->
+
++++
 
 * runs **inside the browser**(♡)
 * has direct **access to the DOM**
@@ -61,6 +64,7 @@ JavaScript
 * and/or dynamically **change properties**
 * in response to e.g. **user-triggered events**
 
++++
 
 <div class="rise-footnote">
 
@@ -68,10 +72,11 @@ JavaScript
 
 </div>
 
++++ {"slideshow": {"slide_type": "slide"}}
 
-<!-- #region slideshow={"slide_type": "slide"} -->
 ## example #1
-<!-- #endregion -->
+
++++
 
 in the following example :
 
@@ -79,14 +84,22 @@ in the following example :
 * one acts as a button, that can make  the other one visible or not
 <!-- #endregion -->
 
-```javascript scrolled=false slideshow={"slide_type": "slide"} hide_input=true
+```{code-cell}
+---
+hide_input: true
+slideshow:
+  slide_type: slide
+---
 tools.from_samples("30-js-intro-01-on-off", 
                    {width: '30em', height: '25em', separate_show: true})
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} hide_input=true -->
++++ {"slideshow": {"slide_type": "slide"}, "hide_input": true}
+
 ## example 2
-<!-- #endregion -->
+
++++
+
 in this further example :
 
 * we create two visible elements:   
@@ -95,50 +108,62 @@ in this further example :
   that adds a random point 
 * button to start / suspend
 
-```javascript hide_input=true slideshow={"slide_type": "slide"}
+```{code-cell}
+---
+hide_input: true
+slideshow:
+  slide_type: slide
+---
 tools.from_samples("30-js-intro-02-svgcircles",
                    {width: '35em', height: '20em', 
                     min_width: '15em', separate_show: true})
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} hide_input=true -->
++++ {"slideshow": {"slide_type": "slide"}, "hide_input": true}
+
 ## example 3
-<!-- #endregion -->
-<!-- #region slideshow={"slide_type": "-"} -->
+
++++ {"slideshow": {"slide_type": "-"}}
+
 in this further example :
 
 * we create two visible elements:   
   a `<div>` label, and this time a `<canvas>` graphic area
 * clicking in the canvas causes it to randomize itself
-<!-- #endregion -->
 
-```javascript hide_input=true slideshow={"slide_type": "slide"}
+```{code-cell}
+---
+hide_input: true
+slideshow:
+  slide_type: slide
+---
 tools.from_samples("30-js-intro-03-canvas",
                    {width: '40em', height: '20em', 
                     min_width: '15em', separate_show: true, start_with: 'js'})
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## objective of the course #1
 
 release the following spinning-wheel with javascript during
-<!-- #endregion -->
 
-```javascript
+```{code-cell}
 tools.show_sample("spinning-wheel/step3");
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## step #1 : starting point
 
 make the following static HTML
-<!-- #endregion -->
 
-```javascript
+```{code-cell}
 tools.show_sample("spinning-wheel/step1");
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 to draw circle you will need to use the following snipet:
 
 ```html
@@ -149,9 +174,9 @@ to draw circle you will need to use the following snipet:
     </circle>
 </svg>
 ```
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 on our way to step #2
 
 * we want to use JS to create the circle of dots
@@ -159,14 +184,13 @@ on our way to step #2
   * and we need to load the JS code
   
 * so let us see all this first...
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} tags=["level_intermediate"] -->
++++ {"slideshow": {"slide_type": "slide"}, "tags": ["level_intermediate"]}
+
 ## objective of the course #2
 
 at the end of the course you should write it by yourself
-<!-- #endregion -->
 
-```javascript
+```{code-cell}
 tools.show_sample("calculator");
 ```

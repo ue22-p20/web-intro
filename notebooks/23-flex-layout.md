@@ -1,25 +1,24 @@
 ---
-jupyter:
-  celltoolbar: Slideshow
-  jupytext:
-    cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-    formats: md
-    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
-    text_representation:
-      extension: .md
-      format_name: markdown
-  kernelspec:
-    display_name: Javascript (Node.js)
-    language: javascript
-    name: javascript
-  nbhosting:
-    title: flex layout
-  rise:
-    autolaunch: true
-    slideNumber: c/t
-    start_slideshow_at: selected
-    theme: sky
-    transition: cube
+celltoolbar: Slideshow
+jupytext:
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
+  formats: md:myst
+  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Javascript (Node.js)
+  language: javascript
+  name: javascript
+nbhosting:
+  title: flex layout
+rise:
+  autolaunch: true
+  slideNumber: c/t
+  start_slideshow_at: selected
+  theme: sky
+  transition: cube
 ---
 
 <div class="licence">
@@ -27,31 +26,32 @@ jupyter:
 <span>Thierry Parmentelat</span>
 </div>
 
-<!-- #region slideshow={"slide_type": ""} -->
-# `display: flex` 
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": ""}}
 
-```javascript
+# `display: flex` 
+
+```{code-cell}
 // run this cell, and then 
 // click the created button
 tools = require('../js/tools');
 tools.init();
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-## purpose
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}}
 
-<!-- #region slideshow={"slide_type": ""} -->
+## purpose
+
++++ {"slideshow": {"slide_type": ""}}
+
 * `flex` is another modern layout engine  
 * that tries to solve or at least alleviate  
 * the obvious deficiencies of the old-school  
  `block` model and related tools
 * as opposed to grids, it is concerned with **1-dimension** flow of data
 * it **complements nicely** what is doable with grids
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 examples, as per [this article on MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox)
 
 <div style="font-size: 70%;">
@@ -64,15 +64,16 @@ examples, as per [this article on MDN](https://developer.mozilla.org/en-US/docs/
     
 
 </div>
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## flex example (1)
 
 by default, direction = row, wrap = nowrap
-<!-- #endregion -->
 
-```javascript hide_input=true
+```{code-cell}
+:hide_input: true
+
 flex1_html = `<div class="container">
 <div class="item"> Dolor quiquia </div>
 <div class="item"> aliquam </div>
@@ -98,13 +99,18 @@ body { border: none; }
 tools.iframe_html_css("flex1", flex1_html, flex1_css, true)
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## flex example (2)
 
 identical except for `flex-wrap: wrap`
-<!-- #endregion -->
 
-```javascript hide_input=true slideshow={"slide_type": "slide"}
+```{code-cell}
+---
+hide_input: true
+slideshow:
+  slide_type: slide
+---
 flex2_html = `<div class="container">
 <div class="item"> Dolor quiquia </div>
 <div class="item"> aliquam </div>
@@ -130,7 +136,8 @@ body { border: none; }
 tools.iframe_html_css("flex2", flex2_html, flex2_css, true)
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## assignment
 
 * [this page on css-trick.com](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) is an easy, and very complete, read on flex
@@ -138,11 +145,12 @@ tools.iframe_html_css("flex2", flex2_html, flex2_css, true)
   * to bookmark it
   * and to browse it but thoroughly
     to get a perception of what is doable with this layout
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## use cases
-<!-- #endregion -->
+
++++
 
 * the `flex` display is an extremely powerful tool  
   for fine-grained control over your layout
@@ -152,9 +160,11 @@ tools.iframe_html_css("flex2", flex2_html, flex2_css, true)
   using `flex` is almost always a good idea
 * rather recent (circa 2017) but [supported in all modern browsers](https://caniuse.com/#feat=flexbox)
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## no longer bottom-up only
-<!-- #endregion -->
+
++++
 
 * let us outline that the flex display model
   * is disruptive as compared to its predecessors
@@ -162,9 +172,11 @@ tools.iframe_html_css("flex2", flex2_html, flex2_css, true)
   * i.e. an element had a size and the container was to deal with that size
   * now, a flex container can influence the size of its contained items
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## grid's and flex's
-<!-- #endregion -->
+
++++
 
 * as mentioned earlier, both display policies have their own pros and cons
 * you should not think in terms or one **or** the other
@@ -174,12 +186,14 @@ tools.iframe_html_css("flex2", flex2_html, flex2_css, true)
   or the other way around, of course
 * this is why the `<div>` tag is so all over the place
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## practice
 
 1. mimick the layout below
-<!-- #endregion -->
 
-```javascript hide_input=true
+```{code-cell}
+:hide_input: true
+
 tools.iframe_exo("exo-flex", true, true)
 ```

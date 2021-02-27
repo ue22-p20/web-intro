@@ -1,56 +1,58 @@
 ---
-jupyter:
-  celltoolbar: Slideshow
-  jupytext:
-    cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-    formats: md
-    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
-    text_representation:
-      extension: .md
-      format_name: markdown
-  kernelspec:
-    display_name: Javascript (Node.js)
-    language: javascript
-    name: javascript
-  nbhosting:
-    title: 30,000 ft overview
-  rise:
-    autolaunch: true
-    slideNumber: c/t
-    start_slideshow_at: selected
-    theme: sky
-    transition: cube
+celltoolbar: Slideshow
+jupytext:
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
+  formats: md:myst
+  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Javascript (Node.js)
+  language: javascript
+  name: javascript
+nbhosting:
+  title: 30,000 ft overview
+rise:
+  autolaunch: true
+  slideNumber: c/t
+  start_slideshow_at: selected
+  theme: sky
+  transition: cube
 ---
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 <div class="licence">
 <span>Licence CC BY-NC-ND</span>
 <span>Thierry Parmentelat</span>
 </div>
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": ""} -->
++++ {"slideshow": {"slide_type": ""}}
+
 # Overview
-<!-- #endregion -->
 
-```javascript
+```{code-cell}
 tools = require('../js/toolsv2')
 tools.init()
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## Preamble
-<!-- #endregion -->
+
++++
 
 * We will very briefly cover **some** features of the language but for a more thorough study, refer to [this excellent tutorial on javascript.info](https://javascript.info/)
 * we will point at a selection of fragments as we go
 * students interested should probably read it through
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-## Various runtimes
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}}
 
-<!-- #region -->
+## Various runtimes
+
++++
+
 * FYI, JavaScript is not restricted to being used in a browser
 * among others, the [`node.js` runtime](https://nodejs.org/en/about/)
   * e.g. to power a backend web server
@@ -65,11 +67,12 @@ Type ".help" for more information.
 hello world
 > process.exit()
 ```
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## Syntax
-<!-- #endregion -->
+
++++
 
 * The syntax is similar to C, C++ and Java
 * Unlike Python, indentation does not matter
@@ -77,7 +80,9 @@ hello world
 * `;` is expected at the end of each statement
 * 2 styles of comments
 
-```javascript tags=["raises-exception"]
+```{code-cell}
+:tags: [raises-exception]
+
 // this is a comment, no need to close
 // but must be repeated on each line
 
@@ -91,14 +96,18 @@ a = 10;
 
 <span class="rise-footnote"> **NOTE** as we will see below, real code should **always** declare variables, so this would read `let a = 10;` instead, but let us keep it simple for now </span>
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ### tests and loops
-<!-- #endregion -->
+
++++
 
 * `if` and `while` statements are similar to C
 * `for` are a little more awkward - more on iterations as we go
 
-```javascript cell_style="split"
+```{code-cell}
+:cell_style: split
+
 // conditional if 
 if (a == 10) {
     console.log("YES 10");
@@ -109,27 +118,31 @@ if (a == 10) {
 }
 ```
 
-```javascript cell_style="split"
+```{code-cell}
+:cell_style: split
+
 while (a >= 5) {
     console.log(a);
     a -= 3;
 }
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-###   switch
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}}
 
-<!-- #region cell_style="split" -->
+###   switch
+
++++ {"cell_style": "split"}
+
 the switch statement in JavaScript
 is similar to the ones in C++ and Java
 it will branch your control flow into a
 location that depends on the subject's value
 
 **do not forget** the `break` statements !
-<!-- #endregion -->
 
-```javascript cell_style="split"
+```{code-cell}
+:cell_style: split
+
 switch (a) {
     case 0:
         console.log("ZERO");
@@ -147,49 +160,54 @@ switch (a) {
 
 <p class="rise-footnote"> if the switch statement is new to you, please refer to this <a href="https://javascript.info/switch">full article on javascript.info</a></p>
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ### C-style `for` loop
-<!-- #endregion -->
+
++++
 
 * C- or Java-like iteration loops are supported
 * although seldom needed 
 * more on that about container types (arrays, …)
 
-
-```javascript
+```{code-cell}
 for (let i=0; i<3; i++) {
     console.log(i);
 }
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-## Variables ([link in tuto](https://javascript.info/variables))
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}}
 
-<!-- #region slideshow={"slide_type": ""} -->
+## Variables ([link in tuto](https://javascript.info/variables))
+
++++ {"slideshow": {"slide_type": ""}}
+
 * as usual, variables are **names** that refer to **data in memory**
 * like in Python, any such data is **typed**
 * core language has some **basic types**
 * Variable should be declared using one of the keywords
-<!-- #endregion -->
 
-```javascript cell_style="split"
+```{code-cell}
+:cell_style: split
+
 let n = 10;
 typeof(n)
 ```
 
-```javascript cell_style="split"
+```{code-cell}
+:cell_style: split
+
 let s = "hello world";
 typeof(s)
 ```
 
 <p class="rise-footnote"> use <code>const</code> instead of <code>let</code> when declaring a constant variable</p>
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-### Python-style assignment
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}}
 
-```javascript
+### Python-style assignment
+
+```{code-cell}
 // there is a form of parallel assignment 
 // similar to what Python offers
 
@@ -198,9 +216,11 @@ let [py, thon] = [10, 20];
 py + thon
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## Variable scope 
-<!-- #endregion -->
+
++++
 
 * like in all other languages
   * need to limit the scope of a variable
@@ -209,11 +229,16 @@ py + thon
   * a variable is visible only within its code block
 * a very common strategy, like in Python, C++, Java, …
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-### scope illustrated
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}}
 
-```javascript slideshow={"slide_type": ""} tags=["raises-exception"]
+### scope illustrated
+
+```{code-cell}
+---
+slideshow:
+  slide_type: ''
+tags: [raises-exception]
+---
 // this is a global variable
 let a = "global";
 
@@ -228,9 +253,11 @@ console.log("in global context:", a);
 foo()
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ### declaring variables with `let`
-<!-- #endregion -->
+
++++
 
 * you should **always** declare your variables with **`let`** 
   * even though (a lot of) legacy code does not
@@ -238,6 +265,7 @@ foo()
 
 * for new code, just **always** use `let`
 
++++
 
 <p class="rise-footnote"> 
     when declaring a variable with <code>let</code>,
@@ -248,14 +276,18 @@ foo()
     it uses a toplevel <code>let</code>
 </p>
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ### Blocks are delimited by `{}`
-<!-- #endregion -->
+
++++
 
 * the elementary unit for scope is the **block**
 * which is materialized by `{}`
 
-```javascript tags=["raises-exception"]
+```{code-cell}
+:tags: [raises-exception]
+
 let y = "outermost";
 { 
     let y = "intermediate";
@@ -268,9 +300,11 @@ let y = "outermost";
 console.log("level 0", y);
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## globals
-<!-- #endregion -->
+
++++
 
 Context (browser components mostly) is exposed to programer through a set of **global variables**, such as:
   * `document` to access the DOM
@@ -278,17 +312,20 @@ Context (browser components mostly) is exposed to programer through a set of **g
   * `console` like in `console.log()`
 * may depend on the runtime  
 
++++
 
 <p class="rise-footnote"> surprising as it may be, the notebook's JavaScript engine is an instance of <code>node</code>, and so is <b>not browser-related</b> <br> so we could not inspect the <code>document</code> or <code>window</code> variables in this context; of course you can do so from the browser's console though</p>
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## Functions
-<!-- #endregion -->
+
++++
 
 * like in other languages
 * we have seen examples already
 
-```javascript
+```{code-cell}
 function foo(x, y) {
     console.log(x, '+', y, '=', x+y);
 }
@@ -296,16 +333,18 @@ function foo(x, y) {
 foo(10, 20)
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ### Duck typing
-<!-- #endregion -->
+
++++
 
 like in Python:
 * **objects** are typed
 * but **variables** are not bound to a given type
 * members variable of object can change over time
 
-```javascript
+```{code-cell}
 function foo(x, y) {
     console.log('x is a ', typeof(x));
     console.log(x, '+', y, '=', x+y);
@@ -316,14 +355,16 @@ function foo(x, y) {
 foo('abc', 'def')
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ### Loose binding
-<!-- #endregion -->
+
++++
 
 * JavaScript is **very permissive**
 * for example, number of args is not checked
 
-```javascript
+```{code-cell}
 function fuzzy(x, y, z) {
     console.log("x = ", x, " y = ", y, " z = ", z);
 }
@@ -332,9 +373,11 @@ fuzzy(10, 20)
 fuzzy("abc", "def", "ghi")
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ### `this`
-<!-- #endregion -->
+
++++
 
 * a very specific feature of JavaScript
 * is that the implicit variable `this` is always defined
@@ -343,7 +386,7 @@ fuzzy("abc", "def", "ghi")
   * methods (more on this later)
   * and some callbacks
 
-```javascript
+```{code-cell}
 function show_this() {
     console.log(typeof(this));
 }
@@ -351,15 +394,17 @@ function show_this() {
 show_this()
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## Classes
-<!-- #endregion -->
+
++++
 
 as of ES6, the language has a proper `class` statement
 
 _Note:_ old javascript does not have class and use other way to define objects. 
 
-```javascript
+```{code-cell}
 class Vector {
     // just like Python's __init__
     // NO NEED to pass 'self' in JavaScript
@@ -383,9 +428,11 @@ vector.display()
     the language won't let you define the same <code>Vector</code> variable 
     twice in the same scope</p>
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ### Notes on classes
-<!-- #endregion -->
+
++++
 
 **NOTICE** the following from that first class example :
 
@@ -396,6 +443,7 @@ vector.display()
 * objects get created with `new Vector()` - Java and C++ style
   * not just plain Python-style `Vector()` 
 
++++
 
 <p class="rise-footnote"> 
     also notice the string-formatting syntax 
@@ -405,9 +453,11 @@ vector.display()
     except that an expression is inserted with <code>${expr}</code>, remember with f-strings it was just <code>{expr}</code>
 </p>
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ### properties
-<!-- #endregion -->
+
++++
 
 * modern JavaScript has a native notion of properties
 * i.e. expose an apparently mundane access  
@@ -416,11 +466,13 @@ vector.display()
 * that intercept read/write attempts  
   on the attribute
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-### Property example
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}}
 
-```javascript cell_style="split"
+### Property example
+
+```{code-cell}
+:cell_style: split
+
 class Temperature {
     constructor(temperature) {
         this.kelvin = temperature;
@@ -452,30 +504,40 @@ class Temperature {
 }
 ```
 
-```javascript cell_style="split"
+```{code-cell}
+:cell_style: split
+
 let temp = new Temperature(10)
 ```
 
-```javascript cell_style="split"
+```{code-cell}
+:cell_style: split
+
 temp.kelvin = -10
 ```
 
-```javascript cell_style="split"
+```{code-cell}
+:cell_style: split
+
 temp
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ### Old-school classes
-<!-- #endregion -->
+
++++
 
 * ES6 is relatively recent
 * you may come across older-school code that uses other techniques
 * typically involving a `prototype` thingy
 * here again for new code you should stick to the new idiom
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## `console.log()` function
-<!-- #endregion -->
+
++++
 
 * a function to show output
 * very similar to Python's `print()` function
@@ -483,24 +545,34 @@ temp
   * but under `node` it will just print
 * accepts any number of arguments
 
-```javascript
+```{code-cell}
 console.log(1, "two", [3, "four"])
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ### `console.log()` and objects
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": ""} -->
++++ {"slideshow": {"slide_type": ""}}
+
 **TIP** about debugging JS objects :
-<!-- #endregion -->
 
-```javascript slideshow={"slide_type": ""} cell_style="split"
+```{code-cell}
+---
+cell_style: split
+slideshow:
+  slide_type: ''
+---
 // it may be tempting to write
 console.log(`vector = ${vector}`)
 ```
 
-```javascript slideshow={"slide_type": ""} cell_style="split"
+```{code-cell}
+---
+cell_style: split
+slideshow:
+  slide_type: ''
+---
 // but it is better like this
 console.log("vector = ", vector)
 ```
@@ -512,16 +584,18 @@ console.log("vector = ", vector)
     rather a flat representation that traditional languages have used us to.
 </p>
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## Exceptions
-<!-- #endregion -->
+
++++
 
 * JavaScript supports exceptions, just like Python
 * same bubbling mechanism
   * that scans the call stack 
   * until a catch statement is found
 
-```javascript
+```{code-cell}
 try {
     // referring to an unknown variable
     unknown;

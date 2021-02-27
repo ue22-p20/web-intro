@@ -1,25 +1,24 @@
 ---
-jupyter:
-  celltoolbar: Slideshow
-  jupytext:
-    cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-    formats: md
-    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
-    text_representation:
-      extension: .md
-      format_name: markdown
-  kernelspec:
-    display_name: Javascript (Node.js)
-    language: javascript
-    name: javascript
-  nbhosting:
-    title: css basics
-  rise:
-    autolaunch: true
-    slideNumber: c/t
-    start_slideshow_at: selected
-    theme: sky
-    transition: cube
+celltoolbar: Slideshow
+jupytext:
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
+  formats: md:myst
+  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Javascript (Node.js)
+  language: javascript
+  name: javascript
+nbhosting:
+  title: css basics
+rise:
+  autolaunch: true
+  slideNumber: c/t
+  start_slideshow_at: selected
+  theme: sky
+  transition: cube
 ---
 
 <div class="licence">
@@ -27,22 +26,23 @@ jupyter:
 <span>Thierry Parmentelat</span>
 </div>
 
-<!-- #region slideshow={"slide_type": ""} -->
-# CSS basics
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": ""}}
 
-```javascript
+# CSS basics
+
+```{code-cell}
 // run this cell, and then 
 // click the created button
 tools = require('../js/tools');
 tools.init();
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-## purpose of style sheet
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}}
 
-<!-- #region slideshow={"slide_type": ""} -->
+## purpose of style sheet
+
++++ {"slideshow": {"slide_type": ""}}
+
 * keep contents and presentation separate
 * allow to adapt same contents 
   * to different media
@@ -50,46 +50,48 @@ tools.init();
 * generally written by people with  
   different background and sensibility
   * engineers *vs* designers
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## what can be styled ?
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": ""} -->
++++ {"slideshow": {"slide_type": ""}}
+
 * short answer : virtually everything
 * let's start with the obvious
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## text properties
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": ""} -->
++++ {"slideshow": {"slide_type": ""}}
+
 * `font-family` : e.g. Times
 * `font-size` : e.g. 12px
 * `font-weight` : e.g. bold
 * `font-style` : e.g. italic
 * `text-decoration` : e.g. underline
 * … and a whole many more
-<!-- #endregion -->
 
-<!-- #region cell_style="center" slideshow={"slide_type": "slide"} -->
++++ {"cell_style": "center", "slideshow": {"slide_type": "slide"}}
+
 ![](../media/list-properties-all.png)
-<!-- #endregion -->
 
-<!-- #region cell_style="center" slideshow={"slide_type": "slide"} -->
++++ {"cell_style": "center", "slideshow": {"slide_type": "slide"}}
+
 ![](../media/list-properties-filtered.png)
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## first example
-<!-- #endregion -->
+
++++
 
 * we create a hyperlink to google
 * we attach a CSS fragment to change its appearance
 * **warning** this changes **all the `<a>` elements** on that page
 
++++
 
 <p class="rise-footnote"> here we also use `target='_'`
 to tell the browser to open the link in another tab/window<br>
@@ -97,8 +99,12 @@ to tell the browser to open the link in another tab/window<br>
     note that to add a css fragment inside your html code put it inside a &lt;style&gt;&lt;/style&gt;
 </p>
 
-
-```javascript hide_input=true slideshow={"slide_type": "slide"}
+```{code-cell}
+---
+hide_input: true
+slideshow:
+  slide_type: slide
+---
 link_html = `<a 
   href="https://www.google.com" 
   target="_">
@@ -119,9 +125,11 @@ a {
 tools.iframe_html_css("link", link_html, link_css);
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## vocabulary
-<!-- #endregion -->
+
++++
 
 * the names that appear  
   on the left hand side of the `:` colon   

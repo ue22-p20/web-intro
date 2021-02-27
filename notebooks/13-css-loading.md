@@ -1,25 +1,24 @@
 ---
-jupyter:
-  celltoolbar: Slideshow
-  jupytext:
-    cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
-    formats: md
-    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
-    text_representation:
-      extension: .md
-      format_name: markdown
-  kernelspec:
-    display_name: Javascript (Node.js)
-    language: javascript
-    name: javascript
-  nbhosting:
-    title: loading css
-  rise:
-    autolaunch: true
-    slideNumber: c/t
-    start_slideshow_at: selected
-    theme: sky
-    transition: cube
+celltoolbar: Slideshow
+jupytext:
+  cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
+  formats: md:myst
+  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Javascript (Node.js)
+  language: javascript
+  name: javascript
+nbhosting:
+  title: loading css
+rise:
+  autolaunch: true
+  slideNumber: c/t
+  start_slideshow_at: selected
+  theme: sky
+  transition: cube
 ---
 
 <div class="licence">
@@ -27,40 +26,41 @@ jupyter:
 <span>Thierry Parmentelat</span>
 </div>
 
-<!-- #region slideshow={"slide_type": ""} -->
-# how to apply CSS
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": ""}}
 
-```javascript
+# how to apply CSS
+
+```{code-cell}
 // run this cell, and then 
 // click the created button
 tools = require('../js/tools');
 tools.init();
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-## 3 ways to apply CSS
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}}
 
-<!-- #region slideshow={"slide_type": ""} -->
+## 3 ways to apply CSS
+
++++ {"slideshow": {"slide_type": ""}}
+
 * located in a separate **CSS file** - via its own URL
 * embedded in html within a `<style>` html tag
 * hard-attached to an element itself with `style=`
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## preferred method : a separate CSS
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": ""} -->
++++ {"slideshow": {"slide_type": ""}}
+
 * write your CSS in a separate file, e.g. `mystyle.css`
 * which, assuming it is in the same directory as your `hello.html`
 * can be kind-of included in `hello.html` 
 * by inserting the following <link> line
 * in the `<head>` part of your html
-<!-- #endregion -->
 
-<!-- #region cell_style="center" slideshow={"slide_type": "slide"} -->
++++ {"cell_style": "center", "slideshow": {"slide_type": "slide"}}
+
 ```html
 <html>
   <head>
@@ -72,9 +72,9 @@ tools.init();
   </body>
 </html>
 ```
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} tags=["level_intermediate"] -->
++++ {"slideshow": {"slide_type": "slide"}, "tags": ["level_intermediate"]}
+
 ##### notes on relative URLs
 
 the way we load a css from the same folder as the html, is a consequence of a general rule to build so-called *relative* URLs, that work like this:
@@ -89,27 +89,28 @@ then
 
 and the same goes with the <code>file:///</code> URL scheme
 
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}}
 
-<!-- #region slideshow={"slide_type": "slide"} -->
 ##### notes on self-closing tags
 
 * note also the absence of a `</link>`, 
 * which may remind you of `<br>`
 * such elements are called **void** or **empty** elements
 * among others : `<br>`, `<hr>`, `<link>`, `<img>`,...
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## second method : inline in html
-<!-- #endregion -->
+
++++
 
 * you can also insert a `<style>` tag in your html
 * and mention the CSS code there directly
 * it is **less recommended** as it kind of ruins
 * the desired **separation** between **contents** and **presentation**
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ```html
 <p> CSS can be inlined right into the HTML 
     as a <style> tag
@@ -121,19 +122,20 @@ and the same goes with the <code>file:///</code> URL scheme
   }
 </style>
 ```
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## method 3: hardwired with `style=`
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": ""} -->
++++ {"slideshow": {"slide_type": ""}}
+
 * attach a `style=` attribute on a HTML tag
 * this method is by far **the worst**
 * and should be used in last resort
-<!-- #endregion -->
 
-```javascript hide_input=true
+```{code-cell}
+:hide_input: true
+
 embedded_html = `<p 
 
 style="background-color: red; 
@@ -153,11 +155,12 @@ more on this later on
 tools.two_columns(embedded_html)
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-## practice
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}}
 
-<!-- #region slideshow={"slide_type": ""} hide_input=true -->
+## practice
+
++++ {"slideshow": {"slide_type": ""}, "hide_input": true}
+
 * copy `hello.html` into `mycv.html`
 * create a more realistic skeleton for a résumé
   * with 4 sections 'experience', 'education', 'skills' and 'languages'
@@ -167,13 +170,13 @@ tools.two_columns(embedded_html)
   * and **not** directly under `<body>`  
     like it was done in `hello.html`
   * make sure to insert at least one `<a href=...>` hyperlink
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ### practice (continued)
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": ""} hide_input=true -->
++++ {"slideshow": {"slide_type": ""}, "hide_input": true}
+
 * create a CSS file `mycv.css`
   * with some settings that should apply to `mycv.html`
 * add a `<link>` tag in the html `<head>` area
@@ -182,11 +185,12 @@ tools.two_columns(embedded_html)
   * change the CSS and reload the browser page
   * to see the effect of your changes
 * we recommend you use a local git repo all along
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## the browser cache
-<!-- #endregion -->
+
++++
 
 for performance reasons primarily :
 
@@ -200,9 +204,11 @@ for performance reasons primarily :
 * reloading the html file
 * may **not reload** the css because it is cached
 
-<!-- #region slideshow={"slide_type": "slide"} -->
++++ {"slideshow": {"slide_type": "slide"}}
+
 ## the browser cache (continued)
-<!-- #endregion -->
+
++++
 
 a couple hints and workarounds
 
