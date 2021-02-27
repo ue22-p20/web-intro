@@ -41,24 +41,24 @@ tools.init()
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Events
 
-* Due to the specificity of the browser and the network, Javascript within the browser is not driven like other langage
-  * there is no main() function that run forever
-  * It is not driven like video game with infinite loop that eat all the CPU
+* Due to the specificity of the browser and the network, Javascript within the browser is not driven like other languages
+  * there is no main() function that runs forever
+  * It is not driven like video game with infinite loop that eats all the CPU
   * Instead Javascript is driven by **Events**
-* Events can have diferent nature:
+* Events can have different natures:
   * Events can come from the **user activity** such as mouse click
   * Events can be **time-bound**
-  * Events can be linkek to **network** activity
+  * Events can be linked to **network** activity
 * mostly "load" that is rather crucial
 * there are also builtin events for keyboard / mouse interaction illustrated on the next example (we use `click` and `keydown`)
-* for more details, see [this section in javascript.info](https://javascript.info/event-details) on all the vailable events
+* for more details, see [this section in javascript.info](https://javascript.info/event-details) on all the available events
 <!-- #endregion -->
 
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Callback
 
 * Events are handled using callbacks,
-* Callback are functions that is called when an event occur
+* Callback are functions that are called when an event occur
 * To get a function to be called on a given event you have to use the `addEventListener`
 
 For exemple to have the function `foo` called when the page is loaded you can use the following code:
@@ -70,7 +70,7 @@ window.addEventListener("load", foo);
 
 Where `load` is the name of the event corresponding to the end of the page load.
 
-* Several event are available a list of some of them is [here w3school.com](https://www.w3schools.com/jsref/dom_obj_event.asp)
+* Several events are available ; a list of some of them is [here w3school.com](https://www.w3schools.com/jsref/dom_obj_event.asp)
 
 <!-- #endregion -->
 
@@ -101,7 +101,7 @@ tools.from_samples("new-35-async-01-events", {separate_show: true, width: '40em'
 
 notice from the example :
 
-* how `addEventLister()` are cascaded,
+* how `addEventListener()` are cascaded,
 * how we display the events with `console.log()`  
   this is useful technique for debugging / inspecting data
 * how we inspect the event object to display meaningful data
@@ -131,7 +131,7 @@ setInterval(foo, 3000); // call foo every 3000 ms
 <!-- #region slideshow={"slide_type": "slide"} -->
 ## Anonymous function, i.e. lambda
 
-Due to the extensive use of callbacks in javacript, giving name to each fonction that we use once per event we setup is anoying. For this reason javascript have a 2 conveniant way to create anonymous functions.
+Due to the extensive use of callbacks in javacript, giving a name to each function that we use once per event we setup is annoying. For this reason javascript has 2 convenient way to create anonymous functions.
 
 * The fist one, the legacy-one:
 ```javascript
@@ -141,8 +141,8 @@ let mylambda0 = function (arg0, arg1) { /* some code here */ };
 ```javascript
 let mylambda0 = (arg0, arg1) => { /* some code here */ };
 ```
-* /!\ Both variant are valid, even is the new on look nicer
-* Even if they look the same, they have subtile diference not covered here
+* /!\ Both variant are valid, even if the new one look nicer
+* Even if they look the same, they have subtile differences not covered here
 * In this course you can use both.
 
 <!-- #endregion -->
@@ -243,7 +243,7 @@ so far we have seen a few types of events
 ## Step #3
 
 Finish the exemple to get the following result.
-_Tips:_ If changing color is dificult, you can change the dot radius.
+_Tips:_ If changing color is difficult, you can change the dot radius.
 <!-- #endregion -->
 
 ```javascript
