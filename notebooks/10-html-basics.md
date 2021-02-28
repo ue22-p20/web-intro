@@ -31,8 +31,6 @@ rise:
 # HTML basics
 
 ```{code-cell}
-// run this cell, and then 
-// click the created button
 delete require.cache[require.resolve('../js/toolsv3')]
 tools = require('../js/toolsv3')
 tools.init()

@@ -31,7 +31,8 @@ rise:
 # JavaScript
 
 ```{code-cell}
-tools = require('../js/toolsv2')
+delete require.cache[require.resolve('../js/toolsv3')]
+tools = require('../js/toolsv3')
 tools.init()
 ```
 
@@ -90,8 +91,8 @@ hide_input: true
 slideshow:
   slide_type: slide
 ---
-tools.from_samples("30-js-intro-01-on-off", 
-                   {width: '30em', height: '25em', separate_show: true})
+tools.sample_from_stem("../samples/30-js-intro-01-on-off", 
+                       {width: '30em', height: '25em', separate_show: true})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}, "hide_input": true}
@@ -114,9 +115,9 @@ hide_input: true
 slideshow:
   slide_type: slide
 ---
-tools.from_samples("30-js-intro-02-svgcircles",
-                   {width: '35em', height: '20em', 
-                    min_width: '15em', separate_show: true})
+tools.sample_from_stem("../samples/30-js-intro-02-svgcircles",
+                       {width: '35em', height: '20em', 
+                        min_width: '15em', separate_show: true})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}, "hide_input": true}
@@ -133,13 +134,13 @@ in this further example :
 
 ```{code-cell}
 ---
-hide_input: true
+hide_input: false
 slideshow:
   slide_type: slide
 ---
-tools.from_samples("30-js-intro-03-canvas",
-                   {width: '40em', height: '20em', 
-                    min_width: '15em', separate_show: true, start_with: 'js'})
+tools.sample_from_stem("../samples/30-js-intro-03-canvas",
+                       {width: '40em', height: '20em', 
+                        min_width: '15em', separate_show: true, start_with: 'js'})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -149,7 +150,10 @@ tools.from_samples("30-js-intro-03-canvas",
 release the following spinning-wheel with javascript during
 
 ```{code-cell}
-tools.show_sample("spinning-wheel/step3");
+:hide_input: false
+
+tools.sample_from_stem("../samples/spinning-wheel/step3",
+                       {sources_show: false})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -159,12 +163,15 @@ tools.show_sample("spinning-wheel/step3");
 make the following static HTML
 
 ```{code-cell}
-tools.show_sample("spinning-wheel/step1");
+:hide_input: false
+
+tools.sample_from_stem("../samples/spinning-wheel/step1",
+                       {width: '40em'})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-to draw circle you will need to use the following snipet:
+to draw a circle you will need the following snippet:
 
 ```html
 <svg width="200" height="200"
@@ -177,9 +184,13 @@ to draw circle you will need to use the following snipet:
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-on our way to step #2
+on our way to step #2:
 
-* we want to use JS to create the circle of dots
+* objective is to no longer create circles through html
+  because it is tedious, and needs to be easily changed 
+  (imagine the number of circles is a parameter..)
+
+* so now we want to use JS to create the circle of dots
   * we need to underdand the basics of the language
   * and we need to load the JS code
   
@@ -187,10 +198,13 @@ on our way to step #2
 
 +++ {"slideshow": {"slide_type": "slide"}, "tags": ["level_intermediate"]}
 
-## objective of the course #2
+## optional objective of the course
 
-at the end of the course you should write it by yourself
+for the quick ones:
+at the end of the course you can tackle that exercise:
 
 ```{code-cell}
-tools.show_sample("calculator");
+:hide_input: true
+
+tools.sample_from_stem("calculator", {sources_show: false, height: '500px'})
 ```

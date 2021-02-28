@@ -31,10 +31,9 @@ rise:
 # CSS basics
 
 ```{code-cell}
-// run this cell, and then 
-// click the created button
-tools = require('../js/tools');
-tools.init();
+delete require.cache[require.resolve('../js/toolsv3')]
+tools = require('../js/toolsv3')
+tools.init()
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}

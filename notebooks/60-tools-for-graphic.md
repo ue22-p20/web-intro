@@ -33,8 +33,9 @@ rise:
 # visualization tools
 
 ```{code-cell}
-tools = require('../js/tools');
-tools.init();
+delete require.cache[require.resolve('../js/toolsv3')]
+tools = require('../js/toolsv3')
+tools.init()
 ```
 
 +++ {"slideshow": {"slide_type": ""}}

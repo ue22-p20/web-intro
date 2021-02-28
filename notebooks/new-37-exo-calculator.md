@@ -33,7 +33,8 @@ rise:
 # practice : a calculator
 
 ```{code-cell}
-tools = require('../js/toolsv2')
+delete require.cache[require.resolve('../js/toolsv3')]
+tools = require('../js/toolsv3')
 tools.init()
 ```
 

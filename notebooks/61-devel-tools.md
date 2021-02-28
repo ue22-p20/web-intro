@@ -33,7 +33,8 @@ rise:
 # build and devel tools
 
 ```{code-cell}
-tools = require('../js/tools')
+delete require.cache[require.resolve('../js/toolsv3')]
+tools = require('../js/toolsv3')
 tools.init()
 ```
 

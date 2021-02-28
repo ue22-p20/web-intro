@@ -31,10 +31,9 @@ rise:
 # Loading JavaScript in browser
 
 ```{code-cell}
-// run this cell, and then 
-// click the created button
-tools = require('../js/toolsv2');
-tools.init();
+delete require.cache[require.resolve('../js/toolsv3')]
+tools = require('../js/toolsv3')
+tools.init()
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
