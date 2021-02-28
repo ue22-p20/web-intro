@@ -95,7 +95,7 @@ body { border: none; }
     font-size: 30px;
 }
 `;
-tools.iframe_html_css("flex1", flex1_html, flex1_css, true)
+tools.sample_from_strings({html: flex1_html, css: flex1_css})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -132,7 +132,7 @@ body { border: none; }
     font-size: 40px;
 }
 `;
-tools.iframe_html_css("flex2", flex2_html, flex2_css, true)
+tools.sample_from_strings({html: flex2_html, css: flex2_css})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -194,5 +194,5 @@ tools.iframe_html_css("flex2", flex2_html, flex2_css, true)
 ```{code-cell}
 :hide_input: true
 
-tools.iframe_exo("exo-flex", true, true)
+tools.sample_from_stem("../samples/exo-flex", {sources_show: false})
 ```

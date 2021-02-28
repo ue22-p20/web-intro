@@ -67,7 +67,7 @@ text_css = `.text {
     text-decoration: underline;
 }
 `;
-tools.iframe_html_css("text-properties", text_html, text_css)
+tools.sample_from_strings({html: text_html, css: text_css})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -90,7 +90,7 @@ hide_input: true
 slideshow:
   slide_type: slide
 ---
-tools.iframe_samples_html_css("font-demo")
+tools.sample_from_stem("../samples/font-demo")
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -248,7 +248,7 @@ box1_css = `p.box1 {
     border-bottom-color: black;
     border-bottom-style: solid;
 }`;
-tools.iframe_html_css("box1", box1_html, box1_css);
+tools.sample_from_strings({html: box1_html, css: box1_css})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -284,8 +284,8 @@ box2_css = `p.box2 {
     border-left-style: solid;
 
     border-top-left-radius: 5px;
-}`;
-tools.iframe_html_css("box2", box2_html, box2_css);
+}`
+tools.sample_from_strings({html: box2_html, css: box2_css})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -348,7 +348,7 @@ shorthand_css = `p.shorthand1 {
     border: 2px solid green;
     border-radius: 10px;
 }`;
-tools.iframe_html_css("shorthand", shorthand_html, shorthand_css);
+tools.sample_from_strings({html: shorthand_html, css: shorthand_css})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -494,7 +494,7 @@ h1, p {
     background-color: yellow;
 }
 `;
-tools.iframe_html_css("background", background_html, background_css)
+tools.sample_from_strings(html: background_html, css: background_css})
 ```
 
 +++ {"hide_input": true}

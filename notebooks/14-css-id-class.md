@@ -86,7 +86,7 @@ id_css = `/* will apply ONLY to
 p#only-me {
     background-color: pink;
 }`;
-tools.iframe_html_css("id1", id_html, id_css)
+tools.sample_from_strings({html: id_html, css: id_css})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}, "hide_input": true}
@@ -109,7 +109,7 @@ id2_css = `/* applies to elements
     background-color: blue;
     color: white;
 }`;
-tools.iframe_html_css("id2", id2_html, id2_css)
+tools.sample_from_strings({html: id2_html, css: id2_css})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -145,7 +145,7 @@ p.no {
     background-color: red;
 }
 `;
-tools.iframe_html_css("class", class_html, class_css)
+tools.sample_from_strings({html: class_html, css: class_css})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -238,7 +238,7 @@ specificity1_html = `<!-- the style
    style="color: purple">
 
 Lorem ipsum dolor sit amet.
-</p>`;
+</p>`
 
 specificity_css = `p {
   color: green;
@@ -252,9 +252,9 @@ specificity_css = `p {
 
 #myid {
   color: blue;
-}`;
+}`
 
-tools.iframe_html_css("specificity1", specificity1_html, specificity_css)
+tools.sample_from_strings({html: specificity1_html, css: specificity_css})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}, "hide_input": true}
@@ -274,8 +274,8 @@ specificity2_html = `<!-- then id wins -->
 
 Lorem ipsum dolor sit amet.
 </p>
-`;
-tools.iframe_html_css("specificity2", specificity2_html, specificity_css);
+`
+tools.sample_from_strings({html: specificity2_html, css: specificity_css})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -295,8 +295,8 @@ specificity3_html = `<!-- then class wins
 
 Lorem ipsum dolor sit amet.
 </p>
-`;
-tools.iframe_html_css("specificity3", specificity3_html, specificity_css);
+`
+tools.sample_from_strings({html: specificity3_html, css: specificity_css})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -313,8 +313,8 @@ specificity4_html = `<p>
 
 Lorem ipsum dolor sit amet.
 </p>
-`;
-tools.iframe_html_css("specificity4", specificity4_html, specificity_css);
+`
+tools.sample_from_strings({html: specificity4_html, css: specificity_css})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -335,7 +335,7 @@ inherit_css = `.inheritance {
     color: maroon;
     font-family: times;
 }`;
-tools.iframe_html_css("inheritance", inherit_html, inherit_css)
+tools.sample_from_strings({html: inherit_html, css: inherit_css})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}

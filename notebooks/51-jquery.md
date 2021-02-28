@@ -251,7 +251,7 @@ the browser goes and fetches the actual image content and displays it
 ## example 2
 
 ```{code-cell}
-tools.iframe_samples_html_css_js("jquery-colors")
+tools.sample_from_stem("../samples/jquery-colors")
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}

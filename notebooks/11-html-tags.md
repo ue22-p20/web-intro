@@ -49,7 +49,7 @@ headers_fragment = `<h1> toplevel title </h1>
 <h3> other subsublevel </h3>
 <h2> second sublevel title </h2>
 `;
-tools.two_columns(headers_fragment)
+tools.sample_from_strings({html: headers_fragment})
 ```
 
 ```{code-cell}
@@ -79,7 +79,7 @@ when the text is too wide to fit within the available space.</p>
 instead using the &lt;br&gt; tag
 </p>
 `
-tools.two_columns(text_fragment)
+tools.sample_from_strings({html: text_fragment})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -89,7 +89,7 @@ tools.two_columns(text_fragment)
 ```{code-cell}
 :hide_input: true
 
-bullet_fragment = `<p> a typical bullet list with a <b>ul</b> tag
+ul_fragment = `<p> a typical bullet list with a <b>ul</b> tag
 <br> <code>ul</code> stands for "unordered list"
 <br> <code>li</code> stands for "list item"
 <ul>
@@ -98,13 +98,13 @@ bullet_fragment = `<p> a typical bullet list with a <b>ul</b> tag
 </ul>
 </p>
 `;
-tools.two_columns(bullet_fragment)
+tools.sample_from_strings({html: ul_fragment})
 ```
 
 ```{code-cell}
 :hide_input: true
 
-bullet_fragment = `<p> the same with a <b>ol</b> tag instead
+ol_fragment = `<p> the same with a <b>ol</b> tag instead
 <br> <code>ol</code> stands for "ordered list"
 <ol>
 <li> the first bullet </li>
@@ -112,7 +112,7 @@ bullet_fragment = `<p> the same with a <b>ol</b> tag instead
 </ol>
 </p>
 `;
-tools.two_columns(bullet_fragment)
+tools.sample_from_strings({html: ol_fragment})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -139,7 +139,7 @@ typical **hyperlink** reads like this
 :hide_input: true
 
 hyperlink_fragment = `<a href="https://www.google.com/">the hyperlink</a>`;
-tools.two_columns(hyperlink_fragment)
+tools.sample_from_strings({html: hyperlink_fragment})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -154,7 +154,7 @@ if you need a hyperlink to point, not at the beginning of this page, but somewhe
 :hide_input: true
 
 anchor_fragment = `<a name="the-anchor-name">the magic location</a>`;
-tools.two_columns(anchor_fragment)
+tools.sample_from_strings({html: anchor_fragment})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -179,8 +179,8 @@ here this hyperlink
 <br>
 (although in slideshow mode this does not exactly behave well)
 </p>
-`;
-tools.two_columns(redirect_fragment);
+`
+tools.sample_from_strings({html: redirect_fragment})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -200,8 +200,8 @@ tags for <b>bold</b> or <i>italics</i>
 or <u>underline</u> or <s>strike-through</s>
 </br>
 that of course <u><b><i>can be combined</i></b></u>
-</p>`;
-tools.two_columns(styling_fragment)
+</p>`
+tools.sample_from_strings({html: styling_fragment})
 ```
 
 <p class="rise-footnote">
@@ -228,8 +228,8 @@ X = np.linspace(-2*np.pi, 2*np.pi)
 Y = np.sin(X)
 plt.plot(X, Y)
 </pre></code>
-</p>`;
-tools.two_columns(code_fragment)
+</p>`
+tools.sample_from_strings({html: code_fragment})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -267,8 +267,8 @@ and for that use a &lt;span&gt; tag.</p>
   <p> when you need to create a group that 
       contain several paragraphs</p>
   <p> then a &lt;div&gt; tag is more suitable</p>
-</div>`;
-tools.two_columns(group_html)
+</div>`
+tools.sample_from_strings({html: group_html})
 ```
 
 <p class="rise-footnote">this first example uses styling, 
@@ -296,7 +296,7 @@ the 'div' tag is an essential unit brick for creating a page layout
   <p>that 'div's elements are
      typically all over the place</p>
 </div>`;
-tools.two_columns(group2_html)
+tools.sample_from_strings({html: group2_html})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}

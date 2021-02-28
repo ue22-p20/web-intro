@@ -75,7 +75,7 @@ p {
   background-color: var(--main-bg-color);
 }
 `
-tools.iframe_html_css("cssvar", cssvar_html, cssvar_css)
+tools.sample_from_strings({html: cssvar_html, css: cssvar_css})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}

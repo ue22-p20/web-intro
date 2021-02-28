@@ -110,8 +110,8 @@ grid1_css = `.container {
     grid-area: footer;
     background-color: #7fa998;
 }
-`;
-tools.iframe_html_css("display-grid-1", grid1_html, grid1_css, true)
+`
+tools.sample_from_strings({html: grid1_html, css: grid1_css})
 ```
 
 +++ {"cell_style": "split", "slideshow": {"slide_type": "slide"}}
@@ -203,7 +203,7 @@ grid2_css = `.container {
     background-color: #7fa998;
 }
 `;
-tools.iframe_html_css("display-grid-2", grid2_html, grid2_css, true)
+tools.sample_from_strings({html: grid2_html, css: grid2_css})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -264,7 +264,7 @@ grid3_css = `.container {
     background-color: #7fa998;
 }
 `;
-tools.iframe_html_css("display-grid-3", grid3_html, grid3_css, true)
+tools.sample_from_strings({html: grid3_html, css: grid3_css})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -350,7 +350,7 @@ autosize_css = `section {
   grid-template-columns: 
     repeat(auto-fit, minmax(250px, 1fr));
 }`;
-tools.iframe_html_css("autosize", autosize_html, autosize_css, true)
+tools.sample_from_strings({html: autosize_html, css: autosize_css})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}

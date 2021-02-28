@@ -79,7 +79,7 @@ hide_input: true
 slideshow:
   slide_type: slide
 ---
-tools.iframe_exo("monarque/resume", true, true)
+tools.sample_from_stem("../samples/monarque/resume", {sources_show: false})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}

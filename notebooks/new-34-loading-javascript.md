@@ -131,7 +131,7 @@ let circle = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
 slideshow:
   slide_type: slide
 ---
-tools.show_sample("spinning-wheel/step2");
+tools.sample_from_stem("../samples/spinning-wheel/step2");
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}

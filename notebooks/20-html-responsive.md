@@ -160,5 +160,5 @@ display_none_css = `#do-not-show {
     display: none;
     background-color: red;
 }`
-tools.iframe_html_css("display-none", display_none_html, display_none_css)
+tools.sample_from_strings({html: display_none_html, css: display_none_css})
 ```

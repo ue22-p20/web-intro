@@ -51,7 +51,7 @@ the sample app is not responsive, you will need to open it in a separate window
 ```{code-cell}
 :hide_input: true
 
-tools.iframe_exo("pythagore", true)
+tools.sample_from_stem("../samples/pythagore", {sources_show: false})
 ```
 
 +++ {"slideshow": {"slide_type": ""}}
@@ -68,7 +68,7 @@ here again the sample app is not responsive, you will need to open it in a separ
 :hide_input: true
 
 // the minified version somehow was not working...
-tools.iframe_exo("fibonacci", true, 'plain-js')
+tools.sample_from_stem("../samples/fibonacci", {sources_show: false})
 ```
 
 ## a snake 

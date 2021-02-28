@@ -123,8 +123,8 @@ hover1_css = `.part2 a:hover {
 a {
     font-size: 200%;
 }
-`;
-tools.iframe_html_css("hover1", hover1_html, hover1_css);
+`
+tools.sample_from_strings(html: hover1_html, css: hover1_css})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -163,8 +163,8 @@ hover2_css = `/* <a> elements under a .class2
 }
 a {
     font-size: 200%;
-}`;
-tools.iframe_html_css("hover2", hover2_html, hover2_css);
+}`
+tools.sample_from_strings(html: hover2_html, css: hover2_css)
 ```
 
 <p class="rise-footnote"> 
@@ -210,7 +210,7 @@ li:nth-child(3n) {
 li {
     font-size: 200%;
 }`;
-tools.iframe_html_css("rank-child", rank_html, rank_css);
+tools.sample_from_strings({html: rank_html, css: rank_css})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}

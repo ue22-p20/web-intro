@@ -103,8 +103,8 @@ div:not(#header) {
     font-size: 45px;
     height: 400px;  /* fake content */
     background-color: #fafafa;
-}`;
-tools.iframe_html_css("fixed", fixed_html, fixed_css, true)
+}`
+tools.sample_from_strings({html: fixed_html, css: fixed_css})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -157,7 +157,7 @@ div:not(#header) {
     height: 400px;  /* fake content */
     background-color: #fafafa;
 }`;
-tools.iframe_html_css("sticky", sticky_html, sticky_css, true)
+tools.sample_from_strings({html: sticky_html, css: sticky_css})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}

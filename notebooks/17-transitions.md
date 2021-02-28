@@ -64,7 +64,7 @@ tools.init()
 ```{code-cell}
 :hide_input: true
 
-tools.iframe_samples_html_css("transition1")
+tools.sample_from_stem("../samples/transition1")
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -117,7 +117,7 @@ hide_input: true
 slideshow:
   slide_type: '-'
 ---
-tools.iframe_samples_html_css("transition2", true)
+tools.sample_from_stem("../samples/transition2")
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -155,7 +155,7 @@ hide_input: true
 slideshow:
   slide_type: '-'
 ---
-tools.iframe_samples_html_css_js("transition3")
+tools.sample_from_stem("../samples/transition3")
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}

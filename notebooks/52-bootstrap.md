@@ -74,7 +74,7 @@ hide_input: true
 slideshow:
   slide_type: slide
 ---
-tools.iframe_exo("bootstrap", true, true)
+tools.sample_from_stem("../samples/bootstrap")
 ```
 
 <p class="rise-footnote">many more effects are available - read the components page !</p>

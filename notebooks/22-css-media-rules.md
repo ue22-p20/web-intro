@@ -84,7 +84,7 @@ body {
   }
 }
 `;
-tools.iframe_html_css("media-rule-width", media_width_html, media_width_css, true)
+tools.sample_from_strings({html: media_width_html, css: media_width_css})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -142,7 +142,7 @@ body {
   }
 }
 `;
-tools.iframe_html_css("media-rule-print", media_print_html, media_print_css, true)
+tools.sample_from_strings({html: media_print_html, css: media_print_css})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -194,5 +194,5 @@ remember that `<html>` contains 2 sons, a `<head>` and a `<body>`
 ```{code-cell}
 :hide_input: true
 
-tools.iframe_exo("exo-grid", true, true)
+tools.sample_from_stem("samples/exo-grid", {sources_show: false})
 ```

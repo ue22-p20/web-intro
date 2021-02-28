@@ -84,8 +84,8 @@ circle {
   stroke: rgb(100, 200, 50);
   stroke-width: 4;
   fill: yellow;
-}`;
-tools.iframe_html_css("svg", svg_html, svg_css)
+}`
+tools.sample_from_strings({html: svg_html, css: svg_css})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -122,7 +122,7 @@ out of scope for this course though, as it involves a backend
 ```{code-cell}
 :hide_input: true
 
-tools.iframe_samples_html_css("sections", true)
+tools.sample_from_stem("../samples/sections")
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}

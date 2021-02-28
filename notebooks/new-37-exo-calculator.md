@@ -56,7 +56,7 @@ hide_input: true
 slideshow:
   slide_type: slide
 ---
-tools.from_samples("calculator")
+tools.sample_from_stem("../samples/calculator", {sources_show: false})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}

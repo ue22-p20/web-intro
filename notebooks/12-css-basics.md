@@ -109,7 +109,7 @@ link_html = `<a
   target="_">
 link to google
 </a>
-`;
+`
 link_css = `/* change these properties
    on all <a> elements in the page */
 a {
@@ -120,8 +120,8 @@ a {
     border: 1px solid green;
     border-radius: 8px;
     text-decoration: none;
-}`;
-tools.iframe_html_css("link", link_html, link_css);
+}`
+tools.sample_from_strings({html: link_html, css: link_css})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}

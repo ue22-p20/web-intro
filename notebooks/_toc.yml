@@ -37,3 +37,13 @@
   - file: 50-exos
   - file: 51-jquery
   - file: 52-bootstrap
+- part: "Oldies"
+  chapters:
+  - file: old-30-js-intro
+  - file: old-31-loading-js
+  - file: old-32-exo-cv-background
+  - file: old-33-js-overview
+  - file: old-34-builtin-types
+  - file: old-35-async
+  - file: old-36-exo-spinning-wheel
+  - file: old-37-exo-calculator

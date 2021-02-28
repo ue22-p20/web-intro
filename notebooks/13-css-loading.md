@@ -150,8 +150,9 @@ likely take precedence on
 everything else;
 more on this later on
 
-</p>`;
-tools.two_columns(embedded_html)
+</p>`
+
+tools.sample_from_strings({html: embedded_html})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}

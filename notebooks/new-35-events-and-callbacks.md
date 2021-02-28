@@ -92,7 +92,8 @@ Where `load` is the name of the event corresponding to the end of the page load.
 ```{code-cell}
 :hide_input: false
 
-tools.from_samples("new-35-async-01-events", {separate_show: true, width: '40em'})
+tools.sample_from_stem("../samples/new-35-async-01-events",
+                       {separate_show: true, width: '40em'})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -171,7 +172,8 @@ window.addEventListener(
 ## Previous exemple using lambda function
 
 ```{code-cell}
-tools.from_samples("new-35-async-02-events", {separate_show: true, width: '40em'})
+tools.sample_from_stem("../samples/new-35-async-02-events",
+                       {separate_show: true, width: '40em'})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -258,5 +260,5 @@ _Tips:_ If changing color is difficult, you can change the dot radius.
 <!-- #endregion -->
 
 ```{code-cell}
-tools.show_sample("spinning-wheel");
+tools.sample_from_stem("../samples/spinning-wheel")
 ```
