@@ -34,6 +34,20 @@ function number_lines(code) {
   return max
 }
 
+// compute a fraction of a css length
+// that may be 200px or 20em or 50%
+function csslength_fraction(length, ratio) {
+  try {
+    let regexp = /([0-9.]+)([a-z][a-z]|%)/
+    let match = regexp.exec(length)
+    let [total, count, unit] = match
+    let rcount = parseFloat(count) * ratio
+    return `${rcount}${unit}`
+  } catch(err) {
+    console.log("csslength_fraction : not a 2-chars or % unit")
+  }
+}
+
 function sample_from_stem(stem, options) {
   options = options || {}
   if (! ('id' in options))
@@ -77,8 +91,8 @@ function sample_from_strings(code, options) {
   // default height:
   // header is approx. 4 lignes
   let height = options.height || (sources_show ? `${number_lines(code)+4}em` : "300px")
-  let min_width = options.min_width || width
-  let min_height = options.min_height || height
+  let min_width = options.min_width || csslength_fraction(width, 0.5)
+  let min_height = options.min_height || csslength_fraction(height, 0.5)
 
   let id = options.id || hash(html)
 
