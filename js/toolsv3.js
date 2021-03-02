@@ -34,6 +34,11 @@ function number_lines(code) {
   return max
 }
 
+function read_style(path) {
+  const css = fs.readFileSync(path, 'utf-8')
+  return `<style>${css}</style>`
+}
+
 // compute a fraction of a css length
 // that may be 200px or 20em or 50%
 function csslength_fraction(length, ratio) {
@@ -340,11 +345,9 @@ function sample_from_strings(code, options) {
 }
 
 
-const inject_css = require('./inject-css')
-
 function init() {
   // the style that makes the in[] and out[] labels less conspicuous
-  let embedded = inject_css.read_style('../css/in-out.css')
+  let embedded = read_style('../css/in-out.css')
   // we inject require here for when running under jupyter book
   embedded += `
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
