@@ -86,3 +86,10 @@ tools.init()
 * Add a class to an element `element.classList.add("someclass")`
 * Remove a class to an element `element.classList.remove("someclass")`
 * And many more ...
+
++++
+
+Note for next year
+
+* mention the cheat sheet
+* explain how to iterate over a HTMLCollection, see this post on discourse https://discourse.mines-paristech.fr/t/cours-javascript-precision-sur-la-facon-diterer-sur-des-htmlcollection/1010
