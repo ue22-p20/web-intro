@@ -24,14 +24,14 @@
   - file: 25-exo-cv
 - part: "Course 3 - a bit of JS"
   chapters:
-  - file: new-30-js-intro
-  - file: new-31-js-language-overview
-  - file: new-32-builtin-types
-  - file: new-33-manipulating-the-DOM
-  - file: new-34-loading-javascript
-  - file: new-35-events-and-callbacks
-  - file: new-36-async
-  - file: new-37-exo-calculator
+  - file: 30-js-intro
+  - file: 31-js-language-overview
+  - file: 32-builtin-types
+  - file: 33-manipulating-the-DOM
+  - file: 34-loading-javascript
+  - file: 35-events-and-callbacks
+  - file: 36-async
+  - file: 37-exo-calculator
 - part: "Optional content"
   chapters:
   - file: 50-exos

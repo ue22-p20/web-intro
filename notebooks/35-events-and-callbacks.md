@@ -92,7 +92,7 @@ Where `load` is the name of the event corresponding to the end of the page load.
 ```{code-cell}
 :hide_input: false
 
-tools.sample_from_stem("../samples/new-35-async-01-events",
+tools.sample_from_stem("../samples/35-async-01-events",
                        {separate_show: true, width: '40em'})
 ```
 
@@ -172,7 +172,7 @@ window.addEventListener(
 ## Previous exemple using lambda function
 
 ```{code-cell}
-tools.sample_from_stem("../samples/new-35-async-02-events",
+tools.sample_from_stem("../samples/35-async-02-events",
                        {separate_show: true, width: '40em'})
 ```
 
