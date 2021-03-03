@@ -30,6 +30,10 @@ def tracks(coursedir):
              ("intro to JS", "notebooks/new*.md"),
              ("optional content", "notebooks/5*.md"),
            ]),
+         ("quiz final", "quiz final", "quiz",
+          [
+            ("quiz JS", "quiz/3-js.md"),
+          ]),
     ]
 
     return [Track(coursedir,
