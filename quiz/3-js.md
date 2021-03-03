@@ -16,7 +16,15 @@ version: '1.0'
 
 # quiz
 
-**évaluez la cellule suivante** pour faire apparaitre le quiz sur le cours #1 "HTML et notions de CSS"
+**évaluez la cellule suivante** pour faire apparaitre le quiz sur le cours #3 sur JavaScript
+
+**affichage avec *scrollbar***  
+il se peut que le quiz apparaisse **dans une petite fenêtre** - c'est à dire ne vous
+montre qu'une grosse dizaine de lignes, avec une *scrollbar* sur le coté pour faire
+défiler le contenu  
+c'est l'affichage normal de Jupyter pour les cellules qui ont un *output* un peu long  
+ça n'est pas très pratique ici, souvenez-vous que vous pouvez forcer l'affichage entier
+(sans la *scrollbar*) en **cliquant dans la marge gauche** en face du quiz
 
 ```{code-cell} ipython3
 :hide_input: false
