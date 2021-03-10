@@ -27,7 +27,9 @@ ENV PATH="/opt/conda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin
 
 # somehow node won't find stuff installed by npm, this band-aid will help
 ENV NODE_PATH="/opt/conda/lib/node_modules/"
-USER jovyan
+
+# mar 21. running as jovyan ruins the ability to build handouts
+# USER jovyan
 
 # NOTE
 # we cannot use jupyter nbextension enable/disable
