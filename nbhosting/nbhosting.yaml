@@ -44,8 +44,7 @@ static-mappings:
 
 builds:
   - name: handouts
+    directory: notebooks
     script: |
       pip install jupyter-book
-      cd notebooks
       jupyter-book build .
-    result-folder: notebooks/_build/html
