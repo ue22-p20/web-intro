@@ -1,0 +1,51 @@
+tracks:
+- description: basic contents with HTML and some CSS
+  id: html
+  name: 'course #1: HTML'
+  sections:
+  - name: introduction
+    notebooks:
+    - "notebooks/0*.md"
+  - name: "HTML\_basics"
+    notebooks:
+    - "notebooks/1*.md"
+- description: advanced layout with CSS
+  id: css
+  name: 'course #2: CSS layout'
+  sections:
+  - name: quiz
+    notebooks:
+    - quiz/1-html.md
+  - name: layout with CSS
+    notebooks:
+    - "notebooks/2*.md"
+- description: programming with JS
+  id: js
+  name: 'course #3: JS basics'
+  sections:
+  - name: intro to JS
+    notebooks:
+    - "notebooks/3*.md"
+  - name: optional content
+    notebooks:
+    - "notebooks/5*.md"
+- description: quiz final
+  id: quiz
+  name: quiz final
+  sections:
+  - name: quiz JS
+    notebooks:
+    - quiz/3-js.md
+
+
+static-mappings:
+- source: media
+  destination: media
+
+builds:
+  - name: handouts
+    script: |
+      pip install jupyter-book
+      cd notebooks
+      jupyter-book build .
+    result-folder: notebooks/_build/html
