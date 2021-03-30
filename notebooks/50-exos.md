@@ -71,7 +71,7 @@ here again the sample app is not responsive, you will need to open it in a separ
 tools.sample_from_stem("../samples/fibonacci", {sources_show: false})
 ```
 
-## a snake 
+## a snake
 
 +++
 

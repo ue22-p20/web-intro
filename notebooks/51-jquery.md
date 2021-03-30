@@ -85,7 +85,7 @@ it is easy to import the library from your own html documents
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## digression$^2$ 
+## digression$^2$
 
 +++
 
@@ -112,7 +112,6 @@ as per <https://jquery.com>
 > **What is jQuery?** 
 
 > jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers. With a combination of versatility and extensibility, jQuery has changed the way that millions of people write JavaScript.
-
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -148,7 +147,7 @@ all elements of class `to-hide`
 $(".to-hide").hide()
 ```
 
-which is admittedly **a little simpler** than using native JavaScript functions 
+which is admittedly **a little simpler** than using native JavaScript functions
 
 +++ {"slideshow": {"slide_type": "slide"}}
 

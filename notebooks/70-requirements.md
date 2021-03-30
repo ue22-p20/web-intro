@@ -58,7 +58,7 @@ npm install -g ijavascript
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## Jupyter JavaScript kernel 
+## Jupyter JavaScript kernel
 
 +++
 

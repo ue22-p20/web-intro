@@ -51,9 +51,6 @@ tools.init()
 
 * note that bootstrap depends on jQuery
 
-
-
-
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ## why bootstrap
@@ -118,7 +115,7 @@ it is strongly recommended to browse that page to see the kind of results that y
 
 the code for each of these examples is generally reasonably small, although the constructions required with bootstrap tend to be rather verbose.
 
-again remember that you 
+again remember that you
 
 +++ {"slideshow": {"slide_type": "slide"}}
 

@@ -81,7 +81,7 @@ tools.sample_from_stem("../samples/transition1")
 * the transition is requested to apply to `all` properties  
   so here it triggers to implement the color change
 * and the `ease-in-out` algorithm is used  
-  over a `0.4s` duration   
+  over a `0.4s` duration
 
 +++ {"slideshow": {"slide_type": "slide"}}
 

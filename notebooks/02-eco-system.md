@@ -75,7 +75,7 @@ rise:
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## backend and frontend 
+## backend and frontend
 
 +++ {"slideshow": {"slide_type": ""}, "cell_style": "split"}
 

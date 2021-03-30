@@ -120,7 +120,7 @@ tools.sample_from_strings({html: id2_html, css: id2_css})
 
 * it is also possible to create arbitrary groups of elements
 * so that they can be styled together
-* this is simply done by setting a `class` attribute 
+* this is simply done by setting a `class` attribute
 
 +++ {"slideshow": {"slide_type": ""}}
 
@@ -200,7 +200,7 @@ in a nutshell, the intuition behind the actual rules is that
 * otherwise if you have specified an `id` this means you expect this setting to be valid on that node
 * otherwise if you have specified a `class`, it should apply
 * otherwise if the rule is based on the element's *tag*, it should apply
-* otherwise, if it is a wildcard rule (you can use `*` as the selector) 
+* otherwise, if it is a wildcard rule (you can use `*` as the selector)
 
 +++ {"slideshow": {"slide_type": "slide"}}
 

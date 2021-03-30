@@ -136,7 +136,7 @@ tools.sample_from_strings({html: grid1_html, css: grid1_css})
 
 **note** on this specific example, we could have omitted `grid-template-columns` altogether
     
-</div>    
+</div>
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -150,7 +150,6 @@ mostly the same, but :
 * only change is to replace
   * `grid-template-columns: 1fr 1fr 1fr 1fr` with
   * `grid-template-rows: 100px 1fr 5% 1fr;`
-  
 
 +++ {"hide_input": true}
 
@@ -222,7 +221,6 @@ in the previous examples :
   * `height: 100%` to say we want to use all available space
   * `grid-template-rows: 50px 1fr 100px;` which specifies how to use vertical space
 `
-  
 
 ```{code-cell}
 ---
@@ -294,8 +292,7 @@ tools.sample_from_strings({html: grid3_html, css: grid3_css})
 
 you may also [complete this game ](https://cssgridgarden.com/) at home if you feel like it
             
-</div>            
-            
+</div>
 
 +++ {"slideshow": {"slide_type": "slide"}, "tags": ["level_intermediate"]}
 
@@ -361,7 +358,7 @@ tools.sample_from_strings({html: autosize_html, css: autosize_css})
 
 * the devel tools - on chrome at least 
 * allow to simulate other devices
-* like popular phones and tablets  
+* like popular phones and tablets
 
 +++ {"slideshow": {"slide_type": "slide"}}
 

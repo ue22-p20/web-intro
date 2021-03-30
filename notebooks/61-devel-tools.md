@@ -88,7 +88,7 @@ in the case of CSS variables, miscellaneous **preprocessors** available like e.g
 [Sass](http://sass-lang.com/), [Less](http://lesscss.org/features/)
 
 the principle of a preprocessor being to **transform** the code **before it runs**  
-to make it compatible with what the low-level tools expect  
+to make it compatible with what the low-level tools expect
 
 +++
 

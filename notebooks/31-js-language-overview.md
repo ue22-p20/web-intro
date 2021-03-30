@@ -219,7 +219,7 @@ py + thon
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## Variable scope 
+## Variable scope
 
 +++
 
@@ -311,7 +311,7 @@ Context (browser components mostly) is exposed to programer through a set of **g
   * `document` to access the DOM
   * `window`, remember `setTimeout()`
   * `console` like in `console.log()`
-* may depend on the runtime  
+* may depend on the runtime
 
 +++
 
@@ -403,7 +403,7 @@ show_this()
 
 as of ES6, the language has a proper `class` statement
 
-_Note:_ old javascript does not have class and use other way to define objects. 
+_Note:_ old javascript does not have class and use other way to define objects.
 
 ```{code-cell}
 class Vector {
@@ -442,7 +442,7 @@ vector.display()
 * it is very much alike the traditional `self` argument in Python
 * except that it is **not mentioned** as a method parameter
 * objects get created with `new Vector()` - Java and C++ style
-  * not just plain Python-style `Vector()` 
+  * not just plain Python-style `Vector()`
 
 +++
 

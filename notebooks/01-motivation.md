@@ -150,7 +150,7 @@ this means that we will **not** address :
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## even wider than just the frontend 
+## even wider than just the frontend
 
 +++ {"slideshow": {"slide_type": ""}}
 

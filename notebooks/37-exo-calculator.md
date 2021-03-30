@@ -78,5 +78,3 @@ tools.sample_from_stem("../samples/calculator", {sources_show: false})
 * Gather all technics aquire in previous step and combinne them
 * Merge all thing together
 * Enjoy
-
-+++

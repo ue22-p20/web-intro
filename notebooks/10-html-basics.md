@@ -181,14 +181,13 @@ tools.sample_from_strings({html: fragment1}, {id: 'fragment1', height: '13em'})
  * on Firefox: you should have a ***Web Developer*** entry  
    in the *Tools* menu in the main menubar
 
-
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ## *Elements* navigator
 
 +++ {"slideshow": {"slide_type": ""}, "cell_style": "split"}
 
-![](../media/inspect-element-elements.png) 
+![](../media/inspect-element-elements.png)
 
 +++ {"cell_style": "split"}
 
@@ -214,7 +213,7 @@ from that view you can navigate the elements tree, although in this case it is v
 
 +++ {"slideshow": {"slide_type": ""}, "cell_style": "split"}
 
-![](../media/inspect-element-console.png) 
+![](../media/inspect-element-console.png)
 
 +++ {"cell_style": "split", "slideshow": {"slide_type": "slide"}}
 
@@ -224,7 +223,7 @@ from that view you can navigate the elements tree, although in this case it is v
 
 
 where you can type and run 
-your first JavaScript code  
+your first JavaScript code
 
 +++ {"cell_style": "split"}
 

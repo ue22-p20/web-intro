@@ -112,7 +112,7 @@ of course one other way about that is to
 * and use it in media-specific rules
 * but that is awkward and doesn't scale well...
     
-</div>    
+</div>
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -171,7 +171,7 @@ another way to use media rules is from the `<head>` tag
     
 remember that `<html>` contains 2 sons, a `<head>` and a `<body>`
     
-</div>    
+</div>
 
 +++ {"slideshow": {"slide_type": "slide"}}
 

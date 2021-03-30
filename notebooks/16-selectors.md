@@ -45,7 +45,7 @@ tools.init()
 generally speaking, selectors can be combined to create more and more selective ones; for example
 
 `p.class1.class2`  
-  matches elements that are tagged with `<p>` and have **both** classes  
+  matches elements that are tagged with `<p>` and have **both** classes
 
 +++
 
@@ -75,7 +75,7 @@ matches all `<p>` elements that are an **immediate child** of `<div>` element
 
 <p class="rise-footnote">
     here the <code>div</code> and the <code>p</code> parts are selectors themselves, they can be more specific, of course
-</p>    
+</p>
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -90,7 +90,7 @@ matches all `<p>` elements that are an **immediate child** of `<div>` element
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-### `:hover` pseudo-class  
+### `:hover` pseudo-class
 
 +++
 
@@ -129,7 +129,7 @@ tools.sample_from_strings(html: hover1_html, css: hover1_css})
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-### `:hover` and `:link`  
+### `:hover` and `:link`
 
 +++
 

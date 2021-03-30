@@ -157,7 +157,7 @@ for a deeper study :
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## Arrays 
+## Arrays
 
 +++
 
@@ -295,7 +295,6 @@ for (let i in array) {
 * for more details see on *javascript.info*
   * [this article on Arrays](https://javascript.info/array)
   * and [this one on related methods](https://javascript.info/array-methods)
-     
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -450,10 +449,9 @@ let [a1, a2] = [100, 200];
 `a1 now is ${a1}, a2 is ${a2}`
 ```
 
-there a similar destructuring assignement on objects  
+there a similar destructuring assignement on objects
 
 ```{code-cell}
-
 let example_obj = {name: "doe", phone: '0123456', other: 'some stuff'};
 
 let {name, phone} = {...example_obj};

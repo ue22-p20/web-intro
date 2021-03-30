@@ -84,7 +84,7 @@ it is pretty easy to get started with, if you [follow the tuto](https://threejs.
   https://threejs.org/examples/#webgl_animation_cloth (you can move around with the mouse)
 * and tons of others,  
   * https://mixedreality.mozilla.org/hello-webxr/
-  * http://chandlerprall.github.io/Physijs/examples/jenga.html  
+  * http://chandlerprall.github.io/Physijs/examples/jenga.html
 
 +++ {"slideshow": {"slide_type": ""}}
 
@@ -107,9 +107,7 @@ d3 is based on a mental model that graphical objects (for example, elements in a
     
 a cool way to play with d3 is to use <https://observablehq.com>, that was developped by the designer of `d3.js` and that offers a platform with live notebooks - or let us say live documents that very much look like Jupyter notebooks for JavaScript, except for small differences. Note that registration is required to actually create notebooks.
     
-`observablehq` has its own [gallery of visualizations](https://observablehq.com/explore)     
-    
-    
+`observablehq` has its own [gallery of visualizations](https://observablehq.com/explore)
 
 +++ {"slideshow": {"slide_type": ""}}
 

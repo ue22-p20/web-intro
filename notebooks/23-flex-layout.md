@@ -28,7 +28,7 @@ rise:
 
 +++ {"slideshow": {"slide_type": ""}}
 
-# `display: flex` 
+# `display: flex`
 
 ```{code-cell}
 delete require.cache[require.resolve('../js/toolsv3')]

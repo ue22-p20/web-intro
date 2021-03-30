@@ -95,7 +95,7 @@ For our use case we only need to load one fragment of code
 * most often though, code is stored in a separate location
   * either as a companion to the HTML page
   * or in a remote location
-* for that, use `<script src="some-url"></script>` 
+* for that, use `<script src="some-url"></script>`
 
 +++ {"slideshow": {"slide_type": "slide"}}
 

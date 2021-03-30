@@ -196,7 +196,7 @@ for those interested, more details on promises can be found in the rest of [this
 
 +++
 
-## `async` keyword 
+## `async` keyword
 
 +++
 

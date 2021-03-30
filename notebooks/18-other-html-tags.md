@@ -141,7 +141,7 @@ in a jumble :
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## practice 
+## practice
 
 +++ {"cell_style": "center"}
 

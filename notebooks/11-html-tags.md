@@ -64,7 +64,7 @@ tools.sample_from_strings({html: headers_fragment})
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## text tags `<p>` and `<br>` 
+## text tags `<p>` and `<br>`
 
 ```{code-cell}
 :hide_input: true
