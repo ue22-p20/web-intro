@@ -1,9 +1,11 @@
-- file: 01-motivation
-- part: "Intro - Web frontend"
+format: jb-book
+root: 01-motivation
+parts:
+- caption: "Intro - Web frontend"
   chapters:
   - file: 02-eco-system
   - file: 03-online-tools
-- part: "Course 1 - HTML & CSS basics"
+- caption: "Course 1 - HTML & CSS basics"
   chapters:
   - file: 10-html-basics
   - file: 11-html-tags
@@ -14,7 +16,7 @@
   - file: 16-selectors
   - file: 17-transitions
   - file: 18-other-html-tags
-- part: "Course 2 - CSS layouts"
+- caption: "Course 2 - CSS layouts"
   chapters:
   - file: 20-html-responsive
   - file: 21-grid-layout
@@ -22,7 +24,7 @@
   - file: 23-flex-layout
   - file: 24-in-flow-out-of-flow
   - file: 25-exo-cv
-- part: "Course 3 - a bit of JS"
+- caption: "Course 3 - a bit of JS"
   chapters:
   - file: 30-js-intro
   - file: 31-js-language-overview
@@ -32,12 +34,12 @@
   - file: 35-events-and-callbacks
   - file: 36-async
   - file: 37-exo-calculator
-- part: "Optional content"
+- caption: "Optional content"
   chapters:
   - file: 50-exos
   - file: 51-jquery
   - file: 52-bootstrap
-- part: "Oldies"
+- caption: "Oldies"
   chapters:
   - file: old-30-js-intro
   - file: old-31-loading-js
