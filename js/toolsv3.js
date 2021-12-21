@@ -21,7 +21,7 @@ function hash(word) {
   const crypto = require('crypto')
   const sha1 = crypto.createHash('sha1')
   sha1.update(word)
-  return sha1.digest('hex')
+  return `id-${sha1.digest('hex')}`
 }
 
 // helper to compute default height
@@ -76,7 +76,12 @@ function sample_from_stem(stem, options) {
 }
 
 function sample_from_strings(code, options) {
+  options = options || {}
   let {html, css, js} = code
+  // the default for showing pieces is, are they present at all 
+  let html_show = (options.html_show !== undefined) ? options.html_show : (html !== undefined)
+  let css_show = (options.css_show !== undefined) ? options.css_show : (css !== undefined)
+  let js_show = (options.js_show !== undefined) ? options.js_show : (js !== undefined)
   html = html || "<!-- empty -->"
   css = css || "/* empty */"
   js = js || "// empty"
@@ -85,12 +90,16 @@ function sample_from_strings(code, options) {
   let separate_show = (options.separate_show !== undefined) ? options.separate_show : true
   let separate_width = options.separate_width || "400px"
   let separate_height = options.separate_height || "400px"
-  let update_label = options.update_label || "Update →"
   let separate_label = options.separate_label || "Open in new window"
+  let update_label = options.update_label || "Update →"
   // either html or css or js
   let start_with = options.start_with || "html"
   // fallback if not in allowed range
-  if (['html', 'css', 'js'].indexOf(start_with) < 0) start_with = "html"
+  let formats = []
+  if (html_show) formats.push('html')
+  if (css_show) formats.push('css')
+  if (js_show) formats.push('js')
+  if (formats.indexOf(start_with) < 0) start_with = formats[0]
 
   let width = options.width || "35em"
   // default height:
@@ -101,10 +110,10 @@ function sample_from_strings(code, options) {
 
   let id = options.id || hash(html)
 
-	let textarea = ''
-  textarea += `<textarea id="html_${id}">${html}</textarea>`
-  textarea += `<textarea id="css_${id}">${css}</textarea>`
-  textarea += `<textarea id="js_${id}">${js}</textarea>`
+	let textareas = ''
+  if (html_show) textareas += `<textarea id="html_${id}">${html}</textarea>`
+  if (css_show) textareas += `<textarea id="css_${id}">${css}</textarea>`
+  if (js_show) textareas += `<textarea id="js_${id}">${js}</textarea>`
 
 
 	let width_style = `width: ${width}; min-width: ${min_width};`
@@ -143,7 +152,7 @@ function sample_from_strings(code, options) {
 	  <div id="codemirror_${id}"
       style="display:${sources_show ? 'grid' : 'none'}; grid-template-columns: 1fr; grid-template-rows: 1fr;
              overflow: auto; resize: both; z-index: 100; ${width_style}; ${height_style};" >
-	  ${textarea}
+	  ${textareas}
 	  </div>
 	  <div style="display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr;" id="output_${id}"></div>
 	</div>
@@ -155,8 +164,8 @@ function sample_from_strings(code, options) {
 		 'codemirror/mode/css/css',
 		 'codemirror/mode/javascript/javascript'
 		 ], (CodeMirror) => {
-       console.log('codemirror loaded')
-       console.log(CodeMirror)
+  // console.log('codemirror loaded')
+  // console.log(CodeMirror)
 
 	let all_src = { }
 
@@ -222,92 +231,112 @@ function sample_from_strings(code, options) {
 
 	}
 
+  if (${html_show}) {
+    const html_src = document.getElementById("html_${id}")
+    all_src.html = CodeMirror.fromTextArea(html_src, {
+      lineNumbers: true,
+      mode: "htmlmixed"
+    })
+    all_src.html.getWrapperElement().style['min-height'] = '${height}'
+    all_src.html.getWrapperElement().style.display = ${start_with == 'html'} ? "block" : "none"
+  }
 
-	const html_src = document.getElementById("html_${id}")
-	all_src.html = CodeMirror.fromTextArea(html_src, {
-		lineNumbers: true,
-		mode: "htmlmixed"
-	})
-	all_src.html.getWrapperElement().style['min-height'] = '${height}'
-	all_src.html.getWrapperElement().style.display = ${start_with == 'html'} ? "block" : "none"
+  if (${css_show}) {
+    const css_src = document.getElementById("css_${id}")
+    all_src.css = CodeMirror.fromTextArea(css_src, {
+      lineNumbers: true,
+      mode: "css"
+    })
+    all_src.css.getWrapperElement().style['min-height'] = '${height}'
+    all_src.css.getWrapperElement().style.display = ${start_with == 'css'} ? "block" : "none"
+  }
 
-	const css_src = document.getElementById("css_${id}")
-	all_src.css = CodeMirror.fromTextArea(css_src, {
-		lineNumbers: true,
-		mode: "css"
-	})
-	all_src.css.getWrapperElement().style['min-height'] = '${height}'
-	all_src.css.getWrapperElement().style.display = ${start_with == 'css'} ? "block" : "none"
-	const js_src = document.getElementById("js_${id}")
-	all_src.js = CodeMirror.fromTextArea(js_src, {
-		lineNumbers: true,
-		mode: "javascript"
-	})
-	all_src.js.getWrapperElement().style['min-height'] = '${height}'
-	all_src.js.getWrapperElement().style.display = ${start_with == 'js'} ? "block" : "none"
+  if (${js_show}) {
+    const js_src = document.getElementById("js_${id}")
+    all_src.js = CodeMirror.fromTextArea(js_src, {
+      lineNumbers: true,
+      mode: "javascript"
+    })
+    all_src.js.getWrapperElement().style['min-height'] = '${height}'
+    all_src.js.getWrapperElement().style.display = ${start_with == 'js'} ? "block" : "none"
+  }
 
 	const codemirror = document.getElementById("codemirror_${id}")
 	/* Trick to update the codemirror layout when resized */
 	function update_codemirror() {
 		if (! ${sources_show}) return
-		all_src.html.refresh()
-		all_src.css.refresh()
-		all_src.js.refresh()
+		if (${html_show}) all_src.html.refresh()
+		if (${css_show}) all_src.css.refresh()
+		if (${js_show}) all_src.js.refresh()
 	}
 	codemirror.addEventListener("mouseup", update_codemirror)
 
 
 	let btns_left = document.getElementById("btns_left_${id}")
 
-	let btn_html = document.createElement("span")
-	btn_html.textContent = "HTML"
-	btn_html.classList.add("${id}_btn")
-	if (${start_with == 'html'}) btn_html.classList.add("${id}_selected")
-	btns_left.appendChild(btn_html)
-	let btn_css = document.createElement("span")
-	btn_css.textContent = "CSS"
-	btn_css.classList.add("${id}_btn")
-	if (${start_with == 'css'}) btn_css.classList.add("${id}_selected")
-	btns_left.appendChild(btn_css)
-	let btn_js = document.createElement("span")
-	btn_js.textContent = "JS"
-	btn_js.classList.add("${id}_btn")
-	if (${start_with == 'js'}) btn_js.classList.add("${id}_selected")
-	btns_left.appendChild(btn_js)
+  let btn_html, btn_css, btn_js
+
+  if (${html_show}) {
+	  btn_html = document.createElement("span")
+	  btn_html.textContent = "HTML"
+	  btn_html.classList.add("${id}_btn")
+	  if (${start_with == 'html'}) btn_html.classList.add("${id}_selected")
+	  btns_left.appendChild(btn_html)
+  }
+	if (${css_show}) {
+    btn_css = document.createElement("span")
+    btn_css.textContent = "CSS"
+    btn_css.classList.add("${id}_btn")
+    if (${start_with == 'css'}) btn_css.classList.add("${id}_selected")
+    btns_left.appendChild(btn_css)
+  }
+  if (${js_show}) {
+    btn_js = document.createElement("span")
+    btn_js.textContent = "JS"
+    btn_js.classList.add("${id}_btn")
+    if (${start_with == 'js'}) btn_js.classList.add("${id}_selected")
+    btns_left.appendChild(btn_js)
+  }
 	let btn_fill = document.createElement("span")
 //	btn_fill.classList.add("${id}_btn")
 	btn_fill.style['flex-grow'] = '1'
 	btns_left.appendChild(btn_fill)
 
-	btn_html.addEventListener("click", () => {
-		btn_css.classList.remove("${id}_selected")
-		btn_js.classList.remove("${id}_selected")
-		btn_html.classList.add("${id}_selected")
-		all_src.css.getWrapperElement().style.display = "none"
-		all_src.js.getWrapperElement().style.display = "none"
-		all_src.html.getWrapperElement().style.display = "block"
-		all_src.html.refresh()
-	})
+  if (${html_show}) {
+    btn_html.addEventListener("click", () => {
+      if (btn_css) btn_css.classList.remove("${id}_selected")
+      if (btn_js) btn_js.classList.remove("${id}_selected")
+      btn_html.classList.add("${id}_selected")
+      if (btn_css) all_src.css.getWrapperElement().style.display = "none"
+      if (btn_js) all_src.js.getWrapperElement().style.display = "none"
+      all_src.html.getWrapperElement().style.display = "block"
+      all_src.html.refresh()
+  	})
+  }
 
-	btn_css.addEventListener("click", () => {
-		btn_html.classList.remove("${id}_selected")
-		btn_js.classList.remove("${id}_selected")
-		btn_css.classList.add("${id}_selected")
-		all_src.js.getWrapperElement().style.display = "none"
-		all_src.html.getWrapperElement().style.display = "none"
-		all_src.css.getWrapperElement().style.display = "block"
-		all_src.css.refresh()
-	})
+  if (${css_show}) {
+    btn_css.addEventListener("click", () => {
+      if (btn_html) btn_html.classList.remove("${id}_selected")
+      if (btn_js) btn_js.classList.remove("${id}_selected")
+      btn_css.classList.add("${id}_selected")
+      if (btn_html) all_src.html.getWrapperElement().style.display = "none"
+      if (btn_js) all_src.js.getWrapperElement().style.display = "none"
+      all_src.css.getWrapperElement().style.display = "block"
+      all_src.css.refresh()
+    })
+  }
 
-	btn_js.addEventListener("click", () => {
-		btn_css.classList.remove("${id}_selected")
-		btn_html.classList.remove("${id}_selected")
-		btn_js.classList.add("${id}_selected")
-		all_src.css.getWrapperElement().style.display = "none"
-		all_src.html.getWrapperElement().style.display = "none"
-		all_src.js.getWrapperElement().style.display = "block"
-		all_src.js.refresh()
-	})
+  if (${js_show}) {
+    btn_js.addEventListener("click", () => {
+      if (btn_css) btn_css.classList.remove("${id}_selected")
+      if (btn_html) btn_html.classList.remove("${id}_selected")
+      btn_js.classList.add("${id}_selected")
+      if (btn_html) all_src.html.getWrapperElement().style.display = "none"
+      if (btn_css) all_src.css.getWrapperElement().style.display = "none"
+      all_src.js.getWrapperElement().style.display = "block"
+      all_src.js.refresh()
+    })
+  }
 
 	let btn_update = document.createElement("button")
 	btn_update.textContent = "${update_label}"
@@ -335,7 +364,7 @@ function sample_from_strings(code, options) {
 
 	update_iframe()
 
-	all_src.html.refresh()
+	all_src['${start_with}'].refresh()
 
 	}) /* End of all requirements */
   </script>
@@ -357,37 +386,43 @@ requirejs.config({
   paths: {
     'codemirror/lib/codemirror': [
       'codemirror/lib/codemirror',
-      'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.59.4/codemirror.min',
+      'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.0/codemirror.min',
     ],
     'codemirror/mode/htmlmixed/htmlmixed': [
       'codemirror/mode/htmlmixed/htmlmixed',
-      'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.59.4/mode/htmlmixed/htmlmixed.min',
+      'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.0/mode/htmlmixed/htmlmixed.min',
     ],
     'codemirror/mode/css/css': [
       'codemirror/mode/css/css',
-      'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.59.4/mode/css/css.min',
+      'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.0/mode/css/css.min',
     ],
     'codemirror/mode/javascript/javascript': [
       'codemirror/mode/javascript/javascript',
-      'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.59.4/mode/javascript/javascript.min',
+      'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.0/mode/javascript/javascript.min',
     ],
     // required by htmlmixed
     'codemirror/mode/xml/xml': [
       'codemirror/mode/xml/xml',
-      'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.59.4/mode/xml/xml.min',
+      'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.0/mode/xml/xml.min',
     ],
   } // paths
 })
-try {
-  // if Jupyter is available, run all cells below, and restore current cell
-  let current_selected = Jupyter.notebook.get_selected_cell()
-  Jupyter.notebook.execute_cells_below()
-  current_selected.ensure_focused()
-  console.log("all cells below have been executed")
-} catch(err) {
-  // if not (e.g. in jupyter-book), well, no big deal
-  console.log("not in a Jupyter environment - not running all cells below")
+function execute_all_below() {
+	try {
+  		// if Jupyter is available, run all cells below
+  		const notebook = Jupyter.notebook
+		const current_selected = notebook.get_selected_cell()
+		// execute_cells_below() would execute the current cell,
+		// thus going into an infinite loop
+		notebook.execute_cell_range(notebook.get_selected_index()+1, notebook.ncells())
+		current_selected.ensure_focused()
+  		console.log("all cells below - current one excluded - have been executed")
+	} catch(err) {
+  		// if not (e.g. in jupyter-book), well, no big deal
+  		console.log("not in a Jupyter environment - not running all cells below")
+	}
 }
+execute_all_below()
 </script>`
   $$.html(embedded)
 }

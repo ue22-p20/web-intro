@@ -8,7 +8,7 @@ jupyter:
       extension: .md
       format_name: markdown
   kernelspec:
-    display_name: Javascript (Node.js)
+    display_name: JavaScript (Node.js)
     language: javascript
     name: javascript
   nbhosting:
@@ -30,18 +30,66 @@ jupyter:
 ```javascript hide_input=false
 delete require.cache[require.resolve('../js/toolsv3')]
 tools = require('../js/toolsv3')
+undefined
+```
+
+```javascript hide_input=false
 tools.init()
 ```
 
+## sample_from_strings()
+
+the signature is
+
+```
+sample_from_strings(
+  // le code
+    {html: 'le html', ...},
+  // les options
+    { ... }
+)
+```
+
+
+by default, the `id` option is computed from `html` - be wary to specify different `id`s if you display the same html code several times
+
+
+### select which source to display (html, css, js)
+
+
+```javascript hide_input=false
+delete require.cache[require.resolve('../js/toolsv3')]
+tools = require('../js/toolsv3')
+undefined
+```
+
 ```javascript
-tools.sample_from_strings({'html': 'HELLO'})
+// by default, all 3 even if void
+
+tools.sample_from_strings({'html': 'HELLO'}, {id: 'id1'})
+```
+
+```javascript
+// use the options to remove on of the 3
+// btw here the html is off so nothing shows up at all
+
+tools.sample_from_strings({html: 'HELLO'}, {id: 'id2', html_show: false})
+```
+
+### start with another view
+
+```javascript
+// we can start on something else than html
+tools.sample_from_strings(
+    {html: 'HELLO', js: 'console.log("Hi")'}, {id: 'id3', css_show: false, start_with: 'js'})
 ```
 
 # from plain strings
 
 ```javascript scrolled=false
 delete require.cache[require.resolve('../js/toolsv3')]
-tools = require('../js/toolsv3'); null
+tools = require('../js/toolsv3')
+undefined
 ```
 
 ```javascript
@@ -64,9 +112,10 @@ tools.sample_from_strings({html: fragment1})
 
 ## without the separate button
 
-```javascript scrolled=false
+```javascript hide_input=false
 delete require.cache[require.resolve('../js/toolsv3')]
-tools = require('../js/toolsv3'); null
+tools = require('../js/toolsv3')
+undefined
 ```
 
 ```javascript slideshow={"slide_type": ""} hide_input=false scrolled=true
@@ -79,9 +128,10 @@ tools.sample_from_stem(
 
 ## with the separate button
 
-```javascript scrolled=false
+```javascript hide_input=false
 delete require.cache[require.resolve('../js/toolsv3')]
-tools = require('../js/toolsv3'); null
+tools = require('../js/toolsv3')
+undefined
 ```
 
 ```javascript slideshow={"slide_type": ""} hide_input=false scrolled=false
@@ -95,9 +145,10 @@ tools.sample_from_stem(
 
 ## no code, just the result - with separate
 
-```javascript scrolled=false
+```javascript hide_input=false
 delete require.cache[require.resolve('../js/toolsv3')]
-tools = require('../js/toolsv3'); null
+tools = require('../js/toolsv3')
+undefined
 ```
 
 ```javascript slideshow={"slide_type": ""} hide_input=false scrolled=true
@@ -114,9 +165,10 @@ tools.sample_from_stem(
 
 **beware** because we re-use the same stem twice, we need to provide our own id
 
-```javascript tags=[] scrolled=false
+```javascript hide_input=false
 delete require.cache[require.resolve('../js/toolsv3')]
-tools = require('../js/toolsv3'); null
+tools = require('../js/toolsv3')
+undefined
 ```
 
 ```javascript scrolled=false
@@ -136,9 +188,10 @@ tools = require('../js/toolsv3'); null
 
 ## the calculator
 
-```javascript tags=[] scrolled=false
+```javascript hide_input=false
 delete require.cache[require.resolve('../js/toolsv3')]
-tools = require('../js/toolsv3'); null
+tools = require('../js/toolsv3')
+undefined
 ```
 
 ```javascript slideshow={"slide_type": ""} hide_input=false scrolled=false
