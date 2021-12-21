@@ -39,7 +39,7 @@ RUN true \
  && pip install -U nb-courselevels \
  && pip install -U nbautoeval \
  && pip install -U ipythontutor \
- && pip install rise --pre \
+ && pip install -U rise \
  && true
 
 
