@@ -1,5 +1,5 @@
 ---
-celltoolbar: Slideshow
+celltoolbar: Edit Metadata
 jupytext:
   cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
   formats: md:myst
@@ -8,7 +8,7 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Javascript (Node.js)
+  display_name: JavaScript (Node.js)
   language: javascript
   name: javascript
 nbhosting:
@@ -30,7 +30,12 @@ rise:
 
 # HTML basics
 
++++
+
+bien évaluer cette cellule avant de lire le notebook
+
 ```{code-cell}
+ // this line is to force a reload
 delete require.cache[require.resolve('../js/toolsv3')]
 tools = require('../js/toolsv3')
 tools.init()
@@ -45,7 +50,7 @@ tools.init()
 the HTML language structures the content of a web page
 in terms of sections, headers, paragraphs, lists of items, images ...
 
-the language is based on tags written between < and >  
+the language is based on tags written between `<` and `>`  
 for example <code>&lt;head&gt;</code>
 
 an element (a section, a header) is composed by
@@ -63,7 +68,7 @@ an element (a section, a header) is composed by
 the overall structure of a HTML document is composed of two parts, a **header** and a **body**, like this:
 
 ```{code-cell}
-:hide_input: false
+:hide_input: true
 
 fragment1 = `<html>
   <head>
@@ -73,10 +78,10 @@ fragment1 = `<html>
      <!-- the actual document contents -->
      Hello
   </body>
-</html>
-`;
+</html>`
 
-console.log(fragment1)
+tools.sample_from_strings(
+    {html: fragment1}, {css_show: false, js_show: false, separate_show: false})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -133,7 +138,10 @@ it will look like this
 ```{code-cell}
 :hide_input: true
 
-tools.sample_from_strings({html: fragment1}, {id: 'fragment1', height: '13em'})
+tools.sample_from_strings(
+    {html: fragment1},
+    {id: 'fragment1', height: '12em',
+     separate_show: false, css_show: false, js_show: false})
 ```
 
 <p class="rise-footnote">also observe the URL that the browser has used to fetch your file <br>
@@ -282,17 +290,16 @@ in the *Elements* devel tools tab
 **do not do this !!**
 
 ```{code-cell}
----
-hide_input: true
-slideshow:
-  slide_type: ''
----
+:hide_input: true
+:tags: [raises-exception]
+
 fragment_unclosed = `<p> do not do this
 <ul>
 <li> unclosed tags <b>look like</b> they work
 <li> but they will hurt eventually`;
 
-tools.sample_from_strings({html: fragment_unclosed})
+tools.sample_from_strings({html: fragment_unclosed}, 
+                          {css_show: false, js_show: false, separate_show: false})
 ```
 
 +++ {"tags": [], "slideshow": {"slide_type": "slide"}}
@@ -308,8 +315,8 @@ fragment_closed = `<p> do this instead </p>
 <li> clean up behind yourself </li>
 </ul>`;
 
-tools.sample_from_strings({html: fragment_closed})
- 
+tools.sample_from_strings({html: fragment_closed},
+                          {css_show: false, js_show: false, separate_show: false})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}

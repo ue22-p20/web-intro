@@ -40,7 +40,7 @@ rise:
   building a decent UI quickly becomes awkward
 * but how much time do you spend on  
   facebook, twitter, what'sapp, … ?
-* as of 2021, **everything** runs on the Web
+* as of 2022, **everything** runs on the Web
 * so this simply **cannot be ignored**
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -58,7 +58,7 @@ rise:
 for instance
 
 * `facebook.com` hosts an enormous *backend* architecture
-  * whole datacenters, enormous amount of code
+  * whole datacenters, huge amount of code
   * whose purpose is to serve network requests
 * issued by traditional browsers (Chrome, Firefox, Edge, Safari, …)
   * and mobile apps running on phones and tablets
@@ -172,5 +172,4 @@ this means that we will **not** address :
 * outline some specific problems  
   esp. **asynchroneous** / non-sequential nature  
   of user interaction and network activity
-* mention and shallowly study a few technological bricks 
 * start to build a **mental map** where you can place the current buzzwords

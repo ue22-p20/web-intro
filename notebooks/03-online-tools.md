@@ -8,7 +8,7 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Javascript (Node.js)
+  display_name: JavaScript (Node.js)
   language: javascript
   name: javascript
 nbhosting:
@@ -49,9 +49,9 @@ rise:
 
 ## codepen
 
-take a quick look at https://codepen.io/picks/pens/  
+take a quick look at https://codepen.io/spark
 for great examples
-(requires log in)
+(may require log in)
 
 ![](../media/tooling-codepen-picks.png)
 

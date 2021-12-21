@@ -60,7 +60,7 @@ rise:
   * ***TypeScript*** or ***CoffeeScript*** above JavaScript, …
   * frameworks like vue, react, angular
   * tools for mobile depl. [expo](https://expo.io), 
-    [svelte](https://svelte.dev), [ionic](https://ionicframework.com)
+    [svelte](https://svelte.dev), [ionic](https://ionicframework.com) …
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
