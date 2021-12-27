@@ -63,13 +63,13 @@ tools = require('../js/toolsv3')
 undefined
 ```
 
-```javascript
+```javascript hide_input=false
 // by default, all 3 even if void
 
 tools.sample_from_strings({'html': 'HELLO'}, {id: 'id1'})
 ```
 
-```javascript
+```javascript hide_input=false
 // use the options to remove on of the 3
 // btw here the html is off so nothing shows up at all
 
@@ -78,7 +78,7 @@ tools.sample_from_strings({html: 'HELLO'}, {id: 'id2', html_show: false})
 
 ### start with another view
 
-```javascript
+```javascript hide_input=false
 // we can start on something else than html
 tools.sample_from_strings(
     {html: 'HELLO', js: 'console.log("Hi")'}, {id: 'id3', css_show: false, start_with: 'js'})
@@ -92,7 +92,7 @@ tools = require('../js/toolsv3')
 undefined
 ```
 
-```javascript
+```javascript hide_input=false
 fragment1 = `<html>
   <head>
      <!-- various document-wide declarations -->
@@ -171,7 +171,7 @@ tools = require('../js/toolsv3')
 undefined
 ```
 
-```javascript scrolled=false
+```javascript scrolled=false hide_input=false
 // here because we use the same code exactly
 // we need to provide a unique id
 // otherwise we mess with the previous sample
@@ -198,4 +198,38 @@ undefined
 tools.sample_from_stem(
     "../samples/calculator", 
     {sources_show: false, separate_show: false, height: '500px'}) 
+```
+
+# escaping
+
+```javascript hide_input=false
+delete require.cache[require.resolve('../js/toolsv3')]
+tools = require('../js/toolsv3')
+undefined
+```
+
+```javascript hide_input=false
+// NOT WORKING
+
+html_with_tags = `<b>NOT WORKING</b>
+<p> a paragraph with a &lt;tag&gt; tag inside </p>
+
+there is a need to escape even more than that, see next attempt
+`
+
+tools.sample_from_strings(
+    {html: html_with_tags},
+    {css_show: false, js_show: false}
+)
+```
+
+```javascript tags=["raises-exception"] hide_input=false
+html_with_tags = `<b> YES ! - need to double escape like this:</b>
+<p> a paragraph with a &amp;lt;tag&amp;gt; tag inside </p>
+`
+
+tools.sample_from_strings(
+    {html: html_with_tags},
+    {css_show: false, js_show: false, id: 'escaped'}
+)
 ```
