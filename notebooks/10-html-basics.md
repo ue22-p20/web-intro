@@ -80,8 +80,7 @@ fragment1 = `<html>
   </body>
 </html>`
 
-tools.sample_from_strings(
-    {html: fragment1}, {css_show: false, js_show: false, separate_show: false})
+tools.sample_from_strings({html: fragment1}, {separate_show: false})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -106,9 +105,10 @@ files are local on your laptop
 
 +++
 
-<p class="rise-footnote">
-for your first practice, you will save your code on your hard drive, and check the result locally without the presence of a server, this is what the <code>file://</code> URLs are for
-</p>
+<div class="rise-footnote">
+for your first practice, you will save your code on your hard drive, and check the result locally <br> 
+without the presence of a server, this is what the <code>file://</code> URLs are for
+</div>
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -138,10 +138,11 @@ it will look like this
 ```{code-cell}
 :hide_input: true
 
+// need to set an id as the default is to hash the html content
+// and we will reuse this later down the page
 tools.sample_from_strings(
     {html: fragment1},
-    {id: 'fragment1', height: '12em',
-     separate_show: false, css_show: false, js_show: false})
+    {id: 'fragment1', height: '12em', separate_show: false})
 ```
 
 <p class="rise-footnote">also observe the URL that the browser has used to fetch your file <br>
@@ -156,7 +157,7 @@ tools.sample_from_strings(
 * all browsers come with development tools for debugging
 * as a first contact with these,  
   let us inspect the content of our HTML document
-* for that, the simplest way is to right click on the 'Hello' text
+* for that, the simplest way is to right-click on the 'Hello' text
 * and choose 'Inspect'
 
 +++ {"slideshow": {"slide_type": ""}, "cell_style": "split"}
@@ -214,7 +215,7 @@ from that view you can navigate the elements tree, although in this case it is v
 +++ {"slideshow": {"slide_type": "slide"}, "cell_style": "split"}
 
 * another interesting part is the   
-(javascript) *Console* tab  
+(JavaScript) *Console* tab  
 * this is where **debug messages**  
   end up (if any; here of course  
   there are none)
@@ -244,7 +245,8 @@ your first JavaScript code
 +++ {"slideshow": {"slide_type": ""}}
 
 * the `<tag> ... </tag>` notation 
-* unambiguously maps to a tree structure - known as an Abstract Syntax Tree
+* unambiguously maps to a tree structure  
+  known as an Abstract Syntax Tree (AST)
 * referred to in all documentation as "*the DOM* "
 
 +++ {"cell_style": "split", "slideshow": {"slide_type": "slide"}}
@@ -252,13 +254,13 @@ your first JavaScript code
 this HTML fragment
 ```html
 <html>
-  <head>
-    <title> top title </title>
-  </head>
-  <body>
-    <p> a paragraph </p>
-    <p> a paragraph </p>
-  </body>
+ <head>
+  <title>top title</title>
+ </head>
+ <body>
+  <p>a paragraph</p>
+  <p>a paragraph</p>
+ </body>
 </html>
 ```
 
@@ -282,8 +284,8 @@ in the *Elements* devel tools tab
 * browsers tend to be as tolerant as possible
 * e.g. omitting a closing tag may render just fine
 * **however** there's only so much that can be guessed
-* this may cause **huge headaches** down the road
-* so make sure to **always** close your tags properly
+* and this may cause **huge headaches** down the road
+* so make sure to **always *close your tags* properly**
 
 +++ {"slideshow": {"slide_type": "slide"}, "tags": []}
 
@@ -296,10 +298,10 @@ in the *Elements* devel tools tab
 fragment_unclosed = `<p> do not do this
 <ul>
 <li> unclosed tags <b>look like</b> they work
-<li> but they will hurt eventually`;
+<li> but they will hurt eventually
+`
 
-tools.sample_from_strings({html: fragment_unclosed}, 
-                          {css_show: false, js_show: false, separate_show: false})
+tools.sample_from_strings({html: fragment_unclosed}, {separate_show: false, width: '40em'})
 ```
 
 +++ {"tags": [], "slideshow": {"slide_type": "slide"}}
@@ -313,10 +315,10 @@ fragment_closed = `<p> do this instead </p>
 <ul>
 <li> always close your tags </li>
 <li> clean up behind yourself </li>
-</ul>`;
+</ul>
+`
 
-tools.sample_from_strings({html: fragment_closed},
-                          {css_show: false, js_show: false, separate_show: false})
+tools.sample_from_strings({html: fragment_closed}, {separate_show: false})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -332,5 +334,6 @@ tools.sample_from_strings({html: fragment_closed},
 * you often need to switch from editor to browser and back
   * use keyboard shortcuts to switch between apps
   * typically with `⌘-tab` (or alt-tab or control-tab depending on your environment)
-* also make sure to know the browser keyboard shortcut to reload a page
+* also make sure to know the keyboard shortcut  
+  for your browser to reload a page
   * typically `⌘-r` (or 'ctrl-r' ...)
