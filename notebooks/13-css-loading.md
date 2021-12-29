@@ -8,7 +8,7 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Javascript (Node.js)
+  display_name: JavaScript (Node.js)
   language: javascript
   name: javascript
 nbhosting:
@@ -58,18 +58,34 @@ tools.init()
 * by inserting the following <link> line
 * in the `<head>` part of your html
 
-+++ {"cell_style": "center", "slideshow": {"slide_type": "slide"}}
++++ {"slideshow": {"slide_type": "slide"}}
 
-```html
+### separate CSS in action
+
+```{code-cell}
+---
+cell_style: center
+hide_input: true
+slideshow:
+  slide_type: ''
+---
+separate_html = `
 <html>
   <head>
     <!-- this is the line that matters -->
-    <link rel="stylesheet" href="mystyle.css">  
+    <link rel="stylesheet" href="hello.css">  
   </head>
   <body>
      Hello
   </body>
 </html>
+`
+
+/* const */ fs = require('fs')
+/* const */ separate_css = fs.readFileSync('hello.css', 'utf8')
+
+
+tools.sample_from_strings({html: separate_html, css: separate_css})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}, "tags": ["level_intermediate"]}
@@ -105,21 +121,32 @@ and the same goes with the <code>file:///</code> URL scheme
 
 * you can also insert a `<style>` tag in your html
 * and mention the CSS code there directly
-* it is **less recommended** as it kind of ruins
-* the desired **separation** between **contents** and **presentation**
+* it is **less recommended** as it kind of ruins the  
+  **separation** between **contents** and **presentation**
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-```html
-<p> CSS can be inlined right into the HTML 
-    as a <style> tag
-</p>
+### inline CSS in action
+
+```{code-cell}
+---
+hide_input: true
+slideshow:
+  slide_type: ''
+---
+embedded_html = `<div> CSS can be inlined right into the HTML 
+    as a &amp;lt;style&amp;gt; tag
+</div>
+
 <style>
-  p {
+div {
     color: red;
-    font-size: huge;
-  }
+    font-size: x-large;
+}
 </style>
+`
+
+tools.sample_from_strings({html: embedded_html})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -135,22 +162,20 @@ and the same goes with the <code>file:///</code> URL scheme
 ```{code-cell}
 :hide_input: true
 
-embedded_html = `<p 
-
+embedded_html = `<div
 style="background-color: red; 
 font-size: x-large; 
 line-height: 50px;
-padding:30px;"
-
->
+padding:30px;" >
 
 If you attach styling to a HTML tag with a
 <code>style=</code> attribute, it will 
-likely take precedence on
-everything else;
+<b>take precedence</b> on
+everything else
+<br>
 more on this later on
 
-</p>`
+</div>`
 
 tools.sample_from_strings({html: embedded_html})
 ```
@@ -164,9 +189,9 @@ tools.sample_from_strings({html: embedded_html})
 * copy `hello.html` into `mycv.html`
 * create a more realistic skeleton for a résumé
   * with 4 sections 'experience', 'education', 'skills' and 'languages'
-  * keep it simple for now, nothing too elaborate
+  * **keep it simple** for now, nothing too elaborate
   * make sure all the text gets attached to  
-    adapted tags like `<p>` or `<li>` 
+    adapted tags like `<div>` or `<li>` 
   * and **not** directly under `<body>`  
     like it was done in `hello.html`
   * make sure to insert at least one `<a href=...>` hyperlink
@@ -195,7 +220,7 @@ tools.sample_from_strings({html: embedded_html})
 for performance reasons primarily :
 
 * fetching a file may be slow in poor network conditions
-* once a file has been loaded
+* so, once a file has been loaded
   * it may be **cached inside** the browser
   * so that future references do not fetch it again
 
@@ -212,7 +237,7 @@ for performance reasons primarily :
 
 a couple hints and workarounds
 
-* reload with the 'Shift' modifier pressed  
+* reload with the `Shift` modifier pressed  
   either with a mouse-click (&#x21bb;),  
   or keyboard shortcut (⌘-r on e.g. chrome/mac)  
   double-check that with the browser you actually use

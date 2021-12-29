@@ -8,7 +8,7 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Javascript (Node.js)
+  display_name: JavaScript (Node.js)
   language: javascript
   name: javascript
 nbhosting:
@@ -92,10 +92,10 @@ tools.init()
 
 +++
 
-<p class="rise-footnote"> here we also use `target='_'`
+<p class="rise-footnote">
+    <b>note</b>here we use <code>target='_'</code>
 to tell the browser to open the link in another tab/window<br>
-    this is a small detail, so that unintentionally clicking on the link will keep you on this page<br>
-    note that to add a css fragment inside your html code put it inside a &lt;style&gt;&lt;/style&gt;
+this is a detail, and for convenience only, so that unintentionally clicking on the link will keep you on this page
 </p>
 
 ```{code-cell}
@@ -104,9 +104,7 @@ hide_input: true
 slideshow:
   slide_type: slide
 ---
-link_html = `<a 
-  href="https://www.google.com" 
-  target="_">
+link_html = `<a href="https://www.google.com" target="_">
 link to google
 </a>
 `
@@ -121,7 +119,7 @@ a {
     border-radius: 8px;
     text-decoration: none;
 }`
-tools.sample_from_strings({html: link_html, css: link_css})
+tools.sample_from_strings({html: link_html, css: link_css}, {width: '40em'})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -134,7 +132,7 @@ tools.sample_from_strings({html: link_html, css: link_css})
   on the left hand side of the `:` colon   
   like `color`, `font-family`, …
 * are called **properties** 
-* listed in the `Elements` pane of the devel tools  
-  in the `Computed` tab
+* also listed in the `Elements` tab of the devel tools,  
+  in the `Computed` pane
 * [several hundreds of them](https://css-tricks.com/how-many-css-properties-are-there/)
 * note that not all properties are relevant on all elements

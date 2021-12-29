@@ -38,27 +38,6 @@ tools.init()
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## header tags `<h1>` .. `<h5>`
-
-```{code-cell}
-:hide_input: true
-
-headers_fragment = `<h1> toplevel title </h1>
-<h2> first sublevel title </h2>
-<h3> and so on </h3>
-<h3> other subsublevel </h3>
-<h2> second sublevel title </h2>`
-
-tools.sample_from_strings({html: headers_fragment}, {width: '25em', height: '14em'})
-```
-
-<p class="rise-footnote">
-    <b>note</b> that these tags are essentially <b>a legacy thing</b>; they are convenient, but not quite necessary,
-<br>you can easily write your own classes (more about classes later on) to get a similar outcome, with more control on the result.
-</p>
-
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## text tags `<p>` and `<br>`
 
 ```{code-cell}
@@ -219,18 +198,21 @@ tools.sample_from_strings({html: anchor_fragment})
 
 redirect_fragment = `<p>it is easy to craft a local URL
 <br>
-here this hyperlink would go to the location of
+when clicked, the hyperlink below would bring you 
+<br>to the location of
 <a href="#the-anchor-name">the anchor named 
 <code>the-anchor-name</code></a>
+<br>in the same document
 <br>
-(but not in this notebook though, because of the page structure)
+(but not in this notebook though, 
+because of the page structure)
 `
 tools.sample_from_strings({html: redirect_fragment})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## grouping contents
+## grouping with `<div>` and `<span>`
 
 +++
 
@@ -306,3 +288,62 @@ in the early ages of HTML, tables were present everywhere, for creating fancy la
 
 however, we strongly recommend that you stay away from that for the moment,  
 especially if your goal is to create  grid-based layouts, that we will cover later on
+
++++
+
+### `<table>` in action
+
+```{code-cell}
+---
+hide_input: true
+slideshow:
+  slide_type: slide
+---
+table_html = `Use a &amp;lt;table&amp;gt; tag <b>only for data</b> 
+and not for layouts, there are other, 
+and much better tools, for creating fancy layouts
+<table>
+  <thead>
+    <tr> <th> Name </th> <th> Rank </th> </tr>
+  </thead>
+  <tbody>
+    <tr> <td> Alice </td> <td> 1st </td> </tr>
+    <tr> <td> Bob </td> <td> 2nd </td> </tr>
+  </tbody>
+</table>`
+
+table_css = `
+th {
+    border: 3px solid red;
+    padding: 20px;
+}
+
+td {
+    border: 1px solid blue;
+    padding: 5px 20px;
+}
+`
+
+tools.sample_from_strings({html: table_html, css: table_css})
+```
+
++++ {"slideshow": {"slide_type": "slide"}}
+
+## header tags `<h1>` .. `<h5>`
+
+```{code-cell}
+:hide_input: true
+
+headers_fragment = `<h1> toplevel title </h1>
+<h2> first sublevel title </h2>
+<h3> and so on </h3>
+<h3> other subsublevel </h3>
+<h2> second sublevel title </h2>`
+
+tools.sample_from_strings({html: headers_fragment}, {width: '25em', height: '14em'})
+```
+
+<p class="rise-footnote">
+    <b>note</b> that these tags are essentially <b>a legacy thing</b>; they are convenient, but not quite necessary,
+<br>you can easily write your own classes (more about classes later on) to get a similar outcome, with more control on the result.
+</p>
