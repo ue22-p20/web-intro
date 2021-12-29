@@ -8,7 +8,7 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Javascript (Node.js)
+  display_name: JavaScript (Node.js)
   language: javascript
   name: javascript
 nbhosting:
@@ -128,11 +128,12 @@ tools.sample_from_stem("../samples/font-demo")
 +++ {"slideshow": {"slide_type": ""}}
 
 * also observe the import and use of *fontawesome*  
-  to display custom symbols before address and phone number  
+  to display custom symbols before address and phone number, like  
 
-```html
-<span class="fa fa-home">
-```
+  ```html
+  <span class="fas fa-mobile-alt">
+  ```
+  that I [found in this page](https://fontawesome.com/v5.15/icons/mobile-alt?style=solid) after browsing [the fontawesome catalog](https://fontawesome.com/v5.15/icons)
 
 * these symbols are more convenient than bitmap pictures  
   in particular can be safely scaled / colorized
@@ -149,10 +150,27 @@ tools.sample_from_stem("../samples/font-demo")
 
 * being part of a text, these can also be safely styled  
   i.e. scaled, coloured&hellip;  
-  as opposed to using bitmap pictures
-  <span style="color:blue; background-color: gray; margin: 20px; font-size: 20px; display: flex; justify-content: center;">
-    ︙→ ⇀ « » ❯ × ∑ ∀α ∃ε ∈ x² © …
-</span>
+  as opposed, again, to using bitmap pictures
+
+```{code-cell}
+:hide_input: true
+
+tools.sample_from_strings({
+    html : `<div>
+︙→ ⇀ « » ❯ × ∑ ∀α ∃ε ∈ x² © …
+<div>`
+    ,
+    css : `div {
+    color:blue;
+    background-color: gray;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}`}, {
+  start_with: 'css'
+})
+```
 
 +++ {"slideshow": {"slide_type": "slide"}, "cell_style": "split", "tags": []}
 
@@ -230,11 +248,15 @@ each side (top, right, bottom, left) of the box
 has its own individual properties  
 here e.g. padding and border
 
+click on 'Open in new window' and use inspector on the `<p>` element
+
 ```{code-cell}
 :hide_input: true
 
 box1_html = `<p class="box1">
-a box </p></div>`;
+a box
+</p>`
+
 box1_css = `p.box1 {
     font-size: x-large;
     background-color: #ccc;
@@ -247,8 +269,9 @@ box1_css = `p.box1 {
     border-bottom-width: 5px;
     border-bottom-color: black;
     border-bottom-style: solid;
-}`;
-tools.sample_from_strings({html: box1_html, css: box1_css})
+}`
+
+tools.sample_from_strings({html: box1_html, css: box1_css}, start_with: 'css')
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -263,7 +286,9 @@ again with also margin and border-radius
 :hide_input: true
 
 box2_html = `<p class="box2">
-a second box </p>`;
+a second box
+</p>`
+
 box2_css = `p.box2 {
     font-size: x-large;
 
@@ -285,7 +310,8 @@ box2_css = `p.box2 {
 
     border-top-left-radius: 5px;
 }`
-tools.sample_from_strings({html: box2_html, css: box2_css})
+
+tools.sample_from_strings({html: box2_html, css: box2_css}, start_with: 'css')
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -339,8 +365,10 @@ use the inspector from the devel tools to check the individual properties of the
 :hide_input: true
 
 shorthand_html = `<p class="shorthand1">
-shorthand properties</p>
-<hr>`;
+shorthand properties
+</p>
+`
+
 shorthand_css = `p.shorthand1 {
     font: italic bold 20pt Arial, sans-serif;
     margin: 40px;
@@ -348,7 +376,7 @@ shorthand_css = `p.shorthand1 {
     border: 2px solid green;
     border-radius: 10px;
 }`;
-tools.sample_from_strings({html: shorthand_html, css: shorthand_css})
+tools.sample_from_strings({html: shorthand_html, css: shorthand_css}, {start_with: 'css'})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -464,7 +492,7 @@ also note that background
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## `background` (demo)
+## `background` and margins (demo)
 
 ```{code-cell}
 :hide_input: true
@@ -475,13 +503,14 @@ background_html = `<div>
       <p> paragraph </p>
    </section>
 </div>
-`;
+`
+
 background_css = `* {
-    border: 1px solid black;
+    border: 1px solid red;
 }
 div {
-    background: red;
-    margin: 100px;
+    background: url(../media/texture.png);
+    margin: 50px;
 }
 section {
     margin: 20px;
@@ -490,17 +519,35 @@ section {
 }
 h1, p {
     padding: 8px;
-    /* or simply */
     background-color: yellow;
 }
-`;
-tools.sample_from_strings(html: background_html, css: background_css})
+h1 {
+    margin-bottom: 40px;
+}
+p {
+    margin-top: 20px;
+}
+`
+
+tools.sample_from_strings({html: background_html, css: background_css})
 ```
+
++++ {"slideshow": {"slide_type": "slide"}}
+
+## `background` and margins - demo explained
+
+![](../media/backgrounds-and-margins.png)
 
 +++ {"hide_input": true}
 
 <p class="rise-footnote">
-    observe how the margin space has its space filled by the parent  
-    use the inspector to see how the space between  
-the two inner borders (h1 and p) is actully the *max* of their margins.
+use the inspector to see how the space between the two and observe:
+<br>
+how the margin space gets filled by the parent
+<br>
+how the space between inner borders (h1 and p)  
+is actually the <b><i>max</i></b> of their margins
+<br>
+how the 2 other margins (the title's top-margin and the paragrapgh's bottom margin)
+are inherited from the default user agent stylesheet (here this is chrome)
 </p>
