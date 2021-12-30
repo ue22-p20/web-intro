@@ -8,7 +8,7 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Javascript (Node.js)
+  display_name: JavaScript (Node.js)
   language: javascript
   name: javascript
 nbhosting:
@@ -46,7 +46,7 @@ tools.init()
 * historically a challenging task
   * the `<table>` tag has long been overused  
     to address that sort of needs
-  * **do not use** `<table>`'s for that in 2021 !
+  * **do not use** `<table>`'s for that in 2022 !
 * `grid` is now available in [all popular modern browsers](https://caniuse.com/#feat=css-grid)
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -55,7 +55,7 @@ tools.init()
 
 +++ {"cell_style": "split"}
 
-next slide demontrates :
+next slide demontrates this CSS:
 
 +++ {"cell_style": "split"}
 
@@ -64,7 +64,8 @@ next slide demontrates :
 +++ {"cell_style": "center"}
 
 * a proportional grid of [3 rows ⨉ 4 columns]
-* with 4 areas defined, based on that tiling
+* with 4 areas defined, based on that tiling  
+  `header`, `main`, `sidebar`, and `footer`
 * and 4 `<div>`s that are mapped on these areas  
   *e.g.*  `grid-area: header`
 
@@ -75,19 +76,25 @@ slideshow:
   slide_type: slide
 ---
 grid1_html = `<div class="container">
-<div class="item-a">the header
-   <div>blabla</div></div>
-<div class="item-b">main area
-   <div>blabla</div><div>blabla</div></div>
-<div class="item-c">side bar
-   <div>blabla</div></div>
-<div class="item-d">a footer
-   <div>blabla</div></div>
-</div>`;
+  <div class="item-a">the header
+    <div>blabla</div>
+  </div>
+  <div class="item-b">main area
+     <div>blabla</div>
+     <div>blabla</div>
+  </div>
+  <div class="item-c">side bar
+     <div>blabla</div>
+  </div>
+  <div class="item-d">a footer
+     <div>blabla</div>
+  </div>
+</div>`
+
 grid1_css = `.container {
   display: grid;
-/*  grid-template-columns: 
-    1fr 1fr 1fr 1fr;*/
+  grid-template-columns: 
+    1fr 1fr 1fr 1fr;
   grid-template-areas: 
     "header header header header"
     "main   main   .      sidebar"
@@ -109,9 +116,8 @@ grid1_css = `.container {
 .item-d {
     grid-area: footer;
     background-color: #7fa998;
-}
-`
-tools.sample_from_strings({html: grid1_html, css: grid1_css})
+}`
+tools.sample_from_strings({html: grid1_html, css: grid1_css}, {id: 'grid-1'})
 ```
 
 +++ {"cell_style": "split", "slideshow": {"slide_type": "slide"}}
@@ -166,15 +172,21 @@ slideshow:
   slide_type: slide
 ---
 grid2_html = `<div class="container">
-<div class="item-a">the header
-   <div>blabla</div></div>
-<div class="item-b">main area
-   <div>blabla</div><div>blabla</div></div>
-<div class="item-c">side bar
-   <div>blabla</div></div>
-<div class="item-d">a footer
-   <div>blabla</div></div>
-</div>`;
+  <div class="item-a">the header
+    <div>blabla</div>
+  </div>
+  <div class="item-b">main area
+    <div>blabla</div>
+    <div>blabla</div>
+  </div>
+  <div class="item-c">side bar
+    <div>blabla</div>
+  </div>
+  <div class="item-d">a footer
+    <div>blabla</div>
+  </div>
+</div>`
+
 grid2_css = `.container {
   display: grid;
   grid-template-columns: 
@@ -200,9 +212,9 @@ grid2_css = `.container {
 .item-d {
     grid-area: footer;
     background-color: #7fa998;
-}
-`;
-tools.sample_from_strings({html: grid2_html, css: grid2_css})
+}`
+
+tools.sample_from_strings({html: grid2_html, css: grid2_css}, {id: 'grid-2', start_with: 'css'})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -216,11 +228,12 @@ in the previous examples :
 * we have **not imposed** anything on **the height** of the result
 * each box gets its height based on its content
 
-* it is also possible - although less often needed - to fix a height globally and arrange the rows accordingly
+* it is also possible - although less often needed  
+  to fix a height globally and arrange the rows accordingly
 * only change is to add on the grid:
   * `height: 100%` to say we want to use all available space
-  * `grid-template-rows: 50px 1fr 100px;` which specifies how to use vertical space
-`
+  * `grid-template-rows: 50px 1fr 100px;`  
+    which specifies how to use vertical space
 
 ```{code-cell}
 ---
@@ -262,7 +275,7 @@ grid3_css = `.container {
     background-color: #7fa998;
 }
 `;
-tools.sample_from_strings({html: grid3_html, css: grid3_css})
+tools.sample_from_strings({html: grid3_html, css: grid3_css}, {start_with: 'css'})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -324,18 +337,22 @@ you may also [complete this game ](https://cssgridgarden.com/) at home if you fe
 autosize_html = `<div class="container">
   <section> 
     <h1>Section 1</h1>
-    <p> Lorem ipsum dolor sit amet, 
-consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore
-et dolore magna aliqua</p> 
+    <p>Here we say that we want 3 same-width 
+       columns in the viewport width, 
+       provided that they are at least 250px wide.
+    </p> 
   </section>
   <section>
     <h1>Section 2</h1>
+    <p>It all plays best in a new window
+       that you can resize at will.
+    </p>
   </section>
   <section>
     <h1>Section 3</h1>
   </section>
-</div>`;
+</div>`
+
 autosize_css = `section {
   border: 1px solid blue;
   border-radius: 5px;
@@ -346,8 +363,9 @@ autosize_css = `section {
   display: grid;
   grid-template-columns: 
     repeat(auto-fit, minmax(250px, 1fr));
-}`;
-tools.sample_from_strings({html: autosize_html, css: autosize_css})
+}`
+
+tools.sample_from_strings({html: autosize_html, css: autosize_css}, {start_with: 'css'})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -402,13 +420,13 @@ if you need to add a wrapping `<div>` / `</div>` around some text, select it
 
 then activate the palette and search for 'emmet: wrap with abbreviation'
 
-select that funtion, you will be prompted for the name of the wrapping tag
+select that function, you will be prompted for the name of the wrapping tag
 
 ![](../media/vs-code-2.png)
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-it is rather straightforward to attach a custim keybinding to that function if you use it often
+it is rather straightforward to attach a custom keybinding to that function if you use it often
 
 ![](../media/vs-code-3.png)
 

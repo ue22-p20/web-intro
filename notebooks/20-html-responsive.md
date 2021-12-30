@@ -8,7 +8,7 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Javascript (Node.js)
+  display_name: JavaScript (Node.js)
   language: javascript
   name: javascript
 nbhosting:
@@ -155,7 +155,8 @@ display_none_html = `<p> an element can easily be 'hidden' from the output </p>
 <p> in that case it won't show up at all, as if
 it were not in the DOM at all - although it is present,
 can be easily retrieved and turned back on,
-using e.g. JavaScript</p>`;
+using e.g. JavaScript (not demo'ed here though)</p>`
+
 display_none_css = `#do-not-show {
     display: none;
     background-color: red;
