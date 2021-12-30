@@ -1,14 +1,17 @@
-WIDTH = 100;
-STEP = 20;
-direction = 1;
+WIDTH = 50
+STEP = 10
 
 function grow() {
-    let growing = document.getElementById("growing");
-    growing.style.width = `${WIDTH}px`;
-    WIDTH += STEP;
+    let growing = document.getElementById("growing")
+    growing.style.width = `${WIDTH}px`
+    WIDTH += STEP
 }
 
-// call grow every second
+// this will be called on loading the <body> tag
+// (see the html)
 function grow_forever() {
-    setInterval(grow, 2000);
+    // call it once right away
+    grow()
+    // get it called every 1s after that
+    setInterval(grow, 1000)
 }

@@ -8,7 +8,7 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Javascript (Node.js)
+  display_name: JavaScript (Node.js)
   language: javascript
   name: javascript
 nbhosting:
@@ -57,7 +57,8 @@ p.class1, p.class2 {
 }
 ```
 
-will apply the `font-size` property to `<p>` elements that have **class `class1` or class `class2`** - or both, naturally
+will apply the `font-size` property to `<p>` elements  
+that have class `class1` **or** class `class2` - or both, naturally
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -74,7 +75,7 @@ matches all `<p>` elements that are an **immediate child** of `<div>` element
 +++
 
 <p class="rise-footnote">
-    here the <code>div</code> and the <code>p</code> parts are selectors themselves, they can be more specific, of course
+    here the <code>div</code> and the <code>p</code> parts are selectors themselves, they can be any more specific selector, of course
 </p>
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -97,7 +98,7 @@ matches all `<p>` elements that are an **immediate child** of `<div>` element
 a first, not-quite-working example (at least on Chrome)
 
 ```{code-cell}
-:hide_input: true
+:hide_input: false
 
 hover1_html = `<div id="part1">
   <a href="https://nbhosting.inria.fr" target="_">
@@ -112,19 +113,17 @@ a regular link is unsensitive to hovering</a>
      this is an anchor tag,
      it reacts to mouse presence 
      (at least on Chrome), that is not what we want</a>
-</div>
+</div>`
 
-`;
 hover1_css = `.part2 a:hover {
-    font-size: 300%;
-    background-color: red;
+    font-size: 300%;    background-color: red;
     text-decoration: none;
 }
 a {
     font-size: 200%;
-}
-`
-tools.sample_from_strings(html: hover1_html, css: hover1_css})
+}`
+
+tools.sample_from_strings({html: hover1_html, css: hover1_css}, {start_with: 'css'})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -133,11 +132,11 @@ tools.sample_from_strings(html: hover1_html, css: hover1_css})
 
 +++
 
-to get it right, we can use the other pseudo-class `:link`,  
+to get it right, we can use the other pseudo-class `:link`    
 that is set only on `<a>` tags that have a `href=` attribute
 
 ```{code-cell}
-:hide_input: true
+:hide_input: false
 
 hover2_html = `<div id="part1">
   <a href="https://nbhosting.inria.fr" target="_">
@@ -151,11 +150,10 @@ hover2_html = `<div id="part1">
   <a name="nbhosting">now this anchor tag 
      is excluded from the CSS selector, so it behaves
      as expected</a>
-</div>
+</div>`
 
-`;
-hover2_css = `/* <a> elements under a .class2 
-   that have both pseudo-classes */
+hover2_css = `/* <a> elements under a .part2 
+   and that have both pseudo-classes */
 .part2 a:hover:link {
     font-size: 300%;
     background-color: red;
@@ -164,7 +162,8 @@ hover2_css = `/* <a> elements under a .class2
 a {
     font-size: 200%;
 }`
-tools.sample_from_strings(html: hover2_html, css: hover2_css)
+
+tools.sample_from_strings({html: hover2_html, css: hover2_css}, {start_with: 'css'})
 ```
 
 <p class="rise-footnote"> 
@@ -188,7 +187,7 @@ note that here we build a selector that applies on elements that have <b>both</b
 ### `nth-child() example`
 
 ```{code-cell}
-:hide_input: true
+:hide_input: false
 
 rank_html = `<ul>
   <li>the first bullet</li>
@@ -210,7 +209,7 @@ li:nth-child(3n) {
 li {
     font-size: 200%;
 }`;
-tools.sample_from_strings({html: rank_html, css: rank_css})
+tools.sample_from_strings({html: rank_html, css: rank_css}, {start_with: 'css'})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -234,3 +233,8 @@ tools.sample_from_strings({html: rank_html, css: rank_css})
   `a[href="https://www.google.com/"]`  
   would match only the links to google
 * [read more on this here](https://css-tricks.com/almanac/selectors/a/attribute/)
+
+<div class="rise-footnote">
+    of course this technique applies to any attribute, 
+    not just <code>href=</code>
+</div>

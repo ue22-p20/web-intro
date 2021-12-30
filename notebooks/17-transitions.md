@@ -8,7 +8,7 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Javascript (Node.js)
+  display_name: JavaScript (Node.js)
   language: javascript
   name: javascript
 nbhosting:
@@ -55,16 +55,18 @@ tools.init()
 * of course this applies to some properties only
   * lengths
   * colors
-* everything that can be mapped to a **continuous** space
+* anything that can be mapped to a **continuous** space  
+  so that one can do **interpolation**  
+  between the beginning and ending states
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ## transition example 1
 
 ```{code-cell}
-:hide_input: true
+:hide_input: false
 
-tools.sample_from_stem("../samples/transition1")
+tools.sample_from_stem("../samples/transition1", {start_with: 'css'})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -77,7 +79,7 @@ tools.sample_from_stem("../samples/transition1")
 * e.g. the `<section>` element has  
   `transition: all 0.4s ease-in-out`
 * then its `background-color` property changes somehow  
-  here due to the `.chunk:hover` selector
+  here due to the `section:hover` selector
 * the transition is requested to apply to `all` properties  
   so here it triggers to implement the color change
 * and the `ease-in-out` algorithm is used  
@@ -113,11 +115,11 @@ tools.sample_from_stem("../samples/transition1")
 
 ```{code-cell}
 ---
-hide_input: true
+hide_input: false
 slideshow:
   slide_type: '-'
 ---
-tools.sample_from_stem("../samples/transition2")
+tools.sample_from_stem("../samples/transition2", {separate_width: '800px'})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -151,11 +153,11 @@ with e.g. `growing.style.width = '200px'`
 
 ```{code-cell}
 ---
-hide_input: true
+hide_input: false
 slideshow:
   slide_type: '-'
 ---
-tools.sample_from_stem("../samples/transition3")
+tools.sample_from_stem("../samples/transition3", {start_with: 'js'})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -182,8 +184,10 @@ for example :
 +++ {"slideshow": {"slide_type": ""}}
 
 * see [one example on codepen](https://codepen.io/team/css-tricks/pen/EjaJNd) for a better idea of what can be achived
-* extracted [from this blog on CSS-Tricks](https://css-tricks.com/almanac/properties/a/animation/) that is left to the interested reader as an exercise
-* **WARNING** like with transitions, and fun as they are, these techniques should be used with extreme circumspection
+* extracted [from this blog on CSS-Tricks](https://css-tricks.com/almanac/properties/a/animation/)  
+  that is left to the interested reader as an exercise
+* **WARNING** like with transitions, and fun as they are,  
+  these techniques should be used with extreme circumspection
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
