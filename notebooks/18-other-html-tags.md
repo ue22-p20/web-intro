@@ -8,7 +8,7 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Javascript (Node.js)
+  display_name: JavaScript (Node.js)
   language: javascript
   name: javascript
 nbhosting:
@@ -71,8 +71,12 @@ svg_html=`<h1>my first SVG</h1>
 <svg width="200" height="200">
   <circle cx="50" cy="50" r="20" />
   <rect x="50" y="20" width="150" height="150" />
-</svg>`;
-svg_css = `rect {
+</svg>`
+
+svg_css = `svg {
+  border: 1px solid black;
+}
+rect {
   fill: blue;
   stroke: pink;
   stroke-width: 5;
@@ -85,6 +89,7 @@ circle {
   stroke-width: 4;
   fill: yellow;
 }`
+
 tools.sample_from_strings({html: svg_html, css: svg_css})
 ```
 
@@ -108,7 +113,7 @@ out of scope for this course though, as it involves a backend
 
 +++
 
-* `<h1>` .. `<h6>` are only allow meaningful for the title line
+* `<h1>` .. `<h6>` are only meaningful for the title line
 * but are too poor to actually convey sectioning information
 * so in addition to these, there are also
   * `<section>`
@@ -150,11 +155,11 @@ in a jumble :
 * write your complete resume; you should have 2 files 
   * `resume.html`
   * `resume.css`
-* at this point, you may think of it as if it were a word document
+* at this point, you may think of it as (if it were) a word document
   * with a header that has your details and photo
   * and the 4 well structured sections,
   * again 'experience', 'education', 'skills' and 'languages'
 * try to print it in a PDF file, to evaluate how it fits with respect to an A4 page
-* **NOTE** that next course will address overall layout in greater details, 
+* **NOTE** that next course will address overall layout in greater details  
   (i.e. the relative place of all pieces wrt one another)  
   so do not spend too much time on trying to make best usage of space at this point
