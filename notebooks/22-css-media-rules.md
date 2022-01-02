@@ -8,7 +8,7 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Javascript (Node.js)
+  display_name: JavaScript (Node.js)
   language: javascript
   name: javascript
 nbhosting:
@@ -127,7 +127,8 @@ layout, in terms of margins and the like.
 <hr>
 Click above to open in a separate window,
 and pretend to print so you get a preview;
-</body>`;
+</body>`
+
 media_print_css = `/* our body tag has a media class
  * with this trick the order now won't matter */
 body {
@@ -140,9 +141,9 @@ body {
     font-size: 50px;
     margin-left: 3cm;
   }
-}
-`;
-tools.sample_from_strings({html: media_print_html, css: media_print_css})
+}`
+
+tools.sample_from_strings({html: media_print_html, css: media_print_css}, {start_with: 'css'})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -194,5 +195,5 @@ remember that `<html>` contains 2 sons, a `<head>` and a `<body>`
 ```{code-cell}
 :hide_input: true
 
-tools.sample_from_stem("samples/exo-grid", {sources_show: false})
+tools.sample_from_stem("../samples/exo-grid", {sources_show: false})
 ```
