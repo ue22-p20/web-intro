@@ -126,7 +126,9 @@ function sample_from_strings(code, options) {
 		span.${id}_btn {
 			font-family: Courier;
 			border: 0px;
-			padding: 6px 12px;
+			padding: 6px 12px 4px 12px;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
 		}
 		span.${id}_selected {
 			background-color: #ccf;
@@ -136,8 +138,8 @@ function sample_from_strings(code, options) {
 			border-radius: 5px;
 			background-color: #eef;
 			margin-right: 10px;
-			margin-bottom: 4px;
-			padding: 6px 20px;
+			margin-bottom: 0px;
+			padding: 4px 20px;
 			height: fit-content;
 		}
 		#btns_right_${id} {
