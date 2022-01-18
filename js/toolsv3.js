@@ -353,7 +353,7 @@ function sample_from_strings(code, options) {
 		btn_window.addEventListener("click", () => {
 			let template = get_example_content()
 
-			let w = window.open(null, '_blank', 'height=${separate_height},width=${separate_width}')
+			let w = window.open('', '_blank', 'height=${separate_height},width=${separate_width}')
 			w.document.open()
 			w.document.write(template)
 			w.document.close()
