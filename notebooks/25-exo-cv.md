@@ -8,7 +8,7 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Javascript (Node.js)
+  display_name: JavaScript (Node.js)
   language: javascript
   name: javascript
 nbhosting:
@@ -51,19 +51,6 @@ tools.init()
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## where to find the examples
-
-* the next example can be found together with the course   
-  in the git repo
-  https://github.com/ue22/web-intro
-
-* specifically in the `samples/monarque` folder
-
-* note that some of the other examples of the course  
-  can be found in the `samples/` folder
-
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## a sample cv
 
 * here is one example
@@ -75,12 +62,25 @@ tools.init()
 
 ```{code-cell}
 ---
-hide_input: true
+hide_input: false
 slideshow:
   slide_type: slide
 ---
 tools.sample_from_stem("../samples/monarque/resume", {sources_show: false})
 ```
+
++++ {"slideshow": {"slide_type": "slide"}}
+
+## where to find the example
+
+* previous example can be found together with the course   
+  in the git repo
+  https://github.com/ue22-p21/web-intro
+
+* specifically in the `samples/monarque` folder
+
+* note that some of the other examples of the course  
+  can be found in the `samples/` folder
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -92,12 +92,12 @@ tools.sample_from_stem("../samples/monarque/resume", {sources_show: false})
 * you can easily publish it on `github.io` (see next slide)
 * plus tons of other opportunities around as well
 
-+++ {"slideshow": {"slide_type": ""}}
++++ {"slideshow": {"slide_type": "slide"}}
 
 ### publishing on github.io
 
 * this is simple and free
-* only supports public pages though
+* only supports **public pages** though
 
 assuming your github is `myid`
 * create a repo on github `myid/myid.github.io`

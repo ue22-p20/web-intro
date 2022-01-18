@@ -8,7 +8,7 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Javascript (Node.js)
+  display_name: JavaScript (Node.js)
   language: javascript
   name: javascript
 nbhosting:
@@ -65,7 +65,6 @@ most of the elements we have seen so far are said to be *in-flow* :
 
 ```{code-cell}
 :hide_input: true
-:tags: []
 
 fixed_html = `<div>scroll me up !</div>
 
@@ -75,7 +74,8 @@ fixed_html = `<div>scroll me up !</div>
   can be tailored accordingly.
 </div>
 
-<div>you can see the header sticks at the top !</div>`;
+<div>you can see the header sticks at the top !</div>`
+
 fixed_css = `body {
     /* same as the header's height */
     margin-top: 120px;
@@ -89,13 +89,14 @@ fixed_css = `body {
     right: 0px;
   /* the 80 px is for the whole box */
     box-sizing: border-box; 
-  /* cosmetic */
+
+  /* everything below is just cosmetic */
     font-size: 20px;    
     padding: 4px 10px;
     background-color: rgba(255, 240, 240, .50);
     border: 3px solid red;
 }
-/* the rest is just cosmetic */
+
 div:not(#header) {
     /* outline borders */
     border: 2px solid blue;
@@ -104,7 +105,9 @@ div:not(#header) {
     height: 400px;  /* fake content */
     background-color: #fafafa;
 }`
-tools.sample_from_strings({html: fixed_html, css: fixed_css})
+
+tools.sample_from_strings({html: fixed_html, css: fixed_css}, 
+                          {start_with: 'css', height: '19em'})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -127,7 +130,6 @@ tools.sample_from_strings({html: fixed_html, css: fixed_css})
 
 ```{code-cell}
 :hide_input: true
-:tags: []
 
 sticky_html = `
 <div id="header">
@@ -137,12 +139,14 @@ this time I do not need to specify (twice) a height
 
 <div>scroll me up !</div>
 
-<div>you can see the header sticks at the top !</div>`;
-sticky_css = `#header {
+<div>you can see the header sticks at the top !</div>`
+
+sticky_css = `
+#header {
     position: sticky;
     top: 6px;
 
-    /* cosmetic */
+  /* everything below is just cosmetic */
     font-size: 20px;    
     padding: 4px 10px;
     background-color: rgba(255, 240, 240, .50);
@@ -156,8 +160,10 @@ div:not(#header) {
     font-size: 45px;
     height: 400px;  /* fake content */
     background-color: #fafafa;
-}`;
-tools.sample_from_strings({html: sticky_html, css: sticky_css})
+}`
+
+tools.sample_from_strings({html: sticky_html, css: sticky_css},
+                          {start_with: 'css', height: '16em'})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}

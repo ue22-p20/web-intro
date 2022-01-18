@@ -8,7 +8,7 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Javascript (Node.js)
+  display_name: JavaScript (Node.js)
   language: javascript
   name: javascript
 nbhosting:
@@ -79,7 +79,8 @@ flex1_html = `<div class="container">
 <div class="item"> sed numquam </div>
 <div class="item"> voluptatem </div>
 <div class="item"> quisquam modi. </div>
-</div>`;
+</div>`
+
 flex1_css = `/* the important part is just this */
 .container {
     display: flex;
@@ -87,15 +88,18 @@ flex1_css = `/* the important part is just this */
 }
 
 /* cosmetic: outline borders */
-body { border: none; }
+body { 
+    border: none;
+}
 * { border: 1px solid red;
     padding: 4px; border-radius: 4px;}
 
 .item {
     font-size: 30px;
 }
-`;
-tools.sample_from_strings({html: flex1_html, css: flex1_css})
+`
+
+tools.sample_from_strings({html: flex1_html, css: flex1_css}, {id: 'flex1', start_with: 'css'})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -116,7 +120,8 @@ flex2_html = `<div class="container">
 <div class="item"> sed numquam </div>
 <div class="item"> voluptatem </div>
 <div class="item"> quisquam modi. </div>
-</div>`;
+</div>`
+
 flex2_css = `.container {
     display: flex;
     flex-wrap: wrap;
@@ -131,8 +136,9 @@ body { border: none; }
 .item {
     font-size: 40px;
 }
-`;
-tools.sample_from_strings({html: flex2_html, css: flex2_css})
+`
+
+tools.sample_from_strings({html: flex2_html, css: flex2_css}, {id: 'flex2', start_with: 'css'})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
