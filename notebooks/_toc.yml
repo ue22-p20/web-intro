@@ -39,7 +39,8 @@ parts:
   - file: 41-exo-cv-blinking
   - file: 42-exo-calculator
   - file: 43-exo-spinning-wheel
-44-exos-miscell.md- caption: "Optional content"
+  - file: 44-exos-miscell
+- caption: "Optional content"
   chapters:
   - file: 51-jquery
   - file: 52-bootstrap

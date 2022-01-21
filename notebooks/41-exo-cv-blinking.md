@@ -30,7 +30,7 @@ rise:
 
 +++ {"slideshow": {"slide_type": ""}}
 
-# practice
+# practice : blinking background
 
 ```{code-cell}
 delete require.cache[require.resolve('../js/toolsv3')]
