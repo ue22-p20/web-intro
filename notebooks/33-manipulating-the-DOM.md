@@ -12,7 +12,7 @@ kernelspec:
   language: javascript
   name: javascript
 nbhosting:
-  title: js intro
+  title: messing with the DOM
 rise:
   autolaunch: true
   slideNumber: c/t

@@ -12,7 +12,7 @@ kernelspec:
   language: javascript
   name: javascript
 nbhosting:
-  title: asynchronism
+  title: events & callbacks
 rise:
   autolaunch: true
   slideNumber: c/t
