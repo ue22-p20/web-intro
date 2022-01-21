@@ -8,7 +8,7 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Javascript (Node.js)
+  display_name: JavaScript (Node.js)
   language: javascript
   name: javascript
 nbhosting:
@@ -30,7 +30,7 @@ rise:
 
 +++ {"slideshow": {"slide_type": ""}}
 
-# Javascript Events and Callbacks
+# JavaScript events and callbacks
 
 ```{code-cell}
 delete require.cache[require.resolve('../js/toolsv3')]
@@ -40,39 +40,40 @@ tools.init()
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## Events
+## events
 
-* Due to the specificity of the browser and the network, Javascript within the browser is not driven like other languages
+* due to the specificity of the browser and the network, JavaScript within the browser is not driven like other languages
   * there is no main() function that runs forever
-  * It is not driven like video game with infinite loop that eats all the CPU
-  * Instead Javascript is driven by **Events**
-* Events can have different natures:
-  * Events can come from the **user activity** such as mouse click
-  * Events can be **time-bound**
-  * Events can be linked to **network** activity
-* mostly "load" that is rather crucial
+  * it is not driven like video game with infinite loop that eats all the CPU
+  * instead JavaScript is driven by **events**
+* events can have different natures:
+  * can come from the **user activity** such as mouse click
+  * can be **time-bound**
+  * can be linked to **network** activity
+* mostly `load` that is rather crucial
 * there are also builtin events for keyboard / mouse interaction illustrated on the next example (we use `click` and `keydown`)
 * for more details, see [this section in javascript.info](https://javascript.info/event-details) on all the available events
 <!-- #endregion -->
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## Callback
+## callbacks
 
-* Events are handled using callbacks,
-* Callback are functions that are called when an event occur
-* To get a function to be called on a given event you have to use the `addEventListener`
+* events are handled using callbacks,
+* callbacks are functions that are called when an event occur
+* to get a function to be called on a given event, you have to use the `addEventListener`
 
-For exemple to have the function `foo` called when the page is loaded you can use the following code:
+for exemple, to have function `foo` called when the page is loaded, you can use the following code:
 
-```javascript
+```js
 // trigger once the document is loaded
-window.addEventListener("load", foo);
+window.addEventListener("load", foo)
 ```
 
-Where `load` is the name of the event corresponding to the end of the page load.
+where `load` is the name of the event  
+here corresponding to the end of the page load
 
-* Several events are available ; a list of some of them is [here w3school.com](https://www.w3schools.com/jsref/dom_obj_event.asp)
+* many events are available ; a list of some of them is [here w3school.com](https://www.w3schools.com/jsref/dom_obj_event.asp)
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -80,20 +81,22 @@ Where `load` is the name of the event corresponding to the end of the page load.
 
 +++
 
-* a fundamental tool to record callback with an event
+* a fundamental tool to record a callback with an event
 * available on most objects
-* observe on the example how the callbacks receive the event in parameter
-* and because we use `console.log(event)` we have the option to inspect the event object in the console, and see all its attributes
+* observe on the example how the callbacks **receive the event** in parameter
+* and because we use `console.log(event)`  
+  we have the option to inspect the event object in the console  
+  and see all its attributes
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-### Events example
+### events example
 
 ```{code-cell}
 :hide_input: false
 
 tools.sample_from_stem("../samples/35-async-01-events",
-                       {separate_show: true, width: '40em'})
+                       {separate_show: true, width: '40em', start_with: 'js'})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -102,7 +105,7 @@ tools.sample_from_stem("../samples/35-async-01-events",
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-### Example - observations
+### example - observations
 
 +++
 
@@ -115,74 +118,81 @@ notice from the example :
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## Code generated events
+## other types of events
 
-* Events can create your own event by code using :
+### code-generated events
+
+you can create your own event by code, e.g. :
 
 ```javascript
-const event = new Event('myevent');
+const event = new Event('myevent')
 // Listen for the event.
-elem.addEventListener('myevent', foo, false);
+elem.addEventListener('myevent', foo, false)
 // Dispatch the event.
-elem.dispatchEvent(event);
+elem.dispatchEvent(event)
 ```
 
-* You can create timed event:
++++ {"slideshow": {"slide_type": ""}}
+
+### time-related events
 
 ```javascript
 setTimeout(foo, 3000); // call foo in 3000 ms
 setInterval(foo, 3000); // call foo every 3000 ms
-
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## Anonymous function, i.e. lambda
+## anonymous function (a.k.a *lambda*)
 
-Due to the extensive use of callbacks in javacript, giving a name to each function that we use once per event we setup is annoying. For this reason javascript has 2 convenient way to create anonymous functions.
+due to the extensive use of callbacks in JavaScript, having to name every function is annoying  
+for this reason, JavaScript has 2 convenient ways to create anonymous functions:
 
-* The fist one, the legacy-one:
+* the legacy one:
+
 ```javascript
 let mylambda0 = function (arg0, arg1) { /* some code here */ };
 ```
-* The second one, the new fashion:
+* the modern one:
+
 ```javascript
 let mylambda0 = (arg0, arg1) => { /* some code here */ };
 ```
-* /!\ Both variant are valid, even if the new one look nicer
-* Even if they look the same, they have subtile differences not covered here
-* In this course you can use both.
+* /!\ Both variants are valid, even if the new one looks nicer
+* also, there are subtle differences, not covered here
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## Anonymous function usage
+## anonymous function usage
 
-in this context, it is common to create functions **on the fly** with e.g. the `function` expression
-
+in this context, it is common to create functions **on the fly**, e.g.
 ```javascript
 window.addEventListener(
     "load", 
+    // the expression on the following line
     // returns a function object
-    function() { console.log("page loaded"); }  
-);
+    () => console.log("page loaded")  
+)
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## Previous exemple using lambda function
+## previous example using arrow functions
 
 ```{code-cell}
+:hide_input: false
+
 tools.sample_from_stem("../samples/35-async-02-events",
-                       {separate_show: true, width: '40em'})
+                       {separate_show: true, width: '40em', start_with: 'js'})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## Closures
+## closures
 
 +++
 
-* it is rather frequent that a callback needs to access data that sit outside the function context
+* it is rather frequent that a callback needs to access data that sits outside of the function context
 * it is safe to use lexically-bound variables inside the callback
 * see the `context` variable in the example below
 
@@ -205,6 +215,9 @@ try {
 } catch(err) {
     console.log(`OOPS ${err.message}`)
 }
+
+// wait for 2s to see that 
+// the callback still triggers properly
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -234,7 +247,7 @@ try {
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## Limits of callbacks
+## limits of callbacks
 
 +++
 
@@ -245,20 +258,7 @@ try {
 
 +++
 
-so far we have seen a few types of events
+so far we have seen a few types of events (e.g. `load`, `keydown`, `click`)
 
-* mostly "load" that is rather crucial
-* there are also builtin events for keyboard / mouse interaction illustrated on the next example (we use `click` and `keydown`)
-* for more details, see [this section in javascript.info](https://javascript.info/event-details) on all the vailable events
-
-+++ {"slideshow": {"slide_type": "slide"}}
-
-## Step #3
-
-Finish the exemple to get the following result.
-_Tips:_ If changing color is difficult, you can change the dot radius.
-<!-- #endregion -->
-
-```{code-cell}
-tools.sample_from_stem("../samples/spinning-wheel")
-```
+* for more details and a more exhaustive list of available events  
+  see [this section in javascript.info](https://javascript.info/event-details)

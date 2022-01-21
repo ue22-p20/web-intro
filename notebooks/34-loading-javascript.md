@@ -8,7 +8,7 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Javascript (Node.js)
+  display_name: JavaScript (Node.js)
   language: javascript
   name: javascript
 nbhosting:
@@ -28,7 +28,7 @@ rise:
 
 +++ {"slideshow": {"slide_type": ""}}
 
-# Loading JavaScript in browser
+# loading JS in the browser
 
 ```{code-cell}
 delete require.cache[require.resolve('../js/toolsv3')]
@@ -38,24 +38,25 @@ tools.init()
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## Open topic
+## open topic
 
 +++
 
-* Loading javascript is somehow tricky and is **still an open topic** because: 
+* loading javascript is somehow tricky and is **still an open topic** because: 
   * how network work
-  * of complex depandency that can rise in real code 
-  * typical use case module X needs module Y just like when a Python module does `import another`
+  * of complex dependency that can rise in real code 
+  * typical use case module X needs module Y   
+    just like when a Python module does `import another`
 
-We will comeback late on this topic but for now stay simple
+we will come back later on this topic, but for now stay simple
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## Simplest case
+## simplest case
 
 +++
 
-For our use case we only need to load one fragment of code
+for our use case we only need to load one fragment of code
 
 * where a single HTML page needs to load one JS fragment
 * there is one simple way : the `<script>` tag
@@ -64,7 +65,7 @@ For our use case we only need to load one fragment of code
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## `<script>` with inline code
+### `<script>` with inline code
 
 +++ {"cell_style": "center"}
 
@@ -88,7 +89,7 @@ For our use case we only need to load one fragment of code
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## `<script>` : load a URL
+### `<script>` : load a URL
 
 +++
 
@@ -103,7 +104,7 @@ For our use case we only need to load one fragment of code
 
 +++ {"slideshow": {"slide_type": ""}}
 
-* Behaviour of `<script>` tag is similar to the load of css files
+* behaviour of `<script>` tag is similar to the load of css files
   * `<script src="foo.js"></script>` loads `foo.js` from the same directory as the current page
   * `<script src="/path/foo.js"></script>` loads `/path/foo.js` from current location
   * `<script src="https://url.com/path/foo.js"></script>` loads `/path/foo.js` from the given absolute url
@@ -111,31 +112,47 @@ For our use case we only need to load one fragment of code
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## Step #2
+## step #2
 
-Now that you know the basic of javascript, you have to load javascript code that draws a circle of dot as follows. 
-Color of circles does not matter.
+now that you know the basic of JavaScript, you have to
+* write a HTML file
+* that loads a JS code
+* that draws a circle of dots as follows  
+  (circle colors do not matter)
 
-+++
++++ {"slideshow": {"slide_type": "slide"}}
 
-## Special note about creating circle
+### special note about creating circle
 
-to draw a circle you have to use a tag that belong a given namespace. We will not go in detail about namespace in this course, but to create the circle element you have to specify the namespace as follow:
+to draw a circle you have to use a tag that belongs a given namespace  
+we will not go in detail about namespaces in this course,  
+but to create the circle element you have to specify the namespace as follows:
 
 ```javascript
 let circle = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
 ```
+
++++
+
+<div class="rise-footnote">
+    
+in a nutshell, the namespaces are designed to allow for more tags 
+than the default ones (like e.g. &lt;div&gt;)
+  
+    
+</div>
 
 ```{code-cell}
 ---
 slideshow:
   slide_type: slide
 ---
-tools.sample_from_stem("../samples/spinning-wheel/step2");
+tools.sample_from_stem("../samples/spinning-wheel/step2", {height: '25em'})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## Go to Step #3
+## go to step #3
 
-The next step is to Change the color of circle when we press the button, so let's learn about callback
+next step is to change the color of circles when we press the button,  
+so let's learn about callback

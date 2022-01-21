@@ -8,7 +8,7 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Javascript (Node.js)
+  display_name: JavaScript (Node.js)
   language: javascript
   name: javascript
 nbhosting:
@@ -40,87 +40,69 @@ tools.init()
 
 +++ {"slideshow": {"slide_type": ""}}
 
-## Objective
+## what it should look like
 
 ```{code-cell}
 :hide_input: true
 
-tools.sample_from_stem("../samples/spinning-wheel", {sources_show: false})
+tools.sample_from_stem("../samples/spinning-wheel", {id: 'finished', sources_show: false})
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++ {"slideshow": {"slide_type": ""}}
 
-## How to code: General TIPS
+## recommended steps
 
-* First do not think on coding but think about what do you want to achieve
-* Decopose the think you try to achive in smaller think, for exemple, for the spinning wheel above:
-  * you need a button
-  * you need circles
-  * you need to change the color of circle
-  * you need to start/stop by pressing the button
-  * and more ...
-* Try to achive the smallest objectives first separatly or independently
-  * At this step the search engine can help :)
-  * **BUT NEVER USE THING THAT YOU DO NOT UNDERSTAND**
-  * **Always** try to understand what you are using from others
-  * **Always** adapt the code you want use from others
-* Gather all technics aquire in previous step and combinne them
-* Merge all thing together
-* Enjoy
+the notebooks will probably not have covered everything you need to know to do this
 
-+++ {"slideshow": {"slide_type": "slide"}}
+so, like always: **use your favorite search engine**
 
-## Tips
++++ {"slideshow": {"slide_type": ""}}
 
-**Do not loook at notebook code if you want learn something but use your favorite search engine**
+### step #1
 
-+++ {"slideshow": {"slide_type": "slide"}}
+make the base layout with dummy button and svg area
 
-## Step #1
++++ {"slideshow": {"slide_type": ""}}
 
-Make the base layout with dummy button and svg area
+### step #2
 
-+++ {"slideshow": {"slide_type": "slide"}}
+draw circles on the base layout using java script (inline script is ok)
 
-## Step #2
++++ {"slideshow": {"slide_type": ""}}
 
-Draw circles on the base layout using java script (inline script is ok)
+### step #3
 
-+++ {"slideshow": {"slide_type": "slide"}}
+change color and style of painted circle
 
-## Step #3
++++ {"slideshow": {"slide_type": ""}}
 
-Change color and style of painted circle
+### step #4
 
-+++ {"slideshow": {"slide_type": "slide"}}
+animate the color to make transition
 
-## Step #4
++++ {"slideshow": {"slide_type": ""}}
 
-Animate the color to make transition
+### step #5
 
-+++ {"slideshow": {"slide_type": "slide"}}
+fix the animation to give the desired look
 
-## Step #5
++++ {"slideshow": {"slide_type": ""}}
 
-Fix the animation to give the desired look
+### step #6
 
-+++ {"slideshow": {"slide_type": "slide"}}
+make the animation stopable
 
-## Step #6
++++ {"slideshow": {"slide_type": ""}}
 
-Make the animation stopable
-
-+++ {"slideshow": {"slide_type": "slide"}}
-
-## Step #7
+### step #7
 
 make the animation startabel/stopable by pressing the button
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++ {"slideshow": {"slide_type": ""}}
 
-## Step #8
+### step #8
 
-Cleanup the code, and cleanup again
+cleanup the code, and cleanup again
 
 +++ {"slideshow": {"slide_type": ""}}
 
@@ -128,7 +110,7 @@ Cleanup the code, and cleanup again
 
 +++
 
-For example (but that's entirely up to you)
+for example (but that's entirely up to you)
 
 * write a JavaScript class `SpinningWheel` 
 * that can be created from :
@@ -150,11 +132,11 @@ For example (but that's entirely up to you)
 
 * attach to the `load` event of your page
 * a function that creates the spinning wheel
-  and then and stops it after a fixed duration
+* and then stops it after a fixed duration
 
 +++ {"slideshow": {"slide_type": ""}}
 
-## remember also that
+## also remember that
 
 +++
 
@@ -171,16 +153,14 @@ let dot = document.createElementNS(svgNS, 'circle');
 
 +++
 
-your html part could look like the following  
+your html part could look like the following
 
 ```{code-cell}
 :hide_input: true
 
-fs = require('fs');
-html = fs.readFileSync("../samples/spinning-wheel.html", "utf-8");
-[start, end ] = [html.indexOf("<body>"), html.indexOf("</body>")];
-extract = html.slice(start, end+7);
-$$.html(`<code><pre>${tools.escape(extract)}</pre></code>`);
+tools.sample_from_stem(
+    '../samples/spinning-wheel', 
+   {id: 'source-only', css_show: false, js_show: false, output_show: false,})
 ```
 
 +++ {"slideshow": {"slide_type": ""}}
@@ -189,7 +169,7 @@ $$.html(`<code><pre>${tools.escape(extract)}</pre></code>`);
 
 * the HTML document is mostly empty, and gets populated by program
 
-* as usual now, the way we attach a callback to the `load` event  
+* as usual now, the way we attach a callback to the `load` event
 
 +++ {"slideshow": {"slide_type": ""}}
 
@@ -198,7 +178,7 @@ $$.html(`<code><pre>${tools.escape(extract)}</pre></code>`);
 * how tedious it is to have to pass all arguments to the class constructor - because JavaScript does not support (yet?) default values parameters  
   in similar situations, a common practice is to impose only a small set of required parameters, and then to accept a single `options` argument
   
-So one could offer instead:
+so one could offer instead:
 
 ```javascript
 SpinningWheel(radius, options) {
@@ -220,7 +200,7 @@ and have the `SpinningClass` code provide default for missing parameters.
 
 +++
 
-students who have finished the exercise can :
+early finishers can :
 
 * tweak their code to adapt to this more convenient interface
 * make the wheel vanish automatically after the timeout

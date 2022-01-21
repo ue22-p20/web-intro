@@ -8,7 +8,7 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Javascript (Node.js)
+  display_name: JavaScript (Node.js)
   language: javascript
   name: javascript
 nbhosting:
@@ -30,27 +30,22 @@ rise:
 
 +++ {"slideshow": {"slide_type": ""}}
 
-# Overview
-
-```{code-cell}
-delete require.cache[require.resolve('../js/toolsv3')]
-tools = require('../js/toolsv3')
-tools.init()
-```
+# 30,000 ft overview of JS
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## Preamble
+## preamble
 
 +++
 
-* We will very briefly cover **some** features of the language but for a more thorough study, refer to [this excellent tutorial on javascript.info](https://javascript.info/)
+* from now on, we will very briefly cover **some** features of the language
+* for a more thorough study, refer to [this excellent tutorial on javascript.info](https://javascript.info/)
 * we will point at a selection of fragments as we go
 * students interested should probably read it through
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## Various runtimes
+## various runtimes
 
 +++
 
@@ -71,14 +66,14 @@ hello world
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## Syntax
+## syntax
 
 +++
 
-* The syntax is similar to C, C++ and Java
-* Unlike Python, indentation does not matter
-* It have some object
-* `;` is expected at the end of each statement
+* the syntax is similar to C, C++ and Java
+* unlike Python, indentation does not matter
+* `;` is commonly used at the end of each statement  
+  (**but not mandatory**)
 * 2 styles of comments
 
 ```{code-cell}
@@ -87,12 +82,16 @@ hello world
 // this is a comment, no need to close
 // but must be repeated on each line
 
-// you should end all statements with a ;
+// you may end all statements with a ;
 a = 10;
 
-/* this is another one
+// but that's not mandatory
+b = a * a
+
+/* this is another comment
    everything including newlines 
-   is ignored until matching */
+   is ignored until matching 
+*/
 ```
 
 <span class="rise-footnote"> **NOTE** as we will see below, real code should **always** declare variables, so this would read `let a = 10;` instead, but let us keep it simple for now </span>
@@ -179,34 +178,37 @@ for (let i=0; i<3; i++) {
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## Variables ([link in tuto](https://javascript.info/variables))
+## variables ([link in tuto](https://javascript.info/variables))
 
 +++ {"slideshow": {"slide_type": ""}}
 
 * as usual, variables are **names** that refer to **data in memory**
-* like in Python, any such data is **typed**
+* like in Python, any such data is **typed** (although the name is not)
 * core language has some **basic types**
-* Variable should be declared using one of the keywords
+* variables should be declared using one of the keywords
 
 ```{code-cell}
 :cell_style: split
 
 let n = 10;
-typeof(n)
+console.log(typeof(n))
+n += 20
 ```
 
 ```{code-cell}
 :cell_style: split
 
-let s = "hello world";
+const s = "hello world";
 typeof(s)
+// we could not do this
+// s += ' john'
 ```
 
 <p class="rise-footnote"> use <code>const</code> instead of <code>let</code> when declaring a constant variable</p>
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-### Python-style assignment
+### Python-style unpacking assignment
 
 ```{code-cell}
 // there is a form of parallel assignment 
@@ -219,7 +221,7 @@ py + thon
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## Variable scope
+## variable scope
 
 +++
 
@@ -262,9 +264,9 @@ foo()
 
 * you should **always** declare your variables with **`let`** 
   * even though (a lot of) legacy code does not
-  * also note that older-school code may use `var` instead
+  * or uses `var` instead - which is not recommended
 
-* for new code, just **always** use `let`
+* for new code, just **always** use `let` (or `const`)
 
 +++
 
@@ -279,7 +281,7 @@ foo()
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-### Blocks are delimited by `{}`
+### blocks are delimited by `{}`
 
 +++
 
@@ -301,16 +303,22 @@ let y = "outermost";
 console.log("level 0", y);
 ```
 
+<div class="rise-footnote">
+    this is like in C/C++, and unlike Python where a variable's scope is the whole function
+</div>
+
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ## globals
 
 +++
 
-Context (browser components mostly) is exposed to programer through a set of **global variables**, such as:
+* context (browser components mostly) is exposed to programer
+* through a set of **global variables**, e.g.
   * `document` to access the DOM
   * `window`, remember `setTimeout()`
   * `console` like in `console.log()`
+  * `this` - a tricky one
 * may depend on the runtime
 
 +++
@@ -319,7 +327,7 @@ Context (browser components mostly) is exposed to programer through a set of **g
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## Functions
+## functions
 
 +++
 
@@ -336,7 +344,7 @@ foo(10, 20)
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-### Duck typing
+### duck typing
 
 +++
 
@@ -358,7 +366,7 @@ foo('abc', 'def')
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-### Loose binding
+### loose binding
 
 +++
 
@@ -382,7 +390,7 @@ fuzzy("abc", "def", "ghi")
 
 * a very specific feature of JavaScript
 * is that the implicit variable `this` is always defined
-* the content of `this` depend on the context
+* the content of `this` depends on the context
 * useful and relevant **only** for
   * methods (more on this later)
   * and some callbacks
@@ -397,13 +405,13 @@ show_this()
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## Classes
+## classes
 
 +++
 
 as of ES6, the language has a proper `class` statement
 
-_Note:_ old javascript does not have class and use other way to define objects.
+_Note:_ older JavaScript does not have class and use other ways to create pseudo-classes
 
 ```{code-cell}
 class Vector {
@@ -426,12 +434,12 @@ vector.display()
 
 <p class="rise-footnote"> here again, running this cell twice will cause an error; this is because, like with <code>let</code>, 
     <br>
-    the language won't let you define the same <code>Vector</code> variable 
+    the language won't let you define the same <code>Vector</code> class 
     twice in the same scope</p>
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-### Notes on classes
+### notes on classes
 
 +++
 
@@ -469,7 +477,7 @@ vector.display()
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-### Property example
+### property example
 
 ```{code-cell}
 :cell_style: split
@@ -523,11 +531,11 @@ temp.kelvin = -10
 temp
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++ {"slideshow": {"slide_type": "slide"}, "tags": ["level_intermediate"]}
 
-### Old-school classes
+### old-school classes
 
-+++
++++ {"tags": ["level_intermediate"]}
 
 * ES6 is relatively recent
 * you may come across older-school code that uses other techniques
@@ -579,22 +587,22 @@ console.log("vector = ", vector)
 ```
 
 <p class="rise-footnote">
-    Try it out within the browser's console :
+    try it out within the browser's console :
     <br> try to run <code>console.log(document)</code> or any other JS object, 
     and see that you can navigate the inner structure of the object, 
-    rather a flat representation that traditional languages have used us to.
+    rather a flat representation that traditional languages have used us to
 </p>
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## Exceptions
+## exceptions
 
 +++
 
 * JavaScript supports exceptions, just like Python
 * same bubbling mechanism
   * that scans the call stack 
-  * until a catch statement is found
+  * until a `catch` statement is found
 
 ```{code-cell}
 try {

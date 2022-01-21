@@ -8,7 +8,7 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Javascript (Node.js)
+  display_name: JavaScript (Node.js)
   language: javascript
   name: javascript
 nbhosting:
@@ -30,7 +30,7 @@ rise:
 
 +++ {"slideshow": {"slide_type": ""}}
 
-# Javascript asynchronous behaviour
+# JavaScript asynchronous behaviour
 
 ```{code-cell}
 delete require.cache[require.resolve('../js/toolsv3')]
@@ -38,91 +38,43 @@ tools = require('../js/toolsv3')
 tools.init()
 ```
 
-<!-- #region slideshow={"slide_type": "slide"} -->
-## Why javascript is mostly asynchronous: page loading
-<!-- #endregion -->
++++ {"slideshow": {"slide_type": "slide"}}
 
-### reminder : a few orders of magnitude
+##  summarize why
 
-* CPU + memory : 1 ns
-* storage :
-  * SDD : 100 µs
-  * HDD : 1-10 ms
-* networking :
-  * light-speed Paris-SF : 30 ms
-  * light-speed Paris-Nice : 3 ms
-  * plus, software stack traversals
-  * plus, protocols = several back and forths
-  * bottom line: more in the **several 100s of ms**
-  * frequently several seconds
+* remember that fetching data from the Internet is slow (see intro)
+* not wasting time to wait for each component
+* prefer to create content as soon as possible to hide some latency
+* do not use a busy loop that wastes CPU cycles
+* fetch resources concurrently whenever possible
+* run code concurrently whenever possible
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-### a simple page
+## page loading issue
 
-+++ {"cell_style": "split"}
-
-when loading the simplest possible page, contents get scattered into packets, so it does not arrive all at once
-
-+++ {"cell_style": "split"}
-
-![](../media/loading-1-simple.png)
+* the issue is due to the fact that in most cases, code **order matters**
+* for instance you cannot get an element from code that was not yet created
+* you cannot use a given JavaScript library if its code has not finished loading
+* dependency may be very tricky, and can end in a dependency loop  
+  as in *`a` requires `b` that requires `a`*
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-### a page and a nested page
+## general issue
 
-+++ {"cell_style": "split"}
-
-in the case of a page that has **a nested page** (e.g. a css style) there are 2 http requests at work
-
-+++ {"cell_style": "split"}
-
-![](../media/loading-2-nested.png)
-
-+++ {"slideshow": {"slide_type": "slide"}}
-
-### loading a real page
-
-+++
-
-<img src="../media/loading-3-google.png" width="1000px">
-
-+++ {"slideshow": {"slide_type": "slide"}}
-
-##  Summarize why
-
-* Fetching data from internet is slow
-* Not wasting time to wait for each component
-* Prefer to create content as soon as possible to hide some latency
-* Do not use a busy loop that wastes CPU cycles
-* Fetch resources concurrently whenever possible
-* Run code concurrently whenever possible
-<!-- #endregion -->
-
-+++ {"slideshow": {"slide_type": "slide"}}
-
-## Page loading issue
-
-* The issue is due to the fact that in most cases,  the code order matter
-* For instance you cannot get an element from code that was not created
-* You cannot use a given javascript library if its code is not loaded before
-* Dependency may be very tricky, and can end in a dependency loop : A requires B that requires A.
-<!-- #endregion -->
-
-+++ {"slideshow": {"slide_type": "slide"}}
-
-## General issue
-
-* The code can become the pyramid of doom by cascading callbacks
-* To mitigate the issue there is 2 tools:
-  * Promise
+* the code can become the *callback hell* by cascading callbacks
+  (refer to the example on catching key and mouse events;  
+   observe how a set of **linear** tasks (load page, arm callbacks, trigger callbacks)  
+   results in **nested** callbacks)
+   
+* to mitigate the issue there are 2 tools
+  * promise
   * `async`/`await`
-<!-- #endregion -->
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## Promises
+## promises
 
 +++
 
@@ -133,20 +85,17 @@ the following example tries to illustrate
 * that promises can deal with error conditions
 * and that they allow to pass return values along the chain
 
-as you will see however, it clearly gets some time to be able to read promises fluently :)
+as you will see however, it clearly takes some time until you get to read promises fluently :)
 
 ```{code-cell}
 ---
 slideshow:
   slide_type: slide
 ---
-// this is just an accessory cell
-
-// we declare a variable 
-
-// the next cell will run OK 
-// for the first time
-// and fail for the second time
+// the next cell will 
+// run OK  the first time
+// and fail the second time
+// and so on...
 
 failure_toggle = 1
 ```
@@ -160,7 +109,7 @@ new Promise(
     function (resolve, reject) {
 
         // make it work or fail every other time
-        failure_toggle = !failure_toggle;
+        failure_toggle = ! failure_toggle;
 
         // a promise must use resolve or reject exactly once
         // depending on successful or not
@@ -169,23 +118,30 @@ new Promise(
             reject(1);
         } else {
             // in case of success, wait for 1 s
-            setTimeout(() => resolve(1), 500);
+            console.log('YES')
+            setTimeout(
+                () => { console.log("took some time"); 
+                        resolve(1);
+                      },
+            1000)
         }
     }
 ).then(
-    // first argument to then is in case of success (resolve is used)
+    // first argument to then is 
+    // what to do in case of success (resolve is used)
     (result) => {
         console.log(result);
         return result * 2;
     },
-    // second is for the cases where reject is called
+    // second argument is what to do
+    // in the cases where reject is called
     (result) => console.log(`error with ${result}`)
 ).then(
     function (result) {
         console.log(result);
         return result * 3;
     }
-);
+)
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -200,13 +156,14 @@ for those interested, more details on promises can be found in the rest of [this
 
 +++
 
-With `async` you can declare functions that are `Promise` by default
+with `async` you can declare functions that are `promise` by default
 
 ```{code-cell}
-// when called this fonction will be a promise as the previous code
+// when called this fonction will return a promise
+// just like the previous code
 async function foo() {
     // make it work or fail every other time
-    failure_toggle = !failure_toggle;
+    failure_toggle = ! failure_toggle;
 
     // a promise must use resolve or reject exactly once
     // depending on successful or not
@@ -218,7 +175,9 @@ async function foo() {
         return 1; // Equivalent to resolve(1);
     }
 }
+```
 
+```{code-cell}
 // Call the function as promise
 foo().then(
     // first argument to then is in case of success (resolve is used)
@@ -240,9 +199,9 @@ foo().then(
 
 +++
 
-* The keyword `await` allow to wait for the result of a promise
-* `await` can only used in `async` function
-* They cannot be used in the global scope
+* the `await` keyword allows to wait for the result of a promise
+* `await` can only be used inside an `async` function
+* and so it cannot be used in the global scope
 
 ```{code-cell}
 async function foo() {

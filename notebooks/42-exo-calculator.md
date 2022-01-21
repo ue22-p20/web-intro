@@ -8,7 +8,7 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Javascript (Node.js)
+  display_name: JavaScript (Node.js)
   language: javascript
   name: javascript
 nbhosting:
@@ -40,41 +40,49 @@ tools.init()
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
+## assignement
+
 start from this tutorial here
 https://www.freecodecamp.org/news/how-to-build-an-html-calculator-app-from-scratch-using-javascript-4454b8714b98/
 
-it comes [**with the html and css template**](https://codepen.io/zellwk/pen/pLgmGL) for a - rather nice btw - yet simple, calculator
+it comes [**with the html and css template**](https://codepen.io/zellwk/pen/pLgmGL)  
+for a nice yet simple, calculator
 
 the assignment is to write the **javascript companion** so that
 
 * the device **actually does calculations**
 * in a first step, ignore the '.' and just write an integer calculator
 
++++ {"slideshow": {"slide_type": "slide"}}
+
+## what it should look like
+
 ```{code-cell}
 ---
-hide_input: true
+hide_input: false
 slideshow:
-  slide_type: slide
+  slide_type: ''
 ---
 tools.sample_from_stem("../samples/calculator", {sources_show: false})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## How to code: General TIPS
+## how to code: general tips
 
-* First do not think on coding but think about what do you want to achieve
-* Decopose the think you try to achive in smaller think, for exemple, for the spinning wheel above:
-  * you need a button
-  * you need circles
-  * you need to change the color of circle
-  * you need to start/stop by pressing the button
+* first do not think on coding, but think about what do you want to achieve
+* decompose the thing you are trying to achieve into smaller things  
+  e.g. in the case of the spinning wheel, you need:
+  * a button
+  * circles
+  * to change the color of a circle
+  * to start/stop by pressing the button
   * and more ...
-* Try to achive the smallest objectives first separatly or independently
-  * At this step the search engine can help :)
-  * **BUT NEVER USE THING THAT YOU DO NOT UNDERSTAND**
-  * **Always** try to understand what you are using from others
-  * **Always** adapt the code you want use from others
-* Gather all technics aquire in previous step and combinne them
-* Merge all thing together
-* Enjoy
+* try to achieve the smallest objectives first separately or independently
+  * at this step the search engine can help :)
+  * **BUT NEVER USE SOMETHING THAT YOU DO NOT UNDERSTAND**
+  * **always** try to understand what you are using from others
+  * **always** adapt the code you want to use from others
+* gather all technics aquired in previous steps and combine them
+* merge often
+* enjoy ;)

@@ -78,7 +78,7 @@ function sample_from_stem(stem, options) {
 function sample_from_strings(code, options) {
   options = options || {}
   let {html, css, js} = code
-  // the default for showing pieces is, are they present at all 
+  // the default for showing pieces is, are they present at all
   let html_show = (options.html_show !== undefined) ? options.html_show : (html !== undefined)
   let css_show = (options.css_show !== undefined) ? options.css_show : (css !== undefined)
   let js_show = (options.js_show !== undefined) ? options.js_show : (js !== undefined)
@@ -92,6 +92,12 @@ function sample_from_strings(code, options) {
   let separate_height = options.separate_height || "400px"
   let separate_label = options.separate_label || "Open in new window"
   let update_label = options.update_label || "Update →"
+  let output_show = (options.output_show !== undefined) ? options.output_show : true
+  let update_show = true
+  if (! output_show) {
+    separate_show = false
+    update_show = false
+  }
   // either html or css or js
   let start_with = options.start_with || "html"
   // fallback if not in allowed range
@@ -116,7 +122,7 @@ function sample_from_strings(code, options) {
   if (js_show) textareas += `<textarea id="js_${id}">${js}</textarea>`
 
 
-	let width_style = `width: ${width}; min-width: ${min_width};`
+	let width_style = output_show ? `width: ${width}; min-width: ${min_width};` : ``
 	let height_style = `height: ${height}; min-height: ${min_height};`
 	let embedded = `<style>
     #btns_left_${id} {
@@ -146,7 +152,7 @@ function sample_from_strings(code, options) {
 			align-items: center;
 		}
 	</style>
-	<div style="display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto 1fr;">
+	<div style="display: grid; grid-template-columns: ${output_show ? 'auto 1fr' : '1fr'}; grid-template-rows: auto 1fr;">
     <div id="btns_left_${id}"
       style="display: ${sources_show ? 'flex' : 'none'};"></div>
 	  <div id="btns_right_${id}"
@@ -205,6 +211,8 @@ function sample_from_strings(code, options) {
 	}
 
 	let update_iframe = () => {
+
+    if (! ${output_show}) return
 
 		let template = get_example_content()
 
@@ -340,11 +348,13 @@ function sample_from_strings(code, options) {
     })
   }
 
-	let btn_update = document.createElement("button")
-	btn_update.textContent = "${update_label}"
-	btn_update.classList.add("${id}_btn")
-	btns_left.appendChild(btn_update)
-	btn_update.addEventListener("click", update_iframe)
+	if (${update_show}) {
+    let btn_update = document.createElement("button")
+    btn_update.textContent = "${update_label}"
+    btn_update.classList.add("${id}_btn")
+    btns_left.appendChild(btn_update)
+    btn_update.addEventListener("click", update_iframe)
+  }
 
 	let btns_right = document.getElementById("btns_right_${id}")
 

@@ -4,15 +4,15 @@
 const svgNS = "http://www.w3.org/2000/svg";
 
 // I have used the convention that methods starting with _
-// are not supposed to be called from the outside 
+// are not supposed to be called from the outside
 // like kind of private methods
 class SpinningWheel {
 
     // just record parameters
-    constructor(svg, 
-                cx, cy, cr, 
+    constructor(svg,
+                cx, cy, cr,
                 dots, dot_r,
-                period, 
+                period,
                 rgb_light, rgb_dark) {
         this.svg = svg;
         this.cx = cx;
@@ -35,7 +35,7 @@ class SpinningWheel {
         this.active = true;
     }
 
-    // all computations are made in a space where 
+    // all computations are made in a space where
     // index 0 = angle 0
     // index n = _theta * n
     // (so moving counter clockwise)
@@ -43,7 +43,7 @@ class SpinningWheel {
     // this method adapts for that
     // effect, we are used to see the gap at the 12th hand in the clock
     // and to turn clockwise
-    // 
+    //
     // n is an index in range [0 .. this.dots]
     _alpha(n) {
         return - n * this._theta - Math.PI/2;
@@ -89,12 +89,14 @@ class SpinningWheel {
 
 function create_spinning_wheel(svg) {
     let spin = new SpinningWheel(
-        svg, 100, 100, 80, 
-        12, 18, 
-        700, 
+        svg, 100, 100, 80,
+        12, 18,
+        700,
         [100, 240, 145], [80, 60, 120]);
     return spin;
 }
 
-window.addEventListener("load", () => { create_spinning_wheel(document.getElementById("spin")).init(); });
-
+window.addEventListener(
+    "load", 
+    () => create_spinning_wheel(
+        document.getElementById("spin")).init())

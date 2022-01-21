@@ -8,7 +8,7 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Javascript (Node.js)
+  display_name: JavaScript (Node.js)
   language: javascript
   name: javascript
 nbhosting:
@@ -32,15 +32,9 @@ rise:
 
 # JS builtin types
 
-```{code-cell}
-delete require.cache[require.resolve('../js/toolsv3')]
-tools = require('../js/toolsv3')
-tools.init()
-```
-
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## Nothing but the usual
+## nothing but the usual
 
 +++
 
@@ -145,6 +139,29 @@ if ( ! false) console.log("not is ! ")
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
+### strings
+
++++
+
+* very much alike in Python
+* note about **formatting**
+  * the equivalent of *f-strings* is built with `${}` inside backticks (`)
+
+```{code-cell}
+x = 10
+s = `format expression like ${x*x} in a string`
+s
+```
+
+which would correspond in Python to
+```python
+x = 10
+
+s = f"format expression like {x*x} in a string"
+```
+
++++ {"slideshow": {"slide_type": "slide"}}
+
 ### see also
 
 +++ {"slideshow": {"slide_type": ""}}
@@ -157,7 +174,7 @@ for a deeper study :
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## Arrays
+## arrays
 
 +++
 
@@ -193,7 +210,7 @@ array2.pop()
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-### Common operations on arrays
+### common operations on arrays
 
 ```{code-cell}
 :cell_style: split
@@ -226,7 +243,7 @@ array.length
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-### Searching
+### searching
 
 +++
 
@@ -250,24 +267,26 @@ console.log(array.indexOf("absent"))
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-### Iterating over values of an array
+### iterating over values of an array
 
 +++ {"cell_style": "split"}
 
-* It posible to iterate through an array like python:
+* it posible to iterate through an array like Python:
 
 ```{code-cell}
+:cell_style: split
+
 for (let x of array1) {
     console.log(x);
 }
 ```
 
-* But be carefull of use `of` instead of `in` to iterrate each value
+* but be carefull of use `of` instead of `in` to iterrate each value
 * also notice how to use `let` to define a variable **local** to the `for` loop
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-### Iterating using indices, ak. enumerate in python
+### iterating using indices, aka. `enumerate` in python
 
 +++
 
@@ -283,7 +302,7 @@ for (let i in array) {
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-### More on arrays
+### more on arrays
 
 +++
 
@@ -298,7 +317,7 @@ for (let i in array) {
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-### Shared references
+### shared references
 
 +++
 
@@ -347,7 +366,7 @@ ref1
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## Hash-based data types
+## hash-based data types
 
 +++
 
@@ -378,13 +397,13 @@ for (let k of map.keys()) {
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-### see also
+**see also**
 
 * read the [section on maps and sets on javascript.info](https://javascript.info/map-set)
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## Objects
+## objects
 
 +++
 
@@ -398,7 +417,7 @@ for (let k of map.keys()) {
 
 let bond = {
     first_name: "James",
-    last_name: "Bond"
+    last_name: "Bond",
 }
 
 console.log(`my name is ${bond.last_name}`);
@@ -437,7 +456,7 @@ for (key in bond) {
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-### Assignment based on objects
+### assignment based on objects
 
 +++
 
@@ -452,11 +471,13 @@ let [a1, a2] = [100, 200];
 there a similar destructuring assignement on objects
 
 ```{code-cell}
-let example_obj = {name: "doe", phone: '0123456', other: 'some stuff'};
+let example_obj = {name: "doe", 
+                   phone: '0123456',
+                   other: 'some stuff'};
 
 let {name, phone} = {...example_obj};
 
-`name now is ${name}, phone is ${phone}`
+`variable name now is ${name}, phone is ${phone}`
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -478,7 +499,11 @@ typeof(person)
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## arguments are passed by reference
+## argument passing
+
++++ {"slideshow": {"slide_type": "slide"}}
+
+### arguments are passed by reference
 
 +++
 
@@ -515,7 +540,7 @@ person2
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## arguments passing is loosely checked
+### arguments passing is loosely checked
 
 ```{code-cell}
 // just display arguments
@@ -539,7 +564,7 @@ foo(1, 2)
 ```
 
 ```{code-cell}
-// and this one AS WELL
+// and this one AS WELL !!
 foo(1, 2, 3, 4)
 ```
 
@@ -569,4 +594,21 @@ function bar(x, y, ...arguments) {
 
 // with this call, the 2 extra args are captured 
 bar(1, 2, 3, 4)
+```
+
+```{code-cell}
+---
+slideshow:
+  slide_type: slide
+---
+// and the other way around
+
+function foo(x, y, z) {
+    console.log(`x=${x} y=${y} z=${z}`)
+}
+
+L = [1, 2, 3]
+
+// just like foo(*L) in Python
+foo(...L)
 ```

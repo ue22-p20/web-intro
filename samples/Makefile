@@ -1,7 +1,7 @@
 all: resume.min.js spinning-wheel.min.js fibonacci.min.js pythagore.min.js
 
-resume.min.js: resume.js
-	node-minify -c butternut -i resume.js -o resume.min.js
+resume-blink.min.js: resume-blink.js
+	node-minify -c butternut -i resume-blink.js -o resume-blink.min.js
 spinning-wheel.min.js: spinning-wheel.js
 	node-minify -c butternut -i spinning-wheel.js -o spinning-wheel.min.js
 fibonacci.min.js: fibonacci.js

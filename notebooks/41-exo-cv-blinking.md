@@ -8,7 +8,7 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Javascript (Node.js)
+  display_name: JavaScript (Node.js)
   language: javascript
   name: javascript
 nbhosting:
@@ -62,26 +62,32 @@ then
 * so that your resume background alternates  
   every 1 second between 2 different colours
 
++++ {"slideshow": {"slide_type": "slide"}}
+
+something ike this
+
 ```{code-cell}
 ---
 hide_input: true
 slideshow:
-  slide_type: slide
+  slide_type: ''
 ---
-tools.sample_from_stem("../samples/resume", {sources_show: false})
+tools.sample_from_stem("../samples/resume-blink", {sources_show: false})
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## tip : run code upon load
+## tip #1 : run code upon load
 
 +++ {"slideshow": {"slide_type": ""}}
 
 so, you want to start some code, say call function `start()`   
-right after the page loads  
+right **after the page loads**  
 **BUT** it is **unsafe** to do something like 
 
 ```html
+<!-- DO NOT DO THIS -->
+
 <script src="thecode.js"></script>
 <script>
 start('some-data')
@@ -90,7 +96,8 @@ start('some-data')
 
 because at the time when `start('some-data')` gets executed,  
 your page is still in the middle of the loading phase  
-(even though that might accidentally work just fine)
+(you might be lucky and this may work just fine for you  
+ but then it is *a coincidence* and that is **not right**)
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -115,7 +122,7 @@ at a time where you can be sure the document is entirely **loaded**
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## tip : implement a cyclic task
+## tip #2: implement a cyclic task
 
 +++
 
@@ -161,7 +168,7 @@ clearInterval(interval)
 
 +++
 
-in a Python language one would maybe consider writing something like 
+in a Python language one would maybe consider writing something like
 
 +++ {"cell_style": "split"}
 
@@ -170,7 +177,7 @@ while True:
     if active:
         one_step()
     sleep 1
-```    
+```
 
 +++ {"cell_style": "split"}
 
@@ -178,7 +185,7 @@ _Note:_ however with such an approach, the Python interpreter **can't do anythin
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## tip : use devel tools
+## tip #3 : use devel tools
 
 +++
 
@@ -214,7 +221,7 @@ as mentioned earlier already, you can
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-### Devel Tools : the *Console* REPL 
+### Devel Tools : the *Console* REPL
 
 +++
 
@@ -271,7 +278,7 @@ as mentioned earlier already, you can
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## more on devel tools
+### more on devel tools
 
 +++ {"slideshow": {"slide_type": ""}}
 
@@ -286,15 +293,15 @@ as mentioned earlier already, you can
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## the browser cache (yet again)
+## tip #4: the browser cache (yet again)
 
 +++
 
-* the browser cache thing (see CSS loading)
+* the browser cache thingy (see CSS loading)
 * applies exactly the same  
 * in the case of JavaScript code
 
 **Remember**
 
-* to use Shift-load, or other cache-cleaning tool  
+* to use Shift-reload, or other cache-cleaning tool  
 * if changes in a file do not seem to kick in

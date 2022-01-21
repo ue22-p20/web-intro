@@ -18,16 +18,17 @@
       <div class="bullet bullet-sep">
         <code class="code">my_element = document.querySelector(".myclass")</code>
         → <span class="what">returns <b>the first</b> DOM element that matches
-          <br> a CSS selector; see also <code>querySelectorAll()</code>
-          <br> to get the full list or matching elements.
+          <br> a CSS selector
         </span>
       </div>
 
-      <div class="bullet">
-        <code class="code">for (let child of my_element.children) {...}</code>
-        <span class="what">iterates over the children of a given DOM element
+      <div class="bullet bullet-sep">
+        <code class="code">my_elements = document.querySelectorAll(".myclass")</code>
+        → <span class="what">returns all DOM elements that matches
+          <br> a CSS selector; see below for how to iterate over that.
         </span>
       </div>
+
     </div>
 
     <div id="DOM-changing" class="group">
@@ -78,20 +79,32 @@ my_circle.createElementNS(svgNS, 'circle');</pre></code>
 
     </div>
 
+    <div id="iterating" class="group">
+      <div class="title">DOM iterating over elements</div>
+
+      <div class="bullet">
+        <code class="code">for (let child of my_element.children)</code>
+        <span class="what">iterates over the children of a given DOM element
+        </span>
+      </div>
+
+      <div class="bullet">
+        <code class="code">for (let element of document.querySelectorAll(selector))
+        </code>
+        <span class="what">iterates over a NodeList or HTMLCollection, 
+          as returned by either <code>QuerySelectorAll</code> or
+          <code>getElementsByClassName</code>
+          <br>
+          <b><i>WARNING</i> DO NOT</b> use a <code>for (x <strike>in</strike> elements)</code>
+        </span>
+      </div>
+
+    </div>
+
+
     <div id="callbacks" class="group">
       <div class="title">arm callbacks <span class="normal">
           <code>a_function</code> denotes a function object</code></span></div>
-
-      <div class="bullet">
-        <code class="code">setInterval(a_function, 400);</code>
-        <span class="what">causes <code>a_function()</code> to be called
-          <br> every 400ms <b>forever</b></span>
-      </div>
-
-      <div class="bullet bullet-sep">
-        <code class="code">setTimeout(a_function, 400);</code>
-        <span class="what">causes <code>a_function()</code> to be called<br><b>once</b> in 400ms</span>
-      </div>
 
       <div class="bullet">
         <code class="code">window.addEventListener("load", a_function);</code>
@@ -105,6 +118,17 @@ my_circle.createElementNS(svgNS, 'circle');</pre></code>
           <br>using <i>event</i> the function can access details on that event
           <br>other event names are available instead of <code>"click"</code>
         </span>
+      </div>
+
+      <div class="bullet">
+        <code class="code">setInterval(a_function, 400);</code>
+        <span class="what">causes <code>a_function()</code> to be called
+          <br> every 400ms <b>forever</b></span>
+      </div>
+
+      <div class="bullet bullet-sep">
+        <code class="code">setTimeout(a_function, 400);</code>
+        <span class="what">causes <code>a_function()</code> to be called<br><b>once</b> in 400ms</span>
       </div>
 
     </div>

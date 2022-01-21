@@ -8,7 +8,7 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Javascript (Node.js)
+  display_name: JavaScript (Node.js)
   language: javascript
   name: javascript
 nbhosting:
@@ -49,7 +49,7 @@ you are tasked to write a "graphical demonstration" for the Pythagorean Theorem,
 the sample app is not responsive, you will need to open it in a separate window
 
 ```{code-cell}
-:hide_input: true
+:hide_input: false
 
 tools.sample_from_stem("../samples/pythagore", {sources_show: false})
 ```
@@ -65,7 +65,7 @@ here again the sample app is not responsive, you will need to open it in a separ
 **HINT** the slope of the 2 fixed rules is of course the golden ratio and its inverse
 
 ```{code-cell}
-:hide_input: true
+:hide_input: false
 
 // the minified version somehow was not working...
 tools.sample_from_stem("../samples/fibonacci", {sources_show: false})

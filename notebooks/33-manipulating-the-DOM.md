@@ -8,7 +8,7 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Javascript (Node.js)
+  display_name: JavaScript (Node.js)
   language: javascript
   name: javascript
 nbhosting:
@@ -30,45 +30,40 @@ rise:
 
 +++ {"slideshow": {"slide_type": "-"}}
 
-# Manipulating the DOM
-
-```{code-cell}
-delete require.cache[require.resolve('../js/toolsv3')]
-tools = require('../js/toolsv3')
-tools.init()
-```
+# manipulating the DOM
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## About the DOM
+## about the DOM
 
-* The DOM is the tree of the HTML code you already seen
-* The DOM can be read and modified in javascript using the global variable `document`
-* The DOM expose a standard API, the full documentation can be found on [Mozzila MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
-* For detailled information go to the link above
+* the DOM is the tree of the HTML code, as already seen
+* the DOM can be read and modified in JavaScript  
+  using the global variable `document`
+* the DOM exposes a standard API, see the details on [Mozzila MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## Reading the DOM Basics
+## reading the DOM basics
 
 +++
 
- * get element by there id: `document.getElementById("someid")`
+ * get element by their id: `document.getElementById("someid")`
  * get several elements by there tag `document.getElementsByTagName("sometag")`
- * From a given element those functions work for exemple:
+ * those functions also work from a given element, for exemple:
  ```javascript
  let x = document.getElementById("someid");
- x.getElementsByTagName("div"); // Will provide all element "div" within x
+ x.getElementsByTagName("div"); // will provide all 'div'
+                                  // elements within x
  ```
  * read the attribute of an element `element.getAttribute("someattr")`
  * read the element style `element.style`
-   * Note: this is not the actual computed style, but the direct style of the element
+   * note: this is not the actual computed style, but the direct style of the element
  * read the class of an element `element.classList`
- * And more
+ * and much more...
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## Creating DOM element from scratch
+## creating DOM element from scratch
 
 +++
 
@@ -78,18 +73,31 @@ tools.init()
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-# Modifying the DOM
+## modifying the DOM
 
-* Add element to the tree `element.appendCHild(another_element)`
-* Add or change an attribute `element.setAttribute("someattribute", somevalue)`
-* Add or change a given style `element.style.color = "rgb(0,0,0)"`
-* Add a class to an element `element.classList.add("someclass")`
-* Remove a class to an element `element.classList.remove("someclass")`
-* And many more ...
+* add element to the tree `element.appendCHild(another_element)`
+* add or change an attribute `element.setAttribute("someattribute", somevalue)`
+* add or change a given style `element.style.color = "rgb(0,0,0)"`
+* add a class to an element `element.classList.add("someclass")`
+* remove a class to an element `element.classList.remove("someclass")`
+* and many more ...
 
-+++
++++ {"slideshow": {"slide_type": "slide"}}
 
-Note for next year
+## summary / cheatsheet
 
-* mention the cheat sheet
-* explain how to iterate over a HTMLCollection, see this post on discourse https://discourse.mines-paristech.fr/t/cours-javascript-precision-sur-la-facon-diterer-sur-des-htmlcollection/1010
+you can find a cheatsheet that summarizes most of this
+
+* standalone: open `cheatsheet/cheatsheet.html` as found in the course repo
+* from within this notebook: eval next cell
+
+```{code-cell}
+delete require.cache[require.resolve('../js/toolsv3')]
+tools = require('../js/toolsv3')
+tools.sample_from_stem("../cheatsheet/cheatsheet",
+                      {width: '10em', height: '10em'})
+```
+
+```{code-cell}
+
+```
