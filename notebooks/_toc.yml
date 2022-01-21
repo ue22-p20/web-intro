@@ -33,19 +33,13 @@ parts:
   - file: 34-loading-javascript
   - file: 35-events-and-callbacks
   - file: 36-async
-  - file: 37-exo-calculator
-- caption: "Optional content"
+- caption: "Practicing JS"
   chapters:
-  - file: 50-exos
+  - file: 40-general-tips
+  - file: 41-exo-cv-blinking
+  - file: 42-exo-calculator
+  - file: 43-exo-spinning-wheel
+44-exos-miscell.md- caption: "Optional content"
+  chapters:
   - file: 51-jquery
   - file: 52-bootstrap
-- caption: "Oldies"
-  chapters:
-  - file: old-30-js-intro
-  - file: old-31-loading-js
-  - file: old-32-exo-cv-background
-  - file: old-33-js-overview
-  - file: old-34-builtin-types
-  - file: old-35-async
-  - file: old-36-exo-spinning-wheel
-  - file: old-37-exo-calculator
